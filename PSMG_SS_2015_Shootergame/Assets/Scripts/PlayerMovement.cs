@@ -12,13 +12,14 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5.0f;
     public float flySpeed = 10.0f;
     public float gravity = 15.0f;
-    public float flyGravity = 1.5f;
+    public float flyGravity = 3f;
     public float maxVelocityChange = 10.0f;
     public bool canJump = true;
     public float jumpHeight = 2.0f;
     public float initialFlyHeight = 10.0f;
     private bool grounded = false;
     private bool flying = false;
+    private bool flightMode = false;
 
     void Awake()
     {
@@ -45,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(velocityChange, ForceMode.VelocityChange);
 
             // Jump
-            if (canJump && Input.GetButton("Jump") && !flying)
+            if (canJump && Input.GetButton("Jump") && !flightMode)
             {
                 GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
             }
@@ -53,24 +54,23 @@ public class PlayerMovement : MonoBehaviour
             // Fly
             if (Input.GetButton("Fire1"))
             {
+                flightMode = true;
                 GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, initialFlyHeight, velocity.z);
             }
 
-            Debug.Log(transform.position.y);
+            Debug.Log(flying);
         }
 
         // We apply gravity manually for more tuning control
         if (!flying) {
             GetComponent<Rigidbody>().AddForce(new Vector3(0, -gravity * GetComponent<Rigidbody>().mass, 0));
 
-            // TO DO: change from static 30 to dynamic max-height that will be reached by activating fly mode - 
-            // might want to adjust initial jump so that y will match initialFlyHeight
-            if(transform.position.y > 30) {
+            if(GetComponent<Rigidbody>().velocity.y <= 0 && flightMode) {
                 flying = true;
             }
-
         } else {
-            GetComponent<Rigidbody>().AddForce(new Vector3(0, -flyGravity * GetComponent<Rigidbody>().mass, 0));
+            // Don't use a force because we don't want the falling speed to increase
+            GetComponent<Rigidbody>().velocity = new Vector3(0, -flyGravity, 0);
         }
 
         grounded = false;
@@ -80,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
     {
         grounded = true;
         flying = false;
+        flightMode = false;
     }
 
     float CalculateJumpVerticalSpeed()
