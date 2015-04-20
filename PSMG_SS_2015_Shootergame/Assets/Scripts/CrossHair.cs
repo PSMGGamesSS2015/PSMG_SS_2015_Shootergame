@@ -13,7 +13,6 @@ public class CrossHair : MonoBehaviour {
 
     void OnGUI()
     {
-        Debug.Log(Cursor.visible);
         //if not paused
         if (Time.timeScale != 0)
         {

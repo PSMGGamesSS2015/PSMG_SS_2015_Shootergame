@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        Debug.Log(grounded);
         if (grounded || flying)
         {
             // Calculate how fast we should be moving
@@ -52,13 +54,11 @@ public class PlayerMovement : MonoBehaviour
             }
 
             // Fly
-            if (Input.GetButton("Fire1"))
+            if (Input.GetButton("Fly"))
             {
                 flightMode = true;
                 GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, initialFlyHeight, velocity.z);
             }
-
-            Debug.Log(flying);
         }
 
         // We apply gravity manually for more tuning control
