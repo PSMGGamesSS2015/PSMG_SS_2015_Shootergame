@@ -8,7 +8,6 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Transform target;
     public float speed = 5.0f;
     public float flySpeed = 10.0f;
     public float gravity = 15.0f;
@@ -29,8 +28,6 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-
-        Debug.Log(grounded);
         if (grounded || flying)
         {
             // Calculate how fast we should be moving
