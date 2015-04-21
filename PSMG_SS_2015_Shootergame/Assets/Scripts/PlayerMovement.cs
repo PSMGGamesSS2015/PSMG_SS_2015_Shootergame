@@ -8,6 +8,7 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public int flyMode = 0;
     public float speed = 5.0f;
     public float flySpeed = 10.0f;
     public float gravity = 15.0f;
@@ -47,14 +48,22 @@ public class PlayerMovement : MonoBehaviour
             // Jump
             if (canJump && Input.GetButton("Jump") && !flightMode)
             {
-                GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
+                Jump(velocity);
             }
 
             // Fly
             if (Input.GetButton("Fly"))
             {
                 flightMode = true;
-                GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, initialFlyHeight, velocity.z);
+
+                if (flyMode == 0)
+                {
+                    GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, initialFlyHeight, velocity.z);
+                }
+                else
+                {
+                    Jump(velocity);
+                }
             }
         }
 
@@ -67,7 +76,20 @@ public class PlayerMovement : MonoBehaviour
             }
         } else {
             // Don't use a force because we don't want the falling speed to increase
-            GetComponent<Rigidbody>().velocity = new Vector3(0, -flyGravity, 0);
+            if (flyMode == 0)
+            {
+                GetComponent<Rigidbody>().velocity = new Vector3(0, -flyGravity, 0);
+            }
+            else
+            {
+                GetComponent<Rigidbody>().AddForce(new Vector3(0, -gravity * GetComponent<Rigidbody>().mass, 0));
+                if (Input.GetButton("Jump"))
+                {
+                    Vector3 velocity = GetComponent<Rigidbody>().velocity;
+                    Jump(velocity);
+                }
+            }
+            
         }
 
         grounded = false;
@@ -78,6 +100,11 @@ public class PlayerMovement : MonoBehaviour
         grounded = true;
         flying = false;
         flightMode = false;
+    }
+
+    void Jump(Vector3 velocity)
+    {
+        GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
     }
 
     float CalculateJumpVerticalSpeed()
