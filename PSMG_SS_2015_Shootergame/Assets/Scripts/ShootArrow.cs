@@ -1,36 +1,45 @@
-﻿using UnityEngine;
+﻿// Script that handles the shooting of an arrow
+
+using UnityEngine;
 using System.Collections;
 
 public class ShootArrow : MonoBehaviour {
 
+    // Minimum and maximum intensity that can be reached by the arrow
     public float minIntensity = 0.5f;
     public float maxIntensity = 2.0f;
 
+    // How fast the intensity should grow while bending the bow
     public float intensityGrowth = 1.0f;
 
+    // Arrow prefab
     public GameObject arrowPrefab;
+
+    // Arrow spawn point
     public Transform spawnPoint;
 
+    // Current intensity, set automatically
     private float intensity;
+
+    // Variable that determines if the player is bending the bow, set automatically
     private bool bending;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        //Debug.Log(intensity);
+    void Awake()
+    {
+        intensity = minIntensity;
+    }
 
+	void Update () {
         CheckForButton();
 
+        // If the player is bending the bow (determined by CheckForButton()), increase the current intensity
         if (bending)
         {
             IncreaseIntensity();
         }
 	}
 
+    // Checks for input
     void CheckForButton()
     {
         // Check if Fire button is down - only called once, so use a variable
@@ -48,18 +57,14 @@ public class ShootArrow : MonoBehaviour {
         }
     }
 
+    // Increases the current intensity
     void IncreaseIntensity()
     {
-        if (intensity < maxIntensity)
-        {
-            intensity += intensityGrowth * Time.deltaTime;
+        // Increase the intensity
+        intensity += intensityGrowth * Time.deltaTime;
 
-            // If intensity is larger than the set maxIntensity, set it to maxIntensity
-            if (intensity > maxIntensity)
-            {
-                intensity = maxIntensity;
-            }
-        }
+        // Make sure the intensity does not exceed our limitations
+        Mathf.Clamp(intensity, minIntensity, maxIntensity);
     }
 
     void Shoot()
@@ -68,6 +73,7 @@ public class ShootArrow : MonoBehaviour {
         GameObject arrow = Instantiate(arrowPrefab, spawnPoint.position, spawnPoint.rotation) as GameObject;
         arrow.GetComponent<ArrowBehaviour>().Shoot(intensity);
 
-        intensity = 0.0f;
+        // Revert intensity back to the minimum value
+        intensity = minIntensity;
     }
 }
