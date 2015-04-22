@@ -286,6 +286,7 @@ GameObject:
   - 224: {fileID: 721297804}
   - 222: {fileID: 721297803}
   - 114: {fileID: 721297802}
+  - 114: {fileID: 721297805}
   m_Layer: 5
   m_Name: lifeenergyBird
   m_TagString: LifeVisualisation
@@ -341,9 +342,21 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -308, y: -112}
+  m_AnchoredPosition: {x: -300, y: -200}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
+--- !u!114 &721297805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 721297801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 700b77074d5a34e44a1f60f4c199b0eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 698429690}
 --- !u!1 &722240998
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +573,6 @@ GameObject:
   - 222: {fileID: 1103580535}
   - 114: {fileID: 1103580534}
   - 114: {fileID: 1103580537}
-  - 114: {fileID: 1103580536}
   m_Layer: 5
   m_Name: lifeenergyHuman
   m_TagString: LifeVisualisation
@@ -582,7 +594,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -307, y: -154}
+  m_AnchoredPosition: {x: -300, y: -200}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1103580534
@@ -617,18 +629,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1103580532}
---- !u!114 &1103580536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1103580532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
 --- !u!114 &1103580537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,6 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700b77074d5a34e44a1f60f4c199b0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {fileID: 698429690}
 --- !u!1 &1473740211
 GameObject:
   m_ObjectHideFlags: 0

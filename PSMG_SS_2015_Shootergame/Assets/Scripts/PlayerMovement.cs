@@ -116,7 +116,6 @@ public class PlayerMovement : MonoBehaviour
 
     public bool getMode()
     {
-        Debug.Log(flightMode);
         return flightMode;
     }
 }
