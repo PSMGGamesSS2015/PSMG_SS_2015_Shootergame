@@ -20,21 +20,24 @@ public class setLifeMode : MonoBehaviour {
 
         if (isModeChanged)
         {
+            GameObject.Find("lifeenergyBird").transform.position = new Vector3(74.0f, 68.5f, 0.0f);
+            GameObject.Find("lifeenergyHuman").transform.position = new Vector3(74.0f, 68.5f, 0.0f);
+            //Debug.Log(GameObject.Find("lifeenergyBird").transform.position);
             if (isFlying)
             {
-                Debug.Log("FLiegt!!");
-                GameObject.Find("lifeenergyBird").transform.localScale = Vector3.one * (1.1f);
-                GameObject.Find("lifeenergyBird").transform.position = transform.position + new Vector3(10f, 10f, 0f);
-                GameObject.Find("lifeenergyHuman").transform.localScale = Vector3.one * (1f);
-                GameObject.Find("lifeenergyHuman").transform.position = transform.position - new Vector3(10f, 10f, 0f);
+                Debug.Log("Fliegt!!");
+                GameObject.Find("lifeenergyBird").transform.localScale = Vector3.one * (1f);
+                GameObject.Find("lifeenergyBird").transform.position = GameObject.Find("lifeenergyBird").transform.position + new Vector3(25f, 25f, 0f);
+                GameObject.Find("lifeenergyHuman").transform.localScale = Vector3.one * (0.5f);
+                GameObject.Find("lifeenergyHuman").transform.position = GameObject.Find("lifeenergyHuman").transform.position - new Vector3(25f, 25f, 0f);
             }
             else
             {
-                Debug.Log("FLiegt nicht!!");
-                GameObject.Find("lifeenergyBird").transform.localScale = Vector3.one * (1f);
-                GameObject.Find("lifeenergyBird").transform.position = transform.position - new Vector3(10f, 10f, 0f);
-                GameObject.Find("lifeenergyHuman").transform.localScale = Vector3.one * (1.1f);
-                GameObject.Find("lifeenergyHuman").transform.position = transform.position + new Vector3(10f, 10f, 0f);
+                Debug.Log("Fliegt nicht!!");
+                GameObject.Find("lifeenergyBird").transform.localScale = Vector3.one * (0.5f);
+                GameObject.Find("lifeenergyBird").transform.position = GameObject.Find("lifeenergyBird").transform.position - new Vector3(25f, 25f, 0f);
+                GameObject.Find("lifeenergyHuman").transform.localScale = Vector3.one * (1f);
+                GameObject.Find("lifeenergyHuman").transform.position = GameObject.Find("lifeenergyHuman").transform.position + new Vector3(25f, 25f, 0f);
             }
         }
    	}
