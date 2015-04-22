@@ -113,4 +113,10 @@ public class PlayerMovement : MonoBehaviour
         // for the character to reach at the apex.
         return Mathf.Sqrt(2 * jumpHeight * gravity);
     }
+
+    public bool getMode()
+    {
+        Debug.Log(flightMode);
+        return flightMode;
+    }
 }
