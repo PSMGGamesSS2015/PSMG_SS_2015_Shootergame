@@ -69,8 +69,11 @@ public class ShootArrow : MonoBehaviour {
 
     void Shoot()
     {
+        // Get the direction of the camera to set the arrow rotation like this
+        Transform camPos = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        
         // Instantiate a new arrow object and call its Shoot() function
-        GameObject arrow = Instantiate(arrowPrefab, spawnPoint.position, spawnPoint.rotation) as GameObject;
+        GameObject arrow = Instantiate(arrowPrefab, spawnPoint.position, camPos.rotation) as GameObject;
         arrow.GetComponent<ArrowBehaviour>().Shoot(intensity);
 
         // Revert intensity back to the minimum value
