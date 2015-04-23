@@ -208,6 +208,7 @@ MonoBehaviour:
   flySpeed: 10
   gravity: 15
   flyGravity: 3
+  accelerateWhileFlying: 0
   maxVelocityChange: 10
   canJump: 1
   jumpHeight: 3
@@ -285,6 +286,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 721297804}
   - 222: {fileID: 721297803}
+  - 114: {fileID: 721297805}
   - 114: {fileID: 721297802}
   m_Layer: 5
   m_Name: lifeenergyBird
@@ -301,26 +303,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 721297801}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Lebensenergie Vogel
-
-'
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: eee1116f2ad132648b3d8edc3e345d56, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!222 &721297803
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -335,15 +330,27 @@ RectTransform:
   m_GameObject: {fileID: 721297801}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 2113736189}
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -308, y: -112}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -252, y: -115}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
+--- !u!114 &721297805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 721297801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 700b77074d5a34e44a1f60f4c199b0eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 698429690}
 --- !u!1 &722240998
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,9 +565,8 @@ GameObject:
   m_Component:
   - 224: {fileID: 1103580533}
   - 222: {fileID: 1103580535}
-  - 114: {fileID: 1103580534}
   - 114: {fileID: 1103580537}
-  - 114: {fileID: 1103580536}
+  - 114: {fileID: 1103580534}
   m_Layer: 5
   m_Name: lifeenergyHuman
   m_TagString: LifeVisualisation
@@ -576,14 +582,14 @@ RectTransform:
   m_GameObject: {fileID: 1103580532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 2113736189}
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -307, y: -154}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -252, y: -115}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1103580534
 MonoBehaviour:
@@ -593,42 +599,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1103580532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Lebensenergie Mensch
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c1f75a883f2880d4f96d8b3c872fe15e, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!222 &1103580535
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1103580532}
---- !u!114 &1103580536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1103580532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
 --- !u!114 &1103580537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,6 +629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700b77074d5a34e44a1f60f4c199b0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {fileID: 698429690}
 --- !u!1 &1473740211
 GameObject:
   m_ObjectHideFlags: 0
