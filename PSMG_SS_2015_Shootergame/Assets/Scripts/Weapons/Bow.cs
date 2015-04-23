@@ -22,7 +22,7 @@ public class Bow : BaseWeapon{
     // Variable that determines if the player is bending the bow, set automatically
     private bool bending;
 
-    public Bow(GameObject parent) : base(parent)
+    public Bow(GameObject parent) : base("Bow", parent)
     {
         intensity = minIntensity;
         arrowPrefab = parentPlayer.GetComponent<PlayerPrefabsController>().arrowPrefab;

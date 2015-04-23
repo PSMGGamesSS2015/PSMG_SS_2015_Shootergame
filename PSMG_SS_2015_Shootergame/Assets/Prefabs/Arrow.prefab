@@ -28,6 +28,7 @@ GameObject:
   - 4: {fileID: 436574}
   - 54: {fileID: 5449946}
   - 114: {fileID: 11465142}
+  - 135: {fileID: 13512090}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -42,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.94649696, y: .0250000004, z: .13889192}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 495976}
@@ -98,7 +99,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157852}
   serializedVersion: 2
-  m_Mass: .119999997
+  m_Mass: .219999999
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 1
@@ -126,10 +127,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 157852}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcace74187bc82046bf92a1d7ff1eae7, type: 3}
+  m_Script: {fileID: 11500000, guid: c30d7a0c0e9e4f9468dae2148e75ce4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   force: 500
+--- !u!135 &13512090
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157852}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .00806900859
+  m_Center: {x: 0, y: 0, z: .239999995}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

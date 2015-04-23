@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class BaseWeapon
+    public abstract class BaseWeapon
     {
         protected int magazinSize;
         protected int curAmmo;
@@ -30,8 +30,23 @@ namespace Assets.Scripts
         // Timestamp when the last reload started
         private float startReloadTimestamp = 0;
 
+        // name of weapon
+        private string weaponName;
+        public string Name
+        {
+            get
+            {
+                return weaponName;
+            }
+            set
+            {
+                weaponName = value;
+            }
+        }
 
-        public BaseWeapon(GameObject parent) {
+
+        public BaseWeapon(string name, GameObject parent) {
+            weaponName = name;
             parentPlayer = parent;
 
             SetStandardBulletSpawn();
