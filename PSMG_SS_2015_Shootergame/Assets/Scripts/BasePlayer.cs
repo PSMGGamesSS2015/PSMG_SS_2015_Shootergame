@@ -18,7 +18,6 @@ public class BasePlayer : MonoBehaviour {
         
         weapons = new BaseWeapon[MAX_WEAPONS];
         weapons[0] = new Bow(gameObject);
-        Debug.Log("tralalla");
 	}
 	
 	// Update is called once per frame

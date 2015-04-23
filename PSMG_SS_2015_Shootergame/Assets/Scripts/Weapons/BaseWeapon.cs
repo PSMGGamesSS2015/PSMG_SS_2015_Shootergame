@@ -12,16 +12,23 @@ namespace Assets.Scripts
         protected int curAmmo;
         protected int reserveAmmo;
 
-        protected float timeToReload = 0;
+        // Seconds until reload is finished
+        protected float timeToReload = 2;
 
+        // Seconds until the next bullet can be fired (NOT IMPLEMENTED JET)
         protected float fireRate = 0;
 
+        // Are we currently reloading?
         protected bool isReloading = false;
 
+        // Reference to the player object
         protected GameObject parentPlayer;
 
         // Bullet spawn point
-        protected Transform bulletSpawn;
+        protected GameObject bulletSpawn;
+
+        // Timestamp when the last reload started
+        private float startReloadTimestamp = 0;
 
 
         public BaseWeapon(GameObject parent) {
@@ -33,23 +40,29 @@ namespace Assets.Scripts
 
         private void SetStandardBulletSpawn()
         {
-            bulletSpawn = GameObject.FindGameObjectWithTag("MainCamera").transform;
-            bulletSpawn.position += bulletSpawn.forward * 0.78f;
+            bulletSpawn = new GameObject();
+            bulletSpawn.transform.position = GameObject.FindGameObjectWithTag("MainCamera").transform.position;
+            bulletSpawn.transform.position += bulletSpawn.transform.forward * 0.78f;
+            bulletSpawn.transform.parent = parentPlayer.transform;
         }
 
 
 
         public virtual void Reload()
         {
-            // If no ammo is left, wie dont have to reload
-            if (reserveAmmo == 0)
+            // If no ammo is left, we don't have to reload
+            if (reserveAmmo == 0 || isReloading)
             {
                 return;
             }
 
+            isReloading = true;
+            startReloadTimestamp = Time.time;
+
             // Get max bullets we can possibly reload
-            int bulletsToReload = magazinSize;
-            if (reserveAmmo < magazinSize)
+            int bulletsToReload = magazinSize - curAmmo;
+
+            if (reserveAmmo < bulletsToReload)
             {
                 bulletsToReload = reserveAmmo;
             }
@@ -83,26 +96,36 @@ namespace Assets.Scripts
         public virtual void Update()
         {
             CheckMouseButtons();
+
+            if (isReloading && Time.time - startReloadTimestamp >= timeToReload)
+            {
+                isReloading = false;
+            }
         }
 
         public bool CanShoot()
         {
-            return (curAmmo > 0);
+            return (curAmmo > 0 && !isReloading);
         }
 
-        protected virtual void Shoot()
+        protected virtual bool Shoot()
         {
             if (isReloading)
             {
-                return;
+                return false;
             }
+
+            if (curAmmo == 0) return false;
 
             curAmmo--;
 
-            if (curAmmo == 0)
+            if (curAmmo == 0 && reserveAmmo > 0)
             {
                 Reload();
+                return false;
             }
+
+            return true;
         }
 
         protected virtual void FireButtonDown()

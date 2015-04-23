@@ -54,6 +54,11 @@ public class Bow : BaseWeapon{
         intensity = minIntensity;
     }
 
+    protected override void FireButtonUp()
+    {
+        Shoot();
+    }
+
     // Increases the current intensity
     void IncreaseIntensity()
     {
@@ -64,19 +69,32 @@ public class Bow : BaseWeapon{
         Mathf.Clamp(intensity, minIntensity, maxIntensity);
     }
 
-    protected override void Shoot()
+    protected override bool Shoot()
     {
-        base.Shoot();
+        Debug.Log(curAmmo + " " + reserveAmmo);
+
+        if (!CanShoot())
+        {
+            return false;
+        }
+        
         bending = false;
 
         // Get the direction of the camera to set the arrow rotation like this
         Transform camPos = GameObject.FindGameObjectWithTag("MainCamera").transform;
         
         // Instantiate a new arrow object and call its Shoot() function
-        GameObject arrow = GameObject.Instantiate(arrowPrefab, bulletSpawn.position, camPos.rotation) as GameObject;
+        GameObject arrow = GameObject.Instantiate(arrowPrefab, bulletSpawn.transform.position, camPos.rotation) as GameObject;
         arrow.GetComponent<ArrowBehaviour>().Shoot(intensity);
 
         // Revert intensity back to the minimum value
         intensity = minIntensity;
+
+        if (!base.Shoot())
+        {
+            return false;
+        }
+
+        return true;
     }
 }
