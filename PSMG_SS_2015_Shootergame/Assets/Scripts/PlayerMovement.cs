@@ -64,8 +64,11 @@ public class PlayerMovement : MonoBehaviour
         // If the player is either standing on the ground or falling while fly mode is activated...
         if (grounded || fallingWhileFlying)
         {
+            // modify factor so that diagonal movement isn't faster
+            float inputModifyFactor = (Input.GetAxis("Horizontal") != 0.0f && Input.GetAxis("Vertical") != 0.0f) ? .7071f : 1.0f;
+
             // Calculate how fast we should be moving
-            Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal") * inputModifyFactor, 0, Input.GetAxis("Vertical") * inputModifyFactor);
             targetVelocity = transform.TransformDirection(targetVelocity);
 
             // Use the appropriate speed modifier, depending on if the player is in fly mode or not
