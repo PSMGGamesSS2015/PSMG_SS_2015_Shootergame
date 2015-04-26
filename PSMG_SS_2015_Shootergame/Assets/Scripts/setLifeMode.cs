@@ -48,7 +48,7 @@ public class setLifeMode : MonoBehaviour {
     bool hasModeChanged()
     {
         isFlying = movement.getMode();
-        Debug.Log("Fly? " + isFlying + ", prev? "+prevMode);
+        //Debug.Log("Fly? " + isFlying + ", prev? "+prevMode);
         if (isFlying && prevMode)
         {
             isModeChanged = false;
@@ -69,7 +69,7 @@ public class setLifeMode : MonoBehaviour {
             isModeChanged = false;
             prevMode = isFlying;
         }
-        Debug.Log("isModeChanged? " + isModeChanged);
+        //Debug.Log("isModeChanged? " + isModeChanged);
         return isModeChanged;
     }
 
