@@ -31,15 +31,12 @@ namespace Assets.Scripts.Weapons
             intensity = minIntensity;
             arrowPrefab = parentPlayer.GetComponent<PlayerPrefabsController>().arrowPrefab;
 
-            setBowSpecifications();
-
         }
 
-        private void setBowSpecifications()
+        protected override void SetSpecifications(ref int magazinSize, ref int reserveAmmo)
         {
             reserveAmmo = 20;
             magazinSize = 1;
-            curAmmo = magazinSize;
         }
 
         public override void Update()

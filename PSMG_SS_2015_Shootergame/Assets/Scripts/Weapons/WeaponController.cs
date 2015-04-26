@@ -21,6 +21,7 @@ namespace Assets.Scripts.Weapons
         {
             weapons = new BaseWeapon[MAX_WEAPONS];
             AddWeapon(new Bow(gameObject));
+            AddWeapon(new Blowgun(gameObject));
             UpdateWeaponGUI(getActiveWeapon());
         }
 
@@ -91,12 +92,12 @@ namespace Assets.Scripts.Weapons
 
         public void switchToNextWeapon()
         {
-            lastWeaponIndex = curWeaponIndex;
-            curWeaponIndex++;
-            if (curWeaponIndex >= numWeapons)
+            int newWeaponIndex = curWeaponIndex + 1;
+            if (newWeaponIndex >= numWeapons)
             {
-                curWeaponIndex = 0;
+                newWeaponIndex = 0;
             }
+            switchToWeaponById(newWeaponIndex);
         }
 
         public void switchToLastWeapon()
@@ -111,6 +112,7 @@ namespace Assets.Scripts.Weapons
             {
                 curWeaponIndex = id;
             }
+            UpdateWeaponGUI(getActiveWeapon());
         }
     }
 }

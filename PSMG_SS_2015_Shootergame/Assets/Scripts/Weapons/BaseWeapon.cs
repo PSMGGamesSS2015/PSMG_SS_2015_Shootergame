@@ -9,14 +9,14 @@ namespace Assets.Scripts.Weapons
 
     public abstract class BaseWeapon
     {
-        protected int magazinSize;
-        protected int curAmmo;
+        protected int magazinSize = 0;
+        protected int curAmmo = 0;
         public int CurAmmo
         {
             get { return curAmmo; }
             set { if (value > 0 && value <= magazinSize) curAmmo = value; }
         }
-        protected int reserveAmmo;
+        protected int reserveAmmo = 0;
         public int ReserveAmmo
         {
             get { return reserveAmmo; }
@@ -32,16 +32,16 @@ namespace Assets.Scripts.Weapons
         protected bool isReloading = false;
 
         // Reference to the player object
-        protected GameObject parentPlayer;
+        protected GameObject parentPlayer = null;
 
         // Bullet spawn point
-        protected GameObject bulletSpawn;
+        protected GameObject bulletSpawn = null;
 
         // Timestamp when the last reload started
         private float startReloadTimestamp = 0;
 
         // name of weapon
-        private string weaponName;
+        private string weaponName = "";
         public string Name
         {
             get
@@ -65,10 +65,13 @@ namespace Assets.Scripts.Weapons
         public BaseWeapon(string name, GameObject parent) {
             weaponName = name;
             parentPlayer = parent;
-
+            SetSpecifications(ref magazinSize, ref reserveAmmo);
+            curAmmo = magazinSize;
             SetStandardBulletSpawn();
             
         }
+
+        protected abstract void SetSpecifications(ref int magazinSize, ref int reserveAmmo);
 
         private void SetStandardBulletSpawn()
         {
