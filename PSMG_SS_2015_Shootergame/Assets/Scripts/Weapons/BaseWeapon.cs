@@ -4,14 +4,24 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Weapons
 {
+
     public abstract class BaseWeapon
     {
         protected int magazinSize;
         protected int curAmmo;
+        public int CurAmmo
+        {
+            get { return curAmmo; }
+            set { if (value > 0 && value <= magazinSize) curAmmo = value; }
+        }
         protected int reserveAmmo;
-
+        public int ReserveAmmo
+        {
+            get { return reserveAmmo; }
+            set { reserveAmmo = value; }
+        }
         // Seconds until reload is finished
         protected float timeToReload = 2;
 
@@ -44,6 +54,13 @@ namespace Assets.Scripts
             }
         }
 
+        // Status delegates
+        public delegate void Status(BaseWeapon weapon);
+        private static void NullStatus(BaseWeapon w) { }
+        public Status OnReloadStart = NullStatus;
+        public Status OnReloadEnd = NullStatus;
+        public Status OnShotFired = NullStatus;
+
 
         public BaseWeapon(string name, GameObject parent) {
             weaponName = name;
@@ -71,6 +88,8 @@ namespace Assets.Scripts
                 return;
             }
 
+            OnReloadStart(this);
+
             isReloading = true;
             startReloadTimestamp = Time.time;
 
@@ -87,34 +106,13 @@ namespace Assets.Scripts
             curAmmo += bulletsToReload;
         }
 
-        private void CheckMouseButtons()
-        {
-            // Check if Fire button is down - only called once, so use a variable
-            if (Input.GetButtonDown("Fire1"))
-            {
-                FireButtonDown();
-            }
-
-            // Once Fire button is released, change bending back to false and shoot
-            if (Input.GetButtonUp("Fire1"))
-            {
-                FireButtonUp();
-            }
-
-            // ReloadButton starts reloading
-            if (Input.GetKeyUp("r"))
-            {
-                Reload();
-            }
-        }
-
         public virtual void Update()
         {
-            CheckMouseButtons();
 
             if (isReloading && Time.time - startReloadTimestamp >= timeToReload)
             {
                 isReloading = false;
+                OnReloadEnd(this);
             }
         }
 
@@ -134,6 +132,8 @@ namespace Assets.Scripts
 
             curAmmo--;
 
+            OnShotFired(this);
+
             if (curAmmo == 0 && reserveAmmo > 0)
             {
                 Reload();
@@ -143,12 +143,12 @@ namespace Assets.Scripts
             return true;
         }
 
-        protected virtual void FireButtonDown()
+        public virtual void FireButtonDown()
         {
             Shoot();
         }
 
-        protected virtual void FireButtonUp()
+        public virtual void FireButtonUp()
         {
 
         }
