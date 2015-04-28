@@ -2058,7 +2058,6 @@ GameObject:
   - 92: {fileID: 987206521}
   - 124: {fileID: 987206520}
   - 81: {fileID: 987206519}
-  - 114: {fileID: 987206518}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2078,25 +2077,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1765089714}
   m_RootOrder: 1
---- !u!114 &987206518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11429396, guid: 1e362e9029db9a44597e3f8194f12bfa,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 987206516}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ac5c0b3eed6a5a41ad67a2cbbde2d3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axes: 2
-  sensitivityX: 0
-  sensitivityY: 5
-  minimumX: 0
-  maximumX: 0
-  minimumY: -90
-  maximumY: 90
 --- !u!81 &987206519
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2858,7 +2838,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1224533602}
-  - 114: {fileID: 1224533601}
   - 114: {fileID: 1224533600}
   m_Layer: 0
   m_Name: Crosshair
@@ -2880,19 +2859,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crosshairTexture: {fileID: 2800000, guid: 0c6fe612daa19a947a119bc02ec8135b, type: 3}
   crosshairScale: .0500000007
---- !u!114 &1224533601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1224533599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a70c998a37321b4cb7d7e4e8c6d5ff9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  crosshairTexture: {fileID: 0}
-  crosshairScale: 1
 --- !u!4 &1224533602
 Transform:
   m_ObjectHideFlags: 0
@@ -4535,7 +4501,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1765089713}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed1fbb40c5ccdf446a82f27cd0044338, type: 3}
   m_Name: 
@@ -4595,7 +4561,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac5c0b3eed6a5a41ad67a2cbbde2d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axes: 0
   sensitivityX: 5
   sensitivityY: 5
   minimumX: -360
