@@ -14,6 +14,12 @@ public class PlayerMovement : MonoBehaviour
     // Movement speed of the player
     public float speed = 5.0f;
 
+    // Sneaking speed of the player
+    public float sneakingSpeed = 2.0f;
+
+    // Sneaking speed of the player
+    public float sprintingSpeed = 10.0f;
+
     // Flying speed of the player
     public float flySpeed = 10.0f;
 
@@ -59,6 +65,12 @@ public class PlayerMovement : MonoBehaviour
     // True, if the player is on the ground
     private bool grounded = false;
 
+    // True, if the player is sneaking
+    private bool sneaking = false;
+
+    // True, if the player is sneaking
+    private bool sprinting = false;
+
     // True as soon as the player starts falling for the first time after activating flyMode
     private bool fallingWhileFlying = false;
 
@@ -85,6 +97,9 @@ public class PlayerMovement : MonoBehaviour
         // If the player is on the ground...
         if (grounded)
         {
+            // Check if the player has activated any special movement mode other than flying
+            CheckMovementType();
+
             // ...handle movement if he is allowed to
             if (canMove)
             {
@@ -117,6 +132,24 @@ public class PlayerMovement : MonoBehaviour
 
         // Assume that the player is not on the ground
         grounded = false;
+
+        // Reset special movement modes
+        sneaking = false;
+        sprinting = false;
+    }
+
+    // Check if the player has activated a special type of movement
+    void CheckMovementType()
+    {
+        if (Input.GetButton("Sneak"))
+        {
+            sneaking = true;
+        }
+
+        if (Input.GetButton("Sprint"))
+        {
+            sprinting = true;
+        }
     }
 
     void CheckForFlyMode()
@@ -159,7 +192,7 @@ public class PlayerMovement : MonoBehaviour
         targetVelocity = transform.TransformDirection(targetVelocity);
 
         // Use the appropriate speed modifier, depending on if the player is in fly mode or not
-        targetVelocity *= flyModeActivated ? flySpeed : speed;
+        targetVelocity *= GetSpeedModifier();
 
         // Apply a force that attempts to reach our target velocity
         Vector3 velocity = GetComponent<Rigidbody>().velocity;
@@ -168,6 +201,22 @@ public class PlayerMovement : MonoBehaviour
         velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
         velocityChange.y = 0;
         GetComponent<Rigidbody>().AddForce(velocityChange, ForceMode.VelocityChange);
+    }
+
+    float GetSpeedModifier()
+    {
+        if (flyModeActivated) {
+            return flySpeed;
+        }
+        else if (sneaking) {
+            return sneakingSpeed;
+        }
+        else if (sprinting)
+        {
+            return sprintingSpeed;
+        }
+
+        return speed;
     }
 
     void CheckForJump()
