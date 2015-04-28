@@ -11,10 +11,16 @@ public class CrossHair : MonoBehaviour {
     // Scale factor for the texture to increase or decrease its size
     public float crosshairScale = 0.1f;
 
+    // Should the default mouse cursor be hidden?
+    public bool hideCursor = true;
+
     void Start()
     {
         // Upon initialisation, set the (mouse) cursor's visibility to false
-        Cursor.visible = false;
+        if (hideCursor)
+        {
+            Cursor.visible = false;
+        }
     }
 
     // Called once everytime the GUI is updated
@@ -27,7 +33,6 @@ public class CrossHair : MonoBehaviour {
          * */
 
         // If the crosshairTexture is not null, draw it on the screen
-        // STRANGE BUG: even though the texture is assigned and it is drawn correctly, sometimes "crosshairTexture" is null - might want to look into this
         if (crosshairTexture != null)
         {
             // On the GUI, draw the assigned texture with the given scale in the center of the screen

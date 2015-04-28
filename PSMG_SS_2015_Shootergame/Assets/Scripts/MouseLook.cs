@@ -1,13 +1,12 @@
-﻿// Script that handles looking with the mouse. Supports both X and Y but can also just use one of both axes.
+﻿// Script that handles looking with the mouse
 
 using UnityEngine;
 using System.Collections;
 
-public class MouseLook : MonoBehaviour {
+// Require a rigidbody on the player object
+[RequireComponent(typeof(Rigidbody))]
 
-    // Set the rotation axes to either both x AND y or just one of both
-    public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
-    public RotationAxes axes = RotationAxes.MouseXAndY;
+public class MouseLook : MonoBehaviour {
 
     // Mouse sensitivity for both directions
     public float sensitivityX = 15F;
@@ -31,55 +30,28 @@ public class MouseLook : MonoBehaviour {
     void Start()
     {
         // Make the rigid body not change rotation
-        if (GetComponent<Rigidbody>())
-        {
-            GetComponent<Rigidbody>().freezeRotation = true;
-        }
-            
+        GetComponent<Rigidbody>().freezeRotation = true;
+
         // Save the current rotation
         originalRotation = transform.localRotation;
     }
 
     void Update()
     {
-        // Called if BOTH axes should be manipulated
-        if (axes == RotationAxes.MouseXAndY)
-        {
-            // Read the mouse input axis
-            rotationX += Input.GetAxis("Mouse X") * sensitivityX;
-            rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+        // Read the mouse input axis
+        rotationX += Input.GetAxis("Mouse X") * sensitivityX;
+        rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
 
-            // Call the ClampAngle function to make sure the angles don't exceed our set limitations
-            rotationX = ClampAngle(rotationX, minimumX, maximumX);
-            rotationY = ClampAngle(rotationY, minimumY, maximumY);
+        // Call the ClampAngle function to make sure the angles don't exceed our set limitations
+        rotationX = ClampAngle(rotationX, minimumX, maximumX);
+        rotationY = ClampAngle(rotationY, minimumY, maximumY);
 
-            // Create a quaternion out of the calculated rotation
-            Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
-            Quaternion yQuaternion = Quaternion.AngleAxis(rotationY, -Vector3.right);
+        // Create a quaternion out of the calculated rotation
+        Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
+        Quaternion yQuaternion = Quaternion.AngleAxis(rotationY, -Vector3.right);
 
-            // Set the object's rotation to the computed new rotation
-            transform.localRotation = originalRotation * xQuaternion * yQuaternion;
-        }
-
-        // Called if just the X axis should be manipulated
-        else if (axes == RotationAxes.MouseX)
-        {
-            rotationX += Input.GetAxis("Mouse X") * sensitivityX;
-            rotationX = ClampAngle(rotationX, minimumX, maximumX);
-
-            Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
-            transform.localRotation = originalRotation * xQuaternion;
-        }
-        
-        // Called if just the Y axis should be manipulated
-        else
-        {
-            rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-            rotationY = ClampAngle(rotationY, minimumY, maximumY);
-
-            Quaternion yQuaternion = Quaternion.AngleAxis(-rotationY, Vector3.right);
-            transform.localRotation = originalRotation * yQuaternion;
-        }
+        // Set the object's rotation to the computed new rotation
+        transform.localRotation = originalRotation * xQuaternion * yQuaternion;
     }
 
     // Makes sure the angle is always in our set limitations and doesnt exceed +/- 360°
