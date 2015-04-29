@@ -4055,22 +4055,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbf46c19ec93834d9812a61998c4bad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 6
   sneakingSpeed: 2
-  sprintingSpeed: 10
-  flySpeed: 20
+  sprintingSpeed: 11
+  slopeLimit: 45
+  flySpeed: 17
   gravity: 15
-  flyGravity: 8
+  flyGravity: 6
   accelerateWhileFlying: 0
   maxVelocityChange: 10
   canMove: 1
   canJump: 1
   canFly: 1
   jumpHeight: 3
-  flapHeight: 3
-  flapDelay: 2
+  flapHeight: 6
+  flapDelay: 1.5
   flapAmount: 10
-  initialFlyHeight: 40
+  initialFlyHeight: 50
   maximumFlyHeight: 120
 --- !u!1001 &1672481752
 Prefab:

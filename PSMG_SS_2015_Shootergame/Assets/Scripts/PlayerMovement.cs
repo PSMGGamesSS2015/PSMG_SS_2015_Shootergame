@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     // Sneaking speed of the player
     public float sprintingSpeed = 10.0f;
 
+    // Slope limit in degrees, player will slide down if beyond the limit
+    public float slopeLimit = 45.0f;
+
     // Flying speed of the player
     public float flySpeed = 10.0f;
 
@@ -97,12 +100,11 @@ public class PlayerMovement : MonoBehaviour
         // If the player is on the ground...
         if (grounded)
         {
-            // Check if the player has activated any special movement mode other than flying
-            CheckMovementType();
-
             // ...handle movement if he is allowed to
             if (canMove)
             {
+                // Check if the player has activated any special movement mode other than flying
+                CheckMovementType();
                 HandleMovement();
             }
 
@@ -194,6 +196,12 @@ public class PlayerMovement : MonoBehaviour
         // Use the appropriate speed modifier, depending on if the player is in fly mode or not
         targetVelocity *= GetSpeedModifier();
 
+        // If the player is not flying, get the modifier based on the slope
+        if (!flyModeActivated)
+        {
+            targetVelocity *= GetSlopeModifier(InputX, InputY);
+        }
+
         // Apply a force that attempts to reach our target velocity
         Vector3 velocity = GetComponent<Rigidbody>().velocity;
         Vector3 velocityChange = (targetVelocity - velocity);
@@ -201,6 +209,70 @@ public class PlayerMovement : MonoBehaviour
         velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
         velocityChange.y = 0;
         GetComponent<Rigidbody>().AddForce(velocityChange, ForceMode.VelocityChange);
+    }
+
+    float GetSlopeModifier(float x, float y)
+    {
+        // Initialize our modifier variable
+        float modifier = 1.0f;
+
+        // First, check if we have exceeded the maximum slope - if yes, prevent movement by returning 0
+        if (CheckMaxSlope())
+        {
+            return 0.0f;
+        }
+
+        // If max slope has not been exceeded...
+        else
+        {
+            // Initialize variables for the raycast and the modifier
+            RaycastHit hit;
+
+            // Create the vector for the direction the player is moving to
+            Vector3 direction = x * transform.right + y * transform.forward;
+            // Set y component to 0 
+            direction.y = 0;
+
+            // If the ray hits terrain....
+            if (Physics.Raycast(transform.position, direction, out hit, 3.0f))
+            {
+                // Calculate the dot product between the up vector and our movement vector
+                modifier = Vector3.Dot(Vector3.up, hit.normal);
+            }
+
+            // Return the power to 2 for slower movement in steep terrain
+            return Mathf.Pow(modifier, 2);
+        }
+    }
+
+    bool CheckMaxSlope()
+    {
+        // Assume the player is allowed to jump
+        canJump = true;
+
+        // Initialize raycast variable
+        RaycastHit hit;
+
+        // Cast a ray to the terrain below
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit, 3.0f))
+        {
+            // Get the angle of the terrain
+            float angle = Vector3.Angle(hit.normal, Vector3.up);
+            
+            // If the angle is greater than our set slope limit..
+            if (angle >= slopeLimit)
+            {
+                // Disallow jumping
+                canJump = false;
+                // Add a force that makes the player slide down
+                GetComponent<Rigidbody>().AddForce(new Vector3(0, -Mathf.Sqrt(angle), 0), ForceMode.VelocityChange);
+                // Return true since we have exceeded the maximum slope
+                return true;
+            }
+        }
+
+        // If we're still here, the maximum slope has not been exceeded
+        return false;
     }
 
     float GetSpeedModifier()
