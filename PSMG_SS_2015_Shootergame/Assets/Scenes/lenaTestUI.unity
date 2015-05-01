@@ -203,16 +203,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbf46c19ec93834d9812a61998c4bad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flyMode: 0
   speed: 5
+  sneakingSpeed: 2
+  sprintingSpeed: 10
+  slopeLimit: 45
   flySpeed: 10
   gravity: 15
   flyGravity: 3
   accelerateWhileFlying: 0
   maxVelocityChange: 10
+  canMove: 1
   canJump: 1
+  canFly: 1
   jumpHeight: 3
+  flapHeight: 3
+  flapDelay: 2
+  flapAmount: 10
   initialFlyHeight: 30
+  maximumFlyHeight: 150
 --- !u!4 &698429691
 Transform:
   m_ObjectHideFlags: 0
@@ -239,11 +247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc1f4b55d2aca84f8367a39f61c3ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minIntensity: 1
-  maxIntensity: 3
-  intensityGrowth: 1
-  arrowPrefab: {fileID: 157852, guid: bba7fd5bfd86f1f4eb19461c357bcd2e, type: 2}
-  spawnPoint: {fileID: 803488914}
 --- !u!114 &698429693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac5c0b3eed6a5a41ad67a2cbbde2d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axes: 1
   sensitivityX: 5
   sensitivityY: 0
   minimumX: -360
@@ -289,7 +291,7 @@ GameObject:
   - 114: {fileID: 721297805}
   - 114: {fileID: 721297802}
   m_Layer: 5
-  m_Name: lifeenergyBird
+  m_Name: lifeenergyBird state1
   m_TagString: LifeVisualisation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -333,7 +335,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 2113736189}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -252, y: -115}
@@ -351,6 +353,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 698429690}
+  human1: {fileID: 1103580533}
+  human2: {fileID: 2079976437}
+  bird1: {fileID: 721297804}
+  bird2: {fileID: 1234289883}
 --- !u!1 &722240998
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +574,7 @@ GameObject:
   - 114: {fileID: 1103580537}
   - 114: {fileID: 1103580534}
   m_Layer: 5
-  m_Name: lifeenergyHuman
+  m_Name: lifeenergyHuman state1
   m_TagString: LifeVisualisation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -585,7 +591,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 2113736189}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -252, y: -115}
@@ -630,6 +636,88 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 698429690}
+  human1: {fileID: 1103580533}
+  human2: {fileID: 2079976437}
+  bird1: {fileID: 721297804}
+  bird2: {fileID: 1234289883}
+--- !u!1 &1234289882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1234289883}
+  - 222: {fileID: 1234289886}
+  - 114: {fileID: 1234289885}
+  - 114: {fileID: 1234289884}
+  m_Layer: 5
+  m_Name: lifeenergyBird state2
+  m_TagString: LifeVisualisation
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1234289883
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1234289882}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 2113736189}
+  m_RootOrder: 2
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -252, y: -115}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1234289884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1234289882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 0e3c8ac8b79e13f489cf7c346fb2bd6d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!114 &1234289885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1234289882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 700b77074d5a34e44a1f60f4c199b0eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 698429690}
+  human1: {fileID: 1103580533}
+  human2: {fileID: 2079976437}
+  bird1: {fileID: 721297804}
+  bird2: {fileID: 1234289883}
+--- !u!222 &1234289886
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1234289882}
 --- !u!1 &1473740211
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,7 +1007,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac5c0b3eed6a5a41ad67a2cbbde2d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axes: 2
   sensitivityX: 0
   sensitivityY: 5
   minimumX: 0
@@ -956,6 +1043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crosshairTexture: {fileID: 2800000, guid: 0c6fe612daa19a947a119bc02ec8135b, type: 3}
   crosshairScale: .0500000007
+  hideCursor: 1
 --- !u!114 &1807926660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -969,6 +1057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crosshairTexture: {fileID: 0}
   crosshairScale: 1
+  hideCursor: 1
 --- !u!4 &1807926661
 Transform:
   m_ObjectHideFlags: 0
@@ -1054,6 +1143,84 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1938183635}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2079976436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 2079976437}
+  - 222: {fileID: 2079976440}
+  - 114: {fileID: 2079976439}
+  - 114: {fileID: 2079976438}
+  m_Layer: 5
+  m_Name: lifeenergyHuman state2
+  m_TagString: LifeVisualisation
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2079976437
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2079976436}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_Children: []
+  m_Father: {fileID: 2113736189}
+  m_RootOrder: 0
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -252, y: -115}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &2079976438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2079976436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c002711e51a564e409ba920501b45f97, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!114 &2079976439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2079976436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 700b77074d5a34e44a1f60f4c199b0eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 698429690}
+  human1: {fileID: 1103580533}
+  human2: {fileID: 2079976437}
+  bird1: {fileID: 721297804}
+  bird2: {fileID: 1234289883}
+--- !u!222 &2079976440
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2079976436}
 --- !u!1 &2113736185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,7 +1303,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 2079976437}
   - {fileID: 1103580533}
+  - {fileID: 1234289883}
   - {fileID: 721297804}
   m_Father: {fileID: 0}
   m_RootOrder: 4
