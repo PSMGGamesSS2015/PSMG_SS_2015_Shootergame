@@ -58,7 +58,7 @@ public class SetLifeMode : MonoBehaviour
                 bird1.transform.localScale = Vector3.one * (1f);
                 bird1.transform.position = GameObject.Find("lifeenergyBird state1").transform.position + new Vector3(25f, 25f, 0f);
                 human2.transform.localScale = Vector3.one * (0.5f);
-                human2.transform.position = GameObject.Find("lifeenergyHuman state1").transform.position - new Vector3(25f, 25f, 0f);
+                human2.transform.position = GameObject.Find("lifeenergyHuman state2").transform.position - new Vector3(25f, 25f, 0f);
             }
             else
             {
@@ -66,7 +66,7 @@ public class SetLifeMode : MonoBehaviour
                 human2.transform.localScale = Vector3.one * (0f);
                 bird1.transform.localScale = Vector3.one * (0f);
                 bird2.transform.localScale = Vector3.one * (0.5f);
-                bird2.transform.position = GameObject.Find("lifeenergyBird state1").transform.position - new Vector3(25f, 25f, 0f);
+                bird2.transform.position = GameObject.Find("lifeenergyBird state2").transform.position - new Vector3(25f, 25f, 0f);
                 human1.transform.localScale = Vector3.one * (1f);
                 human1.transform.position = GameObject.Find("lifeenergyHuman state1").transform.position + new Vector3(25f, 25f, 0f);
             }

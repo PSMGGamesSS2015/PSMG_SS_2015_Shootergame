@@ -1712,7 +1712,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 714291226}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!92 &714291228
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1785,7 +1785,7 @@ MonoBehaviour:
   followTarget: {fileID: 1765089714}
   height: 150
   rotate: 0
-  active: 0
+  active: 1
 --- !u!4 &719064720
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 8e41f14c6552d48e6a7992aaecc808e4, type: 3}
@@ -1956,7 +1956,6 @@ MonoBehaviour:
   human2: {fileID: 1031119100}
   bird1: {fileID: 612357876}
   bird2: {fileID: 1118584240}
-  testImage: {fileID: 0}
 --- !u!222 &802090691
 CanvasRenderer:
   m_ObjectHideFlags: 0
