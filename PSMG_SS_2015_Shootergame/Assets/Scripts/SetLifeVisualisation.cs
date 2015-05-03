@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class SetLifeMode : MonoBehaviour
+public class SetLifeVisualisation : MonoBehaviour
 {
     //The Player Object
     public PlayerMovement movement;
