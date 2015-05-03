@@ -6,6 +6,9 @@ public class SetLifeVisualisation : MonoBehaviour
 {
     //The Player Object
     public PlayerMovement movement;
+
+    //The base player
+    public BasePlayer player;
     
     //the human with dark background
     public GameObject human1;
@@ -41,6 +44,12 @@ public class SetLifeVisualisation : MonoBehaviour
     //is the previous mode flying or not flying
     private bool prevMode;
 
+    //percentage of player health
+    private float healthpercent;
+
+    //percentage of birds remaining flaps
+    private float flappercent;
+    
 
     // Use this for initialization
     void Start()
@@ -123,6 +132,17 @@ public class SetLifeVisualisation : MonoBehaviour
                 human1.transform.localScale = Vector3.one * (1f);
                 human1.transform.position = GameObject.Find("lifeenergyHuman state1").transform.position + new Vector3(25f, 25f, 0f);
             }
+        }
+
+        if (isFlying)
+        {
+            flappercent = (float)movement.getRemainingFlaps() / (float)movement.flapAmount;
+            Debug.Log("flappercent " + flappercent);
+        }
+        else
+        {
+            healthpercent = (float)player.health / (float)player.getMaxHealth();
+            Debug.Log("healthpercent " + healthpercent);
         }
     }
 

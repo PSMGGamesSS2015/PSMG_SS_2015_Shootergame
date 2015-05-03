@@ -393,4 +393,9 @@ public class PlayerMovement : MonoBehaviour
     {
         return flyModeActivated;
     }
+
+    public int getRemainingFlaps()
+    {
+        return remainingFlaps;
+    }
 }

@@ -295,6 +295,7 @@ GameObject:
   - 54: {fileID: 698429696}
   - 114: {fileID: 698429690}
   - 114: {fileID: 698429692}
+  - 114: {fileID: 698429694}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -386,6 +387,18 @@ MonoBehaviour:
   maximumX: 360
   minimumY: 0
   maximumY: 0
+--- !u!114 &698429694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 698429688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c6060785dbda242abe6f30e8082bdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!54 &698429696
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1507,6 +1520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 698429690}
+  player: {fileID: 698429694}
   human1: {fileID: 1103580532}
   human2: {fileID: 2079976436}
   bird1: {fileID: 721297801}
