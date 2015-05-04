@@ -134,6 +134,7 @@ public class SetLifeVisualisation : MonoBehaviour
             }
         }
 
+        //show remaining flaps if the player is flying, else show the health of the player
         if (isFlying)
         {
             flappercent = (float)movement.getRemainingFlaps() / (float)movement.flapAmount;
