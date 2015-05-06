@@ -77,7 +77,7 @@ namespace Assets.Scripts.Weapons
         {
             bulletSpawn = new GameObject();
             bulletSpawn.transform.position = GameObject.FindGameObjectWithTag("MainCamera").transform.position;
-            bulletSpawn.transform.position += bulletSpawn.transform.forward * 0.78f;
+            bulletSpawn.transform.position += bulletSpawn.transform.forward * 1.2f;
             bulletSpawn.transform.parent = parentPlayer.transform;
         }
 
