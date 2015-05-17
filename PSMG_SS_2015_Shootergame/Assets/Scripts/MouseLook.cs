@@ -24,13 +24,15 @@ public class MouseLook : MonoBehaviour {
     float rotationX = 0F;
     float rotationY = 0F;
 
+    public Rigidbody rigid;
+
     // original Rotation of the object - set automatically
     Quaternion originalRotation;
 
     void Start()
     {
         // Make the rigid body not change rotation
-        GetComponent<Rigidbody>().freezeRotation = true;
+        rigid.freezeRotation = true;
 
         // Save the current rotation
         originalRotation = transform.localRotation;
