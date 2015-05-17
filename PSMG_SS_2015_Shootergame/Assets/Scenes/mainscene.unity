@@ -730,9 +730,8 @@ MonoBehaviour:
   bird1: {fileID: 612357875}
   bird2: {fileID: 1118584239}
   barBorderHealth: {fileID: 1892357526}
-  barHealthRed: {fileID: 1908030641}
   barBorderFlaps: {fileID: 749152374}
-  barFlapsBlue: {fileID: 47814531}
+  newBar: {fileID: 0}
 --- !u!222 &802090691
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -908,6 +907,10 @@ Prefab:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 11440692, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
+      propertyPath: rigid
+      value: 
+      objectReference: {fileID: 1765089715}
     m_RemovedComponents:
     - {fileID: 6596202, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
@@ -1028,6 +1031,11 @@ GameObject:
 --- !u!4 &1765089714
 Transform:
   m_PrefabParentObject: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
+  m_PrefabInternal: {fileID: 1036224343}
+--- !u!54 &1765089715
+Rigidbody:
+  m_PrefabParentObject: {fileID: 5416948, guid: 1e362e9029db9a44597e3f8194f12bfa,
+    type: 2}
   m_PrefabInternal: {fileID: 1036224343}
 --- !u!114 &1765089717
 MonoBehaviour:
