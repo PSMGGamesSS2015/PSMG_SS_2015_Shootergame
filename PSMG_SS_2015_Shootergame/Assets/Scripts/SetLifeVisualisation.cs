@@ -26,7 +26,7 @@ public class SetLifeVisualisation : MonoBehaviour
     public Transform barBorderHealth;
 
     //Bar for the health
-    //public Transform barHealthRed;
+    public Transform barHealthRed;
 
     //Border of the flapcount bar
     public Transform barBorderFlaps;
@@ -34,8 +34,11 @@ public class SetLifeVisualisation : MonoBehaviour
     //Bar for the flapcount
     public Transform barFlapsBlue;
 
-    //new Bar
-    public Renderer newBar; 
+    //alpha cutoff Bar Flap
+    public Renderer newFlapBar;
+
+    //alpha cutoff Bar Health
+    public Renderer newHealthBar; 
 
 
 
@@ -78,7 +81,7 @@ public class SetLifeVisualisation : MonoBehaviour
             human2.transform.position = new Vector3(74.0f, 68.5f, 0.0f);
             barBorderHealth.position = new Vector3(124.0f, 95.5f, 0.0f);
             barBorderFlaps.position = new Vector3(124.0f, 95.5f, 0.0f);
-            //barHealthRed.position = new Vector3(124.0f, 95.5f, 0.0f);
+            barHealthRed.position = new Vector3(886.1f, 102.1f, 1.0f);
             barFlapsBlue.position = new Vector3(886.1f, 102.1f, 1.0f);
             //Debug.Log(GameObject.Find("lifeenergyBird").position);
             if (isFlying)
@@ -98,8 +101,8 @@ public class SetLifeVisualisation : MonoBehaviour
 
                 //scale the flaps bar to 1 and the health bar to 0.5, also change position of the healthbar
                 barFlapsBlue.localScale = Vector3.one * (10f);
-                //barHealthRed.localScale = Vector3.one * (0.5f);
-                //barHealthRed.position = GameObject.Find("red health bar").transform.position - new Vector3(60f, 50f, 0f);
+                barHealthRed.localScale = Vector3.one * (5f);
+                barHealthRed.position = GameObject.Find("red health bar").transform.position - new Vector3(60f, 50f, 0f);
 
                 //change position of the bird1 image and scale it to 1
                 bird1.transform.localScale = Vector3.one * (1f);
@@ -127,7 +130,7 @@ public class SetLifeVisualisation : MonoBehaviour
                 //scale the flaps bar to 0.5 and the health bar to 1, also change position of the flapsbar
                 barFlapsBlue.localScale = Vector3.one * (5f);
                 barFlapsBlue.position = GameObject.Find("blue flaps bar").transform.position - new Vector3(60f, 50f, 0f);
-                //barHealthRed.localScale = Vector3.one * (1f);
+                barHealthRed.localScale = Vector3.one * (10f);
 
                 //change position of the bird2 image and scale it to 0.5
                 bird2.transform.localScale = Vector3.one * (0.5f);
@@ -143,14 +146,28 @@ public class SetLifeVisualisation : MonoBehaviour
         if (isFlying)
         {
             flappercent = (float)movement.getRemainingFlaps() / (float)movement.flapAmount;
+
+            //Workaround - need to be fixed
+            if (flappercent == 1)
+            {
+                flappercent = 0.99f;
+            }
+
             Debug.Log("flappercent " + flappercent);
-            
-            newBar.material.SetFloat("_Cutoff", 1-flappercent);
+            newFlapBar.material.SetFloat("_Cutoff", 1-flappercent);
         }
         else
         {
             healthpercent = (float)player.health / (float)player.getMaxHealth();
+            
+            //Workaround - need to be fixed
+            if (healthpercent == 1)
+            {
+                healthpercent = 0.99f;
+            }
+
             Debug.Log("healthpercent " + healthpercent);
+            newHealthBar.material.SetFloat("_Cutoff", 1 - healthpercent);
         }
 
     }
