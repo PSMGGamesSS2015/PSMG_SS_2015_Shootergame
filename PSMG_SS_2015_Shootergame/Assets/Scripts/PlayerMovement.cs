@@ -7,7 +7,7 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody))]
 
 // Require a BoxCollider on the player object - change if Collider changes!!
-[RequireComponent(typeof(BoxCollider))]
+//[RequireComponent(typeof(BoxCollider))]
 
 public class PlayerMovement : MonoBehaviour 
 {

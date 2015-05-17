@@ -42,6 +42,29 @@ namespace Assets.Scripts.Weapons
             weapons[numWeapons++] = weapon;
         }
 
+        private int getWeaponIdByName(string name)
+        {
+            int id = -1;
+            for (int i = 0; i < numWeapons; i++)
+            {
+                if (weapons[i].Name == name)
+                {
+                    id = i;
+                }
+            }
+            return id;
+        }
+
+        public BaseWeapon getWeaponByName(string name)
+        {
+            int id = getWeaponIdByName(name);
+            if (id != -1)
+            {
+                return weapons[id];
+            }
+            return null;
+        }
+
 
         /*
          * TEST
