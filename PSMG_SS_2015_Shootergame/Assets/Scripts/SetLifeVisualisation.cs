@@ -66,7 +66,6 @@ public class SetLifeVisualisation : MonoBehaviour
         Debug.Log("barFlapsBlue: " + barFlapsBlue.position);
     }
 
-
     void OnGUI()
     {
         hasModeChanged();
@@ -103,7 +102,8 @@ public class SetLifeVisualisation : MonoBehaviour
                 barFlapsBlue.localScale = Vector3.one * (10f);
                 barHealthRed.localScale = Vector3.one * (5f);
                 barHealthRed.position = GameObject.Find("red health bar").transform.position - new Vector3(60f, 50f, 0f);
-
+                //barHealthRed.position = Vector3.Lerp(new Vector3(886.1f, 102.1f, 1.0f), new Vector3(946.1f, 162.1f, 1.0f), Time.deltaTime * 2.5f);
+                
                 //change position of the bird1 image and scale it to 1
                 bird1.transform.localScale = Vector3.one * (1f);
                 bird1.transform.position = GameObject.Find("lifeenergyBird state1").transform.position + new Vector3(25f, 25f, 0f);
