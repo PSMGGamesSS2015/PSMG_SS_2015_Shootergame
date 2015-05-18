@@ -6,8 +6,8 @@ using System.Collections;
 // Require a rigidbody on the player object
 [RequireComponent(typeof(Rigidbody))]
 
-// Require a BoxCollider on the player object - change if Collider changes!!
-//[RequireComponent(typeof(BoxCollider))]
+// Require a CapsuleCollider on the player object
+[RequireComponent(typeof(CapsuleCollider))]
 
 public class PlayerMovement : MonoBehaviour 
 {
@@ -17,8 +17,14 @@ public class PlayerMovement : MonoBehaviour
     // Sneaking speed of the player
     public float sneakingSpeed = 2.0f;
 
+    // Crouching speed of the player
+    public float crouchingSpeed = 2.0f;
+
     // Sneaking speed of the player
     public float sprintingSpeed = 10.0f;
+
+    // Speed modifier for faster/slower movement
+    public float speedModifier = 1.0f;
 
     // Slope limit in degrees, player will slide down if beyond the limit
     public float slopeLimit = 45.0f;
@@ -71,6 +77,9 @@ public class PlayerMovement : MonoBehaviour
     // True, if the player is sneaking
     private bool sneaking = false;
 
+    // True, if the player is crouching
+    private bool crouching = false;
+
     // True, if the player is sneaking
     private bool sprinting = false;
 
@@ -85,6 +94,14 @@ public class PlayerMovement : MonoBehaviour
 
     // Saves the raming amount of flaps while in fly mode
     private int remainingFlaps = 0;
+
+    // Save collider height to reset after crouching
+    private float colliderHeight = 0.0f;
+
+    void Start()
+    {
+        colliderHeight = GetComponent<CapsuleCollider>().height;
+    }
 
     void Awake()
     {
@@ -138,6 +155,7 @@ public class PlayerMovement : MonoBehaviour
         // Reset special movement modes
         sneaking = false;
         sprinting = false;
+        crouching = false;
     }
 
     // Check if the player has activated a special type of movement
@@ -146,6 +164,16 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButton("Sneak"))
         {
             sneaking = true;
+        }
+
+        if (Input.GetButton("Crouch"))
+        {
+            crouching = true;
+            GetComponent<CapsuleCollider>().height = colliderHeight / 2;
+        }
+        else
+        {
+            GetComponent<CapsuleCollider>().height = colliderHeight;
         }
 
         if (Input.GetButton("Sprint"))
@@ -195,6 +223,9 @@ public class PlayerMovement : MonoBehaviour
 
         // Use the appropriate speed modifier, depending on if the player is in fly mode or not
         targetVelocity *= GetSpeedModifier();
+
+        // Apply the speed modifier that can be changed through methods
+        targetVelocity *= speedModifier;
 
         // If the player is not flying, get the modifier based on the slope
         if (!flyModeActivated)
@@ -282,6 +313,10 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (sneaking) {
             return sneakingSpeed;
+        }
+        else if (crouching)
+        {
+            return crouchingSpeed;
         }
         else if (sprinting)
         {
@@ -386,6 +421,36 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         
+    }
+
+    public void AllowMove(bool value)
+    {
+        canMove = value;
+    }
+
+    public void AllowFly(bool value)
+    {
+        canFly = value;
+    }
+
+    public void AllowJump(bool value)
+    {
+        canJump = value;
+    }
+
+    public void IncreaseSpeed(float factor)
+    {
+        speedModifier *= factor;
+    }
+
+    public void DecreaseSpeed(float factor)
+    {
+        speedModifier /= factor;
+    }
+
+    public void ResetSpeed()
+    {
+        speedModifier = 1.0f;
     }
 
     // Returns flyModeActivated for UI scripts
