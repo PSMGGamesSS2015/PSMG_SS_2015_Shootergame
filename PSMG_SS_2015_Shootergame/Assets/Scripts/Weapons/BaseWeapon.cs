@@ -117,8 +117,7 @@ namespace Assets.Scripts.Weapons
 
             if (prefab == null) return;
 
-            viewModel = GameObject.Instantiate(prefab, GameObject.FindGameObjectWithTag("ViewModelPos").transform.position, parentPlayer.transform.rotation) as GameObject;
-            viewModel.transform.Rotate(new Vector3(0, 180, 0));
+            viewModel = GameObject.Instantiate(prefab, parentPlayer.transform.position, parentPlayer.transform.rotation) as GameObject;
             viewModel.transform.parent = parentPlayer.transform;
         }
 
