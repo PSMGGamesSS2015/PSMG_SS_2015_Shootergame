@@ -44,7 +44,7 @@ namespace Assets.Scripts.Weapons
 
             GetComponent<Rigidbody>().isKinematic = true;
 
-            //transform.Translate(transform.forward);
+            //transform.Translate(transform.forward * 5.0f);
 
             gameObject.transform.parent = collision.gameObject.transform;
             

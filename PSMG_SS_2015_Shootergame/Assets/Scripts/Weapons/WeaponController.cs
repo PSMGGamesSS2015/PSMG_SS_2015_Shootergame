@@ -7,7 +7,7 @@ namespace Assets.Scripts.Weapons
 
     class WeaponController : MonoBehaviour
     {
-        private BaseWeapon[] weapons;
+        public BaseWeapon[] weapons;
         private const int MAX_WEAPONS = 4;
         private int numWeapons = 0;
 
@@ -22,7 +22,9 @@ namespace Assets.Scripts.Weapons
             weapons = new BaseWeapon[MAX_WEAPONS];
             AddWeapon(new Bow(gameObject));
             AddWeapon(new Blowgun(gameObject));
-            UpdateWeaponGUI(getActiveWeapon());
+            AddWeapon(new Tomahawk(gameObject));
+
+            switchToWeaponById(curWeaponIndex);
         }
 
         public void Update()
@@ -135,6 +137,10 @@ namespace Assets.Scripts.Weapons
             {
                 curWeaponIndex = id;
             }
+
+            weapons[lastWeaponIndex].SetDown();
+            weapons[curWeaponIndex].SetUp();
+
             UpdateWeaponGUI(getActiveWeapon());
         }
     }

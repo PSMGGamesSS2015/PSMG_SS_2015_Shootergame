@@ -29,8 +29,14 @@ namespace Assets.Scripts.Weapons
             : base("Bow", parent)
         {
             intensity = minIntensity;
-            arrowPrefab = parentPlayer.GetComponent<PlayerPrefabsController>().arrowPrefab;
 
+            PlayerPrefabsController ppc = parentPlayer.GetComponent<PlayerPrefabsController>();
+            arrowPrefab = ppc.arrowPrefab;
+        }
+
+        protected override GameObject getViewmodelPrefab()
+        {
+            return parentPlayer.GetComponent<PlayerPrefabsController>().weaponBowPrefab;
         }
 
         protected override void SetSpecifications(ref int magazinSize, ref int reserveAmmo)
@@ -54,6 +60,7 @@ namespace Assets.Scripts.Weapons
         {
             bending = true;
             intensity = minIntensity;
+            viewModel.GetComponent<Animator>().SetBool("shot", true);
         }
 
         public override void FireButtonUp()
@@ -73,7 +80,7 @@ namespace Assets.Scripts.Weapons
 
         protected override bool Shoot()
         {
-            Debug.Log(curAmmo + " " + reserveAmmo);
+            //Debug.Log(curAmmo + " " + reserveAmmo);
 
             if (!CanShoot())
             {
@@ -83,7 +90,8 @@ namespace Assets.Scripts.Weapons
             bending = false;
 
             // Get the direction of the camera to set the arrow rotation like this
-            Transform camPos = GameObject.FindGameObjectWithTag("MainCamera").transform;
+            Transform camPos = Camera.main.transform;
+            
 
             // Instantiate a new arrow object and call its Shoot() function
             GameObject arrow = GameObject.Instantiate(arrowPrefab, bulletSpawn.transform.position, camPos.rotation) as GameObject;
@@ -91,6 +99,8 @@ namespace Assets.Scripts.Weapons
 
             // Revert intensity back to the minimum value
             intensity = minIntensity;
+
+            viewModel.GetComponent<Animator>().SetBool("shot", false);
 
             if (!base.Shoot())
             {

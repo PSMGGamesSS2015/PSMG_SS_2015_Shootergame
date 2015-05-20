@@ -40,6 +40,8 @@ namespace Assets.Scripts.Weapons
         // Timestamp when the last reload started
         private float startReloadTimestamp = 0;
 
+        protected GameObject viewModel = null;
+
         // name of weapon
         private string weaponName = "";
         public string Name
@@ -76,7 +78,7 @@ namespace Assets.Scripts.Weapons
         private void SetStandardBulletSpawn()
         {
             bulletSpawn = new GameObject();
-            bulletSpawn.transform.position = GameObject.FindGameObjectWithTag("MainCamera").transform.position;
+            bulletSpawn.transform.position = Camera.main.transform.position;
             bulletSpawn.transform.position += bulletSpawn.transform.forward * 1.2f;
             bulletSpawn.transform.parent = parentPlayer.transform;
         }
@@ -108,6 +110,27 @@ namespace Assets.Scripts.Weapons
             reserveAmmo -= bulletsToReload;
             curAmmo += bulletsToReload;
         }
+
+        public virtual void SetUp()
+        {
+            GameObject prefab = getViewmodelPrefab();
+
+            if (prefab == null) return;
+
+            viewModel = GameObject.Instantiate(prefab, GameObject.FindGameObjectWithTag("ViewModelPos").transform.position, parentPlayer.transform.rotation) as GameObject;
+            viewModel.transform.Rotate(new Vector3(0, 180, 0));
+            viewModel.transform.parent = parentPlayer.transform;
+        }
+
+        public virtual void SetDown()
+        {
+            if (viewModel != null)
+            {
+                GameObject.Destroy(viewModel);
+            }
+        }
+
+        protected abstract GameObject getViewmodelPrefab();
 
         public virtual void Update()
         {

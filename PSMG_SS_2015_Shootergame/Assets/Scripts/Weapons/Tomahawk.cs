@@ -1,13 +1,11 @@
 ﻿
-using System;
 using UnityEngine;
 namespace Assets.Scripts.Weapons
 {
-    class Blowgun : BaseWeapon
+    class Tomahawk : BaseWeapon
     {
-
-        public Blowgun(GameObject parent)
-            : base("Blowgun", parent)
+        public Tomahawk(GameObject parent)
+            : base("Tomahawk", parent)
         {
 
         }
@@ -15,19 +13,13 @@ namespace Assets.Scripts.Weapons
         protected override void SetSpecifications(ref int magazinSize, ref int reserveAmmo)
         {
             magazinSize = 1;
-            reserveAmmo = 10;
-
+            reserveAmmo = -1;
             timeToReload = 1;
-        }
-
-        protected override bool Shoot()
-        {
-            throw new NotImplementedException();
         }
 
         protected override GameObject getViewmodelPrefab()
         {
-            return null;
+            return parentPlayer.GetComponent<PlayerPrefabsController>().weaponTomahawkPrefab;
         }
     }
 }
