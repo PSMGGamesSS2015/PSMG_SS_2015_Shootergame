@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 5b943fb330a911443aeefa047cb1ea9b
-timeCreated: 1430558567
+guid: b53b6cec1848db0489ba0748bbde1b7a
+timeCreated: 1432121704
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -1519,7 +1519,7 @@ ModelImporter:
     7400022: main_char_final|Bow_Shot_Release
     7400024: main_char_final|Bow_Walk
     7400026: Bow|Bow_Grab
-    7400028: main_char_final:Body|Bow_Morph
+    7400028: main_char_final:Body|Bow_Damage_Taken
     9500000: //RootNode
     13700000: Bow
     13700002: main_char_final:Body
@@ -1532,13 +1532,12 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
     animationWrapMode: 0
-    extraExposedTransformPaths:
-    - main_char_final/Bow_Main
+    extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
       name: main_char_final|Bow_Damage_Taken
@@ -15266,7 +15265,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -22877,10 +22876,10 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: main_char_final:Body|Bow_Morph
-      takeName: main_char_final:Body|Bow_Morph
+      name: main_char_final:Body|Bow_Damage_Taken
+      takeName: main_char_final:Body|Bow_Damage_Taken
       firstFrame: 0
-      lastFrame: 49
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -24403,7 +24402,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .100000001
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
