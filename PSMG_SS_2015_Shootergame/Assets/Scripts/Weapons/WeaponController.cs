@@ -7,7 +7,7 @@ namespace Assets.Scripts.Weapons
 
     class WeaponController : MonoBehaviour
     {
-        public BaseWeapon[] weapons;
+        private BaseWeapon[] weapons;
         private const int MAX_WEAPONS = 4;
         private int numWeapons = 0;
 
@@ -73,7 +73,11 @@ namespace Assets.Scripts.Weapons
          */
         public void UpdateWeaponGUI(BaseWeapon weapon)
         {
-            ammoInfoText.GetComponent<Text>().text = getActiveWeapon().Name + " " + weapon.CurAmmo + " | " + weapon.ReserveAmmo;
+            ammoInfoText.GetComponent<Text>().text = getActiveWeapon().Name 
+                + " " 
+                + weapon.CurAmmo 
+                + " | " + 
+                (weapon.ReserveAmmo == BaseWeapon.INFINITE_AMMO ? "∞" : weapon.ReserveAmmo.ToString());
         }
 
         private void CheckMouseButtons()

@@ -14,6 +14,7 @@ namespace Assets.Scripts.Weapons
 
         private bool wasFired = false;
         private bool isFlying = false;
+        private bool wasPickedUp = false;
 
         // Called once when the arrow spawns
         void Start()
@@ -25,7 +26,7 @@ namespace Assets.Scripts.Weapons
         {
             isFlying = false;
 
-            if (wasFired && !isFlying)
+            if (wasFired && !isFlying && !wasPickedUp)
             {
                 if (collision.collider.gameObject.tag == "Player")
                 {
@@ -34,6 +35,7 @@ namespace Assets.Scripts.Weapons
                     if (bow != null)
                     {
                         bow.ReserveAmmo++;
+                        wasPickedUp = true;
                         wp.UpdateWeaponGUI(bow);
                     }
                     Destroy(gameObject);

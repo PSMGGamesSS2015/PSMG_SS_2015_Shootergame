@@ -13,7 +13,7 @@ namespace Assets.Scripts.Weapons
         protected override void SetSpecifications(ref int magazinSize, ref int reserveAmmo)
         {
             magazinSize = 1;
-            reserveAmmo = -1;
+            reserveAmmo = INFINITE_AMMO;
             timeToReload = 1;
         }
 

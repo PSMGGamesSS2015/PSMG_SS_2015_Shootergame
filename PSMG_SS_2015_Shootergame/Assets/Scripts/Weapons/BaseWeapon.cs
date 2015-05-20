@@ -22,6 +22,8 @@ namespace Assets.Scripts.Weapons
             get { return reserveAmmo; }
             set { reserveAmmo = value; }
         }
+        public const int INFINITE_AMMO = -1;
+
         // Seconds until reload is finished
         protected float timeToReload = 2;
 
@@ -101,13 +103,16 @@ namespace Assets.Scripts.Weapons
             // Get max bullets we can possibly reload
             int bulletsToReload = magazinSize - curAmmo;
 
-            if (reserveAmmo < bulletsToReload)
+            if (reserveAmmo < bulletsToReload && reserveAmmo != INFINITE_AMMO)
             {
                 bulletsToReload = reserveAmmo;
             }
 
             // Move ammo from reserve to main slot
-            reserveAmmo -= bulletsToReload;
+            if (reserveAmmo != INFINITE_AMMO)
+            {
+                reserveAmmo -= bulletsToReload;
+            }    
             curAmmo += bulletsToReload;
         }
 
@@ -159,7 +164,7 @@ namespace Assets.Scripts.Weapons
 
             OnShotFired(this);
 
-            if (curAmmo == 0 && reserveAmmo > 0)
+            if (curAmmo == 0 && (reserveAmmo > 0 || reserveAmmo == INFINITE_AMMO))
             {
                 Reload();
                 return false;
