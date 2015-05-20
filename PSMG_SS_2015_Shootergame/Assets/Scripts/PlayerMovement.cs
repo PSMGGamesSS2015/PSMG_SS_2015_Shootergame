@@ -350,7 +350,7 @@ public class PlayerMovement : MonoBehaviour
         float verticalSpeed = Mathf.Sqrt(2 * height * modifiedGravity);
 
         // Create a vector from these values
-        Vector3 jumpVector = new Vector3(velocity.x/2, verticalSpeed, velocity.z/2);
+        Vector3 jumpVector = new Vector3(velocity.x, verticalSpeed, velocity.z);
 
         // Apply the vector to the player's rigidbody
         GetComponent<Rigidbody>().velocity = jumpVector;
