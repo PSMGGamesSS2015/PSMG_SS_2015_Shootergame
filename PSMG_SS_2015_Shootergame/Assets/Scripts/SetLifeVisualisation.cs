@@ -38,8 +38,10 @@ public class SetLifeVisualisation : MonoBehaviour
     public Renderer newFlapBar;
 
     //alpha cutoff Bar Health
-    public Renderer newHealthBar; 
+    public Renderer newHealthBar;
 
+    //Camera for Canvas
+    public Camera canvasCamera;
 
 
     //has the mode changed from flying to not flying (or the other way round) or not
@@ -64,6 +66,11 @@ public class SetLifeVisualisation : MonoBehaviour
         isFlying = movement.getMode();
         prevMode = true;
         Debug.Log("barFlapsBlue: " + barFlapsBlue.position);
+    }
+
+    void Update()
+    {
+        //canvasCamera.orthographicSize = 100;
     }
 
     void OnGUI()
@@ -114,6 +121,8 @@ public class SetLifeVisualisation : MonoBehaviour
             }
             else
             {
+                newFlapBar.material.SetFloat("_Cutoff", 0.01f);
+
                 //Debug.Log("Fliegt nicht!!");
                 //bird1 and human2 are not visible
                 bird1.SetActive(false);
