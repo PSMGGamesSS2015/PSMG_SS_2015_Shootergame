@@ -86,6 +86,9 @@ public class PlayerMovement : MonoBehaviour
     // True as soon as the player starts falling for the first time after activating flyMode
     private bool fallingWhileFlying = false;
 
+    // True when the player flaps until he is falling down again - necessary for gravity without acceleration
+    private bool flapping = false;
+
     // True as soon as the player activates flyMode
     private bool flyModeActivated = false;
 
@@ -341,11 +344,13 @@ public class PlayerMovement : MonoBehaviour
         // Get the player's current velocity
         Vector3 velocity = GetComponent<Rigidbody>().velocity;
 
+        float modifiedGravity = fallingWhileFlying ? flyGravity : gravity;
+
         // Calculate the speed needed to reach the defined height
-        float verticalSpeed = Mathf.Sqrt(2 * height * gravity);
+        float verticalSpeed = Mathf.Sqrt(2 * height * modifiedGravity);
 
         // Create a vector from these values
-        Vector3 jumpVector = new Vector3(velocity.x, verticalSpeed, velocity.z);
+        Vector3 jumpVector = new Vector3(velocity.x/2, verticalSpeed, velocity.z/2);
 
         // Apply the vector to the player's rigidbody
         GetComponent<Rigidbody>().velocity = jumpVector;
@@ -370,7 +375,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // If the player still has remaing flaps, presses the flap button and the last flap was longher than flapDelay seconds ago...
-        if (remainingFlaps > 0 && Input.GetButton("Flap") && ((Time.time - flapTime) >= flapDelay))
+        if (remainingFlaps > 0 && Input.GetButton("Flap") && modifiedFlapHeight > 0 && ((Time.time - flapTime) >= flapDelay))
         {
             // Substract 1 from the remaining flaps
             remainingFlaps--;
@@ -380,6 +385,8 @@ public class PlayerMovement : MonoBehaviour
 
             // Perform a "jump" with the flap height we have set above
             Jump(modifiedFlapHeight);
+
+            flapping = true;
         }
     }
 
@@ -405,22 +412,26 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             // ...and if the player should accelerate while he is flying...
-            if (accelerateWhileFlying)
+            if (accelerateWhileFlying || flapping)
             {
                 // ...create a new vector with just a y component that is calculated using the fly gravity and the player's mass
                 Vector3 gravityVector = new Vector3(0, -flyGravity * GetComponent<Rigidbody>().mass, 0);
                 GetComponent<Rigidbody>().AddForce(gravityVector);
+
+                if (GetComponent<Rigidbody>().velocity.y <= -flyGravity)
+                {
+                    flapping = false;
+                }
             }
 
             // ...and if the player should not accelerate while he is flying...
             else
             {
-                // NOT YET IMPLEMENTED 
-                Vector3 gravityVector = new Vector3(0, -flyGravity * GetComponent<Rigidbody>().mass, 0);
-                GetComponent<Rigidbody>().AddForce(gravityVector);
+                float xVelocity = GetComponent<Rigidbody>().velocity.x;
+                float zVelocity = GetComponent<Rigidbody>().velocity.z;
+                GetComponent<Rigidbody>().velocity = new Vector3(xVelocity, -flyGravity, zVelocity);
             }
-        }
-        
+        }        
     }
 
     public void AllowMove(bool value)
