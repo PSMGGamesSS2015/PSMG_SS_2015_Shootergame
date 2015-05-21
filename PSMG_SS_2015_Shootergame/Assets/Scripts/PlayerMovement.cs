@@ -174,10 +174,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetButton("Sprint"))
         {
-            sprinting = true;
+			if (Input.GetAxis("Vertical") == 1) {
+				sprinting = true;
+			}
         }
 
-        if (Input.GetButton("Sneak"))
+		if (Input.GetButton("Sneak") && Input.GetButton("Forward"))
         {
             sneaking = true;
         }
@@ -262,7 +264,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (sprinting)
         {
-            weaponController.getActiveWeapon().Animator.SetBool("walk", false);
+            //weaponController.getActiveWeapon().Animator.SetBool("walk", false);
             weaponController.getActiveWeapon().Animator.SetBool("run", true);
         }
         else if (moving)
