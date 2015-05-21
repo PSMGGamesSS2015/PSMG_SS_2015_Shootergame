@@ -14,7 +14,6 @@ GameObject:
   - 114: {fileID: 11468214}
   - 114: {fileID: 11406598}
   - 114: {fileID: 11432544}
-  - 136: {fileID: 13604962}
   - 136: {fileID: 13692124}
   m_Layer: 0
   m_Name: Player
@@ -222,19 +221,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198840}
   m_Enabled: 1
---- !u!136 &13604962
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 115870}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .5
-  m_Height: 2.45000005
-  m_Direction: 1
-  m_Center: {x: 0, y: .119999997, z: -.340000004}
 --- !u!136 &13692124
 CapsuleCollider:
   m_ObjectHideFlags: 1
