@@ -44,6 +44,19 @@ namespace Assets.Scripts.Weapons
 
         protected GameObject viewModel = null;
 
+        private Animator viewModelAnimator = null;
+        public Animator Animator
+        {
+            get
+            {
+                return viewModelAnimator;
+            }
+            set
+            {
+                viewModelAnimator = value;
+            }
+        }
+
         // name of weapon
         private string weaponName = "";
         public string Name
@@ -123,6 +136,7 @@ namespace Assets.Scripts.Weapons
             if (prefab == null) return;
 
             viewModel = GameObject.Instantiate(prefab, parentPlayer.transform.position, parentPlayer.transform.rotation) as GameObject;
+            viewModelAnimator = viewModel.GetComponent<Animator>();
             viewModel.transform.parent = parentPlayer.transform;
         }
 

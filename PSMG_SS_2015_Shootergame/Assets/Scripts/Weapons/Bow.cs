@@ -10,11 +10,11 @@ namespace Assets.Scripts.Weapons
     {
 
         // Minimum and maximum intensity that can be reached by the arrow
-        public float minIntensity = 0.5f;
-        public float maxIntensity = 2.0f;
+        private const float MIN_INTENSITY = 0.5f;
+        private const float MAX_INTENSITY = 2.0f;
 
         // How fast the intensity should grow while bending the bow
-        public float intensityGrowth = 1.0f;
+        private const float INTENSITY_GROWTH = 1.0f;
 
         // Arrow prefab
         private GameObject arrowPrefab;
@@ -28,7 +28,7 @@ namespace Assets.Scripts.Weapons
         public Bow(GameObject parent)
             : base("Bow", parent)
         {
-            intensity = minIntensity;
+            intensity = MIN_INTENSITY;
 
             PlayerPrefabsController ppc = parentPlayer.GetComponent<PlayerPrefabsController>();
             arrowPrefab = ppc.arrowPrefab;
@@ -59,8 +59,9 @@ namespace Assets.Scripts.Weapons
         public override void FireButtonDown()
         {
             bending = true;
-            intensity = minIntensity;
-            viewModel.GetComponent<Animator>().SetBool("shot", true);
+            intensity = 0;
+            Animator.SetFloat("bendIntensity", intensity);
+            Animator.SetTrigger("Shoot");
         }
 
         public override void FireButtonUp()
@@ -72,15 +73,21 @@ namespace Assets.Scripts.Weapons
         void IncreaseIntensity()
         {
             // Increase the intensity
-            intensity += intensityGrowth * Time.deltaTime;
+            intensity += INTENSITY_GROWTH * Time.deltaTime;
+
+            Animator.SetFloat("bendIntensity", intensity);
 
             // Make sure the intensity does not exceed our limitations
-            Mathf.Clamp(intensity, minIntensity, maxIntensity);
+            Mathf.Clamp(intensity, MIN_INTENSITY, MAX_INTENSITY);
         }
 
         protected override bool Shoot()
         {
-            //Debug.Log(curAmmo + " " + reserveAmmo);
+            if (intensity < MIN_INTENSITY)
+            {
+                Animator.SetTrigger("DropArrow");
+                return false;
+            }
 
             if (!CanShoot())
             {
@@ -97,10 +104,7 @@ namespace Assets.Scripts.Weapons
             GameObject arrow = GameObject.Instantiate(arrowPrefab, bulletSpawn.transform.position, camPos.rotation) as GameObject;
             arrow.GetComponent<ArrowBehaviour>().Shoot(intensity);
 
-            // Revert intensity back to the minimum value
-            intensity = minIntensity;
-
-            viewModel.GetComponent<Animator>().SetBool("shot", false);
+            Animator.SetTrigger("ReleaseArrow");
 
             if (!base.Shoot())
             {
