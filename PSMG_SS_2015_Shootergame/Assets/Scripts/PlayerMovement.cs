@@ -77,6 +77,9 @@ public class PlayerMovement : MonoBehaviour
     // True, if the player is sneaking
     private bool sneaking = false;
 
+    // True, if the player is moving
+    private bool moving = false;
+
     // True, if the player is crouching
     private bool crouching = false;
 
@@ -101,9 +104,13 @@ public class PlayerMovement : MonoBehaviour
     // Save collider height to reset after crouching
     private float colliderHeight = 0.0f;
 
+    // Weapon controller for animations
+    private Assets.Scripts.Weapons.WeaponController weaponController;
+
     void Start()
     {
         colliderHeight = GetComponent<CapsuleCollider>().height;
+        weaponController = GetComponent<Assets.Scripts.Weapons.WeaponController>();
     }
 
     void Awake()
@@ -156,6 +163,7 @@ public class PlayerMovement : MonoBehaviour
         grounded = false;
 
         // Reset special movement modes
+        moving = false;
         sneaking = false;
         sprinting = false;
         crouching = false;
@@ -164,6 +172,11 @@ public class PlayerMovement : MonoBehaviour
     // Check if the player has activated a special type of movement
     void CheckMovementType()
     {
+        if (Input.GetButton("Sprint"))
+        {
+            sprinting = true;
+        }
+
         if (Input.GetButton("Sneak"))
         {
             sneaking = true;
@@ -177,11 +190,6 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             GetComponent<CapsuleCollider>().height = colliderHeight;
-        }
-
-        if (Input.GetButton("Sprint"))
-        {
-            sprinting = true;
         }
     }
 
@@ -215,6 +223,8 @@ public class PlayerMovement : MonoBehaviour
         float InputX = Input.GetAxis("Horizontal");
         float InputY = Input.GetAxis("Vertical");
 
+        moving = InputX > 0 || InputY > 0 ? true : false;
+
         // modify factor so that diagonal movement isn't faster
         float inputModifyFactor = (InputX != 0.0f && InputY != 0.0f) ? 0.7071f : 1.0f;
 
@@ -243,6 +253,29 @@ public class PlayerMovement : MonoBehaviour
         velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
         velocityChange.y = 0;
         GetComponent<Rigidbody>().AddForce(velocityChange, ForceMode.VelocityChange);
+
+        AnimatePlayer();
+    }
+
+    void AnimatePlayer()
+    {
+
+        if (sprinting)
+        {
+            weaponController.getActiveWeapon().Animator.SetBool("walk", false);
+            weaponController.getActiveWeapon().Animator.SetBool("run", true);
+        }
+        else if (moving)
+        {
+            weaponController.getActiveWeapon().Animator.SetBool("run", false);
+            weaponController.getActiveWeapon().Animator.SetBool("walk", true);
+        }
+        else
+        {
+            weaponController.getActiveWeapon().Animator.SetBool("walk", false);
+            weaponController.getActiveWeapon().Animator.SetBool("run", false);
+        }
+        
     }
 
     float GetSlopeModifier(float x, float y)
@@ -336,6 +369,8 @@ public class PlayerMovement : MonoBehaviour
         {
             // ...perform a jump with the defined jump height
             Jump(jumpHeight);
+
+            weaponController.getActiveWeapon().Animator.SetTrigger("Jump");
         }
     }
 
