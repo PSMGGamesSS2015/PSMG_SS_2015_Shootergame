@@ -163,7 +163,7 @@ MonoBehaviour:
   secondsInFullDay: 120
   currentTimeOfDay: .300000012
   timeMultiplier: 1
---- !u!224 &168432048 stripped
+--- !u!224 &168432048
 RectTransform:
   m_PrefabParentObject: {fileID: 22416988, guid: dff7fdba1b6487c4eb6b8264b542a927,
     type: 2}
@@ -291,6 +291,10 @@ Prefab:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11493110, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: movement
+      value: 
+      objectReference: {fileID: 1765089719}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
   m_IsPrefabParent: 0
@@ -406,6 +410,8 @@ Terrain:
     serializedVersion: 2
     rgba: 4286545791
   m_LegacyShininess: .078125
+  m_UseDefaultSmoothness: 1
+  m_DefaultSmoothness: 0
   m_MaterialTemplate: {fileID: 0}
   m_BakeLightProbesForTrees: 1
   m_ScaleInLightmap: .0511999987
@@ -580,7 +586,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 168432048}
-  m_RootOrder: 10
+  m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 379, y: -256}
@@ -618,17 +624,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1743353460}
---- !u!4 &1765089714 stripped
+--- !u!4 &1765089714
 Transform:
   m_PrefabParentObject: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
   m_PrefabInternal: {fileID: 559811592}
---- !u!114 &1765089718 stripped
+--- !u!114 &1765089718
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11468214, guid: 1e362e9029db9a44597e3f8194f12bfa,
     type: 2}
   m_PrefabInternal: {fileID: 559811592}
   m_Script: {fileID: 11500000, guid: 75c6060785dbda242abe6f30e8082bdc, type: 3}
---- !u!114 &1765089719 stripped
+--- !u!114 &1765089719
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11412762, guid: 1e362e9029db9a44597e3f8194f12bfa,
     type: 2}
