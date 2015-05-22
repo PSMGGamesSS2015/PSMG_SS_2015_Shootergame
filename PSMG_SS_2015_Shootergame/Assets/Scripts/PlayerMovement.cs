@@ -225,7 +225,7 @@ public class PlayerMovement : MonoBehaviour
         float InputX = Input.GetAxis("Horizontal");
         float InputY = Input.GetAxis("Vertical");
 
-        moving = InputX > 0 || InputY > 0 ? true : false;
+        moving = InputX != 0 || InputY != 0 ? true : false;
 
         // modify factor so that diagonal movement isn't faster
         float inputModifyFactor = (InputX != 0.0f && InputY != 0.0f) ? 0.7071f : 1.0f;
