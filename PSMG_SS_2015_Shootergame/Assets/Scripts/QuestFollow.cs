@@ -3,6 +3,8 @@ using System.Collections;
 
 public class QuestFollow : MonoBehaviour {
 
+    public GameObject rangeIndicatorProjector;
+
     /// <summary>
     /// The object that needs to remain within range of the target - usually the plyaer
     /// </summary>
@@ -11,7 +13,7 @@ public class QuestFollow : MonoBehaviour {
     /// <summary>
     /// The trigger that will start the quest - the quest will start if the player is within a set distance of the trigger
     /// </summary>
-    public Transform trigger;
+    public Transform startTrigger;
 
     /// <summary>
     /// The goal that needs to be reached for the quest to finish
@@ -38,8 +40,13 @@ public class QuestFollow : MonoBehaviour {
     public float goalDistance = 20.0f;
 
     private Transform finishTriggerObject;
+
     private bool questStarted = false;
     private bool questFinished = false;
+
+    private GameObject startIndicator;
+    private GameObject failIndicator;
+    private GameObject goalIndicator;
 
 	// Use this for initialization
 	void Start () {
@@ -48,6 +55,8 @@ public class QuestFollow : MonoBehaviour {
         } else if (finishTrigger == FinishTrigger.Target) {
             finishTriggerObject = transform;
         }
+
+        startIndicator = CreateIndicator(startTrigger, startDistance);
 	}
 	
 	// Update is called once per frame
@@ -63,12 +72,25 @@ public class QuestFollow : MonoBehaviour {
         }
 	}
 
+    GameObject CreateIndicator(Transform parent, float range)
+    {
+        GameObject indicator = Instantiate(rangeIndicatorProjector, parent.position, Quaternion.Euler(90, 0, 0)) as GameObject;
+        indicator.transform.parent = parent;
+        indicator.GetComponent<Projector>().orthographicSize = range;
+
+        return indicator;
+
+    }
+
     void CheckForQuestStart()
     {
-        float distance = Vector3.Distance(player.position, trigger.position);
+        float distance = Vector3.Distance(player.position, startTrigger.position);
 
         if (distance <= startDistance)
         {
+            Destroy(startIndicator);
+            failIndicator = CreateIndicator(transform, failDistance);
+            goalIndicator = CreateIndicator(goal, goalDistance);
             StartQuest();
         }
     }
@@ -85,24 +107,35 @@ public class QuestFollow : MonoBehaviour {
 
     void CheckFinish()
     {
-        float distance = Vector3.Distance(finishTriggerObject.position, transform.position);
+        float distance = Vector3.Distance(finishTriggerObject.position, goal.position);
         if (distance <= goalDistance)
         {
-            Debug.Log("Quest finished!");
-            questStarted = false;
-            questFinished = true;
+            QuestFinished();
         }
     }
 
     void StartQuest() 
     {
         Debug.Log("Quest started!");
+
         questStarted = true;
     }
 
     void QuestFailed()
     {
+        Destroy(failIndicator);
+        Destroy(goalIndicator);
         questStarted = false;
         Debug.Log("Quest has failed!");
+    }
+
+    void QuestFinished()
+    {
+        Debug.Log("Quest finished!");
+        questStarted = false;
+        questFinished = true;
+
+        Destroy(failIndicator);
+        Destroy(goalIndicator);
     }
 }
