@@ -11,9 +11,14 @@ public class BasePlayer : MonoBehaviour {
     //maximal health the player can have
     private int maxHealth = 100;
 
+    // Maximum amount of flowers
+    public int maxFlowers = 5;
+
+    // Current amount of flowers
+    private int flowers = 1;
+
 	// Use this for initialization
 	void Awake () {
-
         
 	}
 	
@@ -25,5 +30,26 @@ public class BasePlayer : MonoBehaviour {
     public int getMaxHealth()
     {
         return maxHealth;
+    }
+
+    public void FlowerCollected()
+    {
+        if (flowers < maxFlowers)
+        {
+            flowers++;
+        }
+    }
+
+    public int getCurrentFlowers()
+    {
+        return flowers;
+    }
+
+    public void RemoveFlower()
+    {
+        if (flowers > 0)
+        {
+            flowers--;
+        }
     }
 }
