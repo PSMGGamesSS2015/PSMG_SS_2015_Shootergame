@@ -152,7 +152,15 @@ public class PlayerMovement : MonoBehaviour
         else if (fallingWhileFlying)
         {
             // ...handle movement and flying
-            HandleMovement();
+           
+            
+            
+            
+            //HandleMovement();
+
+
+
+
             HandleFlying();
         }
 
@@ -395,6 +403,19 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleFlying()
     {
+        if (!flapping)
+        {
+            Vector3 targetVelocity = transform.forward * flySpeed;
+            targetVelocity.y = 0.0f;
+            Vector3 velocity = GetComponent<Rigidbody>().velocity;
+            Vector3 velocityChange = (targetVelocity - velocity);
+
+            velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+            velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+
+            GetComponent<Rigidbody>().AddForce(velocityChange, ForceMode.VelocityChange);
+        }
+
         // Get the player's y position
         float yPosition = transform.position.y;
 
