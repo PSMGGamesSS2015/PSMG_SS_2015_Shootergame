@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
     // Sneaking speed of the player
     public float sprintingSpeed = 10.0f;
 
+    // Terrain for slope detection
+    public Collider terrain;
+
     // Speed modifier for faster/slower movement
     public float speedModifier = 1.0f;
 
@@ -302,7 +305,7 @@ public class PlayerMovement : MonoBehaviour
         // If max slope has not been exceeded...
         else
         {
-            // Initialize variables for the raycast and the modifier
+            // Initialize variables for the raycast
             RaycastHit hit;
 
             // Create the vector for the direction the player is moving to
@@ -313,11 +316,16 @@ public class PlayerMovement : MonoBehaviour
             // If the ray hits terrain....
             if (Physics.Raycast(transform.position, direction, out hit, 3.0f))
             {
-                // Calculate the dot product between the up vector and our movement vector
-                modifier = Vector3.Dot(Vector3.up, hit.normal);
+                if (hit.collider == terrain)
+                {
+                    // Calculate the dot product between the up vector and our movement vector
+                    modifier = Vector3.Dot(Vector3.up, hit.normal);
+                }
+                
             }
 
             // Return the power to 2 for slower movement in steep terrain
+            Debug.Log(Mathf.Pow(modifier, 2));
             return Mathf.Pow(modifier, 2);
         }
     }
@@ -407,6 +415,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 targetVelocity = transform.forward * flySpeed;
             targetVelocity.y = 0.0f;
+
             Vector3 velocity = GetComponent<Rigidbody>().velocity;
             Vector3 velocityChange = (targetVelocity - velocity);
 
