@@ -12,6 +12,11 @@ public class WaypointMovement : MonoBehaviour {
     private Transform currentWaypoint;
     private int currentIndex;
 
+    private bool moving = false;
+
+    private Transform saveWaypoint;
+    private int saveIndex;
+
 	// Use this for initialization
 	void Start () {
         currentIndex = 0;
@@ -20,9 +25,12 @@ public class WaypointMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        MoveToWaypoint();
+        if (moving)
+        {
+            MoveToWaypoint();
 
-        CheckIfWaypointReached();
+            CheckIfWaypointReached();
+        }
 	}
 
     void MoveToWaypoint()
@@ -45,5 +53,27 @@ public class WaypointMovement : MonoBehaviour {
 
             currentWaypoint = waypoints[currentIndex];
         }
+    }
+
+    public void StartMoving()
+    {
+        moving = true;
+    }
+
+    public void StopMoving()
+    {
+        moving = false;
+    }
+
+    public void SaveWaypoint()
+    {
+        saveWaypoint = currentWaypoint;
+        saveIndex = currentIndex;
+    }
+
+    public void LoadWaypoint()
+    {
+        currentWaypoint = saveWaypoint;
+        currentIndex = saveIndex;
     }
 }

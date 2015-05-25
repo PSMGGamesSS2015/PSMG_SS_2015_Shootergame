@@ -41,6 +41,7 @@ public class QuestFollow : MonoBehaviour {
 
     private Transform finishTriggerObject;
 
+    private bool activated = false;
     private bool questStarted = false;
     private bool questFinished = false;
 
@@ -48,29 +49,49 @@ public class QuestFollow : MonoBehaviour {
     private GameObject failIndicator;
     private GameObject goalIndicator;
 
+    // Just for testing purposes - need to implement savegames!
+    private Vector3 start_player;
+    private Vector3 start_target;
+    private Vector3 start_trigger;
+    private Vector3 start_goal;
+
+
 	// Use this for initialization
 	void Start () {
-        if (finishTrigger == FinishTrigger.Player) {
-            finishTriggerObject = player;
-        } else if (finishTrigger == FinishTrigger.Target) {
-            finishTriggerObject = transform;
-        }
+        // For test purposes only
+        // ----------------------
+        ActivateQuest();
+        // ----------------------
 
-        startIndicator = CreateIndicator(startTrigger, startDistance);
+        SetFinishTrigger();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (!questStarted)
+        if (activated)
         {
-            CheckForQuestStart();
-        }
-        else
-        {
-            CheckFail();
-            CheckFinish();
-        }
+            if (!questStarted)
+            {
+                CheckForQuestStart();
+            }
+            else
+            {
+                CheckFail();
+                CheckFinish();
+            }
+        }        
 	}
+
+    void SetFinishTrigger()
+    {
+        switch (finishTrigger)
+        {
+            case FinishTrigger.Player: finishTriggerObject = player;
+                break;
+            case FinishTrigger.Target: finishTriggerObject = transform;
+                break;
+        }
+    }
 
     GameObject CreateIndicator(Transform parent, float range)
     {
@@ -79,7 +100,6 @@ public class QuestFollow : MonoBehaviour {
         indicator.GetComponent<Projector>().orthographicSize = range;
 
         return indicator;
-
     }
 
     void CheckForQuestStart()
@@ -88,9 +108,6 @@ public class QuestFollow : MonoBehaviour {
 
         if (distance <= startDistance)
         {
-            Destroy(startIndicator);
-            failIndicator = CreateIndicator(transform, failDistance);
-            goalIndicator = CreateIndicator(goal, goalDistance);
             StartQuest();
         }
     }
@@ -116,26 +133,69 @@ public class QuestFollow : MonoBehaviour {
 
     void StartQuest() 
     {
-        Debug.Log("Quest started!");
-
         questStarted = true;
+
+        GetComponent<WaypointMovement>().StartMoving();
+
+        SaveStartParameters();
+
+        Destroy(startIndicator);
+
+        failIndicator = CreateIndicator(transform, failDistance);
+        goalIndicator = CreateIndicator(goal, goalDistance);        
     }
 
     void QuestFailed()
     {
         Destroy(failIndicator);
         Destroy(goalIndicator);
+
         questStarted = false;
-        Debug.Log("Quest has failed!");
+
+        ResetQuest();
     }
 
     void QuestFinished()
     {
-        Debug.Log("Quest finished!");
         questStarted = false;
         questFinished = true;
 
         Destroy(failIndicator);
         Destroy(goalIndicator);
+
+        // For test purposes only
+        // ----------------------
+        ActivateQuest();
+        // ----------------------
+    }
+
+    void SaveStartParameters()
+    {
+        start_player = player.transform.position;
+        start_target = transform.position;
+        start_trigger = startTrigger.transform.position;
+        start_goal = goal.transform.position;
+        GetComponent<WaypointMovement>().SaveWaypoint();
+    }
+
+    void ResetQuest()
+    {
+        player.transform.position = start_player;
+        transform.position = start_target;
+        startTrigger.transform.position = start_trigger;
+        goal.transform.position = start_goal;
+        GetComponent<WaypointMovement>().LoadWaypoint();
+        GetComponent<WaypointMovement>().StopMoving();
+
+        // For test purposes only
+        // ----------------------
+        ActivateQuest();
+        // ----------------------
+    }
+
+    public void ActivateQuest()
+    {
+        activated = true;
+        startIndicator = CreateIndicator(startTrigger, startDistance);
     }
 }
