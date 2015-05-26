@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
     // Sneaking speed of the player
     public float sprintingSpeed = 10.0f;
 
+    // Terrain for slope detection
+    public Collider terrain;
+
     // Speed modifier for faster/slower movement
     public float speedModifier = 1.0f;
 
@@ -37,9 +40,6 @@ public class PlayerMovement : MonoBehaviour
 
     // Gravity that is applied to the player while flying
     public float flyGravity = 3f;
-
-    // Variable that determines whether the player should accelerate while falling in fly mode
-    public bool accelerateWhileFlying = false;
 
     // Limit the maximum change in velocity to prevent strange behaviour
     public float maxVelocityChange = 10.0f;
@@ -77,6 +77,9 @@ public class PlayerMovement : MonoBehaviour
     // True, if the player is sneaking
     private bool sneaking = false;
 
+    // True, if the player is moving
+    private bool moving = false;
+
     // True, if the player is crouching
     private bool crouching = false;
 
@@ -101,9 +104,15 @@ public class PlayerMovement : MonoBehaviour
     // Save collider height to reset after crouching
     private float colliderHeight = 0.0f;
 
+    // Weapon controller for animations
+    private Assets.Scripts.Weapons.WeaponController weaponController;
+
+    private Vector3 lastDirection;
+
     void Start()
     {
         colliderHeight = GetComponent<CapsuleCollider>().height;
+        weaponController = GetComponent<Assets.Scripts.Weapons.WeaponController>();
     }
 
     void Awake()
@@ -140,22 +149,23 @@ public class PlayerMovement : MonoBehaviour
                 CheckForFlyMode();
             }
         }
-
         // If the player is not on the ground, in fly mode and not in the "initial jump phase" anymore...
-        else if (fallingWhileFlying)
+        else if (flyModeActivated)
         {
             // ...handle movement and flying
-            HandleMovement();
             HandleFlying();
         }
-
+        
+        if (!fallingWhileFlying) {
         // Apply gravity
-        ApplyGravity();
+            ApplyGravity();
+        }
 
         // Assume that the player is not on the ground
         grounded = false;
 
         // Reset special movement modes
+        moving = false;
         sneaking = false;
         sprinting = false;
         crouching = false;
@@ -164,7 +174,14 @@ public class PlayerMovement : MonoBehaviour
     // Check if the player has activated a special type of movement
     void CheckMovementType()
     {
-        if (Input.GetButton("Sneak"))
+        if (Input.GetButton("Sprint"))
+        {
+			if (Input.GetAxis("Vertical") == 1) {
+				sprinting = true;
+			}
+        }
+
+		if (Input.GetButton("Sneak") && Input.GetButton("Forward"))
         {
             sneaking = true;
         }
@@ -178,23 +195,20 @@ public class PlayerMovement : MonoBehaviour
         {
             GetComponent<CapsuleCollider>().height = colliderHeight;
         }
-
-        if (Input.GetButton("Sprint"))
-        {
-            sprinting = true;
-        }
     }
 
     void CheckForFlyMode()
     {
         // If the button for activation of fly mode is pressed...
-        if (Input.GetButton("Fly"))
+        if (Input.GetButton("Fly") && GetComponent<BasePlayer>().getCurrentFlowers() >= 1)
         {
-            // ...reset the amount of flaps available to the player
-            remainingFlaps = flapAmount;
-
             // ...set the fly mode to activated
             flyModeActivated = true;
+
+            GetComponent<BasePlayer>().RemoveFlower();
+
+            // ...reset the amount of flaps available to the player
+            remainingFlaps = flapAmount;
 
             // ...jump as high as set
             Jump(initialFlyHeight);
@@ -205,8 +219,11 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionStay()
     {
         grounded = true;
-        fallingWhileFlying = false;
-        flyModeActivated = false;
+        if (fallingWhileFlying)
+        {
+            fallingWhileFlying = false;
+            flyModeActivated = false;
+        }
     }
 
     void HandleMovement()
@@ -214,6 +231,8 @@ public class PlayerMovement : MonoBehaviour
         // Get input values
         float InputX = Input.GetAxis("Horizontal");
         float InputY = Input.GetAxis("Vertical");
+
+        moving = InputX != 0 || InputY != 0 ? true : false;
 
         // modify factor so that diagonal movement isn't faster
         float inputModifyFactor = (InputX != 0.0f && InputY != 0.0f) ? 0.7071f : 1.0f;
@@ -243,6 +262,28 @@ public class PlayerMovement : MonoBehaviour
         velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
         velocityChange.y = 0;
         GetComponent<Rigidbody>().AddForce(velocityChange, ForceMode.VelocityChange);
+
+        AnimatePlayer();
+    }
+
+    void AnimatePlayer()
+    {
+
+        if (sprinting)
+        {
+            weaponController.getActiveWeapon().Animator.SetBool("run", true);
+        }
+        else if (moving)
+        {
+            weaponController.getActiveWeapon().Animator.SetBool("run", false);
+            weaponController.getActiveWeapon().Animator.SetBool("walk", true);
+        }
+        else
+        {
+            weaponController.getActiveWeapon().Animator.SetBool("walk", false);
+            weaponController.getActiveWeapon().Animator.SetBool("run", false);
+        }
+        
     }
 
     float GetSlopeModifier(float x, float y)
@@ -259,7 +300,7 @@ public class PlayerMovement : MonoBehaviour
         // If max slope has not been exceeded...
         else
         {
-            // Initialize variables for the raycast and the modifier
+            // Initialize variables for the raycast
             RaycastHit hit;
 
             // Create the vector for the direction the player is moving to
@@ -270,8 +311,12 @@ public class PlayerMovement : MonoBehaviour
             // If the ray hits terrain....
             if (Physics.Raycast(transform.position, direction, out hit, 3.0f))
             {
-                // Calculate the dot product between the up vector and our movement vector
-                modifier = Vector3.Dot(Vector3.up, hit.normal);
+                if (hit.collider == terrain)
+                {
+                    // Calculate the dot product between the up vector and our movement vector
+                    modifier = Vector3.Dot(Vector3.up, hit.normal);
+                }
+                
             }
 
             // Return the power to 2 for slower movement in steep terrain
@@ -336,6 +381,8 @@ public class PlayerMovement : MonoBehaviour
         {
             // ...perform a jump with the defined jump height
             Jump(jumpHeight);
+
+            weaponController.getActiveWeapon().Animator.SetTrigger("Jump");
         }
     }
 
@@ -358,80 +405,90 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleFlying()
     {
-        // Get the player's y position
-        float yPosition = transform.position.y;
-
-        // Calculate the distance of the player to the maximum fly height
-        float distanceToLimit = maximumFlyHeight - yPosition;
-
-        // Initialize the actual flap height that we are going to use to the set flap height
-        float modifiedFlapHeight = flapHeight;
-
-        // If the player would exceed the maximum fly height by flapping...
-        if (distanceToLimit < flapHeight)
-        {
-            // Set the flap height to the value with which the player is going to reach the maximum fly height
-            modifiedFlapHeight = distanceToLimit;
-        }
-
-        // If the player still has remaing flaps, presses the flap button and the last flap was longher than flapDelay seconds ago...
-        if (remainingFlaps > 0 && Input.GetButton("Flap") && modifiedFlapHeight > 0 && ((Time.time - flapTime) >= flapDelay))
-        {
-            // Substract 1 from the remaining flaps
-            remainingFlaps--;
-            
-            // Save the current time
-            flapTime = Time.time;
-
-            // Perform a "jump" with the flap height we have set above
-            Jump(modifiedFlapHeight);
-
-            flapping = true;
-        }
-    }
-
-    void ApplyGravity()
-    {
-        // If the player is not falling while flying...
         if (!fallingWhileFlying)
         {
-            // Create a new vector with just a y component that is calculated using the gravity and the player's mass
-            Vector3 gravityVector = new Vector3(0, -gravity * GetComponent<Rigidbody>().mass, 0);
-
-            // Add the gravity vector to the player's rigidbody
-            GetComponent<Rigidbody>().AddForce(gravityVector);
-
-            // Check if the player is "falling while flying": If the fly mode is activated and the player's y velocity is below 0 (which means that he started falling), set the variable to true
-            if (flyModeActivated && GetComponent<Rigidbody>().velocity.y < 0)
-            {
-                fallingWhileFlying = true;
-            }
+            CheckIfFalling();
         }
-
-        // If the player is falling while flying...
         else
         {
-            // ...and if the player should accelerate while he is flying...
-            if (accelerateWhileFlying || flapping)
+            if (!flapping)
             {
-                // ...create a new vector with just a y component that is calculated using the fly gravity and the player's mass
-                Vector3 gravityVector = new Vector3(0, -flyGravity * GetComponent<Rigidbody>().mass, 0);
-                GetComponent<Rigidbody>().AddForce(gravityVector);
+                Vector3 targetVelocity = transform.forward;
+                targetVelocity.y = 0.0f;
+                targetVelocity.Normalize();
+                targetVelocity *= flySpeed;
 
+                if (targetVelocity.sqrMagnitude <= 0.0f)
+                {
+                    targetVelocity = lastDirection;
+                }
+
+                targetVelocity.y = -flyGravity;
+                lastDirection = targetVelocity;
+
+                GetComponent<Rigidbody>().velocity = targetVelocity;
+            }
+            else 
+            {
+                ApplyGravity();
                 if (GetComponent<Rigidbody>().velocity.y <= -flyGravity)
                 {
                     flapping = false;
                 }
             }
 
-            // ...and if the player should not accelerate while he is flying...
-            else
+            // Get the player's y position
+            float yPosition = transform.position.y;
+
+            // Calculate the distance of the player to the maximum fly height
+            float distanceToLimit = maximumFlyHeight - yPosition;
+
+            // Initialize the actual flap height that we are going to use to the set flap height
+            float modifiedFlapHeight = flapHeight;
+
+            // If the player would exceed the maximum fly height by flapping...
+            if (distanceToLimit < flapHeight)
             {
-                float xVelocity = GetComponent<Rigidbody>().velocity.x;
-                float zVelocity = GetComponent<Rigidbody>().velocity.z;
-                GetComponent<Rigidbody>().velocity = new Vector3(xVelocity, -flyGravity, zVelocity);
+                // Set the flap height to the value with which the player is going to reach the maximum fly height
+                modifiedFlapHeight = distanceToLimit;
             }
-        }        
+
+            // If the player still has remaing flaps, presses the flap button and the last flap was longher than flapDelay seconds ago...
+            if (remainingFlaps > 0 && Input.GetButton("Flap") && modifiedFlapHeight > 0 && ((Time.time - flapTime) >= flapDelay))
+            {
+                // Substract 1 from the remaining flaps
+                remainingFlaps--;
+
+                // Save the current time
+                flapTime = Time.time;
+
+                // Perform a "jump" with the flap height we have set above
+                Jump(modifiedFlapHeight);
+
+                flapping = true;
+            }
+        }
+        
+    }
+
+    void CheckIfFalling() 
+    {
+        // Check if the player is "falling while flying": If the fly mode is activated and the player's y velocity is below 0 (which means that he started falling), set the variable to true
+        if (GetComponent<Rigidbody>().velocity.y < 0)
+        {
+            fallingWhileFlying = true;
+        }
+    }
+    
+
+    void ApplyGravity()
+    {
+        Debug.Log("apply gravity");
+            // Create a new vector with just a y component that is calculated using the gravity and the player's mass
+            Vector3 gravityVector = new Vector3(0, -gravity * GetComponent<Rigidbody>().mass, 0);
+
+            // Add the gravity vector to the player's rigidbody
+            GetComponent<Rigidbody>().AddForce(gravityVector);
     }
 
     public void AllowMove(bool value)
