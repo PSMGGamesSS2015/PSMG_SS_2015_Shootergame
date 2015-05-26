@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: stone.006
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _NORMALMAP
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -18,14 +18,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: ce451f5c0377f794bbe7915fb900c20a, type: 3}
+          m_Texture: {fileID: 2800000, guid: 5ac8df57ce581d8418db0a348164e250, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: 46d2583161f8a614aaf0e0bf76c45f66, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -105,7 +105,7 @@ Material:
       data:
         first:
           name: _BumpScale
-        second: 1
+        second: 1.29999995
       data:
         first:
           name: _OcclusionStrength
