@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using Assets.Scripts.Weapons;
 
-public class SetLifeVisualisation : MonoBehaviour
+public class SetUIVisualisation : MonoBehaviour
 {
     //The Player Object
     public PlayerMovement movement;
@@ -28,6 +29,11 @@ public class SetLifeVisualisation : MonoBehaviour
     //shows the remaining health of the human
     public Image healthBar;
 
+    //shows the intensity of the bow
+    public Image bowIntensity;
+
+    //the bow script
+    private Bow bow;
 
     //has the mode changed from flying to not flying (or the other way round) or not
     private bool isModeChanged;
@@ -50,12 +56,19 @@ public class SetLifeVisualisation : MonoBehaviour
     {
         isFlying = movement.getMode();
         prevMode = true;
+
+        WeaponController wpc = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponController>();
+
+        //get the bow
+        bow = (Bow)wpc.getWeaponByName("Bow");
+        
         //Debug.Log("barFlapsBlue: " + barFlapsBlue.position);
     }
 
     void Update()
     {
-        //canvasCamera.orthographicSize = 100;
+        float intensity = Mathf.Lerp(bow.getMinIntensity(), bow.getMaxIntensity(), bow.getBowIntensity());
+        bowIntensity.fillAmount = Mathf.Max(intensity, 0.001f);
     }
 
     void OnGUI()
@@ -104,6 +117,8 @@ public class SetLifeVisualisation : MonoBehaviour
             }
             else
             {
+                flapBar.fillAmount = 1;
+
                 //Debug.Log("Fliegt nicht!!");
                 //bird1 and human2 are not visible
                 bird1.SetActive(false);

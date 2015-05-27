@@ -113,6 +113,19 @@ namespace Assets.Scripts.Weapons
 
             return true;
         }
-    }
 
+        public float getBowIntensity() {
+            return intensity;
+        }
+
+        public float getMaxIntensity() {
+            return MAX_INTENSITY;
+        }
+
+        public float getMinIntensity()
+        {
+            return MIN_INTENSITY;
+        }
+
+    }
 }
