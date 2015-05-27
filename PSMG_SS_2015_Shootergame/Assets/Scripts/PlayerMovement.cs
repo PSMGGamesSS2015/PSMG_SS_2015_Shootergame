@@ -483,12 +483,11 @@ public class PlayerMovement : MonoBehaviour
 
     void ApplyGravity()
     {
-        Debug.Log("apply gravity");
-            // Create a new vector with just a y component that is calculated using the gravity and the player's mass
-            Vector3 gravityVector = new Vector3(0, -gravity * GetComponent<Rigidbody>().mass, 0);
+        // Create a new vector with just a y component that is calculated using the gravity and the player's mass
+        Vector3 gravityVector = new Vector3(0, -gravity * GetComponent<Rigidbody>().mass, 0);
 
-            // Add the gravity vector to the player's rigidbody
-            GetComponent<Rigidbody>().AddForce(gravityVector);
+        // Add the gravity vector to the player's rigidbody
+        GetComponent<Rigidbody>().AddForce(gravityVector);
     }
 
     public void AllowMove(bool value)
