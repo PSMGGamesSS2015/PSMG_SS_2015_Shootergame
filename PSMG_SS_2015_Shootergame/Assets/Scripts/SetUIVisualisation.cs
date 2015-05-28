@@ -49,26 +49,66 @@ public class SetUIVisualisation : MonoBehaviour
 
     //percentage of birds remaining flaps
     private float flappercent;
-    
+
+    //Whether we are currently interpolating or not
+    private bool _isLerping;
+
+    //move the bird panel to this vector 
+    private Vector3 birdVector;
+
+    //move the human panel to this vector 
+    private Vector3 humanVector;
+
+    //small vector for the smaller icon
+    private Vector3 smallVector;
+
+    //bigger vector for the bigger icon
+    private Vector3 bigVector;
+
+    //the panel with human healthbar and the icon
+    public Transform panelHuman;
+
+    //the panel with bird flapbar and the icon
+    public Transform panelBird;
+
+    //The Time.time value when we started the interpolation
+    private float _timeStartedLerping;
+
+    //The time taken to move from the start to finish positions
+    public float timeTakenDuringLerp = 1f;
 
     // Use this for initialization
     void Start()
     {
+        smallVector = new Vector3(0.6f, 0.6f, 0.6f);
+        bigVector = new Vector3(1.0f, 1.0f, 1.0f);
+
         isFlying = movement.getMode();
+        //the player starts as a human
         prevMode = true;
 
+        //get the Bow 
         WeaponController wpc = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponController>();
-
-        //get the bow
         bow = (Bow)wpc.getWeaponByName("Bow");
         
-        //Debug.Log("barFlapsBlue: " + barFlapsBlue.position);
     }
 
     void Update()
     {
         float intensity = Mathf.Lerp(bow.getMinIntensity(), bow.getMaxIntensity(), bow.getBowIntensity());
         bowIntensity.fillAmount = Mathf.Max(intensity, 0.001f);
+
+    }
+
+    void FixedUpdate()
+    {
+        if (_isLerping)
+        {
+            float timeSinceStarted = Time.time - _timeStartedLerping;
+            float percentageComplete = timeSinceStarted / timeTakenDuringLerp;
+            panelHuman.transform.localScale = Vector3.Lerp(panelHuman.transform.localScale, humanVector, percentageComplete);
+            panelBird.transform.localScale = Vector3.Lerp(panelBird.transform.localScale, birdVector, percentageComplete);
+        }
     }
 
     void OnGUI()
@@ -78,17 +118,6 @@ public class SetUIVisualisation : MonoBehaviour
         //only if the mode has changed, the images should change
         if (isModeChanged)
         {
-            //Debug.Log("red " + barHealthRed.position);
-            //Debug.Log("blue" + barFlapsBlue.position);
-
-            bird1.transform.transform.position = new Vector3(74.0f, 68.5f, 0.0f);
-            human1.transform.position = new Vector3(74.0f, 68.5f, 0.0f);
-            bird2.transform.position = new Vector3(74.0f, 68.5f, 0.0f);
-            human2.transform.position = new Vector3(74.0f, 68.5f, 0.0f);
-            healthBar.transform.position = new Vector3(142.0f, 99.0f, 0.0f);
-            flapBar.transform.position = new Vector3(142.0f, 99.0f, 0.0f);
-
-            //Debug.Log(GameObject.Find("lifeenergyBird").position);
             if (isFlying)
             {
                 //Debug.Log("Fliegt!!");
@@ -98,25 +127,17 @@ public class SetUIVisualisation : MonoBehaviour
                 //bird1 and human2 are visible
                 bird1.SetActive(true);
                 human2.SetActive(true);
+                
+                //set desired size vector of human and bird
+                birdVector = bigVector;
+                humanVector = smallVector;
 
-                //change position of the bird1 image and scale it to 1
-                bird1.transform.localScale = Vector3.one * (1f);
-                bird1.transform.position = GameObject.Find("lifeenergyBird state1").transform.position + new Vector3(25f, 25f, 0f);
-
-                //change position of the human2 image and scale it to 0.5
-                human2.transform.localScale = Vector3.one * (0.5f);
-                human2.transform.position = GameObject.Find("lifeenergyHuman state2").transform.position - new Vector3(25f, 25f, 0f);
-
-                //change position and size of the healthbar
-                healthBar.transform.position = GameObject.Find("healthbar").transform.position - new Vector3(75f, 55f, 0f);
-                healthBar.transform.localScale = Vector3.one * (0.5f);
-
-                //change position and size of the flapbar
-                flapBar.transform.localScale = Vector3.one * (1.0f);
+                StartLerping();
 
             }
             else
             {
+                //reset the flap bar
                 flapBar.fillAmount = 1;
 
                 //Debug.Log("Fliegt nicht!!");
@@ -127,20 +148,11 @@ public class SetUIVisualisation : MonoBehaviour
                 bird2.SetActive(true);
                 human1.SetActive(true);
 
-                //change position of the bird2 image and scale it to 0.5
-                bird2.transform.localScale = Vector3.one * (0.5f);
-                bird2.transform.position = GameObject.Find("lifeenergyBird state2").transform.position - new Vector3(25f, 25f, 0f);
+                //set desired size vector of human and bird
+                birdVector = smallVector;
+                humanVector = bigVector;
 
-                //change position of the human1 image and scale it to 1
-                human1.transform.localScale = Vector3.one * (1f);
-                human1.transform.position = GameObject.Find("lifeenergyHuman state1").transform.position + new Vector3(25f, 25f, 0f);
-
-                //change position and size of the healthbar
-                healthBar.transform.localScale = Vector3.one * (1.0f);
-
-                //change position and size of the flapbar
-                flapBar.transform.position = GameObject.Find("flapbar").transform.position - new Vector3(75f, 55f, 0f);
-                flapBar.transform.localScale = Vector3.one * (0.5f);
+                StartLerping();
             }
         }
 
@@ -160,11 +172,18 @@ public class SetUIVisualisation : MonoBehaviour
 
     }
 
+    // Called to begin the linear interpolation
+    void StartLerping()
+    {
+        _isLerping = true;
+        _timeStartedLerping = Time.time;
+    }
+
     //check if the Mode has changed or not
     bool hasModeChanged()
     {
         isFlying = movement.getMode();
-        //Debug.Log("Fly? " + isFlying + ", prev? "+prevMode);
+
         if (isFlying && prevMode)
         {
             isModeChanged = false;
@@ -185,7 +204,7 @@ public class SetUIVisualisation : MonoBehaviour
             isModeChanged = false;
             prevMode = isFlying;
         }
-        //Debug.Log("isModeChanged? " + isModeChanged);
+
         return isModeChanged;
     }
 }
