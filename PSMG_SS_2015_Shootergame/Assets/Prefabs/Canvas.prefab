@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &125166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22494692}
+  - 222: {fileID: 22227732}
+  - 114: {fileID: 11496174}
+  m_Layer: 5
+  m_Name: AmmoInfoLabel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &127692
 GameObject:
   m_ObjectHideFlags: 1
@@ -28,7 +45,7 @@ GameObject:
   - 222: {fileID: 22236776}
   - 114: {fileID: 11406418}
   m_Layer: 5
-  m_Name: Panel 1
+  m_Name: Panel Human
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +79,7 @@ GameObject:
   - 222: {fileID: 22265056}
   - 114: {fileID: 11428874}
   m_Layer: 5
-  m_Name: Panel 2
+  m_Name: Panel Bird
   m_TagString: LifeVisualisation Flap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,7 +182,6 @@ GameObject:
   - 114: {fileID: 11456766}
   - 114: {fileID: 11445208}
   - 114: {fileID: 11485818}
-  - 114: {fileID: 11493110}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -398,24 +414,35 @@ MonoBehaviour:
   flapBar: {fileID: 11412900}
   healthBar: {fileID: 11401880}
   bowIntensity: {fileID: 11428512}
---- !u!114 &11493110
+  panelHuman: {fileID: 22457296}
+  panelBird: {fileID: 22458908}
+  timeTakenDuringLerp: 1
+--- !u!114 &11496174
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197374}
+  m_GameObject: {fileID: 125166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8ec3a534df60946933efb187119ec9, type: 3}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 0}
-  redHealthBar: {fileID: 0}
-  blueFlapBar: {fileID: 0}
-  panel1: {fileID: 22457296}
-  panel2: {fileID: 22458908}
-  timeTakenDuringLerp: 1
-  distanceToMove: 10
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 23
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 2
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
 --- !u!114 &11499826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -449,6 +476,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127692}
+--- !u!222 &22227732
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125166}
 --- !u!222 &22236776
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -521,6 +554,7 @@ RectTransform:
   - {fileID: 22457296}
   - {fileID: 22458908}
   - {fileID: 22466738}
+  - {fileID: 22494692}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -536,7 +570,7 @@ RectTransform:
   m_GameObject: {fileID: 127692}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 22458908}
   m_RootOrder: 0
@@ -633,7 +667,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -138, y: -82}
+  m_AnchoredPosition: {x: -214, y: -112}
   m_SizeDelta: {x: 51, y: 102}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22466688
@@ -684,8 +718,25 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -147, y: -82}
+  m_AnchoredPosition: {x: -214, y: -112}
   m_SizeDelta: {x: 51, y: 102}
+  m_Pivot: {x: .5, y: .5}
+--- !u!224 &22494692
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125166}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22416988}
+  m_RootOrder: 3
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 251, y: -187}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:

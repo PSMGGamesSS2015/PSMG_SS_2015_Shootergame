@@ -160,16 +160,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 48615686}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!224 &217731356
-RectTransform:
-  m_PrefabParentObject: {fileID: 22458908, guid: dff7fdba1b6487c4eb6b8264b542a927,
-    type: 2}
-  m_PrefabInternal: {fileID: 519194971}
---- !u!224 &248277018
-RectTransform:
-  m_PrefabParentObject: {fileID: 22486720, guid: dff7fdba1b6487c4eb6b8264b542a927,
-    type: 2}
-  m_PrefabInternal: {fileID: 519194971}
 --- !u!114 &314570538
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11468214, guid: 1e362e9029db9a44597e3f8194f12bfa,
@@ -269,76 +259,7 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 314570538}
-    - target: {fileID: 11493110, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: movement
-      value: 
-      objectReference: {fileID: 314570539}
-    - target: {fileID: 11456766, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493110, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: redHealthBar
-      value: 
-      objectReference: {fileID: 248277018}
-    - target: {fileID: 11493110, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: blueFlapBar
-      value: 
-      objectReference: {fileID: 1537577866}
-    - target: {fileID: 11485818, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: panel1
-      value: 
-      objectReference: {fileID: 1441211821}
-    - target: {fileID: 11485818, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: panel2
-      value: 
-      objectReference: {fileID: 217731356}
-    - target: {fileID: 22448354, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22448354, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22448354, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22465704, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -214
-      objectReference: {fileID: 0}
-    - target: {fileID: 22465704, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -112
-      objectReference: {fileID: 0}
-    - target: {fileID: 22486720, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -214
-      objectReference: {fileID: 0}
-    - target: {fileID: 22486720, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -112
-      objectReference: {fileID: 0}
-    - target: {fileID: 132618, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_Name
-      value: Panel Human
-      objectReference: {fileID: 0}
-    - target: {fileID: 153582, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_Name
-      value: Panel Bird
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485818, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: panelHuman
-      value: 
-      objectReference: {fileID: 1441211821}
-    - target: {fileID: 11485818, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: panelBird
-      value: 
-      objectReference: {fileID: 217731356}
-    m_RemovedComponents:
-    - {fileID: 11493110, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &722240998
@@ -519,11 +440,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 822649727}
   m_RootOrder: 2
---- !u!224 &1441211821
-RectTransform:
-  m_PrefabParentObject: {fileID: 22457296, guid: dff7fdba1b6487c4eb6b8264b542a927,
-    type: 2}
-  m_PrefabInternal: {fileID: 519194971}
 --- !u!1 &1473740211
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,11 +573,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!224 &1537577866
-RectTransform:
-  m_PrefabParentObject: {fileID: 22465704, guid: dff7fdba1b6487c4eb6b8264b542a927,
-    type: 2}
-  m_PrefabInternal: {fileID: 519194971}
 --- !u!1 &1807926658
 GameObject:
   m_ObjectHideFlags: 0
