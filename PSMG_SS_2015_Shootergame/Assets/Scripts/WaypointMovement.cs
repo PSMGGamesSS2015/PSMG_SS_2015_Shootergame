@@ -2,48 +2,74 @@
 using System.Collections;
 
 // http://www.attiliocarotenuto.com/83-articles-tutorials/unity/292-unity-3-moving-a-npc-along-a-path
+// http://unity3d.com/learn/tutorials/projects/survival-shooter/enemy-one
+
+[RequireComponent(typeof(NavMeshAgent))]
 
 public class WaypointMovement : MonoBehaviour {
 
     public Transform[] waypoints;
-    public float movementSpeed = 5.0f;
-    public float minDistance = 5.0f;
 
-    private Transform currentWaypoint;
-    private int currentIndex;
+    Transform currentWaypoint;
+    int currentIndex;
 
-    private bool moving = false;
+    bool moving = false;
 
-    private Transform saveWaypoint;
-    private int saveIndex;
+    NavMeshAgent nav;
+
+    Transform saveWaypoint;
+    int saveIndex;
+
+    float minDistance = 2.0f;
+    float distance;
 
 	// Use this for initialization
 	void Start () {
         currentIndex = 0;
         currentWaypoint = waypoints[currentIndex];
 	}
+
+    void Awake()
+    {
+        nav = GetComponent<NavMeshAgent>();
+        distance = minDistance;
+    }
 	
 	// Update is called once per frame
 	void Update () {
         if (moving)
         {
             MoveToWaypoint();
-
             CheckIfWaypointReached();
+            CheckIfStuck();
         }
 	}
 
+    void CheckIfStuck()
+    {
+        if (nav.velocity.sqrMagnitude == 0.0f)
+        {
+            Unstuck();
+        }
+        else
+        {
+            distance = minDistance;
+        }
+    }
+
+    void Unstuck()
+    {
+        distance += 0.1f;
+    }
+
     void MoveToWaypoint()
     {
-        Vector3 direction = currentWaypoint.transform.position - transform.position;
-        Vector3 moveVector = direction.normalized * movementSpeed * Time.deltaTime;
-        transform.position += moveVector;
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 4 * Time.deltaTime);
+        nav.SetDestination(currentWaypoint.transform.position);
     }
 
     void CheckIfWaypointReached()
     {
-        if (Vector3.Distance(currentWaypoint.transform.position, transform.position) <= minDistance)
+        if (Vector3.Distance(currentWaypoint.transform.position, transform.position) <= distance)
         {
             currentIndex++;
             if (currentIndex >= waypoints.Length)

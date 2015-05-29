@@ -76,17 +76,17 @@ NavMeshSettings:
   m_ObjectHideFlags: 0
   m_BuildSettings:
     serializedVersion: 2
-    agentRadius: .5
-    agentHeight: 2
+    agentRadius: .75
+    agentHeight: 1.5
     agentSlope: 45
-    agentClimb: .400000006
+    agentClimb: .5
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     accuratePlacement: 0
     minRegionArea: 2
-    cellSize: .166666672
+    cellSize: .25
     manualCellSize: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: aed91081950430d429470b3820822efa, type: 2}
 --- !u!1 &101982573
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,7 +282,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &187184275
 Transform:
@@ -492,15 +492,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 240
+      value: 292.779999
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 25.7000008
+      value: 37.0099983
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 621.309998
+      value: 604.909973
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalRotation.x
@@ -600,7 +600,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 643703944}
   m_Layer: 0
-  m_Name: TestQuestObjects
+  m_Name: TestFollowQuest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -928,6 +928,8 @@ GameObject:
   - 23: {fileID: 1291594973}
   - 114: {fileID: 1291594972}
   - 114: {fileID: 1291594977}
+  - 195: {fileID: 1291594978}
+  - 54: {fileID: 1291594979}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -950,8 +952,6 @@ MonoBehaviour:
   - {fileID: 2017800733}
   - {fileID: 698739818}
   - {fileID: 1799410738}
-  movementSpeed: 5
-  minDistance: 1
 --- !u!23 &1291594973
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1001,8 +1001,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1291594971}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.8099976, y: -42.7100029, z: 37.1099854}
+  m_LocalRotation: {x: .0869055018, y: -.0280583426, z: .116037354, w: .989037693}
+  m_LocalPosition: {x: 37.5200005, y: -42.1500015, z: 37.0200005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 643703944}
@@ -1027,6 +1027,41 @@ MonoBehaviour:
   startDistance: 5
   failDistance: 30
   goalDistance: 10
+--- !u!195 &1291594978
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291594971}
+  m_Enabled: 1
+  m_Radius: .5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: .389999986
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!54 &1291594979
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291594971}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &1377023738
 GameObject:
   m_ObjectHideFlags: 0
