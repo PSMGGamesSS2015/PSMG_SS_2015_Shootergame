@@ -15,11 +15,15 @@ public class CollectFlower : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        BasePlayer component = other.GetComponent<BasePlayer>();
-        if (component.getCurrentFlowers() < component.maxFlowers)
+        if (other.tag == "Player")
         {
-            component.FlowerCollected();
-            Destroy(gameObject);
-        }        
+            BasePlayer component = other.GetComponent<BasePlayer>();
+
+            if (component.getCurrentFlowers() < component.maxFlowers)
+            {
+                component.FlowerCollected();
+                Destroy(gameObject);
+            }     
+        }
     }
 }
