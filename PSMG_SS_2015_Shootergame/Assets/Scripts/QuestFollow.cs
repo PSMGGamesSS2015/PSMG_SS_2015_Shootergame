@@ -105,8 +105,9 @@ public class QuestFollow : MonoBehaviour {
     void CheckForQuestStart()
     {
         float distance = Vector3.Distance(player.position, startTrigger.position);
+        float targetDistance = Vector3.Distance(transform.position, startTrigger.position);
 
-        if (distance <= startDistance)
+        if (distance <= startDistance && targetDistance <= (failDistance * 0.75f))
         {
             StartQuest();
         }
