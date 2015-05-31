@@ -101,5 +101,7 @@ public class WaypointMovement : MonoBehaviour {
     {
         currentWaypoint = saveWaypoint;
         currentIndex = saveIndex;
+
+        distance = minDistance;
     }
 }
