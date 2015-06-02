@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 407936}
   - 33: {fileID: 3379714}
   - 23: {fileID: 2375866}
+  - 65: {fileID: 6578760}
   m_Layer: 0
   m_Name: stone.004
   m_TagString: Untagged
@@ -60,6 +61,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103684}
   m_Mesh: {fileID: 4300000, guid: 087b7b52a640b3e438be92f9c8735ed9, type: 3}
+--- !u!65 &6578760
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103684}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.3036747, y: 2.82786822, z: 1.92868114}
+  m_Center: {x: -.0721350908, y: .108755991, z: .108823493}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 422722}
   - 33: {fileID: 3349254}
   - 23: {fileID: 2384716}
-  - 95: {fileID: 9588318}
+  - 65: {fileID: 6505212}
   m_Layer: 0
   m_Name: stone.003-Moss
   m_TagString: Untagged
@@ -61,23 +61,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152834}
   m_Mesh: {fileID: 4300000, guid: bb7986808bb709c448eda92f663a03bb, type: 3}
---- !u!95 &9588318
-Animator:
-  serializedVersion: 3
+--- !u!65 &6505212
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152834}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 5bac9085c3719104ca7a5ac66910dda4, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  serializedVersion: 2
+  m_Size: {x: 3.62934113, y: 2.06437016, z: 2.45078468}
+  m_Center: {x: .211325645, y: -.0765342936, z: .15849708}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
