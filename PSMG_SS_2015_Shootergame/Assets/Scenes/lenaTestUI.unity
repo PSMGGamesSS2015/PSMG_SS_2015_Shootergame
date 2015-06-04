@@ -573,6 +573,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!1 &1480445836
+GameObject:
+  m_PrefabParentObject: {fileID: 125166, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+  m_PrefabInternal: {fileID: 519194971}
 --- !u!1 &1807926658
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,6 +750,10 @@ Prefab:
       propertyPath: m_CullingMask.m_Bits
       value: 4294967007
       objectReference: {fileID: 0}
+    - target: {fileID: 11432544, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
+      propertyPath: ammoInfoText
+      value: 
+      objectReference: {fileID: 1480445836}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
   m_IsPrefabParent: 0

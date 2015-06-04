@@ -77,9 +77,13 @@ public class SetUIVisualisation : MonoBehaviour
     //The time taken to move from the start to finish positions
     public float timeTakenDuringLerp = 1f;
 
+    //Tutorial text
+    public Text textfield;
+
     // Use this for initialization
     void Start()
     {
+        //showTextinUI("Test text zum schaun wie das alles aussieht! ", 5);
         smallVector = new Vector3(0.6f, 0.6f, 0.6f);
         bigVector = new Vector3(1.0f, 1.0f, 1.0f);
 
@@ -205,4 +209,19 @@ public class SetUIVisualisation : MonoBehaviour
 
         return isModeChanged;
     }
+
+    //show the text for a specific time at the ui and then disable it
+    public void showTextinUI(string text, float time)
+    {
+        textfield.enabled = true;
+        textfield.text = text;
+        Invoke("disableUIText", time);
+    }
+
+    //disable the text on the UI
+    private void disableUIText()
+    {
+        textfield.enabled = false;
+    }
+        
 }
