@@ -10,8 +10,8 @@ namespace Assets.Scripts.Weapons
     {
 
         // Minimum and maximum intensity that can be reached by the arrow
-        private const float MIN_INTENSITY = 0.5f;
-        private const float MAX_INTENSITY = 2.0f;
+        public const float MIN_INTENSITY = 0.5f;
+        public const float MAX_INTENSITY = 2.0f;
 
         // How fast the intensity should grow while bending the bow
         private const float INTENSITY_GROWTH = 1.0f;
@@ -83,6 +83,9 @@ namespace Assets.Scripts.Weapons
 
         protected override bool Shoot()
         {
+
+            bending = false;
+
             if (intensity < MIN_INTENSITY)
             {
                 Animator.SetTrigger("DropArrow");
@@ -94,15 +97,16 @@ namespace Assets.Scripts.Weapons
                 return false;
             }
 
-            bending = false;
-
+            
             // Get the direction of the camera to set the arrow rotation like this
             Transform camPos = Camera.main.transform;
-            
+      
 
             // Instantiate a new arrow object and call its Shoot() function
             GameObject arrow = GameObject.Instantiate(arrowPrefab, bulletSpawn.transform.position, camPos.rotation) as GameObject;
             arrow.GetComponent<ArrowBehaviour>().Shoot(intensity);
+
+            intensity = 0;
 
             Animator.SetTrigger("ReleaseArrow");
 
@@ -116,15 +120,6 @@ namespace Assets.Scripts.Weapons
 
         public float getBowIntensity() {
             return intensity;
-        }
-
-        public float getMaxIntensity() {
-            return MAX_INTENSITY;
-        }
-
-        public float getMinIntensity()
-        {
-            return MIN_INTENSITY;
         }
 
     }
