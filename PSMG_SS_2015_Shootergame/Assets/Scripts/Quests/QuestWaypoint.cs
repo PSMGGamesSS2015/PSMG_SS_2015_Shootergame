@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WaypointMission : MonoBehaviour {
+public class QuestWaypoint : MonoBehaviour {
 
     public Transform[] waypoints;
 
