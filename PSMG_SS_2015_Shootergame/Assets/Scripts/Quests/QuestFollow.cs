@@ -55,6 +55,17 @@ public class QuestFollow : MonoBehaviour {
     private Vector3 start_trigger;
     private Vector3 start_goal;
 
+    public SetUIVisualisation textScript;
+
+    public string activateText;
+    public string startText;
+    public string finishText;
+    public string failText;
+
+    public float startTextTime;
+    public float activateTextTime;
+    public float finishTextTime;
+    public float failTextTime;
 
 	// Use this for initialization
 	void Start () {
@@ -136,6 +147,8 @@ public class QuestFollow : MonoBehaviour {
     {
         questStarted = true;
 
+        textScript.showTextinUI(startText, startTextTime);
+
         GetComponent<WaypointMovement>().StartMoving();
 
         SaveStartParameters();
@@ -153,6 +166,8 @@ public class QuestFollow : MonoBehaviour {
 
         questStarted = false;
 
+        textScript.showTextinUI(failText, failTextTime);
+
         ResetQuest();
     }
 
@@ -160,6 +175,8 @@ public class QuestFollow : MonoBehaviour {
     {
         questStarted = false;
         questFinished = true;
+
+        textScript.showTextinUI(finishText, finishTextTime);
 
         Destroy(failIndicator);
         Destroy(goalIndicator);
@@ -196,6 +213,8 @@ public class QuestFollow : MonoBehaviour {
 
     public void ActivateQuest()
     {
+        textScript.showTextinUI(activateText, activateTextTime);
+
         activated = true;
         startIndicator = CreateIndicator(startTrigger, startDistance);
     }

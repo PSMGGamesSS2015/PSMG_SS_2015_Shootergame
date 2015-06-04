@@ -19,6 +19,18 @@ public class QuestWaypoint : MonoBehaviour {
 
     public GameObject rangeIndicatorProjector;
 
+    public SetUIVisualisation textScript;
+
+    public string activateText;
+    public string startText;
+    public string finishText;
+    public string failText;
+
+    public float startTextTime;
+    public float activateTextTime;
+    public float finishTextTime;
+    public float failTextTime;
+
     private Transform player;
 
     private ArrayList toVisit;
@@ -30,6 +42,8 @@ public class QuestWaypoint : MonoBehaviour {
     private bool activated = false;
     private bool questStarted = false;
     private bool questFinished = false;
+
+    
 
 	// Use this for initialization
 	void Start () {
@@ -45,6 +59,8 @@ public class QuestWaypoint : MonoBehaviour {
     void StartQuest()
     {
         questStarted = true;
+        textScript.showTextinUI(startText, startTextTime);
+
         startTime = Time.time;
     }
 
@@ -172,6 +188,8 @@ public class QuestWaypoint : MonoBehaviour {
 
     void QuestFinished()
     {
+        textScript.showTextinUI(finishText, finishTextTime);
+
         activated = false;
         questStarted = false;
         questFinished = true;
@@ -185,6 +203,8 @@ public class QuestWaypoint : MonoBehaviour {
 
     void QuestFailed()
     {
+        textScript.showTextinUI(failText, failTextTime);
+
         activated = false;
         questStarted = false;
         questFinished = false;
@@ -217,6 +237,7 @@ public class QuestWaypoint : MonoBehaviour {
     public void ActivateQuest()
     {
         activated = true;
+        textScript.showTextinUI(activateText, activateTextTime);
 
         questStarted = false;
         questFinished = false;
