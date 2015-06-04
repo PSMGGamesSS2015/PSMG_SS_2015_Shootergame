@@ -95,8 +95,9 @@ public class SetUIVisualisation : MonoBehaviour
 
     void Update()
     {
-        float intensity = Mathf.Lerp(bow.getMinIntensity(), bow.getMaxIntensity(), bow.getBowIntensity());
-        bowIntensity.fillAmount = Mathf.Max(intensity, 0.001f);
+        float intensity = (bow.getBowIntensity()-0.5f)/2;
+        Debug.Log(intensity);
+        bowIntensity.fillAmount = intensity;
 
     }
 
