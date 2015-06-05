@@ -50,11 +50,18 @@ public class Enemy : MonoBehaviour {
     
 
     private BasePlayer player;
-    private Transform playerPosition;
+    private Vector3 playerPosition;
+
+    // Position where the enemy is when following starts
+    private Vector3 startingPosition;
+
+    private bool goingHome = false;
 
     private Rigidbody body;
 
     public GameObject head;
+
+    private NavMeshAgent nav;
 
     private float lastAttackTimestamp = 0;
 
@@ -62,29 +69,36 @@ public class Enemy : MonoBehaviour {
 	void Start () {
         body = GetComponent<Rigidbody>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        playerPosition = player.transform;
+        
         this.player = player.GetComponent<BasePlayer>();
+
+        nav = GetComponent<NavMeshAgent>();
+
         enemies.Add(gameObject);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        playerPosition = player.transform.position;
 
-        float distance = Vector3.Distance(transform.position, playerPosition.position);
+        float distance = Vector3.Distance(transform.position, playerPosition);
 
         if (hasSpottedPlayer)
         {
             transform.LookAt(playerPosition);
 
-            
-
             if (distance > 5.0f && distance < 30.0f)
             {
-                body.AddForce(transform.forward * 30);
+                nav.SetDestination(playerPosition);
             }
             else if (distance > 30.0f)
             {
                 HasSpottedPlayer = false;
+
+                // Move back to where the enemy was when following started
+                nav.SetDestination(startingPosition);
+
+                goingHome = true;
             }
             else
             {
@@ -102,7 +116,21 @@ public class Enemy : MonoBehaviour {
             // if player is standing to close to enemy
             if (distance < 20.0f)
             {
+                if (!goingHome)
+                {
+                    startingPosition = transform.position;
+                    Debug.Log(startingPosition);
+                }
+                
                 HasSpottedPlayer = true;
+            }
+
+            if (goingHome)
+            {
+                if (Vector3.Distance(transform.position, startingPosition) <= 3.0f)
+                {
+                    goingHome = false;
+                }
             }
         }
 	}
