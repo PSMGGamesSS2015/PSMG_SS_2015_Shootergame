@@ -41,7 +41,9 @@ public class Enemy : MonoBehaviour {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
             if (distance < 10)
             {
-                enemy.GetComponent<Enemy>().HasSpottedPlayer = true;
+                Enemy e = enemy.GetComponent<Enemy>();
+                if (e.HasSpottedPlayer == false)
+                    e.HasSpottedPlayer = true;
             }
         }
     }
