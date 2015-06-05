@@ -17,6 +17,29 @@ namespace Assets.Scripts.Weapons
 
         public GameObject ammoInfoText = null;
 
+        private bool isInFlyMode = false;
+        public bool FlyMode
+        {
+            get
+            {
+                return isInFlyMode;
+            }
+            set
+            {
+                isInFlyMode = value;
+                if (value == true)
+                {
+                    weapons[curWeaponIndex].SetDown();
+                }
+                else
+                {
+                    weapons[curWeaponIndex].SetUp();
+                }
+                
+            }
+        }
+
+
         public void Awake()
         {
             weapons = new BaseWeapon[MAX_WEAPONS];
@@ -82,6 +105,8 @@ namespace Assets.Scripts.Weapons
 
         private void CheckMouseButtons()
         {
+            if (isInFlyMode) return;
+
             // Check if Fire button is down
             if (Input.GetButtonDown("Fire1"))
             {

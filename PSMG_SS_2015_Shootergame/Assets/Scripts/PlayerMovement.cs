@@ -2,6 +2,7 @@
 
 using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Weapons;
 
 // Require a rigidbody on the player object
 [RequireComponent(typeof(Rigidbody))]
@@ -202,6 +203,7 @@ public class PlayerMovement : MonoBehaviour
         // If the button for activation of fly mode is pressed...
         if (Input.GetButton("Fly") && GetComponent<BasePlayer>().getCurrentFlowers() >= 1)
         {
+            weaponController.FlyMode = true;
             // ...set the fly mode to activated
             flyModeActivated = true;
 
@@ -223,6 +225,7 @@ public class PlayerMovement : MonoBehaviour
         {
             fallingWhileFlying = false;
             flyModeActivated = false;
+            weaponController.FlyMode = false;
         }
     }
 
@@ -268,6 +271,7 @@ public class PlayerMovement : MonoBehaviour
 
     void AnimatePlayer()
     {
+        if (weaponController.FlyMode) return;
 
         if (sprinting)
         {

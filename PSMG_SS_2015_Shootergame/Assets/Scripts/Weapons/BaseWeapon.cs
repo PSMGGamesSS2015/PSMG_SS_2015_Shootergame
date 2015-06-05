@@ -167,7 +167,7 @@ namespace Assets.Scripts.Weapons
 
         protected virtual bool Shoot()
         {
-            if (isReloading)
+            if (!CanShoot())
             {
                 return false;
             }
