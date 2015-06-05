@@ -78,6 +78,9 @@ namespace Assets.Scripts.Weapons
 
             Animator.SetFloat("bendIntensity", intensity);
 
+            Animator.Play("Bending", 0, intensity/MAX_INTENSITY);
+            Animator.speed = 0;
+
             // Make sure the intensity does not exceed our limitations
             Mathf.Clamp(intensity, MIN_INTENSITY, MAX_INTENSITY);
         }
@@ -86,6 +89,7 @@ namespace Assets.Scripts.Weapons
         {
 
             bending = false;
+            Animator.speed = 1;
 
             if (intensity < MIN_INTENSITY)
             {
