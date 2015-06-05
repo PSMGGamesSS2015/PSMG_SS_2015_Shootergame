@@ -204,10 +204,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButton("Fly") && GetComponent<BasePlayer>().getCurrentFlowers() >= 1)
         {
             weaponController.FlyMode = true;
+            BasePlayer player = GetComponent<BasePlayer>();
+            player.FlyMode = true;
             // ...set the fly mode to activated
             flyModeActivated = true;
 
-            GetComponent<BasePlayer>().RemoveFlower();
+            player.RemoveFlower();
 
             // ...reset the amount of flaps available to the player
             remainingFlaps = flapAmount;
@@ -226,6 +228,7 @@ public class PlayerMovement : MonoBehaviour
             fallingWhileFlying = false;
             flyModeActivated = false;
             weaponController.FlyMode = false;
+            GetComponent<BasePlayer>().FlyMode = false;
         }
     }
 

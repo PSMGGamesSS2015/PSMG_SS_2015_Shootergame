@@ -28,8 +28,9 @@ namespace Assets.Scripts.Weapons
         public Bow(GameObject parent)
             : base("Bow", parent)
         {
-            intensity = MIN_INTENSITY;
+            intensity = 0;
 
+            bulletSpawn.transform.Translate(new Vector3(0, 0, -1.5f));
             PlayerPrefabsController ppc = parentPlayer.GetComponent<PlayerPrefabsController>();
             arrowPrefab = ppc.arrowPrefab;
         }

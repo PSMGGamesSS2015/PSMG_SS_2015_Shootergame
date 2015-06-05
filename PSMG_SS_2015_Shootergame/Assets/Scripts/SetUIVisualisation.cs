@@ -167,7 +167,7 @@ public class SetUIVisualisation : MonoBehaviour
         }
         else
         {
-            healthpercent = (float)player.health / (float)player.getMaxHealth();
+            healthpercent = (float)player.health / (float)BasePlayer.MAX_HEALTH;
             
             healthBar.fillAmount = Mathf.Max(healthpercent, 0.001f);
         }
