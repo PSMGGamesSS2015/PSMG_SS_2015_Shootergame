@@ -1,24 +1,15 @@
 fileFormatVersion: 2
-guid: 92c14c70187083f4093cd3a04eb8d8a8
-timeCreated: 1433242466
+guid: 76b7b45382c298449a36446bd5a0964f
+timeCreated: 1433891272
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: Cabin
-    100002: //RootNode
-    100004: Roof
-    400000: Cabin
-    400002: //RootNode
-    400004: Roof
-    2300000: Cabin
-    2300002: Roof
-    3300000: Cabin
-    3300002: Roof
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: Roof
-    4300002: Cabin
-    6400000: Cabin
-    6400002: Roof
   materials:
     importMaterials: 1
     materialName: 0
@@ -28,6 +19,10 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
@@ -38,9 +33,9 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 2
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -56,7 +51,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 1
   importAnimation: 1
   copyAvatar: 0
