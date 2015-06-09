@@ -430,6 +430,7 @@ public class PlayerMovement : MonoBehaviour
                 targetVelocity.y = 0.0f;
                 targetVelocity.Normalize();
                 targetVelocity *= flySpeed;
+                targetVelocity *= speedModifier;
 
                 if (targetVelocity.sqrMagnitude <= 0.0f)
                 {
