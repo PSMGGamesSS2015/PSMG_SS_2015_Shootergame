@@ -54,6 +54,9 @@ public class PlayerMovement : MonoBehaviour
     // Determines if the player is able to fly
     public bool canFly = true;
 
+    // Determines if the player is able to sprint
+    public bool canSprint = true;
+
     // Height of a jump
     public float jumpHeight = 2.0f;
 
@@ -168,18 +171,21 @@ public class PlayerMovement : MonoBehaviour
         // Reset special movement modes
         moving = false;
         sneaking = false;
-        sprinting = false;
         crouching = false;
     }
 
     // Check if the player has activated a special type of movement
     void CheckMovementType()
     {
-        if (Input.GetButton("Sprint"))
+        if (canSprint && Input.GetButton("Sprint"))
         {
 			if (Input.GetAxis("Vertical") == 1) {
 				sprinting = true;
 			}
+        }
+        else
+        {
+            sprinting = false;
         }
 
 		if (Input.GetButton("Sneak") && Input.GetButton("Forward"))
@@ -536,5 +542,10 @@ public class PlayerMovement : MonoBehaviour
     public int getRemainingFlaps()
     {
         return remainingFlaps;
+    }
+
+    public bool isSprinting()
+    {
+        return sprinting;
     }
 }

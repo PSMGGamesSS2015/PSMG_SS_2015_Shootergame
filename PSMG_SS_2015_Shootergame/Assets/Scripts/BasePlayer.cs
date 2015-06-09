@@ -17,7 +17,18 @@ public class BasePlayer : MonoBehaviour {
     // Current amount of flowers
     private int flowers = 1;
 
+    public float maxEnergy = 100.0f;
+
+    public float energyRegeneration = 5.0f;
+    public float energyDrain = 20.0f;
+
+    public float sprintDelay = 5.0f;
+
+    private float energy = 100.0f;
+
     public GameObject birdModel;
+
+    private PlayerMovement movement;
 
     private bool isInFlyMode = false;
     public bool FlyMode
@@ -42,13 +53,48 @@ public class BasePlayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-        
+        movement = GetComponent<PlayerMovement>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        
+        if (movement.isSprinting())
+        {
+            DrainEnergy();
+        }
+        else
+        {
+            RegenerateEnergy();
+        }
+
+        Mathf.Clamp(energy, 0.0f, maxEnergy);
 	}
+
+    void DrainEnergy()
+    {
+        if (energy > 0.0f)
+        {
+            energy -= energyDrain * Time.deltaTime;
+        }
+        else
+        {
+            movement.canSprint = false;
+            Invoke("AllowSprinting", sprintDelay);
+        }
+    }
+
+    void AllowSprinting()
+    {
+        movement.canSprint = true;
+    }
+
+    void RegenerateEnergy()
+    {
+        if (energy < maxEnergy)
+        {
+            energy += energyRegeneration * Time.deltaTime;
+        }
+    }
 
     public void FlowerCollected()
     {
