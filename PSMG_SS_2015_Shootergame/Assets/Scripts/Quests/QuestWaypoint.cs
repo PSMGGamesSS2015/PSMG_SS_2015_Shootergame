@@ -19,7 +19,7 @@ public class QuestWaypoint : MonoBehaviour {
 
     public GameObject rangeIndicatorProjector;
 
-    public SetUIVisualisation textScript;
+    public ShowTutorialText textScript;
 
     public string activateText;
     public string startText;

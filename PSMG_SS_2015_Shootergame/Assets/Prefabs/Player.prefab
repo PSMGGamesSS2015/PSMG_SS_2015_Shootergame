@@ -22,6 +22,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &156526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 485654}
+  - 33: {fileID: 3312730}
+  - 23: {fileID: 2360278}
+  m_Layer: 0
+  m_Name: Hawk
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &198840
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,6 +71,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 493702}
   m_RootOrder: 0
+--- !u!4 &485654
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156526}
+  m_LocalRotation: {x: 1.15202326e-07, y: .707106709, z: .707106829, w: -1.15202312e-07}
+  m_LocalPosition: {x: 0, y: -1.22000003, z: 8.10999966}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 493702}
+  m_RootOrder: 1
 --- !u!4 &493702
 Transform:
   m_ObjectHideFlags: 1
@@ -65,6 +94,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 478138}
+  - {fileID: 485654}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!20 &2008310
@@ -99,6 +129,38 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
+--- !u!23 &2360278
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156526}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 10297dcbc787b7c448ec6a0d51707488, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &3312730
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156526}
+  m_Mesh: {fileID: 4300000, guid: 71f88419b4bd6fc44b5bbcf7c46fa692, type: 3}
 --- !u!54 &5416948
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -156,10 +218,10 @@ MonoBehaviour:
   speed: 6
   sneakingSpeed: 2
   crouchingSpeed: 2
-  sprintingSpeed: 11
+  sprintingSpeed: 9
   terrain: {fileID: 0}
   speedModifier: 1
-  slopeLimit: 45
+  slopeLimit: 50
   flySpeed: 17
   gravity: 15
   flyGravity: 4
@@ -167,6 +229,7 @@ MonoBehaviour:
   canMove: 1
   canJump: 1
   canFly: 1
+  canSprint: 1
   jumpHeight: 3
   flapHeight: 14
   flapDelay: 1.5
@@ -236,6 +299,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxFlowers: 5
+  maxEnergy: 100
+  energyRegeneration: 12
+  energyDrain: 20
+  sprintDelay: 5
+  birdModel: {fileID: 156526}
 --- !u!124 &12414116
 Behaviour:
   m_ObjectHideFlags: 1

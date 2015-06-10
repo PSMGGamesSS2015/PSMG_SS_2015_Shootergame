@@ -337,12 +337,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &172378854 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11485818, guid: dff7fdba1b6487c4eb6b8264b542a927,
-    type: 2}
-  m_PrefabInternal: {fileID: 346323413}
-  m_Script: {fileID: 11500000, guid: 700b77074d5a34e44a1f60f4c199b0eb, type: 3}
 --- !u!1 &187184274
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,6 +545,10 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: -60
       objectReference: {fileID: 0}
+    - target: {fileID: 11414438, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 1946888027}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
   m_IsPrefabParent: 0
@@ -611,7 +609,7 @@ MonoBehaviour:
   markMode: 1
   rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
     type: 2}
-  textScript: {fileID: 172378854}
+  textScript: {fileID: 0}
   activateText: Step into the purple circle to start the quest!
   startText: The quest has been started - hurry, you only have 4 seconds to reach
     each waypoint!
@@ -1288,7 +1286,7 @@ MonoBehaviour:
   startDistance: 5
   failDistance: 30
   goalDistance: 10
-  textScript: {fileID: 172378854}
+  textScript: {fileID: 0}
   activateText: Step into the purple circle to start the quest!
   startText: The quest has been started - follow the target and stay within the big
     circle!
@@ -1595,6 +1593,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 569415049}
   m_RootOrder: 2
+--- !u!1 &1946888027 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 115870, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
+  m_PrefabInternal: {fileID: 559811592}
 --- !u!1 &1948699800
 GameObject:
   m_ObjectHideFlags: 0

@@ -55,7 +55,7 @@ public class QuestFollow : MonoBehaviour {
     private Vector3 start_trigger;
     private Vector3 start_goal;
 
-    public SetUIVisualisation textScript;
+    public ShowTutorialText textScript;
 
     public string activateText;
     public string startText;

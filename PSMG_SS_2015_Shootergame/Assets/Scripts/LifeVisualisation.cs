@@ -1,16 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using Assets.Scripts.Weapons;
 
-public class SetUIVisualisation : MonoBehaviour
-{
+public class LifeVisualisation : MonoBehaviour {
+
     //The Player Object
-    public PlayerMovement movement;
+    public GameObject playerObject;
+
+    //The Player Object
+    private PlayerMovement movement;
 
     //The base player
-    public BasePlayer player;
-    
+    private BasePlayer player;
+
     //the human with dark background
     public GameObject human1;
 
@@ -25,15 +27,9 @@ public class SetUIVisualisation : MonoBehaviour
 
     //shows the remaining flaps of the bird
     public Image flapBar;
-        
+
     //shows the remaining health of the human
     public Image healthBar;
-
-    //shows the intensity of the bow
-    public Image bowIntensity;
-
-    //the bow script
-    private Bow bow;
 
     //has the mode changed from flying to not flying (or the other way round) or not
     private bool isModeChanged;
@@ -64,7 +60,7 @@ public class SetUIVisualisation : MonoBehaviour
 
     //bigger vector for the bigger icon
     private Vector3 bigVector;
-
+    
     //the panel with human healthbar and the icon
     public Transform panelHuman;
 
@@ -77,37 +73,20 @@ public class SetUIVisualisation : MonoBehaviour
     //The time taken to move from the start to finish positions
     public float timeTakenDuringLerp = 1f;
 
-    //Tutorial text
-    public Text textfield;
-
-    //the time the text should be shown
-    private float timeToShowText = 5f;
-
-    //Time to fade text in or out
-    private float textFadeDuration = 1.0f;
-
-    // Use this for initialization
+	// Use this for initialization
     void Start()
     {
-        //showTextinUI("Test text zum schaun wie das alles aussieht! ", 5);
-        //showTextinUI("Test text zum schaun wie das alles aussieht! ", 5, Color.red, 50);
+        movement = playerObject.GetComponent<PlayerMovement>();
+        player = playerObject.GetComponent<BasePlayer>();
+
         smallVector = new Vector3(0.6f, 0.6f, 0.6f);
         bigVector = new Vector3(1.0f, 1.0f, 1.0f);
 
         isFlying = movement.getMode();
         //the player starts as a human
         prevMode = true;
-
-        //get the Bow 
-        WeaponController wpc = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponController>();
-        bow = (Bow)wpc.getWeaponByName("Bow");
-        
-    }
-
-    void Update()
-    {
-        bowIntensity.fillAmount = (bow.getBowIntensity() - Bow.MIN_INTENSITY) / (Bow.MAX_INTENSITY - Bow.MIN_INTENSITY);
-    }
+	
+	}
 
     void FixedUpdate()
     {
@@ -119,6 +98,8 @@ public class SetUIVisualisation : MonoBehaviour
             panelBird.transform.localScale = Vector3.Lerp(panelBird.transform.localScale, birdVector, percentageComplete);
         }
     }
+
+    
 
     void OnGUI()
     {
@@ -175,7 +156,7 @@ public class SetUIVisualisation : MonoBehaviour
         else
         {
             healthpercent = (float)player.health / (float)BasePlayer.MAX_HEALTH;
-            
+
             healthBar.fillAmount = Mathf.Max(healthpercent, 0.001f);
         }
 
@@ -187,6 +168,8 @@ public class SetUIVisualisation : MonoBehaviour
         _isLerping = true;
         _timeStartedLerping = Time.time;
     }
+
+
 
     //check if the Mode has changed or not
     bool hasModeChanged()
@@ -215,67 +198,5 @@ public class SetUIVisualisation : MonoBehaviour
         }
 
         return isModeChanged;
-    }
-
-    //show the text for a specific time at the ui and then fade it out
-    public void showTextinUI(string text, float time)
-    {
-        textfield.enabled = true;
-        textfield.text = text;
-        FadeIn();
-        FadeOut();
-    }
-
-    //show the text for a specific time at the ui and then fade it out
-    public void showTextinUI(string text, float time, Color textColor, int textSize)
-    {
-        textfield.enabled = true;
-        textfield.text = text;
-        textfield.color = textColor;
-        textfield.fontSize = textSize;
-
-        FadeIn();
-        FadeOut();
-    }
-
-    //Fade the text in
-    public void FadeIn()
-    {
-        StartCoroutine("FadeInCR");
-    }
-
-    //Coroutine to fade the text in
-    private IEnumerator FadeInCR()
-    {
-        float currentTime = 0f;
-        while (currentTime < textFadeDuration)
-        {
-            float alpha = Mathf.Lerp(1f, 0f, currentTime / textFadeDuration);
-            textfield.color = new Color(textfield.color.r, textfield.color.g, textfield.color.b, 1 - alpha);
-            currentTime += Time.deltaTime;
-            yield return null;
-        }
-        yield break;
-    }
-
-    //fade the text out
-    public void FadeOut()
-    {
-        StartCoroutine("FadeOutCR");
-    }
-
-    //Coroutine to fade the text out (wait for timeToShowText so the text is visible this amount of time
-    private IEnumerator FadeOutCR()
-    {
-        float currentTime = 0f;
-        yield return new WaitForSeconds(timeToShowText);
-        while (currentTime < textFadeDuration)
-        {
-            float alpha = Mathf.Lerp(1f, 0f, currentTime / textFadeDuration);
-            textfield.color = new Color(textfield.color.r, textfield.color.g, textfield.color.b, alpha);
-            currentTime += Time.deltaTime;
-            yield return null;
-        }
-        yield break;
     }
 }
