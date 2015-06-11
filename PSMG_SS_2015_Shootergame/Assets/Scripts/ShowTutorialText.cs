@@ -71,10 +71,11 @@ public class ShowTutorialText : MonoBehaviour {
     //Coroutine to fade the text in
     private IEnumerator FadeInCR()
     {
+        float alpha = 1;
         float currentTime = 0f;
-        while (currentTime < textFadeDuration)
+        while (alpha > 0)
         {
-            float alpha = Mathf.Lerp(1f, 0f, currentTime / textFadeDuration);
+            alpha = Mathf.Lerp(1f, 0f, currentTime / textFadeDuration);
             textfield.color = new Color(textfield.color.r, textfield.color.g, textfield.color.b, 1 - alpha);
             currentTime += Time.deltaTime;
             yield return null;
@@ -91,11 +92,12 @@ public class ShowTutorialText : MonoBehaviour {
     //Coroutine to fade the text out (wait for timeToShowText so the text is visible this amount of time)
     private IEnumerator FadeOutCR()
     {
+        float alpha = 1;
         float currentTime = 0f;
         yield return new WaitForSeconds(timeToShowText);
-        while (currentTime < textFadeDuration)
+        while (alpha > 0)
         {
-            float alpha = Mathf.Lerp(1f, 0f, currentTime / textFadeDuration);
+            alpha = Mathf.Lerp(1f, 0f, currentTime / textFadeDuration);
             textfield.color = new Color(textfield.color.r, textfield.color.g, textfield.color.b, alpha);
             currentTime += Time.deltaTime;
             yield return null;
