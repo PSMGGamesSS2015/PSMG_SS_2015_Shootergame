@@ -207,7 +207,7 @@ public class PlayerMovement : MonoBehaviour
     void CheckForFlyMode()
     {
         // If the button for activation of fly mode is pressed...
-        if (Input.GetButton("Fly") && GetComponent<BasePlayer>().getCurrentFlowers() >= 1)
+        if (!flyModeActivated && Input.GetButton("Fly") && GetComponent<BasePlayer>().getCurrentFlowers() >= 1)
         {
             weaponController.FlyMode = true;
             BasePlayer player = GetComponent<BasePlayer>();

@@ -208,6 +208,10 @@ public class QuestFollow : MonoBehaviour {
             {
                 nextQuest.GetComponent<QuestWaypoint>().ActivateQuest(5.0f);
             }
+            else if (nextQuest.GetComponent<Tutorial>() != null)
+            {
+                nextQuest.GetComponent<Tutorial>().ActivateQuest(2.0f);
+            }
         }
     }
 

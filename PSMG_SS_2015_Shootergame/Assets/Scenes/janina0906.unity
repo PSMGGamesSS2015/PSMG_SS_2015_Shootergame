@@ -386,6 +386,33 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6e0fdae169dac849ab4387938d92daf, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &66829963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 66829964}
+  m_Layer: 0
+  m_Name: Waypoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &66829964
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 66829963}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 23.3600006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 938778128}
+  m_RootOrder: 0
 --- !u!1001 &76223910
 Prefab:
   m_ObjectHideFlags: 0
@@ -440,6 +467,33 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 951f334e37ba40a46928469bd11f97ab, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &77767177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 77767178}
+  m_Layer: 0
+  m_Name: Waypoint4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &77767178
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 77767177}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.8599997, y: 7.1500001, z: 102.699997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 938778128}
+  m_RootOrder: 3
 --- !u!1 &138246021 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 187988, guid: 2e98fe91ade8a314fb85185d5b58dc67, type: 2}
@@ -465,6 +519,36 @@ MonoBehaviour:
   - {fileID: 1828214368}
   - {fileID: 968695951}
   - {fileID: 987095333}
+--- !u!114 &138246030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 138246021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d8f4100b2850a4aafb69b42e558366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
+    type: 2}
+  startTrigger: {fileID: 1286599544}
+  goal: {fileID: 987095333}
+  finishTrigger: 1
+  startDistance: 15
+  failDistance: 50
+  goalDistance: 10
+  textScript: {fileID: 1420564451}
+  activateOnStart: 0
+  nextQuest: {fileID: 0}
+  activateText: Wo will er denn hin? Springe nach unten und geh in die Markierung!
+  startText: Folge dem Siedler, aber komm ihm nicht zu nahe, damit er dich nicht erwischt!
+  finishText: Geschafft!
+  failText: Leider nicht geschafft. Versuche es nochmal!
+  startTextTime: 4
+  activateTextTime: 4
+  finishTextTime: 4
+  failTextTime: 4
 --- !u!1001 &149080737
 Prefab:
   m_ObjectHideFlags: 0
@@ -652,7 +736,7 @@ Transform:
   - {fileID: 156328172}
   - {fileID: 1457323811}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!114 &171035766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,7 +769,34 @@ MonoBehaviour:
   activateTextTime: 4
   finishTextTime: 2
   failTextTime: 2
-  nextQuest: {fileID: 0}
+  nextQuest: {fileID: 1768350822}
+--- !u!1 &171278818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 171278819}
+  m_Layer: 0
+  m_Name: Waypoint5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &171278819
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 171278818}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.6100006, y: 14, z: 122.970001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 938778128}
+  m_RootOrder: 4
 --- !u!1001 &174881633
 Prefab:
   m_ObjectHideFlags: 0
@@ -2056,7 +2167,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!1001 &576831826
 Prefab:
   m_ObjectHideFlags: 0
@@ -2166,6 +2277,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11412762, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
+      propertyPath: terrain
+      value: 
+      objectReference: {fileID: 1869672274}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
   m_IsPrefabParent: 0
@@ -2508,6 +2623,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1752954960}
   m_RootOrder: 4
+--- !u!1 &733296448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 733296449}
+  m_Layer: 0
+  m_Name: FollowQuest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &733296449
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 733296448}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 438.380005, y: 17.3199997, z: 227.660004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1286599544}
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
 --- !u!1 &742659625
 GameObject:
   m_ObjectHideFlags: 0
@@ -2973,7 +3116,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1 &911632344
 GameObject:
   m_ObjectHideFlags: 0
@@ -3101,6 +3244,104 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6e0fdae169dac849ab4387938d92daf, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &920086287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 920086288}
+  m_Layer: 0
+  m_Name: Waypoint3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &920086288
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 920086287}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.0999999, y: 1.14999998, z: 79.1999969}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 938778128}
+  m_RootOrder: 2
+--- !u!1 &938778127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 938778128}
+  - 114: {fileID: 938778129}
+  m_Layer: 0
+  m_Name: GoToMissionQuest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &938778128
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 938778127}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 425.299988, y: 6.19999981, z: 54.4900017}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 66829964}
+  - {fileID: 974551266}
+  - {fileID: 920086288}
+  - {fileID: 77767178}
+  - {fileID: 171278819}
+  - {fileID: 1764063815}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+--- !u!114 &938778129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 938778127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1276f16421454344b8da4eb5f7a9abf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 66829964}
+  - {fileID: 974551266}
+  - {fileID: 920086288}
+  - {fileID: 77767178}
+  - {fileID: 171278819}
+  - {fileID: 1764063815}
+  waypointSize: 3
+  inOrder: 1
+  timeMode: 1
+  timeLimitSeconds: 6.5
+  markMode: 1
+  rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
+    type: 2}
+  textScript: {fileID: 1420564451}
+  activateOnStart: 0
+  activateText: "Fertig? Geh in die Markierung, um die n\xE4chste Quest zu starten."
+  startText: "Du h\xF6rst Ger\xE4usche in der Ferne... Folge der Markierung, aber
+    beeil dich!"
+  finishText: Ein Siedler! Was der wohl vorhat?...
+  failText: Mist, du warst zu langsam. Versuch es gleich nochmal!
+  startTextTime: 5
+  activateTextTime: 5
+  finishTextTime: 5
+  failTextTime: 5
+  nextQuest: {fileID: 138246021}
 --- !u!1 &968695950
 GameObject:
   m_ObjectHideFlags: 0
@@ -3128,6 +3369,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1006179989}
   m_RootOrder: 7
+--- !u!1 &974551265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 974551266}
+  m_Layer: 0
+  m_Name: Waypoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &974551266
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 974551265}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.37, z: 50.6300011}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 938778128}
+  m_RootOrder: 1
 --- !u!1001 &979285361
 Prefab:
   m_ObjectHideFlags: 0
@@ -3302,7 +3570,7 @@ Transform:
   - {fileID: 968695951}
   - {fileID: 987095333}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1 &1049715100 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 132850, guid: b6195a94b6a02a949bc03e498a33be38, type: 2}
@@ -3977,6 +4245,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 187184275}
   m_RootOrder: 19
+--- !u!1 &1286599543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1286599544}
+  m_Layer: 0
+  m_Name: Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1286599544
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1286599543}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 733296449}
+  m_RootOrder: 0
 --- !u!1001 &1315220888
 Prefab:
   m_ObjectHideFlags: 0
@@ -4785,7 +5080,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 436348, guid: 2e98fe91ade8a314fb85185d5b58dc67, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 11435188, guid: 2e98fe91ade8a314fb85185d5b58dc67, type: 2}
       propertyPath: m_Enabled
@@ -5897,6 +6192,86 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1759196876}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1764063814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1764063815}
+  m_Layer: 0
+  m_Name: Waypoint6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1764063815
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1764063814}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.26999998, y: 21.8600006, z: 127.639999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 938778128}
+  m_RootOrder: 5
+--- !u!1 &1768350822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1768350824}
+  - 114: {fileID: 1768350823}
+  m_Layer: 0
+  m_Name: FlyTutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1768350823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1768350822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e12c4c321ca794b93d5dee5e5e66a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
+    type: 2}
+  distance: 10
+  textScript: {fileID: 1420564451}
+  activateOnStart: 0
+  nextQuest: {fileID: 938778127}
+  startText: "Als Schamane hast du die F\xE4higkeit, dich in einen Adler zu verwandeln.
+    Dr\xFCcke dazu TAB. W\xE4hrend der Missionen kann der Flugmodus nur nach dem Aufsammeln
+    einer Feder gestartet werden. Fliege nun nach unten zu dem markierten Baum!"
+  finishText: "Mit der linken Maustaste kannst du den Bogen benutzen. Halte die Maustaste
+    gedr\xFCckt, um die Intensit\xE4t deines Angriffs zu erh\xF6hen. Versuch doch
+    mal, einen Bienenstock herunterzuschie\xDFen."
+  startTextTime: 8
+  finishTextTime: 12
+--- !u!4 &1768350824
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1768350822}
+  m_LocalRotation: {x: 0, y: -.932920575, z: 0, w: .360082209}
+  m_LocalPosition: {x: 415.309998, y: 7, z: 36.4500008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
 --- !u!1001 &1800575200
 Prefab:
   m_ObjectHideFlags: 0
@@ -6879,6 +7254,14 @@ Prefab:
     - target: {fileID: 494694, guid: 7c5a413f37a14b54ab239d16791ac3ad, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 12286602, guid: 7c5a413f37a14b54ab239d16791ac3ad, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 12286602, guid: 7c5a413f37a14b54ab239d16791ac3ad, type: 2}
+      propertyPath: m_Color.rgba
+      value: 1025813213
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c5a413f37a14b54ab239d16791ac3ad, type: 2}
