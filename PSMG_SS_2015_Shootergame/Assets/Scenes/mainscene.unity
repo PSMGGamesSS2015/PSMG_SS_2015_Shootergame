@@ -609,7 +609,8 @@ MonoBehaviour:
   markMode: 1
   rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
     type: 2}
-  textScript: {fileID: 0}
+  textScript: {fileID: 1101371714}
+  activateOnStart: 0
   activateText: Step into the purple circle to start the quest!
   startText: The quest has been started - hurry, you only have 4 seconds to reach
     each waypoint!
@@ -619,6 +620,7 @@ MonoBehaviour:
   activateTextTime: 3
   finishTextTime: 3
   failTextTime: 3
+  nextQuest: {fileID: 1291594971}
 --- !u!1001 &405832389
 Prefab:
   m_ObjectHideFlags: 0
@@ -1071,6 +1073,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 357663033}
   m_RootOrder: 1
+--- !u!1 &1075917359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1075917361}
+  - 114: {fileID: 1075917360}
+  m_Layer: 0
+  m_Name: TestTurorialQuest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1075917360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1075917359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e12c4c321ca794b93d5dee5e5e66a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
+    type: 2}
+  trigger: {fileID: 1075917361}
+  distance: 5
+  textScript: {fileID: 1101371714}
+  activateOnStart: 1
+  nextQuest: {fileID: 357663032}
+  startText: Go into the purple circle to start the quest
+  finishText: Quest finished!
+  startTextTime: 0
+  finishTextTime: 0
+--- !u!4 &1075917361
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1075917359}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 292.779999, y: 42.6599998, z: 584.47998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
 --- !u!1001 &1086225593
 Prefab:
   m_ObjectHideFlags: 0
@@ -1117,6 +1169,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e98fe91ade8a314fb85185d5b58dc67, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1101371714 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11434966, guid: dff7fdba1b6487c4eb6b8264b542a927,
+    type: 2}
+  m_PrefabInternal: {fileID: 346323413}
+  m_Script: {fileID: 11500000, guid: a85417905731a5b48a81c31c3720e554, type: 3}
 --- !u!1 &1150472975 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 125166, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
@@ -1279,14 +1337,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
     type: 2}
-  player: {fileID: 1765089714}
   startTrigger: {fileID: 2017800733}
   goal: {fileID: 1799410738}
   finishTrigger: 0
   startDistance: 5
   failDistance: 30
   goalDistance: 10
-  textScript: {fileID: 0}
+  textScript: {fileID: 1101371714}
+  activateOnStart: 0
+  nextQuest: {fileID: 0}
   activateText: Step into the purple circle to start the quest!
   startText: The quest has been started - follow the target and stay within the big
     circle!
