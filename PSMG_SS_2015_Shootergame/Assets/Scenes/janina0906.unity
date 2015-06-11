@@ -674,7 +674,7 @@ MonoBehaviour:
   markMode: 2
   rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
     type: 2}
-  textScript: {fileID: 1698644885}
+  textScript: {fileID: 1420564451}
   activateOnStart: 0
   activateText: Gehe nun auf die andere Seite des Flusses an den Wasserfall.
   startText: Verwende die Leertaste, um zu springen. Spring die Steine nach oben!
@@ -2037,7 +2037,7 @@ MonoBehaviour:
   rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
     type: 2}
   distance: 5
-  textScript: {fileID: 1698644885}
+  textScript: {fileID: 1420564451}
   activateOnStart: 0
   nextQuest: {fileID: 171035764}
   startText: "Halte SHIFT gedr\xFCckt, um zu sprinten. Aber Achtung: Das macht m\xFCde!
@@ -2954,7 +2954,7 @@ MonoBehaviour:
   rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
     type: 2}
   distance: 5
-  textScript: {fileID: 1698644885}
+  textScript: {fileID: 1420564451}
   activateOnStart: 1
   nextQuest: {fileID: 573817521}
   startText: Mit WASD kannst du dich fortbewegen. Mit der Maus steuerst du die Kamera.  Gehe
@@ -4373,6 +4373,10 @@ Prefab:
       propertyPath: playerObject
       value: 
       objectReference: {fileID: 616220864}
+    - target: {fileID: 11441002, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 616220864}
     m_RemovedComponents:
     - {fileID: 11485818, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
@@ -4566,6 +4570,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6195a94b6a02a949bc03e498a33be38, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1420564451 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11410588, guid: dff7fdba1b6487c4eb6b8264b542a927,
+    type: 2}
+  m_PrefabInternal: {fileID: 1365012667}
+  m_Script: {fileID: 11500000, guid: a85417905731a5b48a81c31c3720e554, type: 3}
 --- !u!1 &1424633136 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 125166, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
@@ -5703,12 +5713,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 461842, guid: c38a7c0c210d24d46b9ec83213c48782, type: 2}
   m_PrefabInternal: {fileID: 1672655790}
---- !u!114 &1698644885 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11434966, guid: dff7fdba1b6487c4eb6b8264b542a927,
-    type: 2}
-  m_PrefabInternal: {fileID: 1365012667}
-  m_Script: {fileID: 11500000, guid: a85417905731a5b48a81c31c3720e554, type: 3}
 --- !u!1001 &1701899204
 Prefab:
   m_ObjectHideFlags: 0

@@ -549,6 +549,10 @@ Prefab:
       propertyPath: playerObject
       value: 
       objectReference: {fileID: 1946888027}
+    - target: {fileID: 11441002, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 1946888027}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
   m_IsPrefabParent: 0
@@ -609,7 +613,7 @@ MonoBehaviour:
   markMode: 1
   rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
     type: 2}
-  textScript: {fileID: 1101371714}
+  textScript: {fileID: 444646459}
   activateOnStart: 0
   activateText: Step into the purple circle to start the quest!
   startText: The quest has been started - hurry, you only have 4 seconds to reach
@@ -667,6 +671,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 56fa9428c8f7f014ca1d07d411bfaaf6, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &444646459 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11410588, guid: dff7fdba1b6487c4eb6b8264b542a927,
+    type: 2}
+  m_PrefabInternal: {fileID: 346323413}
+  m_Script: {fileID: 11500000, guid: a85417905731a5b48a81c31c3720e554, type: 3}
 --- !u!1001 &559811592
 Prefab:
   m_ObjectHideFlags: 0
@@ -1102,9 +1112,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
     type: 2}
-  trigger: {fileID: 1075917361}
   distance: 5
-  textScript: {fileID: 1101371714}
+  textScript: {fileID: 444646459}
   activateOnStart: 1
   nextQuest: {fileID: 357663032}
   startText: Go into the purple circle to start the quest
@@ -1169,12 +1178,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e98fe91ade8a314fb85185d5b58dc67, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1101371714 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11434966, guid: dff7fdba1b6487c4eb6b8264b542a927,
-    type: 2}
-  m_PrefabInternal: {fileID: 346323413}
-  m_Script: {fileID: 11500000, guid: a85417905731a5b48a81c31c3720e554, type: 3}
 --- !u!1 &1150472975 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 125166, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
@@ -1343,7 +1346,7 @@ MonoBehaviour:
   startDistance: 5
   failDistance: 30
   goalDistance: 10
-  textScript: {fileID: 1101371714}
+  textScript: {fileID: 444646459}
   activateOnStart: 0
   nextQuest: {fileID: 0}
   activateText: Step into the purple circle to start the quest!
