@@ -21,6 +21,8 @@ public class QuestWaypoint : MonoBehaviour {
 
     public ShowTutorialText textScript;
 
+    public bool activateOnStart = false;
+
     public string activateText;
     public string startText;
     public string finishText;
@@ -30,6 +32,8 @@ public class QuestWaypoint : MonoBehaviour {
     public float activateTextTime;
     public float finishTextTime;
     public float failTextTime;
+
+    public GameObject nextQuest;
 
     private Transform player;
 
@@ -48,12 +52,16 @@ public class QuestWaypoint : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         GetPlayer();
-        ActivateQuest();        
+
+        if (activateOnStart)
+        {
+            ActivateQuest();  
+        }
 	}
 
     void GetPlayer()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void StartQuest()
@@ -196,9 +204,22 @@ public class QuestWaypoint : MonoBehaviour {
 
         DestroyMarkers();
 
-        ActivateQuest();
+        ActivateNextQuest();
+    }
 
-        Debug.Log("Quest complete!");
+    void ActivateNextQuest()
+    {
+        if (nextQuest != null)
+        {
+            if (nextQuest.GetComponent<QuestFollow>() != null)
+            {
+                nextQuest.GetComponent<QuestFollow>().ActivateQuest(5.0f);
+            }
+            else if (nextQuest.GetComponent<QuestWaypoint>() != null)
+            {
+                nextQuest.GetComponent<QuestWaypoint>().ActivateQuest(5.0f);
+            }
+        } 
     }
 
     void QuestFailed()
@@ -244,5 +265,11 @@ public class QuestWaypoint : MonoBehaviour {
 
         SetWaypoints();
         MarkWaypoints();
+    }
+
+    public void ActivateQuest(float delay)
+    {
+        Debug.Log("Invoke activation...");
+        Invoke("ActivateQuest", delay);
     }
 }

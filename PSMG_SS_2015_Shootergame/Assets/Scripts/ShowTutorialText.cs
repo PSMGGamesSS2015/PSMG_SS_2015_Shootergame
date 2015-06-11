@@ -54,7 +54,6 @@ public class ShowTutorialText : MonoBehaviour {
     public void showTextinUI(string text, float time)
     {
         showTextinUI(text, time, 30);
-
     }
 
     //show the text for a specific time at the ui and then fade it out
@@ -62,7 +61,6 @@ public class ShowTutorialText : MonoBehaviour {
     {
         addToQueue(text, time, textSize);
     }
-
 
     //Fade the text in
     public void FadeIn()

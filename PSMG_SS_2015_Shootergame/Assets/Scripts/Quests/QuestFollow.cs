@@ -8,7 +8,7 @@ public class QuestFollow : MonoBehaviour {
     /// <summary>
     /// The object that needs to remain within range of the target - usually the plyaer
     /// </summary>
-    public Transform player;
+    private Transform player;
 
     /// <summary>
     /// The trigger that will start the quest - the quest will start if the player is within a set distance of the trigger
@@ -57,6 +57,10 @@ public class QuestFollow : MonoBehaviour {
 
     public ShowTutorialText textScript;
 
+    public bool activateOnStart = false;
+
+    public GameObject nextQuest;
+
     public string activateText;
     public string startText;
     public string finishText;
@@ -69,14 +73,21 @@ public class QuestFollow : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        // For test purposes only
-        // ----------------------
-        ActivateQuest();
-        // ----------------------
+        GetPlayer();
+
+        if (activateOnStart)
+        {
+            ActivateQuest();
+        }
 
         SetFinishTrigger();
 	}
-	
+
+    void GetPlayer()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
 	// Update is called once per frame
 	void FixedUpdate () {
         if (activated)
@@ -173,6 +184,7 @@ public class QuestFollow : MonoBehaviour {
 
     void QuestFinished()
     {
+        activated = false;
         questStarted = false;
         questFinished = true;
 
@@ -181,10 +193,22 @@ public class QuestFollow : MonoBehaviour {
         Destroy(failIndicator);
         Destroy(goalIndicator);
 
-        // For test purposes only
-        // ----------------------
-        ActivateQuest();
-        // ----------------------
+        ActivateNextQuest();
+    }
+
+    void ActivateNextQuest()
+    {
+        if (nextQuest != null)
+        {
+            if (nextQuest.GetComponent<QuestFollow>() != null)
+            {
+                nextQuest.GetComponent<QuestFollow>().ActivateQuest(5.0f);
+            }
+            else if (nextQuest.GetComponent<QuestWaypoint>() != null)
+            {
+                nextQuest.GetComponent<QuestWaypoint>().ActivateQuest(5.0f);
+            }
+        }
     }
 
     void SaveStartParameters()
@@ -217,5 +241,10 @@ public class QuestFollow : MonoBehaviour {
 
         activated = true;
         startIndicator = CreateIndicator(startTrigger, startDistance);
+    }
+
+    public void ActivateQuest(float delay)
+    {
+        Invoke("ActivateQuest", delay);
     }
 }
