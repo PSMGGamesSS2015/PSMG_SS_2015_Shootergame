@@ -8,8 +8,6 @@ public class Tutorial : MonoBehaviour
 
     private Transform player;
 
-    public Transform trigger;
-
     public float distance = 20.0f;
 
     private bool activated = false;
@@ -73,7 +71,7 @@ public class Tutorial : MonoBehaviour
     
     void CheckFinish()
     {
-        float d = Vector3.Distance(player.position, trigger.position);
+        float d = Vector3.Distance(player.position, transform.position);
         if (d <= distance)
         {
             QuestFinished();
@@ -84,9 +82,10 @@ public class Tutorial : MonoBehaviour
     {
         questStarted = true;
 
-        textScript.showTextinUI(startText, startTextTime);
-        
-        indicator = CreateIndicator(trigger, distance);
+        textScript.showTextinUI(startText, startTextTime, 14);
+
+        Debug.Log("starting!");
+        indicator = CreateIndicator(transform, distance);
     }
 
     void QuestFinished()
@@ -108,11 +107,15 @@ public class Tutorial : MonoBehaviour
         {
             if (nextQuest.GetComponent<QuestFollow>() != null)
             {
-                nextQuest.GetComponent<QuestFollow>().ActivateQuest(5.0f);
+                nextQuest.GetComponent<QuestFollow>().ActivateQuest(2.0f);
             }
             else if (nextQuest.GetComponent<QuestWaypoint>() != null)
             {
-                nextQuest.GetComponent<QuestWaypoint>().ActivateQuest(5.0f);
+                nextQuest.GetComponent<QuestWaypoint>().ActivateQuest(2.0f);
+            }
+            else if (nextQuest.GetComponent<Tutorial>() != null)
+            {
+                nextQuest.GetComponent<Tutorial>().ActivateQuest(2.0f);
             }
         }
     }

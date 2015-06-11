@@ -41,6 +41,17 @@ public class ShowTutorialText : MonoBehaviour {
         FadeOut();
     }
 
+    //show the text for a specific time at the ui and then fade it out
+    public void showTextinUI(string text, float time, int textSize)
+    {
+        textfield.enabled = true;
+        textfield.text = text;
+        textfield.fontSize = textSize;
+
+        FadeIn();
+        FadeOut();
+    }
+
     //Fade the text in
     public void FadeIn()
     {
