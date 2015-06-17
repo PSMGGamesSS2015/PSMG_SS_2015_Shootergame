@@ -181,7 +181,7 @@ namespace Assets.Scripts.Weapons
             if (curAmmo == 0 && (reserveAmmo > 0 || reserveAmmo == INFINITE_AMMO))
             {
                 Reload();
-                return false;
+                //return false;
             }
 
             return true;

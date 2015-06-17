@@ -21,5 +21,22 @@ namespace Assets.Scripts.Weapons
         {
             return parentPlayer.GetComponent<PlayerPrefabsController>().weaponTomahawkPrefab;
         }
+
+        public override void SetDown()
+        {
+            Animator.SetTrigger("SetDown");
+            base.SetDown();
+        }
+
+        protected override bool Shoot()
+        {
+            bool success = base.Shoot();
+            
+            if (success)
+            {
+                Animator.SetTrigger("Attack");
+            }
+            return success;
+        }
     }
 }

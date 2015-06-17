@@ -748,6 +748,10 @@ Prefab:
       propertyPath: maxVelocityChange
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 11406598, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
+      propertyPath: weaponTomahawkPrefab
+      value: 
+      objectReference: {fileID: 198558, guid: 60b1ddda768829d469e0bacf140bb7ca, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
   m_IsPrefabParent: 0
@@ -1008,7 +1012,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
-  m_StereoMirrorMode: 0
 --- !u!4 &714291231
 Transform:
   m_ObjectHideFlags: 0
