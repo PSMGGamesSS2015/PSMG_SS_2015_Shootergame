@@ -31,6 +31,9 @@ public class LifeVisualisation : MonoBehaviour {
     //shows the remaining health of the human
     public Image healthBar;
 
+    //shows the remaining energy to sprint of the human
+    public Image energyBar;
+
     //has the mode changed from flying to not flying (or the other way round) or not
     private bool isModeChanged;
 
@@ -45,6 +48,9 @@ public class LifeVisualisation : MonoBehaviour {
 
     //percentage of birds remaining flaps
     private float flappercent;
+
+    //percentage of energy to sprint
+    private float energy;
 
     //Whether we are currently interpolating or not
     private bool _isLerping;
@@ -152,11 +158,14 @@ public class LifeVisualisation : MonoBehaviour {
             flappercent = (float)movement.getRemainingFlaps() / (float)movement.flapAmount;
 
             flapBar.fillAmount = Mathf.Max(flappercent, 0.001f);
+            energyBar.fillAmount = Mathf.Max(0, 0.001f);
         }
         else
         {
             healthpercent = (float)player.health / (float)BasePlayer.MAX_HEALTH;
+            energy = (float)player.getEnergy() / (float)player.maxEnergy;
 
+            energyBar.fillAmount = Mathf.Max(energy, 0.001f);
             healthBar.fillAmount = Mathf.Max(healthpercent, 0.001f);
         }
 

@@ -116,4 +116,9 @@ public class BasePlayer : MonoBehaviour {
             flowers--;
         }
     }
+
+    public float getEnergy()
+    {
+        return energy;
+    }
 }

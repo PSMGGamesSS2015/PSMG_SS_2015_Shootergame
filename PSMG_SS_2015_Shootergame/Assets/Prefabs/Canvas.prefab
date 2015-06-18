@@ -78,7 +78,7 @@ GameObject:
   - 222: {fileID: 22291592}
   - 114: {fileID: 11401880}
   m_Layer: 5
-  m_Name: healthbar
+  m_Name: energybar
   m_TagString: LifeVisualisation Health
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,6 +131,23 @@ GameObject:
   m_Layer: 5
   m_Name: Bow Intensity
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &168786
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22403882}
+  - 222: {fileID: 22285898}
+  - 114: {fileID: 11457596}
+  m_Layer: 5
+  m_Name: healthbar
+  m_TagString: LifeVisualisation Health
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -269,15 +286,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: .745098054}
+  m_Color: {r: .944827676, g: .841000021, b: 0, a: .745098054}
   m_Sprite: {fileID: 21300000, guid: dbad1720f927d4345ba9609eabc87ed3, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 3
   m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillClockwise: 0
+  m_FillOrigin: 1
 --- !u!114 &11406418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -459,7 +476,8 @@ MonoBehaviour:
   bird1: {fileID: 196500}
   bird2: {fileID: 127692}
   flapBar: {fileID: 11412900}
-  healthBar: {fileID: 11401880}
+  healthBar: {fileID: 11457596}
+  energyBar: {fileID: 11401880}
   panelHuman: {fileID: 22457296}
   panelBird: {fileID: 22458908}
   timeTakenDuringLerp: 1
@@ -500,6 +518,27 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11457596
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: dbad1720f927d4345ba9609eabc87ed3, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 3
+  m_FillAmount: 1
+  m_FillClockwise: 0
+  m_FillOrigin: 1
 --- !u!114 &11459886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -615,6 +654,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153582}
+--- !u!222 &22285898
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168786}
 --- !u!222 &22286266
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -656,6 +701,23 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!224 &22403882
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22457296}
+  m_RootOrder: 3
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -214, y: -112}
+  m_SizeDelta: {x: 51, y: 102}
+  m_Pivot: {x: .5, y: .5}
 --- !u!224 &22416988
 RectTransform:
   m_ObjectHideFlags: 1
@@ -743,6 +805,7 @@ RectTransform:
   - {fileID: 22463650}
   - {fileID: 22466688}
   - {fileID: 22486720}
+  - {fileID: 22403882}
   m_Father: {fileID: 22416988}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -852,8 +915,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -214, y: -112}
-  m_SizeDelta: {x: 51, y: 102}
+  m_AnchoredPosition: {x: -216, y: -111.999985}
+  m_SizeDelta: {x: 47, y: 95}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22494692
 RectTransform:
