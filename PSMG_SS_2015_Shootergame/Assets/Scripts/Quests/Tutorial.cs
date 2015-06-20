@@ -123,6 +123,7 @@ public class Tutorial : MonoBehaviour
     public void ActivateQuest()
     {
         activated = true;
+        GameObject.FindGameObjectWithTag("Ghost").GetComponent<TutorialGhost>().SetGoal(transform.position);
     }
 
     public void ActivateQuest(float delay)
