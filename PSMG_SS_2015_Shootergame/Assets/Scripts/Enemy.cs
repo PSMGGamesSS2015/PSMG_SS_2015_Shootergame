@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour {
 
     private static List<GameObject> enemies = new List<GameObject>();
 
+    private MovementController movementController;
+
     public bool HasSpottedPlayer
     {
         get
@@ -74,6 +76,8 @@ public class Enemy : MonoBehaviour {
 
         nav = GetComponent<NavMeshAgent>();
 
+        movementController = GetComponent<MovementController>();
+
         enemies.Add(gameObject);
 	}
 	
@@ -90,6 +94,8 @@ public class Enemy : MonoBehaviour {
             if (distance > 5.0f && distance < 30.0f)
             {
                 nav.SetDestination(playerPosition);
+
+                movementController.OnFollowPlayer();
             }
             else if (distance > 30.0f)
             {
@@ -119,7 +125,6 @@ public class Enemy : MonoBehaviour {
                 if (!goingHome)
                 {
                     startingPosition = transform.position;
-                    Debug.Log(startingPosition);
                 }
                 
                 HasSpottedPlayer = true;
@@ -129,6 +134,7 @@ public class Enemy : MonoBehaviour {
             {
                 if (Vector3.Distance(transform.position, startingPosition) <= 3.0f)
                 {
+                    movementController.OnStopFollowing();
                     goingHome = false;
                 }
             }

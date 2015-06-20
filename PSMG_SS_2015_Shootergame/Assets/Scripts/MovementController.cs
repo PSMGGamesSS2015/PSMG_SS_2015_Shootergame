@@ -1,17 +1,12 @@
-﻿/* !!!!!!!!!!!!!!!
- * !!!!!!!!!!!!!!!
- * NOT WORKING YET
- * NOT WORKING YET
- * !!!!!!!!!!!!!!!
- !!!!!!!!!!!!!!!*/
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class MovementController : MonoBehaviour {
 
     private WaypointMovement waypointMovement;
     private Enemy enemy;
+
+    private Vector3 savedPosition;
 
 	// Use this for initialization
 	void Start () {
@@ -24,13 +19,14 @@ public class MovementController : MonoBehaviour {
 	
 	}
 
-    public void followPlayer()
+    public void OnFollowPlayer()
     {
-        // waypointMovement.StopMoving();
+        savedPosition = transform.position;
+        waypointMovement.StopMoving();
     }
 
-    public void goHome()
+    public void OnStopFollowing()
     {
-        // waypointMovement.GoHome();
+        waypointMovement.StartMoving();
     }
 }

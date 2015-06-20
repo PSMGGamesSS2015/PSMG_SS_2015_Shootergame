@@ -546,6 +546,17 @@ BoxCollider:
 GameObject:
   m_PrefabParentObject: {fileID: 187988, guid: 2e98fe91ade8a314fb85185d5b58dc67, type: 2}
   m_PrefabInternal: {fileID: 1441430916}
+--- !u!114 &138246022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 138246021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfcf9c94e3da59845a9c22f316bdf964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &138246023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,7 +602,7 @@ MonoBehaviour:
   failDistance: 50
   goalDistance: 10
   textScript: {fileID: 1420564451}
-  activateOnStart: 0
+  activateOnStart: 1
   nextQuest: {fileID: 0}
   activateText: Wo will er denn hin? Springe nach unten und geh in die Markierung!
   startText: Folge dem Siedler, aber komm ihm nicht zu nahe, damit er dich nicht erwischt!
@@ -5798,7 +5809,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11435188, guid: 2e98fe91ade8a314fb85185d5b58dc67, type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3340960, guid: 2e98fe91ade8a314fb85185d5b58dc67, type: 2}
       propertyPath: m_Mesh
