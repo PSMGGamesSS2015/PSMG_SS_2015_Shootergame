@@ -42,7 +42,7 @@ public class CutszeneManager : MonoBehaviour {
         }
         container.SetActive(false);
 
-        startCutscene(1);
+        //startCutscene(1);
     }
 	
 	// Update is called once per frame
@@ -64,7 +64,7 @@ public class CutszeneManager : MonoBehaviour {
                 if(first) 
                 {
                     first = false;
-                    startCutscene(2);
+                    //startCutscene(2);
                 }
                 //fade out
             }
