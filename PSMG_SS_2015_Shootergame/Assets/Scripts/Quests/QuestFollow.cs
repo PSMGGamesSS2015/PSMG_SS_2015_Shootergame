@@ -245,6 +245,8 @@ public class QuestFollow : MonoBehaviour {
 
         activated = true;
         startIndicator = CreateIndicator(startTrigger, startDistance);
+
+        GameObject.FindGameObjectWithTag("Ghost").GetComponent<TutorialGhost>().SetGoal(transform.position);
     }
 
     public void ActivateQuest(float delay)

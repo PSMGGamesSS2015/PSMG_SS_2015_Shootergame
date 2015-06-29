@@ -13,6 +13,8 @@ public class TutorialGhost : MonoBehaviour {
     /// </summary>
     public float returnTime = 30.0f;
 
+    public float baseSpeed = 3.5f;
+
     private NavMeshAgent nav;
     private Vector3 goal;
     private Transform player;
@@ -25,17 +27,20 @@ public class TutorialGhost : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (Vector3.Distance(transform.position, player.transform.position) <= maxDistance) {
-            nav.SetDestination(goal);
-        }
-        else
-        {
-            nav.ResetPath();
-        }
+        float playerDistance = Vector3.Distance(player.position, goal);
+        float ghostDistance = Vector3.Distance(transform.position, goal);
+
+        float factor = 1 / Mathf.Log10(Vector3.Distance(transform.position, player.transform.position));
+
+        factor *= Mathf.Pow(ghostDistance / playerDistance, 2);
+
+        nav.speed = baseSpeed * factor;
 	}
 
     public void SetGoal (Vector3 position)
     {
         goal = position;
+
+        nav.SetDestination(goal);
     }
 }

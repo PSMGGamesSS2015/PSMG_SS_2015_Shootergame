@@ -75,6 +75,11 @@ public class PlayerMovement : MonoBehaviour
     // Maximum absolute fly height (might want to change to relative to ground)
     public float maximumFlyHeight = 150.0f;
 
+    /// <summary>
+    /// Minimum distance the player must fall to suffer falling damage
+    /// </summary>
+    public float fallDamageMinDistance = 5.0f;
+
     // True, if the player is on the ground
     private bool grounded = false;
 
@@ -113,10 +118,15 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 lastDirection;
 
+    private float groundHeight = 0.0f;
+
+    private BasePlayer basePlayer;
+
     void Start()
     {
         colliderHeight = GetComponent<CapsuleCollider>().height;
         weaponController = GetComponent<Assets.Scripts.Weapons.WeaponController>();
+        basePlayer = GetComponent<BasePlayer>();
     }
 
     void Awake()
@@ -152,6 +162,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 CheckForFlyMode();
             }
+
+            groundHeight = transform.position.y;
         }
         // If the player is not on the ground, in fly mode and not in the "initial jump phase" anymore...
         else if (flyModeActivated)
@@ -229,12 +241,24 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionStay()
     {
         grounded = true;
+
         if (fallingWhileFlying)
         {
             fallingWhileFlying = false;
             flyModeActivated = false;
             weaponController.FlyMode = false;
             GetComponent<BasePlayer>().FlyMode = false;
+        }
+        else
+        {
+            float fallDistance = groundHeight - transform.position.y;
+            if (fallDistance >= fallDamageMinDistance)
+            {
+                int damage = (int) Mathf.Round(Mathf.Pow((fallDistance / 4), 1.8f));
+                Debug.Log(damage);
+                basePlayer.SubtractHealth(damage);
+            }
+            
         }
     }
 

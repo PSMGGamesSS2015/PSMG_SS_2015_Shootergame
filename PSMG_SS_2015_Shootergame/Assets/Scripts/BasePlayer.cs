@@ -83,6 +83,11 @@ public class BasePlayer : MonoBehaviour {
         }
     }
 
+    public void SubtractHealth(int value)
+    {
+        health -= value;
+    }
+
     void AllowSprinting()
     {
         movement.canSprint = true;
