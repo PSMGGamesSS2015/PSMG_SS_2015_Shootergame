@@ -137,7 +137,7 @@ namespace Assets.Scripts.Weapons
 
             viewModel = GameObject.Instantiate(prefab, parentPlayer.transform.position, parentPlayer.transform.rotation) as GameObject;
             viewModelAnimator = viewModel.GetComponent<Animator>();
-            viewModel.transform.parent = parentPlayer.transform;
+            viewModel.transform.parent = Camera.main.transform;
         }
 
         public virtual void SetDown()

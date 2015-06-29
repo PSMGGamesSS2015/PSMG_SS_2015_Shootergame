@@ -13,29 +13,29 @@ public class MouseLook : MonoBehaviour {
     public float sensitivityY = 15F;
 
     // Minimum and maximum angle for the rotation that can be reached by the mouse movement in X direction
-    public float minimumX = -360F;
-    public float maximumX = 360F;
+    public const float minimumX = -360F;
+    public const float maximumX = 360F;
 
     // Minimum and maximum angle for the rotation that can be reached by the mouse movement in Y direction
-    public float minimumY = -60F;
-    public float maximumY = 60F;
+    public const float minimumY = -60F;
+    public const float maximumY = 60F;
 
     // The target X and Y rotations - set automatically
     float rotationX = 0F;
     float rotationY = 0F;
 
-    public Rigidbody rigid;
+    //public Rigidbody rigid;
 
     // original Rotation of the object - set automatically
-    Quaternion originalRotation;
+    private Quaternion originalRotation;
 
     void Start()
     {
         // Make the rigid body not change rotation
-        rigid.freezeRotation = true;
+        //rigid.freezeRotation = true;
 
         // Save the current rotation
-        originalRotation = transform.localRotation;
+        originalRotation = Camera.main.transform.localRotation;
     }
 
     void Update()
@@ -53,7 +53,7 @@ public class MouseLook : MonoBehaviour {
         Quaternion yQuaternion = Quaternion.AngleAxis(rotationY, -Vector3.right);
 
         // Set the object's rotation to the computed new rotation
-        transform.localRotation = originalRotation * xQuaternion * yQuaternion;
+        Camera.main.transform.localRotation = originalRotation * xQuaternion * yQuaternion;
     }
 
     // Makes sure the angle is always in our set limitations and doesnt exceed +/- 360°
