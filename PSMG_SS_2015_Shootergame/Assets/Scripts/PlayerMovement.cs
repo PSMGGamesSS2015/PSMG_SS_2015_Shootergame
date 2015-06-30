@@ -111,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
     private int remainingFlaps = 0;
 
     // Save collider height to reset after crouching
-    private float colliderHeight = 0.0f;
+    private float colliderHeight = 1.0f;
 
     // Weapon controller for animations
     private Assets.Scripts.Weapons.WeaponController weaponController;
