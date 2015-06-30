@@ -24,15 +24,16 @@ public class MouseLook : MonoBehaviour {
     float rotationX = 0F;
     float rotationY = 0F;
 
-    //public Rigidbody rigid;
+    private Rigidbody rigid;
 
     // original Rotation of the object - set automatically
     private Quaternion originalRotation;
 
     void Start()
     {
+        rigid = GetComponent<Rigidbody>();
         // Make the rigid body not change rotation
-        //rigid.freezeRotation = true;
+        rigid.freezeRotation = true;
 
         // Save the current rotation
         originalRotation = Camera.main.transform.localRotation;
@@ -53,7 +54,8 @@ public class MouseLook : MonoBehaviour {
         Quaternion yQuaternion = Quaternion.AngleAxis(rotationY, -Vector3.right);
 
         // Set the object's rotation to the computed new rotation
-        Camera.main.transform.localRotation = originalRotation * xQuaternion * yQuaternion;
+        rigid.transform.localRotation = originalRotation * xQuaternion;
+        Camera.main.transform.localRotation = originalRotation * yQuaternion;
     }
 
     // Makes sure the angle is always in our set limitations and doesnt exceed +/- 360°
