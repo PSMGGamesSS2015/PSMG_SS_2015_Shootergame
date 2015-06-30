@@ -49,8 +49,9 @@ public class Enemy : MonoBehaviour {
             }
         }
     }
-    
 
+
+    private GameObject playerObject;
     private BasePlayer player;
     private Vector3 playerPosition;
 
@@ -67,12 +68,14 @@ public class Enemy : MonoBehaviour {
 
     private float lastAttackTimestamp = 0;
 
+    private const float fieldOfView = 110f;
+    private const float MAX_DISTANCE_TO_SIGHT = 30.0f;
 	// Use this for initialization
 	void Start () {
         body = GetComponent<Rigidbody>();
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        playerObject = GameObject.FindGameObjectWithTag("Player");
         
-        this.player = player.GetComponent<BasePlayer>();
+        this.player = playerObject.GetComponent<BasePlayer>();
 
         nav = GetComponent<NavMeshAgent>();
 
@@ -91,7 +94,7 @@ public class Enemy : MonoBehaviour {
         {
             transform.LookAt(playerPosition);
 
-            if (distance > 5.0f && distance < 30.0f)
+            if (distance > 5.0f && distance < MAX_DISTANCE_TO_SIGHT)
             {
                 nav.SetDestination(playerPosition);
 
@@ -119,15 +122,27 @@ public class Enemy : MonoBehaviour {
         {
             // try to spot player
 
-            // if player is standing to close to enemy
-            if (distance < 20.0f)
+            Vector3 directionToPlayer = playerPosition - transform.position;
+
+            if ((distance < 10.0f) || // if player is standing too close to enemy
+                (Vector3.Angle(directionToPlayer, transform.forward) < (fieldOfView * 0.5f))) // if player is in field of view 
             {
-                if (!goingHome)
+                // Player maybe spotted but make sure to check if something is blocking sight:
+                RaycastHit hit;
+                if (Physics.Raycast(head.transform.position, directionToPlayer.normalized, out hit, MAX_DISTANCE_TO_SIGHT))
                 {
-                    startingPosition = transform.position;
+                    GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+                    if (hit.collider.gameObject == playerObject)
+                    {
+                        // Player wasn't too far away and nothing in between to block the view.
+                        if (!goingHome)
+                        {
+                            startingPosition = transform.position;
+                        }
+
+                        HasSpottedPlayer = true;
+                    }
                 }
-                
-                HasSpottedPlayer = true;
             }
 
             if (goingHome)
