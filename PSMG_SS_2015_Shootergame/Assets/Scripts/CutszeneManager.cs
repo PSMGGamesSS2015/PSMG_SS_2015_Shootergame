@@ -5,99 +5,118 @@ using System.Collections.Generic;
 
 public class CutszeneManager : MonoBehaviour {
 
+
+    private Transform player;
+
+    //public int NumberOfTotalCutscenes;
+
+    public Transform startTrigger;
+
+    public float startDistance = 50.0f;
+
+    //the number of the actual cutscene
+    public int CutsceneNumber;
+
+    public GameObject container;
+
+    //all images that belong to that cutscene
+    public List<Image> images = new List<Image>();
+
+    //sets the time per image
+    public int[] timePerImage;
+
+    //this shows how many images there are per site and how many sites
+    public int[] ImagesPerSite;
+
     //boolean that is true if the cutscene animation is finished
     private bool isCutsceneAnimationFinished = false;
 
-    //true if the Cutscene has more than one page (NOT IMPLEMENTED)
-    private bool morePages = false;
-    
-    //the container for all cutscene pictures
-    public GameObject container;
-
-    //the number of all existing Cutscenes
-    public int NumberOfCutscenes;
-    
-    //a List that contains all existing cutscenes
-    private List<GameObject> cutscenes = new List<GameObject>();
-    //a List that contains all Images which belong to the actual Cutscene
-    private List<Image> cutsceneImages = new List<Image>();
-
     //the acutal cutscene image that is animated
     private Image cutSceneImage;
-    //the acutal cutscene that should be shown
-    private GameObject actCutscene;
-    
-    private bool first = true;
 
+    private GameObject actCutscene;
+
+    private bool started = false;
+
+    private bool finished = false;
+
+    private int actImageNumber = 0;
+
+    public List<GameObject> allCutscenes = new List<GameObject>();
 
     // Use this for initialization
     //At the start of the game all cutscene are loaded.
 	void Start () {
-        for (int i = 1; i <= NumberOfCutscenes; i++)
+        for (int i = 1; i <= allCutscenes.Count; i++)
         {
-            actCutscene = GameObject.Find("cutscene " + i);
-            Debug.Log(actCutscene);
-            cutscenes.Add(actCutscene);
-            actCutscene.SetActive(false);
+            Debug.Log(i);
+            allCutscenes[i - 1].SetActive(false);
         }
+        actCutscene = allCutscenes[CutsceneNumber-1];
+
         container.SetActive(false);
 
-        //startCutscene(1);
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 	
 	// Update is called once per frame
     //manage Animation of all images
 	void Update () {
-        if (isCutsceneAnimationFinished)
+        if (!finished)
         {
-            if (cutsceneImages.Count > 0)
+            if (!started)
             {
-                isCutsceneAnimationFinished = false;
-                cutSceneImage = cutsceneImages[0];
-                cutsceneImages.RemoveAt(0);
-                FadeIn();
+                CheckForStart();
             }
             else
             {
-                container.SetActive(false);
-                actCutscene.SetActive(false);
-                if(first) 
+                if (isCutsceneAnimationFinished)
                 {
-                    first = false;
-                    //startCutscene(2);
+                    if (images.Count > actImageNumber)
+                    {
+                        isCutsceneAnimationFinished = false;
+                        cutSceneImage = images[actImageNumber];
+                        FadeIn();
+                    }
+                    else
+                    {
+                        started = false;
+                        finished = true;
+                        isCutsceneAnimationFinished = false;
+                        FadeOut();
+                        //fade out
+                    }
                 }
-                //fade out
             }
         }
 	}
 
-    //start the called Cutscene with one page
-    private void startCutscene(int numberOfCutscene)
-    {
-        startCutscene(numberOfCutscene, 1);
-    }
-
     //start the called Cutscene with a variable number of pages
-    public void startCutscene(int numberOfCutscene, int pagesCount)
+    public void StartCutscene()
     {
-        if(pagesCount > 1) {
-            morePages = true;
+        for (int i = 1; i <= images.Count; i++)
+        {
+            images[i - 1].color = new Color(images[i - 1].color.r, images[i - 1].color.g, images[i - 1].color.b, 0);
         }
-
-        //get the actual cutscene and set it active
-        actCutscene = cutscenes[numberOfCutscene - 1];
         container.SetActive(true);
         actCutscene.SetActive(true);
 
-        //get all images that belong to the actual cutscene and make them unvisible
-        for (int i = 1; i <= actCutscene.transform.childCount; i++)
-        {
-            cutsceneImages.Add(actCutscene.transform.Find("Image " + i).GetComponent<Image>());
-            cutsceneImages[i - 1].color = new Color(cutsceneImages[i - 1].color.r, cutsceneImages[i - 1].color.g, cutsceneImages[i - 1].color.b, 0);
-        }
         isCutsceneAnimationFinished = true;
     }
 
+
+    void CheckForStart()
+    {
+        float distance = Vector3.Distance(player.position, startTrigger.position);
+        Debug.Log("search");
+
+        if (distance <= startDistance)
+        {
+            started = true;
+            Debug.Log("start");
+            StartCutscene();
+        }
+    }
 
     //Fade the actual image in
     public void FadeIn()
@@ -117,8 +136,44 @@ public class CutszeneManager : MonoBehaviour {
             currentTime += Time.deltaTime;
             yield return null;
         }
-        yield return new WaitForSeconds(3f);
+        Debug.Log(actImageNumber);
+        yield return new WaitForSeconds(timePerImage[actImageNumber]);
+        actImageNumber++;
         isCutsceneAnimationFinished = true;
+        yield break;
+    }
+
+
+    //fade the text out
+    public void FadeOut()
+    {
+        StartCoroutine("FadeOutCR");
+    }
+
+    //Coroutine to fade the text out (wait for timeToShowText so the text is visible this amount of time)
+    private IEnumerator FadeOutCR()
+    {
+        float alpha = 1;
+        float currentTime = 0f;
+        while (alpha > 0)
+        {
+            alpha = Mathf.Lerp(1f, 0f, currentTime);
+            //Debug.Log(alpha);
+            for (int i = 0; i < images.Count; i++)
+            {
+                Debug.Log(images[i]);
+                images[i].color = new Color(images[i].color.r, images[i].color.g, images[i].color.b, alpha);
+            }
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+        isCutsceneAnimationFinished = true;
+
+        for (int i = 0; i < allCutscenes.Count; i++)
+        {
+            allCutscenes[i].SetActive(true);
+        }
+        container.SetActive(true);
         yield break;
     }
 }
