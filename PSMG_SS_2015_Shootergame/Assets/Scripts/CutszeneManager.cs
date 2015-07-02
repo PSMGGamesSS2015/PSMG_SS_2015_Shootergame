@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class CutszeneManager : MonoBehaviour {
 
-
     private Transform player;
 
     //public int NumberOfTotalCutscenes;
@@ -17,13 +16,14 @@ public class CutszeneManager : MonoBehaviour {
     //the number of the actual cutscene
     public int CutsceneNumber;
 
+    //container with all cutscenes and background image
     public GameObject container;
 
     //all images that belong to that cutscene
     public List<Image> images = new List<Image>();
 
     //sets the time per image
-    public int[] timePerImage;
+    public float[] timePerImage;
 
     //this shows how many images there are per site and how many sites
     public int[] ImagesPerSite;
@@ -34,33 +34,30 @@ public class CutszeneManager : MonoBehaviour {
     //the acutal cutscene image that is animated
     private Image cutSceneImage;
 
+    //the actual cutscene
     private GameObject actCutscene;
 
+    //is the cutscene started
     private bool started = false;
 
+    //is the cutscene finished
     private bool finished = false;
 
+    //the number of the actual Image
     private int actImageNumber = 0;
 
+    //list with all cutscenes
     public List<GameObject> allCutscenes = new List<GameObject>();
 
     // Use this for initialization
-    //At the start of the game all cutscene are loaded.
 	void Start () {
-        for (int i = 1; i <= allCutscenes.Count; i++)
-        {
-            Debug.Log(i);
-            allCutscenes[i - 1].SetActive(false);
-        }
         actCutscene = allCutscenes[CutsceneNumber-1];
-
-        container.SetActive(false);
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
-	
+
 	// Update is called once per frame
-    //manage Animation of all images
+    //manage Animation of all images, start fade in and out
 	void Update () {
         if (!finished)
         {
@@ -74,24 +71,25 @@ public class CutszeneManager : MonoBehaviour {
                 {
                     if (images.Count > actImageNumber)
                     {
+                        //show new image
                         isCutsceneAnimationFinished = false;
                         cutSceneImage = images[actImageNumber];
                         FadeIn();
                     }
                     else
                     {
+                        //end cutscene
                         started = false;
                         finished = true;
                         isCutsceneAnimationFinished = false;
                         FadeOut();
-                        //fade out
                     }
                 }
             }
         }
 	}
 
-    //start the called Cutscene with a variable number of pages
+    //start the called Cutscene (with a variable number of pages)
     public void StartCutscene()
     {
         for (int i = 1; i <= images.Count; i++)
@@ -104,11 +102,10 @@ public class CutszeneManager : MonoBehaviour {
         isCutsceneAnimationFinished = true;
     }
 
-
+    //check if the player is in the range of the cutscene trigger
     void CheckForStart()
     {
         float distance = Vector3.Distance(player.position, startTrigger.position);
-        Debug.Log("search");
 
         if (distance <= startDistance)
         {
@@ -124,7 +121,7 @@ public class CutszeneManager : MonoBehaviour {
         StartCoroutine("FadeInCR");
     }
 
-    //Coroutine to fade the actual image in
+    //Coroutine to fade in the actual image
     private IEnumerator FadeInCR()
     {
         float alpha = 1;
@@ -136,7 +133,6 @@ public class CutszeneManager : MonoBehaviour {
             currentTime += Time.deltaTime;
             yield return null;
         }
-        Debug.Log(actImageNumber);
         yield return new WaitForSeconds(timePerImage[actImageNumber]);
         actImageNumber++;
         isCutsceneAnimationFinished = true;
@@ -150,7 +146,7 @@ public class CutszeneManager : MonoBehaviour {
         StartCoroutine("FadeOutCR");
     }
 
-    //Coroutine to fade the text out (wait for timeToShowText so the text is visible this amount of time)
+    //Coroutine to fade out the text (wait for timeToShowText so the text is visible this amount of time)
     private IEnumerator FadeOutCR()
     {
         float alpha = 1;
@@ -158,10 +154,9 @@ public class CutszeneManager : MonoBehaviour {
         while (alpha > 0)
         {
             alpha = Mathf.Lerp(1f, 0f, currentTime);
-            //Debug.Log(alpha);
+            //set the alpha value of all Images of the cutscene 
             for (int i = 0; i < images.Count; i++)
             {
-                Debug.Log(images[i]);
                 images[i].color = new Color(images[i].color.r, images[i].color.g, images[i].color.b, alpha);
             }
             currentTime += Time.deltaTime;
@@ -169,11 +164,12 @@ public class CutszeneManager : MonoBehaviour {
         }
         isCutsceneAnimationFinished = true;
 
+        //set all Cutscenes inactive so they're no longer visible
         for (int i = 0; i < allCutscenes.Count; i++)
         {
-            allCutscenes[i].SetActive(true);
+            allCutscenes[i].SetActive(false);
         }
-        container.SetActive(true);
+        container.SetActive(false);
         yield break;
     }
 }
