@@ -51,6 +51,8 @@ public class CutszeneManager : MonoBehaviour {
 
     // Use this for initialization
 	void Start () {
+
+
         actCutscene = allCutscenes[CutsceneNumber-1];
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -98,7 +100,7 @@ public class CutszeneManager : MonoBehaviour {
         }
         container.SetActive(true);
         actCutscene.SetActive(true);
-
+		player.GetComponent<PlayerMovement>().enabled = false;
         isCutsceneAnimationFinished = true;
     }
 
@@ -169,6 +171,7 @@ public class CutszeneManager : MonoBehaviour {
         {
             allCutscenes[i].SetActive(false);
         }
+		player.GetComponent<PlayerMovement>().enabled = true;
         container.SetActive(false);
         yield break;
     }
