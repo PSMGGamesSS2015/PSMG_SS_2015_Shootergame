@@ -148,6 +148,7 @@ public class QuestFollow : MonoBehaviour {
     void CheckFinish()
     {
         float distance = Vector3.Distance(finishTriggerObject.position, goal.position);
+
         if (distance <= goalDistance)
         {
             QuestFinished();

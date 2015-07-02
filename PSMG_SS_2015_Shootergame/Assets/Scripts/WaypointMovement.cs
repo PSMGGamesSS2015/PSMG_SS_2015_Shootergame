@@ -10,6 +10,8 @@ public class WaypointMovement : MonoBehaviour {
 
     public Transform[] waypoints;
 
+    public bool moveWithoutActivation;
+
     Transform currentWaypoint;
     int currentIndex;
 
@@ -27,6 +29,11 @@ public class WaypointMovement : MonoBehaviour {
 	void Start () {
         currentIndex = 0;
         currentWaypoint = waypoints[currentIndex];
+
+        if (moveWithoutActivation)
+        {
+            StartMoving();
+        }
 	}
 
     void Awake()
@@ -72,9 +79,11 @@ public class WaypointMovement : MonoBehaviour {
         if (Vector3.Distance(currentWaypoint.transform.position, transform.position) <= distance)
         {
             currentIndex++;
+
             if (currentIndex >= waypoints.Length)
             {
                 currentIndex = 0;
+                StopMoving();
             }
 
             currentWaypoint = waypoints[currentIndex];
