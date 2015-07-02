@@ -213,15 +213,15 @@ public class QuestWaypoint : MonoBehaviour {
         {
             if (nextQuest.GetComponent<QuestFollow>() != null)
             {
-                nextQuest.GetComponent<QuestFollow>().ActivateQuest(5.0f);
+                nextQuest.GetComponent<QuestFollow>().ActivateQuest();
             }
             else if (nextQuest.GetComponent<QuestWaypoint>() != null)
             {
-                nextQuest.GetComponent<QuestWaypoint>().ActivateQuest(5.0f);
+                nextQuest.GetComponent<QuestWaypoint>().ActivateQuest();
             }
             else if (nextQuest.GetComponent<Tutorial>() != null)
             {
-                nextQuest.GetComponent<Tutorial>().ActivateQuest(2.0f);
+                nextQuest.GetComponent<Tutorial>().ActivateQuest();
             }
         } 
     }
