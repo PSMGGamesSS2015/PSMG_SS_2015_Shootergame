@@ -94,13 +94,13 @@ public class CutszeneManager : MonoBehaviour {
     //start the called Cutscene (with a variable number of pages)
     public void StartCutscene()
     {
+		player.GetComponent<PlayerMovement> ().canMove = false;
         for (int i = 1; i <= images.Count; i++)
         {
             images[i - 1].color = new Color(images[i - 1].color.r, images[i - 1].color.g, images[i - 1].color.b, 0);
         }
         container.SetActive(true);
         actCutscene.SetActive(true);
-		player.GetComponent<PlayerMovement>().enabled = false;
         isCutsceneAnimationFinished = true;
     }
 
@@ -172,6 +172,7 @@ public class CutszeneManager : MonoBehaviour {
             allCutscenes[i].SetActive(false);
         }
 		player.GetComponent<PlayerMovement>().enabled = true;
+		player.GetComponent<PlayerMovement> ().canMove = true;
         container.SetActive(false);
         yield break;
     }

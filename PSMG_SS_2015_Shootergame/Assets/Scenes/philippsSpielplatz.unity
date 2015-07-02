@@ -2367,7 +2367,7 @@ MonoBehaviour:
   rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
     type: 2}
   textScript: {fileID: 1919593690}
-  activateOnStart: 0
+  activateOnStart: 1
   activateText: "Willkommen Krieger! Mit WASD und der Maus kannst du dich bewegen.
     Probiere es aus indem du zur Markierung vor dir l\xE4ufst!"
   startText: "Mit SHIFT kannst du f\xFCr kurze Zeit Sprinten. Renne nun zur n\xE4chsten
@@ -4701,7 +4701,7 @@ MonoBehaviour:
   rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
     type: 2}
   textScript: {fileID: 1919593690}
-  activateOnStart: 1
+  activateOnStart: 0
   activateText: Folge den Markierungen um herauszufinden woher die Schreie kommen
   startText: 
   finishText: 
@@ -4942,26 +4942,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11453196, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 158976, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 151182, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 115052, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11418072, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 11441002, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 148538390}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
   m_IsPrefabParent: 0
@@ -6146,8 +6130,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 696224675}
-  m_LocalRotation: {x: -.0161799528, y: -.983235538, z: .110188633, w: -.144376501}
-  m_LocalPosition: {x: 61.1939735, y: -4.39127541, z: 51.5403748}
+  m_LocalRotation: {x: .00536425691, y: -.949357986, z: .0162369683, w: .313730806}
+  m_LocalPosition: {x: 321.906281, y: -5.10420418, z: 438.998871}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58648138}
@@ -6327,8 +6311,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 719942574}
-  m_LocalRotation: {x: -.00106267713, y: -.996934295, z: .0770179257, w: -.0137547487}
-  m_LocalPosition: {x: 61.8080101, y: 4.42020416, z: 52.3117981}
+  m_LocalRotation: {x: .00536425691, y: -.949357986, z: .0162369683, w: .313730806}
+  m_LocalPosition: {x: 321.906281, y: 3.57579613, z: 438.998871}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58648138}
@@ -14791,15 +14775,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 137.199997
+      value: 106.059998
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.10000038
+      value: 12.5699997
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 98.1999969
+      value: 52.0400009
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalRotation.x
@@ -14807,7 +14791,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -.632029414
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalRotation.z
@@ -14815,7 +14799,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .774944425
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_RootOrder
@@ -16979,7 +16963,7 @@ MonoBehaviour:
   activateTextTime: 5
   finishTextTime: 5
   failTextTime: 0
-  nextQuest: {fileID: 0}
+  nextQuest: {fileID: 471493041}
 --- !u!4 &1808349677
 Transform:
   m_ObjectHideFlags: 0
@@ -19487,8 +19471,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2080041229}
-  m_LocalRotation: {x: -.101895466, y: .693947196, z: .100198708, w: .705701649}
-  m_LocalPosition: {x: 67.6362915, y: -44.5278511, z: 20.7481766}
+  m_LocalRotation: {x: .00536425691, y: -.949357986, z: .0162369683, w: .313730806}
+  m_LocalPosition: {x: 321.906281, y: -28.304203, z: 438.998871}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58648138}
