@@ -255,7 +255,6 @@ public class PlayerMovement : MonoBehaviour
             if (fallDistance >= fallDamageMinDistance)
             {
                 int damage = (int) Mathf.Round(Mathf.Pow((fallDistance / 4), 1.8f));
-                Debug.Log(damage);
                 basePlayer.SubtractHealth(damage);
             }
             
