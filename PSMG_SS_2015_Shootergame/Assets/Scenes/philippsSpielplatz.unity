@@ -2863,7 +2863,7 @@ MonoBehaviour:
   rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
     type: 2}
   textScript: {fileID: 1919593690}
-  activateOnStart: 0
+  activateOnStart: 1
   activateText: "Willkommen Krieger! Mit WASD und der Maus kannst du dich bewegen.
     Probiere es aus indem du zur Markierung vor dir l\xE4ufst!"
   startText: "Mit SHIFT kannst du f\xFCr kurze Zeit Sprinten. Renne nun zur n\xE4chsten
@@ -5688,7 +5688,8 @@ MonoBehaviour:
     type: 2}
   textScript: {fileID: 1919593690}
   activateOnStart: 0
-  activateText: Folge den Markierungen um herauszufinden woher die Schreie kommen
+  activateText: "Du h\xF6rst Geschrei! Folge den Markierungen um dem ganzen auf den
+    Grund zu gehen. Beil dich! Die Uhr Tickt... Die was? Ich bin Indianer!"
   startText: 
   finishText: 
   failText: Leider zu langsam. Versuch es doch gleich noch einmal!
@@ -7828,8 +7829,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 621983811}
-  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 119.437271, y: -102.459839, z: 32.8415451}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 60.5742912, y: 1.89476204, z: -8.44583511}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58648138}
@@ -8607,8 +8608,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 696224675}
-  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 218.046844, y: -369.486816, z: 78.2559814}
+  m_LocalRotation: {x: .0860535279, y: .13792868, z: .0120300762, w: -.986623406}
+  m_LocalPosition: {x: 64.961792, y: -8.7792778, z: -13.6941395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58648138}
@@ -8897,8 +8898,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 719942574}
-  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 218.046844, y: -360.806824, z: 78.2559814}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 60.5742912, y: 1.89476204, z: -8.44583511}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58648138}
@@ -14618,7 +14619,7 @@ MonoBehaviour:
   failDistance: 120
   goalDistance: 20
   textScript: {fileID: 1919593690}
-  activateOnStart: 1
+  activateOnStart: 0
   nextQuest: {fileID: 0}
   activateText: 
   startText: "Die arme Sau! Folge den Siedlern unauff\xE4llig. In den Bergen kannst
@@ -16702,8 +16703,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1368673777}
-  m_LocalRotation: {x: .182876617, y: .123513862, z: .0231653098, w: -.975071192}
-  m_LocalPosition: {x: 395.93045, y: -97.8204803, z: 39.1001892}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 60.5742912, y: -29.9852371, z: -8.44583511}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58648138}
@@ -22786,15 +22787,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 195.800003
+      value: 102.400002
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 25.7999992
+      value: 17.2000008
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 66.5999985
+      value: 32.7000008
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalRotation.x
@@ -22936,6 +22937,10 @@ Prefab:
       propertyPath: m_Height
       value: 1.94000006
       objectReference: {fileID: 0}
+    - target: {fileID: 11406598, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
+      propertyPath: weaponBowPrefab
+      value: 
+      objectReference: {fileID: 136204, guid: 70b3fd7cbf37860438e73d72e5651812, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
   m_IsPrefabParent: 0
@@ -28737,8 +28742,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2080041229}
-  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 218.046844, y: -392.686829, z: 78.2559814}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 60.5742912, y: -29.9852371, z: -8.44583511}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58648138}
