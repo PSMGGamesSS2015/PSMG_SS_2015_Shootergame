@@ -157,6 +157,8 @@ public class QuestFollow : MonoBehaviour {
 
     void StartQuest() 
     {
+		GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
+
         questStarted = true;
 
         textScript.showTextinUI(startText, startTextTime);
