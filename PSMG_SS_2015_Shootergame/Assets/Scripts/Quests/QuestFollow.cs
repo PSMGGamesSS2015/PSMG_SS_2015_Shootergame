@@ -168,6 +168,7 @@ public class QuestFollow : MonoBehaviour {
         Destroy(startIndicator);
 
         failIndicator = CreateIndicator(transform, failDistance);
+		failIndicator.GetComponentInChildren<ParticleSystem> ().Stop ();
         goalIndicator = CreateIndicator(goal, goalDistance);        
     }
 
