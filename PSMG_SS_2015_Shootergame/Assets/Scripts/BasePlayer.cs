@@ -30,6 +30,7 @@ public class BasePlayer : MonoBehaviour {
 
     private PlayerMovement movement;
 
+    private Vector3 homePosition;
     private bool isInFlyMode = false;
     public bool FlyMode
     {
@@ -43,16 +44,21 @@ public class BasePlayer : MonoBehaviour {
             if (isInFlyMode)
             {
                 birdModel.GetComponent<MeshRenderer>().enabled = true;
+                Vector3 backvector = new Vector3(Vector3.forward.x, 0, Vector3.forward.z);
+                Camera.main.transform.Translate(backvector * -10.0f, Space.Self);
             }
             else
             {
                 birdModel.GetComponent<MeshRenderer>().enabled = false;
+                //Camera.main.transform.Translate(Vector3.forward * 10.0f, Space.Self);
+                Camera.main.transform.localPosition = homePosition;
             }
         }
     }
 
 	// Use this for initialization
 	void Awake () {
+        homePosition = Camera.main.transform.localPosition;
         movement = GetComponent<PlayerMovement>();
 	}
 	

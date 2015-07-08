@@ -135,9 +135,12 @@ namespace Assets.Scripts.Weapons
 
             if (prefab == null) return;
 
-            viewModel = GameObject.Instantiate(prefab, parentPlayer.transform.position, parentPlayer.transform.rotation) as GameObject;
-            viewModelAnimator = viewModel.GetComponent<Animator>();
+            viewModel = GameObject.Instantiate(prefab) as GameObject;
             viewModel.transform.parent = Camera.main.transform;
+            viewModel.transform.localPosition = Vector3.zero;
+            viewModel.transform.localRotation = Quaternion.identity;
+            viewModel.transform.Translate(new Vector3(0, -1.36f, 0), Space.Self);
+            viewModelAnimator = viewModel.GetComponent<Animator>();
         }
 
         public virtual void SetDown()
