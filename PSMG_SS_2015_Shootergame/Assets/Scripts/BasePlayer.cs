@@ -44,13 +44,11 @@ public class BasePlayer : MonoBehaviour {
             if (isInFlyMode)
             {
                 birdModel.GetComponent<MeshRenderer>().enabled = true;
-                Vector3 backvector = new Vector3(Vector3.forward.x, 0, Vector3.forward.z);
-                Camera.main.transform.Translate(backvector * -10.0f, Space.Self);
+                Camera.main.transform.localPosition = new Vector3(0, 0, -10.0f);
             }
             else
             {
                 birdModel.GetComponent<MeshRenderer>().enabled = false;
-                //Camera.main.transform.Translate(Vector3.forward * 10.0f, Space.Self);
                 Camera.main.transform.localPosition = homePosition;
             }
         }
