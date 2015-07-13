@@ -46,9 +46,17 @@ namespace Assets.Scripts.Weapons
 
             GetComponent<Rigidbody>().isKinematic = true;
 
-            //transform.Translate(transform.forward * 5.0f);
+            transform.Translate(transform.forward, Space.Self);
 
             gameObject.transform.parent = collision.gameObject.transform;
+
+            if (collision.collider.gameObject.tag == "Enemy")
+            {
+                Enemy enemy = collision.collider.gameObject.GetComponent<Enemy>();
+
+                int damage = (int)Random.Range(90, 100);
+                enemy.Health -= damage;
+            }
             
             wasFired = true;
         }
