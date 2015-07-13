@@ -2,6 +2,7 @@
 using System.Collections;
 using Assets.Scripts;
 using Assets.Scripts.Weapons;
+using UnityStandardAssets.ImageEffects;
 
 public class BasePlayer : MonoBehaviour {
     /*PLAYER DATA*/
@@ -17,10 +18,11 @@ public class BasePlayer : MonoBehaviour {
     // Current amount of flowers
     private int flowers = 1;
 
-    public float maxEnergy = 100.0f;
+    public const float MAX_ENERGY = 100.0f;
 
     public float energyRegeneration = 5.0f;
     public float energyDrain = 20.0f;
+    DepthOfField lowEnergyBlur = null;
 
     public float sprintDelay = 5.0f;
 
@@ -58,8 +60,10 @@ public class BasePlayer : MonoBehaviour {
 	void Awake () {
         homePosition = Camera.main.transform.localPosition;
         movement = GetComponent<PlayerMovement>();
+        lowEnergyBlur = Camera.main.GetComponent<DepthOfField>();
 	}
-	
+
+    
 	// Update is called once per frame
 	void Update () {
         if (movement.isSprinting())
@@ -71,7 +75,11 @@ public class BasePlayer : MonoBehaviour {
             RegenerateEnergy();
         }
 
-        Mathf.Clamp(energy, 0.0f, maxEnergy);
+        
+        Mathf.Clamp(energy, 0.0f, MAX_ENERGY);
+
+        float blurValue = Mathf.Lerp(0.0f, 2.0f, energy / MAX_ENERGY);
+        lowEnergyBlur.focalSize = blurValue;
 	}
 
     void DrainEnergy()
@@ -99,7 +107,7 @@ public class BasePlayer : MonoBehaviour {
 
     void RegenerateEnergy()
     {
-        if (energy < maxEnergy)
+        if (energy < MAX_ENERGY)
         {
             energy += energyRegeneration * Time.deltaTime;
         }

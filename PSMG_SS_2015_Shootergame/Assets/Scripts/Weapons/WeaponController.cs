@@ -1,4 +1,5 @@
 ﻿
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,15 +30,30 @@ namespace Assets.Scripts.Weapons
                 isInFlyMode = value;
                 if (value == true)
                 {
-                    weapons[curWeaponIndex].SetDown();
+                    getActiveWeapon().Animator.SetTrigger("Morph");
+                    //AnimatorStateInfo asi = getActiveWeapon().Animator.GetCurrentAnimatorStateInfo(0);
+                    //StartCoroutine(WaitForAnimation(asi));
+                    Invoke("setCurrentWeaponDown", 2.0f);
                 }
                 else
                 {
-                    weapons[curWeaponIndex].SetUp();
+                    getActiveWeapon().SetUp();
                 }
                 
             }
         }
+
+        private void setCurrentWeaponDown(){getActiveWeapon().SetDown();}
+
+        //private IEnumerator WaitForAnimation(AnimatorStateInfo animation)
+        //{
+        //    yield return new WaitForSeconds(0.2f);
+        //    while (animation.normalizedTime >= 1.0f)
+        //    {
+        //        yield return null;
+        //    }
+        //    getActiveWeapon().SetDown();
+        //}
 
 
         public void Awake()

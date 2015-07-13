@@ -163,7 +163,7 @@ public class LifeVisualisation : MonoBehaviour {
         else
         {
             healthpercent = (float)player.health / (float)BasePlayer.MAX_HEALTH;
-            energy = (float)player.getEnergy() / (float)player.maxEnergy;
+            energy = (float)player.getEnergy() / (float)BasePlayer.MAX_ENERGY;
 
             energyBar.fillAmount = Mathf.Max(energy, 0.001f);
             healthBar.fillAmount = Mathf.Max(healthpercent, 0.001f);
