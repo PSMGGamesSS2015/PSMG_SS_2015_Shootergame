@@ -78,7 +78,7 @@ public class BasePlayer : MonoBehaviour {
         
         Mathf.Clamp(energy, 0.0f, MAX_ENERGY);
 
-        float blurValue = Mathf.Lerp(0.0f, 2.0f, energy / MAX_ENERGY);
+        float blurValue = Mathf.Lerp(0.0f, lowEnergyBlur.maxBlurSize, energy / MAX_ENERGY);
         lowEnergyBlur.focalSize = blurValue;
 	}
 

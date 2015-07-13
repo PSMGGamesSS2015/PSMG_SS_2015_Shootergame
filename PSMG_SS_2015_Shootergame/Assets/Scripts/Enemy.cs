@@ -5,10 +5,26 @@ using System.Collections.Generic;
 public class Enemy : MonoBehaviour {
 
     private int health = 100;
+    public int Health
+    {
+        get
+        {
+            return health;
+        }
+        set
+        {
+            health = value;
+            if (health <= 0)
+            {
+                // Initiate death
+                Debug.LogError("enemy died");
+            }
+        }
+    }
 
     private bool hasSpottedPlayer = false;
 
-    private static List<GameObject> enemies = new List<GameObject>();
+    public static List<GameObject> enemies = new List<GameObject>();
 
     private MovementController movementController;
 
@@ -23,12 +39,12 @@ public class Enemy : MonoBehaviour {
             hasSpottedPlayer = value;
             if (hasSpottedPlayer == true)
             {
-                head.GetComponent<MeshRenderer>().material.color = Color.red;
+                //head.GetComponent<MeshRenderer>().material.color = Color.red;
                 notifyCloseEnemies();
             }
             else
             {
-                head.GetComponent<MeshRenderer>().material.color = Color.white;
+                //head.GetComponent<MeshRenderer>().material.color = Color.white;
             }
         }
     }
@@ -62,8 +78,6 @@ public class Enemy : MonoBehaviour {
 
     private Rigidbody body;
 
-    public GameObject head;
-
     private NavMeshAgent nav;
 
     private float lastAttackTimestamp = 0;
@@ -86,7 +100,7 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        playerPosition = player.transform.position;
+        playerPosition = playerObject.transform.position;
 
         float distance = Vector3.Distance(transform.position, playerPosition);
 
@@ -129,9 +143,9 @@ public class Enemy : MonoBehaviour {
             {
                 // Player maybe spotted but make sure to check if something is blocking sight:
                 RaycastHit hit;
-                if (Physics.Raycast(head.transform.position, directionToPlayer.normalized, out hit, MAX_DISTANCE_TO_SIGHT))
+                if (Physics.Raycast(transform.position + Vector3.up, directionToPlayer.normalized, out hit, MAX_DISTANCE_TO_SIGHT))
                 {
-                    GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+                    //GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
                     if (hit.collider.gameObject == playerObject)
                     {
                         // Player wasn't too far away and nothing in between to block the view.
