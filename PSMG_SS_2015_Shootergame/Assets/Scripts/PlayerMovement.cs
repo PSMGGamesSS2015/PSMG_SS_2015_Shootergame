@@ -221,21 +221,26 @@ public class PlayerMovement : MonoBehaviour
         // If the button for activation of fly mode is pressed...
         if (!flyModeActivated && Input.GetButton("Fly") && GetComponent<BasePlayer>().getCurrentFlowers() >= 1)
         {
-            
-            BasePlayer player = GetComponent<BasePlayer>();
-            player.FlyMode = true;
-            weaponController.FlyMode = true;
-            // ...set the fly mode to activated
-            flyModeActivated = true;
-
-            player.RemoveFlower();
-
-            // ...reset the amount of flaps available to the player
-            remainingFlaps = flapAmount;
-
-            // ...jump as high as set
-            Jump(initialFlyHeight);
+            StartCoroutine(startFlyingThread());
         }
+    }
+
+    IEnumerator startFlyingThread()
+    {
+        weaponController.getActiveWeapon().Animator.SetTrigger("Morph");
+
+        yield return new WaitForSeconds(2.3f);
+
+        weaponController.getActiveWeapon().SetDown();
+
+        flyModeActivated = true;
+
+        basePlayer.FlyMode = true;
+
+        // ...reset the amount of flaps available to the player
+        remainingFlaps = flapAmount;
+        // ...jump as high as set
+        Jump(initialFlyHeight);
     }
 
     // If the player is on the ground (again), reset all relevant variables
@@ -247,8 +252,8 @@ public class PlayerMovement : MonoBehaviour
         {
             fallingWhileFlying = false;
             flyModeActivated = false;
-            weaponController.FlyMode = false;
-            GetComponent<BasePlayer>().FlyMode = false;
+            weaponController.getActiveWeapon().SetUp();
+            basePlayer.FlyMode = false;
         }
         else
         {
@@ -304,7 +309,7 @@ public class PlayerMovement : MonoBehaviour
 
     void AnimatePlayer()
     {
-        if (weaponController.FlyMode) return;
+        if (basePlayer.FlyMode == true) return;
 
         if (sprinting)
         {

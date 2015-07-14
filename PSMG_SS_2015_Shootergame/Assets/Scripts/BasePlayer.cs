@@ -47,6 +47,7 @@ public class BasePlayer : MonoBehaviour {
             {
                 birdModel.GetComponent<MeshRenderer>().enabled = true;
                 Camera.main.transform.localPosition = new Vector3(0, 0, -10.0f);
+                RemoveFlower();
             }
             else
             {

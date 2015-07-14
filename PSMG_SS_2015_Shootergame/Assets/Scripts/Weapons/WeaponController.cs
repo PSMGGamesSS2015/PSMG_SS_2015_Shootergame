@@ -18,46 +18,12 @@ namespace Assets.Scripts.Weapons
 
         public GameObject ammoInfoText = null;
 
-        private bool isInFlyMode = false;
-        public bool FlyMode
-        {
-            get
-            {
-                return isInFlyMode;
-            }
-            set
-            {
-                isInFlyMode = value;
-                if (value == true)
-                {
-                    getActiveWeapon().Animator.SetTrigger("Morph");
-                    //AnimatorStateInfo asi = getActiveWeapon().Animator.GetCurrentAnimatorStateInfo(0);
-                    //StartCoroutine(WaitForAnimation(asi));
-                    Invoke("setCurrentWeaponDown", 2.0f);
-                }
-                else
-                {
-                    getActiveWeapon().SetUp();
-                }
-                
-            }
-        }
-
-        private void setCurrentWeaponDown(){getActiveWeapon().SetDown();}
-
-        //private IEnumerator WaitForAnimation(AnimatorStateInfo animation)
-        //{
-        //    yield return new WaitForSeconds(0.2f);
-        //    while (animation.normalizedTime >= 1.0f)
-        //    {
-        //        yield return null;
-        //    }
-        //    getActiveWeapon().SetDown();
-        //}
-
+        private BasePlayer player;
 
         public void Awake()
         {
+            player = GetComponent<BasePlayer>();
+
             weapons = new BaseWeapon[MAX_WEAPONS];
             AddWeapon(new Bow(gameObject));
             AddWeapon(new Blowgun(gameObject));
@@ -121,7 +87,7 @@ namespace Assets.Scripts.Weapons
 
         private void CheckMouseButtons()
         {
-            if (isInFlyMode) return;
+            if (player.FlyMode == true) return;
 
             // Check if Fire button is down
             if (Input.GetButtonDown("Fire1"))
