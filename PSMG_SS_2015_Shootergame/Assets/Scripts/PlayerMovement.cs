@@ -205,13 +205,13 @@ public class PlayerMovement : MonoBehaviour
         {
 			if (Input.GetAxis("Vertical") == 1) {
 				sprinting = true;
-                //bobCamera.isMoving = true;
+                bobCamera.isSprinting = true;
 			}
         }
         else
         {
             sprinting = false;
-            //bobCamera.isMoving = false;
+            bobCamera.isSprinting = false;
         }
 
 		if (Input.GetButton("Sneak") && Input.GetButton("Forward"))

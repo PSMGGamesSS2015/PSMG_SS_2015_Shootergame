@@ -10,7 +10,7 @@ public class BobCamera : MonoBehaviour
 {
 
     private Animation anim;
-    public bool isSprinting = true;
+    public bool isSprinting = false;
 
     private bool animationSwitch = true;
 
