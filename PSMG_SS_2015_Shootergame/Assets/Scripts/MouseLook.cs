@@ -55,7 +55,15 @@ public class MouseLook : MonoBehaviour {
 
         // Set the object's rotation to the computed new rotation
         rigid.transform.localRotation = originalRotation * xQuaternion;
-        Camera.main.transform.localRotation = originalRotation * yQuaternion;
+
+        if (GetComponent<BasePlayer>().FlyMode == true)
+        {
+            Camera.main.transform.RotateAround(transform.position, transform.right, -rotationY * Time.deltaTime * 2.0f);
+        }
+        else
+        {
+            Camera.main.transform.localRotation = originalRotation * yQuaternion;
+        }
     }
 
     // Makes sure the angle is always in our set limitations and doesnt exceed +/- 360°
