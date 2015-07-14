@@ -16,10 +16,16 @@ namespace Assets.Scripts.Weapons
         private bool isFlying = false;
         private bool wasPickedUp = false;
 
+        // Sprite to show
+        public SpriteRenderer sprite;
+
+        private GameObject player;
+
         // Called once when the arrow spawns
         void Start()
         {
-
+            sprite.enabled = false;
+            player = GameObject.FindGameObjectWithTag("Player");
         }
 
         void OnCollisionEnter(Collision collision)
@@ -57,6 +63,10 @@ namespace Assets.Scripts.Weapons
                 int damage = (int)Random.Range(90, 100);
                 enemy.Health -= damage;
             }
+            else
+            {
+                sprite.enabled = true;
+            }
             
             wasFired = true;
         }
@@ -64,10 +74,7 @@ namespace Assets.Scripts.Weapons
         // Called once every frame
         void Update()
         {
-            //if (isFlying)
-            {
-                //transform.forward = Vector3.Slerp(transform.forward, rigidbody., Time.deltaTime);
-            }
+            sprite.gameObject.transform.LookAt(player.transform);
         }
 
 
