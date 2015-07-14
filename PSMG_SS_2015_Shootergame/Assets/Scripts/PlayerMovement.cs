@@ -228,6 +228,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator startFlyingThread()
     {
         weaponController.getActiveWeapon().Animator.SetTrigger("Morph");
+        basePlayer.birdMorphEffect.enableEmission = true;
 
         yield return new WaitForSeconds(2.3f);
 

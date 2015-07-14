@@ -32,6 +32,8 @@ public class BasePlayer : MonoBehaviour {
 
     private PlayerMovement movement;
 
+    public ParticleSystem birdMorphEffect;
+
     private Vector3 homePosition;
     private bool isInFlyMode = false;
     public bool FlyMode
@@ -48,6 +50,7 @@ public class BasePlayer : MonoBehaviour {
                 birdModel.GetComponent<MeshRenderer>().enabled = true;
                 Camera.main.transform.localPosition = new Vector3(0, 0, -10.0f);
                 RemoveFlower();
+                birdMorphEffect.enableEmission = false;
             }
             else
             {
@@ -59,6 +62,7 @@ public class BasePlayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+        birdMorphEffect.enableEmission = false;
         homePosition = Camera.main.transform.localPosition;
         movement = GetComponent<PlayerMovement>();
         lowEnergyBlur = Camera.main.GetComponent<DepthOfField>();
