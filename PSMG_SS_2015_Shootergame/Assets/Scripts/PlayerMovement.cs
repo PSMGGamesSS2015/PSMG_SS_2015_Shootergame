@@ -124,12 +124,19 @@ public class PlayerMovement : MonoBehaviour
 
     private BobCamera bobCamera;
 
+    public AudioClip thud;
+
+    private AudioSource aSource;
+
+    private float soundDelay = 0;
+
     void Start()
     {
         colliderHeight = GetComponent<CapsuleCollider>().height;
         weaponController = GetComponent<Assets.Scripts.Weapons.WeaponController>();
         basePlayer = GetComponent<BasePlayer>();
         bobCamera = Camera.main.GetComponent<BobCamera>();
+        
     }
 
     void Awake()
@@ -139,6 +146,8 @@ public class PlayerMovement : MonoBehaviour
 
         // Don't use gravity for the player for more freedom
         GetComponent<Rigidbody>().useGravity = false;
+
+        aSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -196,13 +205,13 @@ public class PlayerMovement : MonoBehaviour
         {
 			if (Input.GetAxis("Vertical") == 1) {
 				sprinting = true;
-                bobCamera.isMoving = true;
+                //bobCamera.isMoving = true;
 			}
         }
         else
         {
             sprinting = false;
-            bobCamera.isMoving = false;
+            //bobCamera.isMoving = false;
         }
 
 		if (Input.GetButton("Sneak") && Input.GetButton("Forward"))
@@ -311,6 +320,22 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(velocityChange, ForceMode.VelocityChange);
 
         AnimatePlayer();
+
+        if (moving)
+        {
+            PlayMoveSound();
+        }
+
+    }
+
+    void PlayMoveSound()
+    {
+
+        if (Time.time >= soundDelay)
+        {
+            aSource.PlayOneShot(thud, 1F);
+            soundDelay = Time.time + thud.length;
+        }
     }
 
     void AnimatePlayer()
