@@ -122,11 +122,14 @@ public class PlayerMovement : MonoBehaviour
 
     private BasePlayer basePlayer;
 
+    private BobCamera bobCamera;
+
     void Start()
     {
         colliderHeight = GetComponent<CapsuleCollider>().height;
         weaponController = GetComponent<Assets.Scripts.Weapons.WeaponController>();
         basePlayer = GetComponent<BasePlayer>();
+        bobCamera = Camera.main.GetComponent<BobCamera>();
     }
 
     void Awake()
@@ -193,11 +196,13 @@ public class PlayerMovement : MonoBehaviour
         {
 			if (Input.GetAxis("Vertical") == 1) {
 				sprinting = true;
+                bobCamera.isMoving = true;
 			}
         }
         else
         {
             sprinting = false;
+            bobCamera.isMoving = false;
         }
 
 		if (Input.GetButton("Sneak") && Input.GetButton("Forward"))

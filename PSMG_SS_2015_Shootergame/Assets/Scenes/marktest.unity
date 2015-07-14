@@ -9086,7 +9086,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 696224675}
   m_LocalRotation: {x: .331834048, y: .362431109, z: .139906272, w: -.859625578}
-  m_LocalPosition: {x: 70.5946503, y: -14.1806183, z: -5.34925461}
+  m_LocalPosition: {x: 66.2975006, y: -9.72872162, z: -1.02693939}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58648138}
@@ -9376,7 +9376,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 719942574}
   m_LocalRotation: {x: .331834048, y: .362431109, z: .139906272, w: -.859625578}
-  m_LocalPosition: {x: 70.5946503, y: -5.50061798, z: -5.34925461}
+  m_LocalPosition: {x: 62.5527763, y: 2.29082489, z: 1.65825272}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58648138}
@@ -9884,6 +9884,22 @@ MonoBehaviour:
   dx11BokehTexture: {fileID: 2800000, guid: a4cdca73d61814d33ac1587f6c163bca, type: 3}
   dx11BokehScale: 1.20000005
   dx11BokehIntensity: 2.5
+--- !u!111 &763974389
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 763974387}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 028c7c306bbca664ea6e26f3f30f7fad, type: 2}
+  - {fileID: 7400000, guid: 1e31799028bcad04f856a6d0908af65b, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!81 &763974390
 AudioListener:
   m_ObjectHideFlags: 0
@@ -9891,6 +9907,18 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 763974387}
   m_Enabled: 1
+--- !u!114 &763974391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 763974387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b813bcc45f646624aa45019d454b6450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMoving: 1
 --- !u!4 &771145869 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 0bbe2f9fd907e2d4aa91f22381d1fbac, type: 3}
