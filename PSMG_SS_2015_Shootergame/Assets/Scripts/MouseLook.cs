@@ -32,6 +32,8 @@ public class MouseLook : MonoBehaviour
 
     public GameController gameController;
 
+    public GameObject cameraRotationParent;
+
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
@@ -39,7 +41,7 @@ public class MouseLook : MonoBehaviour
         rigid.freezeRotation = true;
 
         // Save the current rotation
-        originalRotation = Camera.main.transform.localRotation;
+        originalRotation = cameraRotationParent.transform.localRotation;
     }
 
     void Update()
@@ -62,15 +64,7 @@ public class MouseLook : MonoBehaviour
 
             // Set the object's rotation to the computed new rotation
             rigid.transform.localRotation = originalRotation * xQuaternion;
-
-            if (GetComponent<BasePlayer>().FlyMode == true)
-            {
-                Camera.main.transform.RotateAround(transform.position, transform.right, -rotationY * Time.deltaTime * 2.0f);
-            }
-            else
-            {
-                Camera.main.transform.localRotation = originalRotation * yQuaternion;
-            }
+            cameraRotationParent.transform.localRotation = originalRotation * yQuaternion;
         }
     }
 
