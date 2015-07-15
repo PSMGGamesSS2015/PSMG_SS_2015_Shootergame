@@ -42,7 +42,7 @@ namespace Assets.Scripts.Weapons
                     GameObject curEnemy = Enemy.enemies[i];
                     // Is enemy close enough
                     float distance = Vector3.Distance(this.parentPlayer.transform.position, curEnemy.transform.position);
-                    Debug.LogError("Tomahawk: " + distance);
+                    //Debug.LogError("Tomahawk: " + distance);
                     if (distance > 3.0f)
                     {
                         continue;

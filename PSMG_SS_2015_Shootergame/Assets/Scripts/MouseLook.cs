@@ -6,7 +6,8 @@ using System.Collections;
 // Require a rigidbody on the player object
 [RequireComponent(typeof(Rigidbody))]
 
-public class MouseLook : MonoBehaviour {
+public class MouseLook : MonoBehaviour
+{
 
     // Mouse sensitivity for both directions
     public float sensitivityX = 15F;
@@ -29,6 +30,8 @@ public class MouseLook : MonoBehaviour {
     // original Rotation of the object - set automatically
     private Quaternion originalRotation;
 
+    public GameController gameController;
+
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
@@ -41,41 +44,46 @@ public class MouseLook : MonoBehaviour {
 
     void Update()
     {
-        // Read the mouse input axis
-        rotationX += Input.GetAxis("Mouse X") * sensitivityX;
-        rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-
-        // Call the ClampAngle function to make sure the angles don't exceed our set limitations
-        rotationX = ClampAngle(rotationX, minimumX, maximumX);
-        rotationY = ClampAngle(rotationY, minimumY, maximumY);
-
-        // Create a quaternion out of the calculated rotation
-        Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
-        Quaternion yQuaternion = Quaternion.AngleAxis(rotationY, -Vector3.right);
-
-        // Set the object's rotation to the computed new rotation
-        rigid.transform.localRotation = originalRotation * xQuaternion;
-
-        if (GetComponent<BasePlayer>().FlyMode == true)
+        if (gameController.state == GameController.GameState.INGAME)
         {
-            Camera.main.transform.RotateAround(transform.position, transform.right, -rotationY * Time.deltaTime * 2.0f);
-        }
-        else
-        {
-            Camera.main.transform.localRotation = originalRotation * yQuaternion;
+            // Read the mouse input axis
+            rotationX += Input.GetAxis("Mouse X") * sensitivityX;
+            rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+
+            // Call the ClampAngle function to make sure the angles don't exceed our set limitations
+            rotationX = ClampAngle(rotationX, minimumX, maximumX);
+            rotationY = ClampAngle(rotationY, minimumY, maximumY);
+
+            // Create a quaternion out of the calculated rotation
+            Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
+            Quaternion yQuaternion = Quaternion.AngleAxis(rotationY, -Vector3.right);
+
+
+
+            // Set the object's rotation to the computed new rotation
+            rigid.transform.localRotation = originalRotation * xQuaternion;
+
+            if (GetComponent<BasePlayer>().FlyMode == true)
+            {
+                Camera.main.transform.RotateAround(transform.position, transform.right, -rotationY * Time.deltaTime * 2.0f);
+            }
+            else
+            {
+                Camera.main.transform.localRotation = originalRotation * yQuaternion;
+            }
         }
     }
 
     // Makes sure the angle is always in our set limitations and doesnt exceed +/- 360°
     public static float ClampAngle(float angle, float min, float max)
-     {
+    {
         // Set angle to +360° if it is at -360° and vice versa
-         if (angle < -360F)
-             angle += 360F;
-         if (angle > 360F)
-             angle -= 360F;
+        if (angle < -360F)
+            angle += 360F;
+        if (angle > 360F)
+            angle -= 360F;
         // Return the angle if it is in our limitations, otherwise the minimum/maximum value
-         return Mathf.Clamp (angle, min, max);
-     }
+        return Mathf.Clamp(angle, min, max);
+    }
 
 }
