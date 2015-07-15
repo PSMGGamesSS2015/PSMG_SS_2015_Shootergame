@@ -20,7 +20,9 @@ namespace Assets.Scripts.Weapons
 
         private BasePlayer player;
 
-        public void Awake()
+        public BaseWeapon.DOnWeaponInfoChanged onCurWeaponInfoChanged = BaseWeapon.NullStatus;
+
+        public void Start()
         {
             player = GetComponent<BasePlayer>();
 
@@ -44,10 +46,12 @@ namespace Assets.Scripts.Weapons
             {
                 return;
             }
-            weapon.OnShotFired += UpdateWeaponGUI;
-            weapon.OnReloadEnd += UpdateWeaponGUI;
+            weapon.OnShotFired += new BaseWeapon.DOnWeaponInfoChanged(onAmmoInfoChanged);
+            weapon.OnReloadEnd += new BaseWeapon.DOnWeaponInfoChanged(onAmmoInfoChanged);
             weapons[numWeapons++] = weapon;
         }
+
+        void onAmmoInfoChanged(BaseWeapon w) { onCurWeaponInfoChanged(w); }
 
         private int getWeaponIdByName(string name)
         {
@@ -70,19 +74,6 @@ namespace Assets.Scripts.Weapons
                 return weapons[id];
             }
             return null;
-        }
-
-
-        /*
-         * TEST
-         */
-        public void UpdateWeaponGUI(BaseWeapon weapon)
-        {
-            ammoInfoText.GetComponent<Text>().text = getActiveWeapon().Name 
-                + " " 
-                + weapon.CurAmmo 
-                + " | " + 
-                (weapon.ReserveAmmo == BaseWeapon.INFINITE_AMMO ? "∞" : weapon.ReserveAmmo.ToString());
         }
 
         private void CheckMouseButtons()
@@ -152,7 +143,7 @@ namespace Assets.Scripts.Weapons
             weapons[lastWeaponIndex].SetDown();
             weapons[curWeaponIndex].SetUp();
 
-            UpdateWeaponGUI(getActiveWeapon());
+            onCurWeaponInfoChanged(getActiveWeapon());
         }
     }
 }

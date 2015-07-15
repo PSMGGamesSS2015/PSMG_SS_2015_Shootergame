@@ -241,14 +241,13 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator startFlyingThread()
     {
+        flyModeActivated = true;
         weaponController.getActiveWeapon().Animator.SetTrigger("Morph");
         basePlayer.birdMorphEffect.enableEmission = true;
 
         yield return new WaitForSeconds(2.3f);
 
         weaponController.getActiveWeapon().SetDown();
-
-        flyModeActivated = true;
 
         basePlayer.FlyMode = true;
 

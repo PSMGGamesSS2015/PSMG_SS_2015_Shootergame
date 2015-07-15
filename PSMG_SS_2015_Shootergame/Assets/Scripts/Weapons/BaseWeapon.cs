@@ -71,12 +71,11 @@ namespace Assets.Scripts.Weapons
             }
         }
 
-        // Status delegates
-        public delegate void Status(BaseWeapon weapon);
-        private static void NullStatus(BaseWeapon w) { }
-        public Status OnReloadStart = NullStatus;
-        public Status OnReloadEnd = NullStatus;
-        public Status OnShotFired = NullStatus;
+        public delegate void DOnWeaponInfoChanged(BaseWeapon weapon);
+        public static void NullStatus(BaseWeapon w) { }
+        public DOnWeaponInfoChanged OnReloadStart = NullStatus;
+        public DOnWeaponInfoChanged OnReloadEnd = NullStatus;
+        public DOnWeaponInfoChanged OnShotFired = NullStatus;
 
 
         public BaseWeapon(string name, GameObject parent) {

@@ -42,7 +42,7 @@ namespace Assets.Scripts.Weapons
                     {
                         bow.ReserveAmmo++;
                         wasPickedUp = true;
-                        wp.UpdateWeaponGUI(bow);
+                        wp.onCurWeaponInfoChanged(bow);
                     }
                     Destroy(gameObject);
                     
