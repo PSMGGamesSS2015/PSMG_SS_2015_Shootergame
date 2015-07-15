@@ -11,6 +11,7 @@ public class WeaponInfoLabel : MonoBehaviour {
         ammoLabel = GetComponent<Text>();
         WeaponController wpc = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponController>();
         wpc.onCurWeaponInfoChanged += new BaseWeapon.DOnWeaponInfoChanged(onWeaponInfoUpdated);
+        onWeaponInfoUpdated(wpc.getActiveWeapon());
 	}
 
     void Update()
