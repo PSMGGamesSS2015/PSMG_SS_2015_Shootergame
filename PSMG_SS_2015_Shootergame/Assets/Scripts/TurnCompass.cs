@@ -34,7 +34,7 @@ public class TurnCompass : MonoBehaviour {
     private void getDirection()
     {
         float angleZ = Mathf.Atan2(goal.transform.position.z, goal.transform.position.x) - Mathf.Atan2(player.transform.position.z, player.transform.position.x);
-        angleZ = (angleZ / Mathf.PI * 180) + player.transform.eulerAngles.y;
+        angleZ = (angleZ / Mathf.PI * 180) - 90 + player.transform.eulerAngles.y;
         vector = new Vector3(0, 0, angleZ);
     }
 }
