@@ -22,7 +22,7 @@ namespace Assets.Scripts.Weapons
 
         public BaseWeapon.DOnWeaponInfoChanged onCurWeaponInfoChanged = BaseWeapon.NullStatus;
 
-        public void Start()
+        public void Awake()
         {
             player = GetComponent<BasePlayer>();
 

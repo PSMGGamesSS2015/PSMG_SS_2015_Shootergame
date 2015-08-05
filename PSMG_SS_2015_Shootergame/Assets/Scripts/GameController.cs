@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.ImageEffects;
 
 public class GameController : MonoBehaviour {
 
@@ -12,13 +13,17 @@ public class GameController : MonoBehaviour {
     public delegate void DOnGameStateChanged(GameState oldState, GameState newState);
     private static void NullStateChange(GameState o, GameState n) { }
 
-    private DOnGameStateChanged onGameStateChanged = new DOnGameStateChanged(NullStateChange);
+    public DOnGameStateChanged onGameStateChanged = new DOnGameStateChanged(NullStateChange);
+
+    BlurOptimized menuBackgroundBlur = null;
+
 
     public GameState state;
 
 	// Use this for initialization
 	void Start () {
         state = GameState.INGAME;
+        menuBackgroundBlur = Camera.main.GetComponent<BlurOptimized>();
 	}
 	
 	// Update is called once per frame
@@ -40,12 +45,18 @@ public class GameController : MonoBehaviour {
                 state = GameState.INMENU;
                 Time.timeScale = 0.0f;
                 onGameStateChanged(GameState.INGAME, GameState.INMENU);
+
+                menuBackgroundBlur.enabled = true;
             }
             else
             {
                 state = GameState.INGAME;
                 Time.timeScale = 1.0f;
                 onGameStateChanged(GameState.INMENU, GameState.INGAME);
+
+                menuBackgroundBlur.enabled = false;
+
+
             }
         }
     }
