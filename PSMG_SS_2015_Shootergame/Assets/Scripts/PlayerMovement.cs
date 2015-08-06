@@ -341,6 +341,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (basePlayer.FlyMode == true) return;
 
+        if (weaponController.getActiveWeapon().Animator == null) return;
+
         if (sprinting)
         {
             weaponController.getActiveWeapon().Animator.SetBool("run", true);

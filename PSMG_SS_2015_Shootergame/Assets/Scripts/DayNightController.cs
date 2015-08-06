@@ -15,6 +15,9 @@ public class DayNightController : MonoBehaviour {
     [HideInInspector]
     public float timeMultiplier = 1f;
 
+    public int curHour = 0;
+    public int curMinute = 0;
+
     float sunInitialIntensity;
 
     void Start()
@@ -36,6 +39,7 @@ public class DayNightController : MonoBehaviour {
 
     void UpdateSun()
     {
+        calculateRealTime();
         sun.transform.localRotation = Quaternion.Euler((currentTimeOfDay * 360f) - 90, 170, 0);
 
         float intensityMultiplier = 1;
@@ -53,5 +57,12 @@ public class DayNightController : MonoBehaviour {
         }
 
         sun.intensity = sunInitialIntensity * intensityMultiplier;
+    }
+
+    private void calculateRealTime()
+    {
+        float time = Mathf.Lerp(0.0f, 24.0f, currentTimeOfDay);
+        curHour = (int)time;
+        curMinute = (int)Mathf.Lerp(0.0f, 60.0f, time - (float)curHour);
     }
 }
