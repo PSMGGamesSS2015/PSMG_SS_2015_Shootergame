@@ -3,15 +3,11 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class CutszeneManager : MonoBehaviour {
+public class CutszeneManager : Quest {
 
     private Transform player;
 
     //public int NumberOfTotalCutscenes;
-
-    public Transform startTrigger;
-
-    public float startDistance = 50.0f;
 
     //the number of the actual cutscene
     public int CutsceneNumber;
@@ -37,12 +33,6 @@ public class CutszeneManager : MonoBehaviour {
     //the actual cutscene
     private GameObject actCutscene;
 
-    //is the cutscene started
-    private bool started = false;
-
-    //is the cutscene finished
-    private bool finished = false;
-
     //the number of the actual Image
     private int actImageNumber = 0;
 
@@ -51,45 +41,39 @@ public class CutszeneManager : MonoBehaviour {
 
     // Use this for initialization
 	void Start () {
+        base.Start();
+    }
 
-
-        actCutscene = allCutscenes[CutsceneNumber-1];
-
+    protected override void OnStart()
+    {
+        actCutscene = allCutscenes[CutsceneNumber - 1];
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
 	// Update is called once per frame
     //manage Animation of all images, start fade in and out
 	void Update () {
-        if (!finished)
+        base.Update();
+	}
+
+    protected override void OnUpdate()
+    {
+        if (isCutsceneAnimationFinished)
         {
-            if (!started)
+            if (images.Count > actImageNumber)
             {
-                CheckForStart();
+                //show new image
+                isCutsceneAnimationFinished = false;
+                cutSceneImage = images[actImageNumber];
+                FadeIn();
             }
             else
             {
-                if (isCutsceneAnimationFinished)
-                {
-                    if (images.Count > actImageNumber)
-                    {
-                        //show new image
-                        isCutsceneAnimationFinished = false;
-                        cutSceneImage = images[actImageNumber];
-                        FadeIn();
-                    }
-                    else
-                    {
-                        //end cutscene
-                        started = false;
-                        finished = true;
-                        isCutsceneAnimationFinished = false;
-                        FadeOut();
-                    }
-                }
+                isCutsceneAnimationFinished = false;
+                FadeOut();
             }
         }
-	}
+    }
 
     //start the called Cutscene (with a variable number of pages)
     public void StartCutscene()
@@ -104,17 +88,9 @@ public class CutszeneManager : MonoBehaviour {
         isCutsceneAnimationFinished = true;
     }
 
-    //check if the player is in the range of the cutscene trigger
-    void CheckForStart()
+    protected override void OnQuestStarted()
     {
-        float distance = Vector3.Distance(player.position, startTrigger.position);
-
-        if (distance <= startDistance)
-        {
-            started = true;
-            Debug.Log("start");
-            StartCutscene();
-        }
+        StartCutscene();
     }
 
     //Fade the actual image in

@@ -30,7 +30,6 @@ public class Quest : MonoBehaviour {
 
     protected static GameObject player;
     protected static ShowTutorialText textScript;
-    protected static TutorialGhost ghost;
     protected static PrefabManager prefabs;
 
     private float activateTime;
@@ -43,7 +42,6 @@ public class Quest : MonoBehaviour {
 	protected void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
         textScript = GameObject.FindGameObjectWithTag("Canvas").GetComponent<ShowTutorialText>();
-        //ghost = GameObject.FindGameObjectWithTag("Ghost").GetComponent<TutorialGhost>();
         prefabs = GameObject.FindGameObjectWithTag("Prefabs").GetComponent<PrefabManager>();
 
         if (activateOnStart)
