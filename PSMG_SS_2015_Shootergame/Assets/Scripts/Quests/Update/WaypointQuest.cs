@@ -17,7 +17,6 @@ public class WaypointQuest : Quest
 
     public float timeLimitSeconds = 0.0f;
 
-    private float startTime;
     private float timeLimit;
     
     private ArrayList toVisit;
@@ -75,13 +74,6 @@ public class WaypointQuest : Quest
 
     private void WaypointVisited(int index)
     {
-        /*
-        if (!questStarted)
-        {
-            StartQuest();
-        }
-         */
-
         if (((Transform)toVisit[index]).childCount != 0)
         {
             Destroy(((Transform)toVisit[index]).GetChild(0).gameObject);
@@ -115,15 +107,10 @@ public class WaypointQuest : Quest
         }
     }
 
-    protected override void OnQuestActivated()
+    protected override void OnQuestStarted()
     {
         SetWaypoints();
         MarkWaypoints();
-    }
-
-    protected override void OnQuestStarted()
-    {
-        startTime = Time.time;
     }
 
     private void SetWaypoints()

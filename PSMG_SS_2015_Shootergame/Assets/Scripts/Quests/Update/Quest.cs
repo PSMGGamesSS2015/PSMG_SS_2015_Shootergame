@@ -6,7 +6,11 @@ public class Quest : MonoBehaviour {
     public bool activateOnStart = false;
 
     public enum StartMode { Time = 0, Zone = 1 }
-    public StartMode startMode = StartMode.None;
+    public StartMode startMode = StartMode.Time;
+
+    public float startDelay = 0.0f;
+    public Transform startZone;
+    public float startZoneSize = 5.0f;
 
     public string activateText;
     public string startText;
@@ -29,9 +33,11 @@ public class Quest : MonoBehaviour {
     protected static TutorialGhost ghost;
     protected static PrefabManager prefabs;
 
+    private float activateTime;
+
     protected float startTime;
 
-    protected ArrayList markers;
+    protected ArrayList markers = new ArrayList();
 
 	// Use this for initialization
 	protected void Start() {
@@ -66,15 +72,37 @@ public class Quest : MonoBehaviour {
         }
 	}
 
+    private void CheckStart()
+    {
+        if (startMode == StartMode.Time)
+        {
+            if (Time.time - activateTime >= startDelay)
+            {
+                StartQuest();
+            }
+        }
+        else if (startMode == StartMode.Zone)
+        {
+            if (Vector3.Distance(player.transform.position, startZone.position) <= startZoneSize)
+            {
+                StartQuest();
+            }
+        }
+        
+    }
+
     public void ActivateQuest()
     {
         activated = true;
+        activateTime = Time.time;
         ShowUIText(activateText, activateTextTime);
 
         OnQuestActivated();
 
-        // Create marker
-        // Set ghost
+        if (startMode == StartMode.Zone)
+        {
+            CreateMarker(startZone, startZoneSize);
+        }
     }
 
     public void StartQuest()
@@ -83,6 +111,8 @@ public class Quest : MonoBehaviour {
         ShowUIText(startText, startTextTime);
 
         startTime = Time.time;
+
+        DestroyMarkers();
 
         OnQuestStarted();
     }
@@ -142,11 +172,6 @@ public class Quest : MonoBehaviour {
     private void ShowUIText(string text, float time)
     {
         textScript.showTextinUI(text, time);
-    }
-
-    protected virtual void CheckStart()
-    {
-
     }
 
     protected virtual void CheckFinish()
