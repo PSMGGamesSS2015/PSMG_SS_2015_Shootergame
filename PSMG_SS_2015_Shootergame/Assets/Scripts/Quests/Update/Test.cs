@@ -7,7 +7,8 @@ public class Test : Quest
     // Use this for initialization
     void Start()
     {
-        base.Start();
+        BaseStart();
+        Access();
     }
 
     // Update is called once per frame

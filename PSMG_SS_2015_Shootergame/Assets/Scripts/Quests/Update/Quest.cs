@@ -31,7 +31,7 @@ public class Quest : MonoBehaviour {
     protected ArrayList markers;
 
 	// Use this for initialization
-	protected virtual void Start() {
+	protected virtual void BaseStart() {
         player = GameObject.FindGameObjectWithTag("Player");
         textScript = GameObject.FindGameObjectWithTag("Canvas").GetComponent<ShowTutorialText>();
         //ghost = GameObject.FindGameObjectWithTag("Ghost").GetComponent<TutorialGhost>();
@@ -44,7 +44,7 @@ public class Quest : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void BaseUpdate () {
 	
 	}
 
@@ -111,6 +111,11 @@ public class Quest : MonoBehaviour {
         marker.GetComponent<Projector>().orthographicSize = size;
 
         markers.Add(marker);
+    }
+
+    protected void Access()
+    {
+        Debug.Log("access");
     }
 
     private void DestroyMarkers()
