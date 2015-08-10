@@ -5,6 +5,9 @@ public class Quest : MonoBehaviour {
 
     public bool activateOnStart = false;
 
+    public enum StartMode { Time = 0, Zone = 1 }
+    public StartMode startMode = StartMode.None;
+
     public string activateText;
     public string startText;
     public string finishText;
@@ -31,7 +34,7 @@ public class Quest : MonoBehaviour {
     protected ArrayList markers;
 
 	// Use this for initialization
-	protected virtual void BaseStart() {
+	protected void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
         textScript = GameObject.FindGameObjectWithTag("Canvas").GetComponent<ShowTutorialText>();
         //ghost = GameObject.FindGameObjectWithTag("Ghost").GetComponent<TutorialGhost>();
@@ -41,11 +44,26 @@ public class Quest : MonoBehaviour {
         {
             ActivateQuest();
         }
+
+        OnStart();
 	}
 	
 	// Update is called once per frame
-	void BaseUpdate () {
-	
+	protected void Update () {
+        if (activated)
+        {
+            if (!questStarted)
+            {
+                CheckStart();
+            }
+            else
+            {
+                CheckFinish();
+                CheckFail();
+
+                OnUpdate();
+            }
+        }
 	}
 
     public void ActivateQuest()
@@ -69,7 +87,7 @@ public class Quest : MonoBehaviour {
         OnQuestStarted();
     }
 
-    private void QuestFailed()
+    protected void QuestFailed()
     {
         questStarted = false;
         ShowUIText(failText, failTextTime);
@@ -81,7 +99,7 @@ public class Quest : MonoBehaviour {
         OnQuestFailed();
     }
 
-    private void QuestFinished()
+    protected void QuestFinished()
     {
         activated = false;
         questStarted = false;
@@ -104,18 +122,13 @@ public class Quest : MonoBehaviour {
         }
     }
 
-    private void CreateMarker(Transform position, float size)
+    protected void CreateMarker(Transform position, float size)
     {
         GameObject marker = Instantiate(prefabs.rangeIndicator, position.position, Quaternion.Euler(90, 0, 0)) as GameObject;
         marker.transform.parent = position;
         marker.GetComponent<Projector>().orthographicSize = size;
 
         markers.Add(marker);
-    }
-
-    protected void Access()
-    {
-        Debug.Log("access");
     }
 
     private void DestroyMarkers()
@@ -129,6 +142,21 @@ public class Quest : MonoBehaviour {
     private void ShowUIText(string text, float time)
     {
         textScript.showTextinUI(text, time);
+    }
+
+    protected virtual void CheckStart()
+    {
+
+    }
+
+    protected virtual void CheckFinish()
+    {
+
+    }
+
+    protected virtual void CheckFail()
+    {
+
     }
 
     protected virtual void OnQuestActivated()
@@ -147,6 +175,16 @@ public class Quest : MonoBehaviour {
     }
 
     protected virtual void OnQuestFailed()
+    {
+
+    }
+
+    protected virtual void OnStart()
+    {
+
+    }
+
+    protected virtual void OnUpdate()
     {
 
     }
