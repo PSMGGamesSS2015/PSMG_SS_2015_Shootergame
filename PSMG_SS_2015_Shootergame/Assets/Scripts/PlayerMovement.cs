@@ -124,11 +124,7 @@ public class PlayerMovement : MonoBehaviour
 
     private BobCamera bobCamera;
 
-    public AudioClip thud;
-
-    private AudioSource aSource;
-
-    private float soundDelay = 0;
+    private PlayerSound audioController;
 
     void Start()
     {
@@ -136,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
         weaponController = GetComponent<Assets.Scripts.Weapons.WeaponController>();
         basePlayer = GetComponent<BasePlayer>();
         bobCamera = Camera.main.GetComponent<BobCamera>();
-        
+        audioController = GetComponent<PlayerSound>();
     }
 
     void Awake()
@@ -146,8 +142,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Don't use gravity for the player for more freedom
         GetComponent<Rigidbody>().useGravity = false;
-
-        aSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -319,22 +313,7 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(velocityChange, ForceMode.VelocityChange);
 
         AnimatePlayer();
-
-        if (moving)
-        {
-            PlayMoveSound();
-        }
-
-    }
-
-    void PlayMoveSound()
-    {
-
-        if (Time.time >= soundDelay)
-        {
-            aSource.PlayOneShot(thud, 1F);
-            soundDelay = Time.time + thud.length;
-        }
+        SetPlayerSound();
     }
 
     void AnimatePlayer()
@@ -357,7 +336,26 @@ public class PlayerMovement : MonoBehaviour
             weaponController.getActiveWeapon().Animator.SetBool("walk", false);
             weaponController.getActiveWeapon().Animator.SetBool("run", false);
         }
-        
+    }
+
+    void SetPlayerSound()
+    {
+        if (crouching)
+        {
+            audioController.crouching = false;
+        }
+        else if (sneaking)
+        {
+            audioController.sneaking = false;
+        }
+        else if (sprinting)
+        {
+            audioController.sprinting = true;
+        }
+        else if (moving)
+        {
+            audioController.moving = true;
+        }
     }
 
     float GetSlopeModifier(float x, float y)
