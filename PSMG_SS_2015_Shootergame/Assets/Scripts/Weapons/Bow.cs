@@ -25,6 +25,8 @@ namespace Assets.Scripts.Weapons
         // Variable that determines if the player is bending the bow, set automatically
         private bool bending;
 
+        private WeaponSound wsound;
+
         public Bow(GameObject parent)
             : base("Bow", parent)
         {
@@ -33,6 +35,8 @@ namespace Assets.Scripts.Weapons
             bulletSpawn.transform.Translate(new Vector3(0, 0, -1.5f));
             PlayerPrefabsController ppc = parentPlayer.GetComponent<PlayerPrefabsController>();
             arrowPrefab = ppc.arrowPrefab;
+
+            wsound = GameObject.FindGameObjectWithTag("PlayerSound").GetComponent<WeaponSound>();
         }
 
         protected override GameObject getViewmodelPrefab()
@@ -63,6 +67,7 @@ namespace Assets.Scripts.Weapons
             intensity = 0;
             Animator.SetFloat("bendIntensity", intensity);
             Animator.SetTrigger("Shoot");
+            wsound.spanBowSound();
         }
 
         public override void FireButtonUp()
@@ -114,6 +119,7 @@ namespace Assets.Scripts.Weapons
             intensity = 0;
 
             Animator.SetTrigger("ReleaseArrow");
+            wsound.shootBowSound();
 
             if (!base.Shoot())
             {

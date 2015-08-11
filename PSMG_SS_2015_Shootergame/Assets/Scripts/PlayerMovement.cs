@@ -132,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
         weaponController = GetComponent<Assets.Scripts.Weapons.WeaponController>();
         basePlayer = GetComponent<BasePlayer>();
         bobCamera = Camera.main.GetComponent<BobCamera>();
-        audioController = GetComponent<PlayerSound>();
+        audioController = GameObject.FindGameObjectWithTag("PlayerSound").GetComponent<PlayerSound>();
     }
 
     void Awake()

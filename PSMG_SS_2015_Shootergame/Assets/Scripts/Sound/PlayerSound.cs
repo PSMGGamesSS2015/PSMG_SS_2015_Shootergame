@@ -40,6 +40,10 @@ public class PlayerSound : MonoBehaviour {
         {
             playMoveSound(0.1F, 0.03F);
         }
+        else if (moving && sneaking)
+        {
+            playMoveSound(0.1F, 0.03F);
+        }
 
 
 

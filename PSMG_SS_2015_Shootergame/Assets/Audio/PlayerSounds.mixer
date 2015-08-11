@@ -16,8 +16,7 @@ AudioMixerController:
   m_ExposedParameters: []
   m_AudioMixerGroupViews:
   - guids:
-    - 94bcd329e77a02949af6d2482cb1e539
-    - fe6971860245e9d41a4b4ede1d865eaa
+    - 72c4e89955724474aacffb0345296fcc
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500003}
@@ -28,30 +27,12 @@ AudioMixerGroupController:
   m_PrefabInternal: {fileID: 0}
   m_Name: Master
   m_AudioMixer: {fileID: 24100000}
-  m_GroupID: 94bcd329e77a02949af6d2482cb1e539
-  m_Children:
-  - {fileID: 24346048}
-  m_Volume: 2414f20f3f69684448c87572c8e17b71
-  m_Pitch: 26aece516fe8d5a468cc0a812d5f56f0
+  m_GroupID: 72c4e89955724474aacffb0345296fcc
+  m_Children: []
+  m_Volume: c2bd819b6a48a5b48ac4b9637e031372
+  m_Pitch: 78b84e03023b4544d827b0066da5becb
   m_Effects:
   - {fileID: 24400002}
-  m_UserColorIndex: 0
-  m_Mute: 0
-  m_Solo: 0
-  m_BypassEffects: 0
---- !u!243 &24346048
-AudioMixerGroupController:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: FootSteps
-  m_AudioMixer: {fileID: 24100000}
-  m_GroupID: fe6971860245e9d41a4b4ede1d865eaa
-  m_Children: []
-  m_Volume: fbea3320ac23e7f4391cbead27ee892a
-  m_Pitch: f5de638bacbaf4b46a78ed56b2fd7d29
-  m_Effects:
-  - {fileID: 24412984}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -62,22 +43,9 @@ AudioMixerEffectController:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_EffectID: 625a52f1a11853749a67d9a752b7f152
+  m_EffectID: 336f698eed0a0d84eb6b8221bdb676cb
   m_EffectName: Attenuation
-  m_MixLevel: 696cfcd76c934c041b8f8574ba77dffb
-  m_Parameters: []
-  m_SendTarget: {fileID: 0}
-  m_EnableWetMix: 0
-  m_Bypass: 0
---- !u!244 &24412984
-AudioMixerEffectController:
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_EffectID: e543b0d0c29403548ad6a43cafbcffda
-  m_EffectName: Attenuation
-  m_MixLevel: db4b06e3bfe9bc54b84dc8840ab1e3e4
+  m_MixLevel: 27da39308ab70c140abf1445f1ddaf0b
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
@@ -89,6 +57,6 @@ AudioMixerSnapshotController:
   m_PrefabInternal: {fileID: 0}
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
-  m_SnapshotID: 06dc9b4c23ed9fe449a6943e0ed3fbc4
+  m_SnapshotID: c7bcd7a5c13d2a04ea8f53ae1688c7c3
   m_FloatValues: {}
   m_TransitionOverrides: {}
