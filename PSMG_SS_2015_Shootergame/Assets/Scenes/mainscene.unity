@@ -285,8 +285,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ac67c8f1fd7df428e2c826a3cb5405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTrigger: {fileID: 15088501}
-  startDistance: 2
+  activateOnStart: 0
+  startMode: 0
+  startDelay: 0
+  startZone: {fileID: 0}
+  startZoneSize: 5
+  activateText: 
+  startText: 
+  finishText: 
+  failText: 
+  startTextTime: 0
+  activateTextTime: 0
+  finishTextTime: 0
+  failTextTime: 0
+  nextQuest: {fileID: 0}
   CutsceneNumber: 1
   container: {fileID: 102675178}
   images:
@@ -1915,6 +1927,10 @@ MeshFilter:
 GameObject:
   m_PrefabParentObject: {fileID: 115870, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
   m_PrefabInternal: {fileID: 1594240770}
+--- !u!4 &148538401 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
+  m_PrefabInternal: {fileID: 1594240770}
 --- !u!1001 &151299710
 Prefab:
   m_ObjectHideFlags: 0
@@ -2698,20 +2714,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1276f16421454344b8da4eb5f7a9abf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 1817137589}
-  - {fileID: 1937628543}
-  - {fileID: 959973742}
-  - {fileID: 32975376}
-  waypointSize: 3
-  inOrder: 1
-  timeMode: 0
-  timeLimitSeconds: 0
-  markMode: 1
-  rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
-    type: 2}
-  textScript: {fileID: 1919593690}
   activateOnStart: 1
+  startMode: 0
+  startDelay: 0
+  startZone: {fileID: 0}
+  startZoneSize: 5
   activateText: "Willkommen Krieger! Mit WASD und der Maus kannst du dich bewegen.
     Probiere es aus indem du zur Markierung vor dir l\xE4ufst!"
   startText: "Mit SHIFT kannst du f\xFCr kurze Zeit Sprinten. Renne nun zur n\xE4chsten
@@ -2724,6 +2731,16 @@ MonoBehaviour:
   finishTextTime: 5
   failTextTime: 0
   nextQuest: {fileID: 1524645368}
+  waypoints:
+  - {fileID: 1817137589}
+  - {fileID: 1937628543}
+  - {fileID: 959973742}
+  - {fileID: 32975376}
+  waypointSize: 3
+  markMode: 1
+  inOrder: 1
+  timeMode: 0
+  timeLimitSeconds: 0
 --- !u!1 &205899654 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 087b7b52a640b3e438be92f9c8735ed9, type: 3}
@@ -3525,17 +3542,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d8f4100b2850a4aafb69b42e558366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
-    type: 2}
-  startTrigger: {fileID: 1725246409}
-  goal: {fileID: 1318491689}
-  finishTrigger: 0
-  startDistance: 5
-  failDistance: 120
-  goalDistance: 20
-  textScript: {fileID: 1919593690}
   activateOnStart: 0
-  nextQuest: {fileID: 0}
+  startMode: 0
+  startDelay: 0
+  startZone: {fileID: 0}
+  startZoneSize: 5
   activateText: 
   startText: 
   finishText: 
@@ -3544,6 +3555,12 @@ MonoBehaviour:
   activateTextTime: 0
   finishTextTime: 0
   failTextTime: 0
+  nextQuest: {fileID: 0}
+  target: {fileID: 0}
+  goal: {fileID: 1318491689}
+  failDistance: 120
+  goalDistance: 20
+  finishTrigger: 0
 --- !u!114 &254180617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3684,6 +3701,64 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a2274ac7feb38b42b454794dd83531d, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &267375216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 267375217}
+  - 114: {fileID: 267375219}
+  - 114: {fileID: 267375218}
+  m_Layer: 0
+  m_Name: PlayerSounds
+  m_TagString: PlayerSound
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &267375217
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 267375216}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 148538401}
+  m_RootOrder: 3
+--- !u!114 &267375218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 267375216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78d4bdf3b195a4da5d826a6822d560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bowShoot: {fileID: 8300000, guid: cb05d266a1579ee418e6cec312b34dd8, type: 3}
+  bowSpan: {fileID: 8300000, guid: feb5057b43ec4804498c0e99a19512c4, type: 3}
+--- !u!114 &267375219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 267375216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 876fb953a442da646b462986ff579292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thud: {fileID: 8300000, guid: b997d1b3a4b1e8144a996ad0769a5890, type: 3}
+  sprinting: 0
+  crouching: 0
+  sneaking: 0
+  moving: 0
 --- !u!4 &271654684 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 193a378ffcaad3c4289f468ebb2beaab, type: 3}
@@ -4380,17 +4455,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d8f4100b2850a4aafb69b42e558366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
-    type: 2}
-  startTrigger: {fileID: 1725246409}
-  goal: {fileID: 1318491689}
-  finishTrigger: 0
-  startDistance: 5
-  failDistance: 120
-  goalDistance: 20
-  textScript: {fileID: 1919593690}
   activateOnStart: 0
-  nextQuest: {fileID: 0}
+  startMode: 0
+  startDelay: 0
+  startZone: {fileID: 0}
+  startZoneSize: 5
   activateText: 
   startText: 
   finishText: 
@@ -4399,6 +4468,12 @@ MonoBehaviour:
   activateTextTime: 0
   finishTextTime: 0
   failTextTime: 0
+  nextQuest: {fileID: 0}
+  target: {fileID: 0}
+  goal: {fileID: 1318491689}
+  failDistance: 120
+  goalDistance: 20
+  finishTrigger: 0
 --- !u!114 &338635269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5674,17 +5749,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d8f4100b2850a4aafb69b42e558366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
-    type: 2}
-  startTrigger: {fileID: 1725246409}
-  goal: {fileID: 1318491689}
-  finishTrigger: 0
-  startDistance: 5
-  failDistance: 120
-  goalDistance: 20
-  textScript: {fileID: 1919593690}
   activateOnStart: 0
-  nextQuest: {fileID: 0}
+  startMode: 0
+  startDelay: 0
+  startZone: {fileID: 0}
+  startZoneSize: 5
   activateText: 
   startText: 
   finishText: 
@@ -5693,6 +5762,12 @@ MonoBehaviour:
   activateTextTime: 0
   finishTextTime: 0
   failTextTime: 0
+  nextQuest: {fileID: 0}
+  target: {fileID: 0}
+  goal: {fileID: 1318491689}
+  failDistance: 120
+  goalDistance: 20
+  finishTrigger: 0
 --- !u!114 &463888701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5995,20 +6070,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1276f16421454344b8da4eb5f7a9abf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 1546260959}
-  - {fileID: 829843690}
-  - {fileID: 735221625}
-  - {fileID: 627104826}
-  waypointSize: 3
-  inOrder: 1
-  timeMode: 1
-  timeLimitSeconds: 7
-  markMode: 1
-  rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
-    type: 2}
-  textScript: {fileID: 1919593690}
   activateOnStart: 0
+  startMode: 0
+  startDelay: 0
+  startZone: {fileID: 0}
+  startZoneSize: 5
   activateText: "Du h\xF6rst Geschrei! Folge den Markierungen um dem ganzen auf den
     Grund zu gehen. Beil dich! Die Uhr Tickt... Die was? Ich bin Indianer!"
   startText: 
@@ -6019,6 +6085,16 @@ MonoBehaviour:
   finishTextTime: 0
   failTextTime: 0
   nextQuest: {fileID: 1196321641}
+  waypoints:
+  - {fileID: 1546260959}
+  - {fileID: 829843690}
+  - {fileID: 735221625}
+  - {fileID: 627104826}
+  waypointSize: 3
+  markMode: 1
+  inOrder: 1
+  timeMode: 1
+  timeLimitSeconds: 7
 --- !u!4 &471493043
 Transform:
   m_ObjectHideFlags: 0
@@ -8216,8 +8292,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 621983811}
-  m_LocalRotation: {x: .154270038, y: .646636605, z: .135799602, w: -.734588623}
-  m_LocalPosition: {x: 379.37381, y: -149.033539, z: 224.363861}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 60.5742912, y: 1.89476204, z: -8.44583511}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58648138}
@@ -9922,6 +9998,46 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.78615904, y: 2.85597134, z: 2.40863061}
   m_Center: {x: .0549749658, y: -.140986621, z: -1.15665066}
+--- !u!1 &798183238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 798183240}
+  - 114: {fileID: 798183239}
+  m_Layer: 0
+  m_Name: PrefabManager
+  m_TagString: Prefabs
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &798183239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 798183238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448f92c47da4afd4fb18706ab58f7e89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangeIndicator: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799, type: 2}
+--- !u!4 &798183240
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 798183238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 81.4700012, y: 5.5999999, z: 92.0699997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 30
 --- !u!1001 &799844537
 Prefab:
   m_ObjectHideFlags: 0
@@ -15126,17 +15242,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d8f4100b2850a4aafb69b42e558366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
-    type: 2}
-  startTrigger: {fileID: 1725246409}
-  goal: {fileID: 1318491689}
-  finishTrigger: 0
-  startDistance: 5
-  failDistance: 120
-  goalDistance: 20
-  textScript: {fileID: 1919593690}
   activateOnStart: 0
-  nextQuest: {fileID: 0}
+  startMode: 0
+  startDelay: 0
+  startZone: {fileID: 0}
+  startZoneSize: 5
   activateText: 
   startText: "Die arme Sau! Folge den Siedlern unauff\xE4llig. In den Bergen kannst
     du dich gut verstecken. Aber pass auf, dass du dich nicht zu weit von ihnen entfernst!"
@@ -15146,6 +15256,12 @@ MonoBehaviour:
   activateTextTime: 0
   finishTextTime: 0
   failTextTime: 0
+  nextQuest: {fileID: 0}
+  target: {fileID: 0}
+  goal: {fileID: 1318491689}
+  failDistance: 120
+  goalDistance: 20
+  finishTrigger: 0
 --- !u!114 &1196321644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17512,8 +17628,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1368673777}
-  m_LocalRotation: {x: .154270038, y: .646636605, z: .135799602, w: -.734588623}
-  m_LocalPosition: {x: 379.37381, y: -180.913528, z: 224.363861}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 60.5742912, y: -29.9852371, z: -8.44583511}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58648138}
@@ -21467,17 +21583,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1276f16421454344b8da4eb5f7a9abf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 1304963728}
-  waypointSize: 3
-  inOrder: 1
-  timeMode: 0
-  timeLimitSeconds: 0
-  markMode: 1
-  rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
-    type: 2}
-  textScript: {fileID: 1919593690}
   activateOnStart: 0
+  startMode: 0
+  startDelay: 0
+  startZone: {fileID: 0}
+  startZoneSize: 5
   activateText: "Mit LEER kannst du mit den Fl\xFCgeln schlagen und so mehr Zeit in
     der Luft verbringen."
   startText: 
@@ -21488,6 +21598,13 @@ MonoBehaviour:
   finishTextTime: 5
   failTextTime: 0
   nextQuest: {fileID: 1808349675}
+  waypoints:
+  - {fileID: 1304963728}
+  waypointSize: 3
+  markMode: 1
+  inOrder: 1
+  timeMode: 0
+  timeLimitSeconds: 0
 --- !u!1001 &1526782853
 Prefab:
   m_ObjectHideFlags: 0
@@ -26108,17 +26225,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1276f16421454344b8da4eb5f7a9abf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 1751569807}
-  waypointSize: 3
-  inOrder: 1
-  timeMode: 0
-  timeLimitSeconds: 0
-  markMode: 1
-  rangeIndicatorProjector: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799,
-    type: 2}
-  textScript: {fileID: 1919593690}
   activateOnStart: 0
+  startMode: 0
+  startDelay: 0
+  startZone: {fileID: 0}
+  startZoneSize: 5
   activateText: "Jetzt wird es Zeit deinen Bogen zu benutzen. Schie\xDFe auf den Bienenstock
     vor dir..."
   startText: "Halte die linke Maustaste gedr\xFCckt um weiter schie\xDFen zu k\xF6nnen"
@@ -26129,6 +26240,13 @@ MonoBehaviour:
   finishTextTime: 5
   failTextTime: 0
   nextQuest: {fileID: 471493041}
+  waypoints:
+  - {fileID: 1751569807}
+  waypointSize: 3
+  markMode: 1
+  inOrder: 1
+  timeMode: 0
+  timeLimitSeconds: 0
 --- !u!4 &1808349677
 Transform:
   m_ObjectHideFlags: 0
@@ -27581,12 +27699,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2ca165843258db43b862f441b709bc2, type: 3}
   m_IsPrefabParent: 0
---- !u!114 &1919593690 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11410588, guid: dff7fdba1b6487c4eb6b8264b542a927,
-    type: 2}
-  m_PrefabInternal: {fileID: 548888455}
-  m_Script: {fileID: 11500000, guid: a85417905731a5b48a81c31c3720e554, type: 3}
 --- !u!4 &1925478859 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: f192283728fd8c84186ff784b7afec1f, type: 3}

@@ -71,6 +71,7 @@ public class CutszeneManager : Quest {
             {
                 isCutsceneAnimationFinished = false;
                 FadeOut();
+                QuestFinished();
             }
         }
     }

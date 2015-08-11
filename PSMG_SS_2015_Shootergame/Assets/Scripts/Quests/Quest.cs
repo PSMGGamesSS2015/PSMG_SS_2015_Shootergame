@@ -102,13 +102,14 @@ public class Quest : MonoBehaviour {
             // And if the quest has already been started...
             else
             {
-                // ...check for finish conditions
-                CheckFinish();
+                // ...call the (overridable) OnUpdate() method for custom code
+                OnUpdate();
+
                 // ...check for fail conditions
                 CheckFail();
 
-                // ...call the (overridable) OnUpdate() method for custom code
-                OnUpdate();
+                // ...check for finish conditions
+                CheckFinish();                
             }
         }
 	}
@@ -189,6 +190,8 @@ public class Quest : MonoBehaviour {
         DestroyMarkers();
 
         // Restart
+        ActivateQuest();
+        // PROTOTYPE!!!
 
         // Call the (overridable) OnQuestFailed() method
         OnQuestFailed();
