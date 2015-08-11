@@ -9,15 +9,13 @@ public class PlayerSound : MonoBehaviour {
 
     private float soundDelay = 0;
 
-    private bool sprinting = false;
+    public bool sprinting = false;
 
-    private bool crouching = false;
+    public bool crouching = false;
 
-    private bool sneaking = false;
+    public bool sneaking = false;
 
-    private bool moving = false;
-
-    private int test = 0;
+    public bool moving = false;
 
 	// Use this for initialization
 	void Start () {
