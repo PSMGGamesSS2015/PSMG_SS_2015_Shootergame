@@ -1,35 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class QuestFollow : MonoBehaviour {
-
-    public GameObject rangeIndicatorProjector;
-
-    /// <summary>
-    /// The object that needs to remain within range of the target - usually the plyaer
-    /// </summary>
-    private Transform player;
+public class QuestFollow : Quest
+{
 
     /// <summary>
-    /// The trigger that will start the quest - the quest will start if the player is within a set distance of the trigger
+    /// The enemy that the players needs to follow
     /// </summary>
-    public Transform startTrigger;
+    public GameObject target;
 
     /// <summary>
     /// The goal that needs to be reached for the quest to finish
     /// </summary>
     public Transform goal;
 
-    public enum FinishTrigger { Player = 0, Target = 1 }
-    /// <summary>
-    /// Choose if the player or the target have to be within range of the goal to finish the quest
-    /// </summary>
-    public FinishTrigger finishTrigger = FinishTrigger.Player;
-
-    /// <summary>
-    /// Distance to the start trigger to start the quest
-    /// </summary>
-    public float startDistance = 50.0f;
     /// <summary>
     /// The player needs to remain within this distance to the target in order for the quest to not fail
     /// </summary>
@@ -37,107 +21,55 @@ public class QuestFollow : MonoBehaviour {
     /// <summary>
     /// Distance the finish trigger (set above) needs to have to the goal in order for the quest to finish
     /// </summary>
-    public float goalDistance = 20.0f;
+    public float goalDistance = 10.0f;
+
+    public enum FinishTrigger { Player = 0, Target = 1 }
+    /// <summary>
+    /// Choose if the player or the target have to be within range of the goal to finish the quest
+    /// </summary>
+    public FinishTrigger finishTrigger = FinishTrigger.Player;
 
     private Transform finishTriggerObject;
 
-    private bool activated = false;
-    private bool questStarted = false;
-    private bool questFinished = false;
-
-    private GameObject startIndicator;
-    private GameObject failIndicator;
-    private GameObject goalIndicator;
-
-    // Just for testing purposes - need to implement savegames!
-    private Vector3 start_player;
-    private Vector3 start_target;
-    private Vector3 start_trigger;
-    private Vector3 start_goal;
-
-    public ShowTutorialText textScript;
-
-    public bool activateOnStart = false;
-
-    public GameObject nextQuest;
-
-    public string activateText;
-    public string startText;
-    public string finishText;
-    public string failText;
-
-    public float startTextTime;
-    public float activateTextTime;
-    public float finishTextTime;
-    public float failTextTime;
-
-	// Use this for initialization
-	void Start () {
-        GetPlayer();
-
-        if (activateOnStart)
-        {
-            ActivateQuest();
-        }
-
-        SetFinishTrigger();
-	}
-
-    void GetPlayer()
+    void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        base.Start();
     }
 
-	// Update is called once per frame
-	void FixedUpdate () {
-        if (activated)
-        {
-            if (!questStarted)
-            {
-                CheckForQuestStart();
-            }
-            else
-            {
-                CheckFail();
-                CheckFinish();
-            }
-        }        
-	}
+    protected override void OnStart()
+    {
+        SetFinishTrigger();
+    }
 
     void SetFinishTrigger()
     {
         switch (finishTrigger)
         {
-            case FinishTrigger.Player: finishTriggerObject = player;
+            case FinishTrigger.Player: finishTriggerObject = player.transform;
                 break;
-            case FinishTrigger.Target: finishTriggerObject = transform;
+            case FinishTrigger.Target: finishTriggerObject = target.transform;
                 break;
         }
     }
 
-    GameObject CreateIndicator(Transform parent, float range)
+    void Update()
     {
-        GameObject indicator = Instantiate(rangeIndicatorProjector, parent.position, Quaternion.Euler(90, 0, 0)) as GameObject;
-        indicator.transform.parent = parent;
-        indicator.GetComponent<Projector>().orthographicSize = range;
-
-        return indicator;
+        base.Update();
     }
 
-    void CheckForQuestStart()
+    protected override void OnQuestStarted()
     {
-        float distance = Vector3.Distance(player.position, startTrigger.position);
-        float targetDistance = Vector3.Distance(transform.position, startTrigger.position);
+        target.GetComponent<WaypointMovement>().StartMoving();
 
-        if (distance <= startDistance && targetDistance <= (failDistance * 0.75f))
-        {
-            StartQuest();
-        }
+        CreateMarker(target.transform, failDistance, false);
+        CreateMarker(goal, goalDistance);
     }
 
-    void CheckFail()
+    protected override void CheckFail()
     {
-        float distance = Vector3.Distance(player.position, transform.position);
+        Vector3 playerPosition = player.transform.position;
+
+        float distance = Vector3.Distance(playerPosition, transform.position);
 
         if (distance >= failDistance)
         {
@@ -145,7 +77,7 @@ public class QuestFollow : MonoBehaviour {
         }
     }
 
-    void CheckFinish()
+    protected override void CheckFinish()
     {
         float distance = Vector3.Distance(finishTriggerObject.position, goal.position);
 
@@ -153,108 +85,5 @@ public class QuestFollow : MonoBehaviour {
         {
             QuestFinished();
         }
-    }
-
-    void StartQuest() 
-    {
-		//GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
-
-        questStarted = true;
-
-        textScript.showTextinUI(startText, startTextTime);
-
-        GetComponent<WaypointMovement>().StartMoving();
-
-        SaveStartParameters();
-
-        Destroy(startIndicator);
-
-        failIndicator = CreateIndicator(transform, failDistance);
-		failIndicator.GetComponentInChildren<ParticleSystem> ().Stop ();
-        goalIndicator = CreateIndicator(goal, goalDistance);        
-    }
-
-    void QuestFailed()
-    {
-        Destroy(failIndicator);
-        Destroy(goalIndicator);
-
-        questStarted = false;
-
-        textScript.showTextinUI(failText, failTextTime);
-
-        ResetQuest();
-    }
-
-    void QuestFinished()
-    {
-        activated = false;
-        questStarted = false;
-        questFinished = true;
-
-        textScript.showTextinUI(finishText, finishTextTime);
-
-        Destroy(failIndicator);
-        Destroy(goalIndicator);
-
-        ActivateNextQuest();
-    }
-
-    void ActivateNextQuest()
-    {
-        if (nextQuest != null)
-        {
-            if (nextQuest.GetComponent<QuestFollow>() != null)
-            {
-                nextQuest.GetComponent<QuestFollow>().ActivateQuest();
-            }
-            else if (nextQuest.GetComponent<QuestWaypoint>() != null)
-            {
-                nextQuest.GetComponent<QuestWaypoint>().ActivateQuest();
-            }
-            else if (nextQuest.GetComponent<Tutorial>() != null)
-            {
-                nextQuest.GetComponent<Tutorial>().ActivateQuest();
-            }
-        }
-    }
-
-    void SaveStartParameters()
-    {
-        start_player = player.transform.position;
-        start_target = transform.position;
-        start_trigger = startTrigger.transform.position;
-        start_goal = goal.transform.position;
-        GetComponent<WaypointMovement>().SaveWaypoint();
-    }
-
-    void ResetQuest()
-    {
-        player.transform.position = start_player;
-        transform.position = start_target;
-        startTrigger.transform.position = start_trigger;
-        goal.transform.position = start_goal;
-        GetComponent<WaypointMovement>().LoadWaypoint();
-        GetComponent<WaypointMovement>().StopMoving();
-
-        // For test purposes only
-        // ----------------------
-        ActivateQuest();
-        // ----------------------
-    }
-
-    public void ActivateQuest()
-    {
-        textScript.showTextinUI(activateText, activateTextTime);
-
-        activated = true;
-        startIndicator = CreateIndicator(startTrigger, startDistance);
-
-        GameObject.FindGameObjectWithTag("Ghost").GetComponent<TutorialGhost>().SetGoal(transform.position);
-    }
-
-    public void ActivateQuest(float delay)
-    {
-        Invoke("ActivateQuest", delay);
     }
 }
