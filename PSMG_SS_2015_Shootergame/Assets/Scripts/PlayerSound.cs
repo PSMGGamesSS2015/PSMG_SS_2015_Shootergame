@@ -25,15 +25,10 @@ public class PlayerSound : MonoBehaviour {
         aSource = GetComponent<AudioSource>();
 	}
 
-    void Awake()
-    {
-        
-    }
-
 	// Update is called once per frame
 	void Update () {
 
-        updateMovement();
+        //updateMovement();
 
         if (moving && !sprinting && !crouching)
         {
@@ -55,12 +50,10 @@ public class PlayerSound : MonoBehaviour {
     private void updateMovement()
     {
 
-        moving = GetComponent<PlayerMovement>().moving;
-        crouching = GetComponent<PlayerMovement>().crouching;
-        sprinting = GetComponent<PlayerMovement>().sprinting;
-        sneaking = GetComponent<PlayerMovement>().sneaking;
-        test = GetComponent<PlayerMovement>().test;
-
+        //moving = GetComponent<PlayerMovement>().moving;
+        //crouching = GetComponent<PlayerMovement>().crouching;
+        //sprinting = GetComponent<PlayerMovement>().sprinting;
+        //sneaking = GetComponent<PlayerMovement>().sneaking;
 
     }
 
@@ -72,6 +65,11 @@ public class PlayerSound : MonoBehaviour {
             aSource.PlayOneShot(thud, vol);
             soundDelay = Time.time + thud.length-0.7F + delay;
         }
+
+        moving = false;
+        crouching = false;
+        sprinting = false;
+        sneaking = false;
 
     }
 }
