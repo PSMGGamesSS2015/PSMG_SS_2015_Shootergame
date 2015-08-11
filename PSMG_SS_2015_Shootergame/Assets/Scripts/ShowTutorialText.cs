@@ -8,6 +8,9 @@ public class ShowTutorialText : MonoBehaviour {
     //Tutorial text
     public Text textfield;
 
+    //Tutorial text background
+    public Image background;
+
     //the time the text should be shown
     private float timeToShowText = 5f;
 
@@ -77,6 +80,7 @@ public class ShowTutorialText : MonoBehaviour {
         {
             alpha = Mathf.Lerp(1f, 0f, currentTime / textFadeDuration);
             textfield.color = new Color(textfield.color.r, textfield.color.g, textfield.color.b, 1 - alpha);
+            background.color = new Color(background.color.r, background.color.g, background.color.b, 1 - alpha);
             currentTime += Time.deltaTime;
             yield return null;
         }
@@ -99,6 +103,7 @@ public class ShowTutorialText : MonoBehaviour {
         {
             alpha = Mathf.Lerp(1f, 0f, currentTime / textFadeDuration);
             textfield.color = new Color(textfield.color.r, textfield.color.g, textfield.color.b, alpha);
+            background.color = new Color(background.color.r, background.color.g, background.color.b, alpha);
             currentTime += Time.deltaTime;
             yield return null;
         }
