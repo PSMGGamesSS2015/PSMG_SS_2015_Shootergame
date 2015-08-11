@@ -5,6 +5,8 @@ public class PlayerSound : MonoBehaviour {
 
     public AudioClip thud;
 
+    public AudioClip eagle;
+
     private AudioSource aSource;
 
     private float soundDelay = 0;
@@ -28,7 +30,7 @@ public class PlayerSound : MonoBehaviour {
 
         //updateMovement();
 
-        if (moving && !sprinting && !crouching)
+        if (moving)
         {
             playMoveSound(0.05F, 0.1F);
         }
@@ -36,11 +38,11 @@ public class PlayerSound : MonoBehaviour {
         {
             playMoveSound(-0.1F, 1F);
         }
-        else if (moving && crouching)
+        else if (crouching)
         {
             playMoveSound(0.1F, 0.03F);
         }
-        else if (moving && sneaking)
+        else if (sneaking)
         {
             playMoveSound(0.1F, 0.03F);
         }
@@ -73,5 +75,15 @@ public class PlayerSound : MonoBehaviour {
         sprinting = false;
         sneaking = false;
 
+    }
+
+    public void playMorph ()
+    {
+        Invoke("playEagleSound", 3.0F);
+    }
+
+    private void playEagleSound ()
+    {
+        aSource.PlayOneShot(eagle, 1F);
     }
 }
