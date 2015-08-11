@@ -342,11 +342,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (crouching)
         {
-            audioController.crouching = false;
+            audioController.crouching = true;
         }
         else if (sneaking)
         {
-            audioController.sneaking = false;
+            audioController.sneaking = true;
         }
         else if (sprinting)
         {
