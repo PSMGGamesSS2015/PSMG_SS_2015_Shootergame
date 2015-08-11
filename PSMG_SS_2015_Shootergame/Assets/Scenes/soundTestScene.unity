@@ -408,8 +408,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ac67c8f1fd7df428e2c826a3cb5405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTrigger: {fileID: 15088501}
-  startDistance: 2
+  activateOnStart: 0
+  startMode: 0
+  startDelay: 0
+  startZone: {fileID: 0}
+  startZoneSize: 5
+  activateText: 
+  startText: 
+  finishText: 
+  failText: 
+  startTextTime: 0
+  activateTextTime: 0
+  finishTextTime: 0
+  failTextTime: 0
+  nextQuest: {fileID: 0}
   CutsceneNumber: 1
   container: {fileID: 102675178}
   images:
@@ -2284,6 +2296,18 @@ MeshFilter:
 GameObject:
   m_PrefabParentObject: {fileID: 115870, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
   m_PrefabInternal: {fileID: 1594240770}
+--- !u!114 &148538391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 148538390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 876fb953a442da646b462986ff579292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thud: {fileID: 8300000, guid: b997d1b3a4b1e8144a996ad0769a5890, type: 3}
 --- !u!82 &148538399
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9961,8 +9985,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 696224675}
-  m_LocalRotation: {x: .237960622, y: .572190046, z: .178134874, w: -.764356792}
-  m_LocalPosition: {x: 94.2012329, y: -24.1694756, z: -1.4364357}
+  m_LocalRotation: {x: .230368957, y: .45521754, z: .123201124, w: -.851192534}
+  m_LocalPosition: {x: 137.530975, y: -62.3451805, z: -14.3180618}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58648138}
@@ -10251,8 +10275,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 719942574}
-  m_LocalRotation: {x: .237960622, y: .572190046, z: .178134874, w: -.764356792}
-  m_LocalPosition: {x: 79.5521545, y: -10.1622353, z: -13.9182491}
+  m_LocalRotation: {x: .230368957, y: .45521754, z: .123201124, w: -.851192534}
+  m_LocalPosition: {x: 137.530975, y: -53.6651802, z: -14.3180618}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58648138}
@@ -20695,10 +20719,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2991a81a1a4303e488fbd86560dcf5cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sun: {fileID: 1391359863}
-  secondsInFullDay: 5000
-  currentTimeOfDay: .400000006
-  timeMultiplier: 1
+  currentCycleTime: 0
+  currentPhase: 1
+  worldTimeHour: 0
+  minutes: 0
+  fullLight: {r: .992156863, g: .972549021, b: .874509811, a: 1}
+  fullDark: {r: .125490203, g: .109803922, b: .180392161, a: 1}
+  dawnDuskFog: {r: .521568656, g: .486274511, b: .400000006, a: 1}
+  dayFog: {r: .70588237, g: .815686285, b: .819607854, a: 1}
+  nightFog: {r: .0470588244, g: .0588235296, b: .356862754, a: 1}
 --- !u!1001 &1391789555
 Prefab:
   m_ObjectHideFlags: 0
@@ -25700,7 +25729,7 @@ Prefab:
     - target: {fileID: 11412762, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: thud
       value: 
-      objectReference: {fileID: 8300000, guid: 8cad7b9b25868524e9b7128b0645a63d, type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8166326, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
@@ -31509,8 +31538,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2080041229}
-  m_LocalRotation: {x: .237960622, y: .572190046, z: .178134874, w: -.764356792}
-  m_LocalPosition: {x: 79.5521545, y: -42.0422363, z: -13.9182491}
+  m_LocalRotation: {x: .230368957, y: .45521754, z: .123201124, w: -.851192534}
+  m_LocalPosition: {x: 137.530975, y: -85.5451813, z: -14.3180618}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58648138}

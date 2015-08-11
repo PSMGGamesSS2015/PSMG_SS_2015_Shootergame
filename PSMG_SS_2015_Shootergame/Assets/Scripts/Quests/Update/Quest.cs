@@ -254,8 +254,12 @@ public class Quest : MonoBehaviour {
     // Show text in the UI
     private void ShowUIText(string text, float time)
     {
-        // Access the text script and show the set text for the set time
-        textScript.showTextinUI(text, time);
+        // Check if text and time are not null
+        if (text != "" && time > 0.0f)
+        {
+            // Access the text script and show the set text for the set time
+            textScript.showTextinUI(text, time);
+        }
     }
 
     protected virtual void CheckFinish()
