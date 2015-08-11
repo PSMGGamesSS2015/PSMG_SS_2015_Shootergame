@@ -269,8 +269,6 @@ public class QuestWaypoint : MonoBehaviour {
 
         SetWaypoints();
         MarkWaypoints();
-
-        GameObject.FindGameObjectWithTag("Ghost").GetComponent<TutorialGhost>().SetGoal(transform.position);
     }
 
     public void ActivateQuest(float delay)

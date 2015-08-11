@@ -240,6 +240,19 @@ public class Quest : MonoBehaviour {
         markers.Add(marker);
     }
 
+    // Create a marker without the particle system
+    protected void CreateMarker(Transform position, float size, bool particles)
+    {
+        GameObject marker = Instantiate(prefabs.rangeIndicator, position.position, Quaternion.Euler(90, 0, 0)) as GameObject;
+        marker.transform.parent = position;
+        marker.GetComponent<Projector>().orthographicSize = size;
+        if (!particles)
+        {
+            marker.GetComponentInChildren<ParticleSystem>().Stop();
+        }
+        markers.Add(marker);
+    }
+
     // Destroy all marker game objects
     private void DestroyMarkers()
     {
