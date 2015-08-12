@@ -24,7 +24,7 @@ public class ShowTutorialText : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        //showTextinUI("Test text zum schaun wie das alles aussieht! ", 3);
+        //showTextinUI("Test text zum schaun wie das alles aussieht! ", 10);
     }
 
     void Update()
@@ -35,6 +35,7 @@ public class ShowTutorialText : MonoBehaviour {
             {
                 animationReady = false;
                 textfield.enabled = true;
+                background.enabled = true;
                 textfield.text = textElements[0][0];
                 timeToShowText = float.Parse(textElements[0][1]);
                 textfield.fontSize = int.Parse(textElements[0][2]);
