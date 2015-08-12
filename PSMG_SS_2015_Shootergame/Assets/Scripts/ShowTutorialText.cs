@@ -35,6 +35,7 @@ public class ShowTutorialText : MonoBehaviour {
             {
                 animationReady = false;
                 textfield.enabled = true;
+                background.enabled = true;
                 textfield.text = textElements[0][0];
                 timeToShowText = float.Parse(textElements[0][1]);
                 textfield.fontSize = int.Parse(textElements[0][2]);
