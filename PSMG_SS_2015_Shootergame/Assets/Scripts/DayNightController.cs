@@ -72,6 +72,8 @@ public class DayNightController : MonoBehaviour
     // blend value of skybox using SkyBoxBlend Shader in render settings range 0-1  
     private float SkyboxBlendFactor = 0.0f;
 
+    private EnviromentSound audioController;
+
     /// Initializes working variables and performs starting calculations.  
     void Initialize()
     {
@@ -87,6 +89,7 @@ public class DayNightController : MonoBehaviour
         {
             lightIntensity = light.intensity;
         }
+        audioController = GameObject.FindGameObjectWithTag("PlayerSound").GetComponent<EnviromentSound>();
     }
 
     // Use this for initialization  
@@ -106,6 +109,8 @@ public class DayNightController : MonoBehaviour
         else if (currentCycleTime > duskTime && currentPhase == DayPhase.Day)
         {
             SetDusk();
+            audioController.day = false;
+            audioController.change = true;
         }
         else if (currentCycleTime > dayTime && currentPhase == DayPhase.Dawn)
         {
@@ -114,6 +119,8 @@ public class DayNightController : MonoBehaviour
         else if (currentCycleTime > dawnTime && currentCycleTime < dayTime && currentPhase == DayPhase.Night)
         {
             SetDawn();
+            audioController.day = true;
+            audioController.change = true;
         }
 
         // Perform standard updates:  

@@ -5,10 +5,12 @@ namespace Assets.Scripts.Weapons
 {
     class Tomahawk : BaseWeapon
     {
+        private WeaponSound wsound;
+
         public Tomahawk(GameObject parent)
             : base("Tomahawk", parent)
         {
-
+            wsound = GameObject.FindGameObjectWithTag("PlayerSound").GetComponent<WeaponSound>();
         }
 
         protected override void SetSpecifications(ref int magazinSize, ref int reserveAmmo)
@@ -36,6 +38,7 @@ namespace Assets.Scripts.Weapons
             if (success)
             {
                 Animator.SetTrigger("Attack");
+                wsound.swingHawkSound();
 
                 for (int i = 0; i < Enemy.enemies.Count; i++) {
 
@@ -65,6 +68,7 @@ namespace Assets.Scripts.Weapons
                                 Debug.LogError("Tomahawk: in correct enemy");
                                 // Yeah slice 
                                 curEnemy.GetComponent<Enemy>().Health -= 40;
+                                wsound.playHitSound();
                             }
                         }
                     }

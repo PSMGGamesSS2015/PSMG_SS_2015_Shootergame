@@ -21,15 +21,12 @@ public class PlayerSound : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        updateMovement();
         aSource = GetComponent<AudioSource>();
 	}
 
 	// Update is called once per frame
 	void Update () {
-
-        //updateMovement();
-
+        
         if (moving)
         {
             playMoveSound(0.05F, 0.1F);
@@ -47,19 +44,7 @@ public class PlayerSound : MonoBehaviour {
             playMoveSound(0.1F, 0.03F);
         }
 
-
-
 	}
-
-    private void updateMovement()
-    {
-
-        //moving = GetComponent<PlayerMovement>().moving;
-        //crouching = GetComponent<PlayerMovement>().crouching;
-        //sprinting = GetComponent<PlayerMovement>().sprinting;
-        //sneaking = GetComponent<PlayerMovement>().sneaking;
-
-    }
 
     private void playMoveSound(float delay, float vol)
     {
@@ -86,4 +71,5 @@ public class PlayerSound : MonoBehaviour {
     {
         aSource.PlayOneShot(eagle, 1F);
     }
+
 }
