@@ -16,6 +16,7 @@ public class Shootable : MonoBehaviour {
 	// Use this for initialization
 	protected void Start () {
         health = shotsNeeded;
+        pct = 1.0f;
         player = GameObject.FindGameObjectWithTag("Player");
 
         if (fallAfterShot)
@@ -30,7 +31,7 @@ public class Shootable : MonoBehaviour {
         {
 
             health--;
-            health = health / shotsNeeded;
+            pct = health / shotsNeeded;
 
             if (health == 0)
             {
@@ -62,7 +63,7 @@ public class Shootable : MonoBehaviour {
         }
     }
 
-    public float getHealth()
+    public float GetHealth()
     {
         return pct;
     }
