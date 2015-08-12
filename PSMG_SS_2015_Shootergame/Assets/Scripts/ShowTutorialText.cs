@@ -24,7 +24,7 @@ public class ShowTutorialText : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        showTextinUI("Test text zum schaun wie das alles aussieht! ", 10);
+        //showTextinUI("Test text zum schaun wie das alles aussieht! ", 10);
     }
 
     void Update()

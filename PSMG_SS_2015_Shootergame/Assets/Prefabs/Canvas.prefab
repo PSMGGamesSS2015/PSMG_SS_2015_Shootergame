@@ -1187,9 +1187,9 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c7fa7ad0be0e7e249b4d9ecf500bf221, type: 3}
+    m_Font: {fileID: 12800000, guid: 04c4756cc7e18184782ae4fab209e878, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -1315,9 +1315,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d7a4d40a7c527f4fadac1676aa94138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  pointer: {fileID: 165272}
-  target: {fileID: 0}
+  goal: {fileID: 0}
+  playerTransform: {fileID: 0}
+  onlyYRotation: 0
 --- !u!114 &11488994
 MonoBehaviour:
   m_ObjectHideFlags: 1
