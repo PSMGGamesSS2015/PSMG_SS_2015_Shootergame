@@ -1,18 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(Shootable))]
-public class BeeScript : MonoBehaviour {
+public class BeeScript : Shootable {
 
     public float playerDistance = 4.0f;
     public int damage = 1;
-
-	private GameObject player;
-    private Shootable shootable;
     
 	void Start() {
-		player = GameObject.FindGameObjectWithTag ("Player");
-        shootable = GetComponent<Shootable>();
+        base.Start();
 	}
 
 	void Update() {
@@ -21,10 +16,11 @@ public class BeeScript : MonoBehaviour {
 		} else {
 			//bahahahahaha
 		}
-        if (shootable.getHealth() == 0.0f)
-        {
-            GetComponent<ParticleSystem>().Play();
-        }
 	}
+
+    protected override void OnKill()
+    {
+        GetComponent<ParticleSystem>().Play();
+    }
 
 }

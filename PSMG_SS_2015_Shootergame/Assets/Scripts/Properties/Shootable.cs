@@ -9,12 +9,12 @@ public class Shootable : MonoBehaviour {
     public bool destroyAfterShot = false;
     public bool fallAfterShot = false;
 
-    private GameObject player;
-    private int health;
-    private float pct;
+    protected GameObject player;
+    protected int health;
+    protected float pct;
 
 	// Use this for initialization
-	void Start () {
+	protected void Start () {
         health = shotsNeeded;
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -26,7 +26,6 @@ public class Shootable : MonoBehaviour {
 	
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("trigger enter!");
         if (other.gameObject.tag == "Arrow")
         {
 
@@ -35,12 +34,13 @@ public class Shootable : MonoBehaviour {
 
             if (health == 0)
             {
-                checkEffects();
+                CheckEffects();
+                OnKill();
             }
         }
     }
 
-    void checkEffects()
+    void CheckEffects()
     {
         CheckFall();
         CheckDestroy();
@@ -50,7 +50,6 @@ public class Shootable : MonoBehaviour {
     {
         if (fallAfterShot)
         {
-            Debug.Log("falling now!");
             GetComponent<Rigidbody>().useGravity = true;
         }
     }
@@ -66,5 +65,10 @@ public class Shootable : MonoBehaviour {
     public float getHealth()
     {
         return pct;
+    }
+
+    protected virtual void OnKill()
+    {
+
     }
 }
