@@ -12,6 +12,8 @@ public class WaypointMovement : MonoBehaviour {
 
     public bool moveWithoutActivation;
 
+    public bool loop = true;
+
     Transform currentWaypoint;
     int currentIndex;
 
@@ -83,7 +85,10 @@ public class WaypointMovement : MonoBehaviour {
             if (currentIndex >= waypoints.Length)
             {
                 currentIndex = 0;
-                StopMoving();
+                if (!loop)
+                {
+                    StopMoving();
+                }
             }
 
             currentWaypoint = waypoints[currentIndex];

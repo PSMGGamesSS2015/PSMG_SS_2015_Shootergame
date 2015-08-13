@@ -5,6 +5,8 @@ public class Totem : MonoBehaviour {
 
     public bool bonusTotem = false;
 
+    public Color activatedColor = Color.red;
+
     public float activatedTime = 360.0f;
     public float activatingTime = 5.0f;
 
@@ -21,9 +23,12 @@ public class Totem : MonoBehaviour {
 
     private bool activatable = false;
 
+    private Color baseColor;
+
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         prefabs = GameObject.FindGameObjectWithTag("Prefabs").GetComponent<PrefabManager>();
+        baseColor = GetComponent<MeshRenderer>().material.color;
 
         if (showIndicator)
         {
@@ -54,11 +59,11 @@ public class Totem : MonoBehaviour {
     {
         if (active)
         {
-            GetComponent<MeshRenderer>().material.color = Color.Lerp(Color.white, Color.red, activeTime / activatedTime);
+            GetComponent<MeshRenderer>().material.color = Color.Lerp(baseColor, activatedColor, activeTime / activatedTime);
         }
         else
         {
-            GetComponent<MeshRenderer>().material.color = Color.Lerp(Color.white, Color.red, activationState / activatingTime);
+            GetComponent<MeshRenderer>().material.color = Color.Lerp(baseColor, activatedColor, activationState / activatingTime);
         }
     }
 
