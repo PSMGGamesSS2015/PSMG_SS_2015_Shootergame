@@ -44,6 +44,10 @@ public class PlayerSound : MonoBehaviour {
             playMoveSound(0.1F, 0.03F);
         }
 
+        int surfaceIndex = TerrainSurface.GetMainTexture(transform.position);
+        float[] surfaceMix = TerrainSurface.GetTextureMix(transform.position);
+        Debug.Log("SurfaceIndex: " + surfaceIndex);
+        Debug.Log("SurfaceMix0: " + surfaceMix[0]);
 	}
 
     private void playMoveSound(float delay, float vol)
