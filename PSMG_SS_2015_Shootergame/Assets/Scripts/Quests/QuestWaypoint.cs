@@ -86,6 +86,11 @@ public class QuestWaypoint : Quest
 
         visited.Add(toVisit[index]);
         toVisit.RemoveAt(index);
+
+        if (toVisit.Count > 0)
+        {
+            SetGoal((Transform)toVisit[0]);
+        }
     }
 
     protected override void CheckFinish()
@@ -122,6 +127,8 @@ public class QuestWaypoint : Quest
         {
             toVisit.Add(waypoints[i]);
         }
+
+        SetGoal((Transform)toVisit[0]);
     }
 
     private void MarkWaypoints()

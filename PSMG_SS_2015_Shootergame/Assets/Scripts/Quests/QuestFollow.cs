@@ -29,6 +29,9 @@ public class QuestFollow : Quest
     /// </summary>
     public FinishTrigger finishTrigger = FinishTrigger.Player;
 
+    public enum CompassTarget { Target = 0, Goal = 1 }
+    public CompassTarget compassTarget = CompassTarget.Target;
+
     private Transform finishTriggerObject;
 
     void Start()
@@ -63,6 +66,16 @@ public class QuestFollow : Quest
 
         CreateMarker(target.transform, failDistance, false);
         CreateMarker(goal, goalDistance);
+
+        switch (compassTarget)
+        {
+            case CompassTarget.Target:
+                SetGoal(target.transform);
+                break;
+            case CompassTarget.Goal:
+                SetGoal(goal);
+                break;
+        }
     }
 
     protected override void CheckFail()

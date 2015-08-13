@@ -59,7 +59,10 @@ public class Quest : MonoBehaviour {
 
     protected static GameObject player;
     protected static ShowTutorialText textScript;
+    protected static TurnCompass compass;
     protected static PrefabManager prefabs;
+
+    private GameObject canvas;
 
     /// <summary>
     /// Time that the quest was activated at
@@ -76,7 +79,10 @@ public class Quest : MonoBehaviour {
 	protected void Start() {
         // Save game objects to static variables
         player = GameObject.FindGameObjectWithTag("Player");
-        textScript = GameObject.FindGameObjectWithTag("Canvas").GetComponent<ShowTutorialText>();
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
+        textScript = canvas.GetComponent<ShowTutorialText>();
+        compass = canvas.GetComponent<TurnCompass>();
+
         prefabs = GameObject.FindGameObjectWithTag("Prefabs").GetComponent<PrefabManager>();
 
         // If the quest should be activated on start, activate it
@@ -158,6 +164,8 @@ public class Quest : MonoBehaviour {
         {
             // ...create a marker at the starting zone
             CreateMarker(startZone, startZoneSize);
+
+            SetGoal(startZone);
         }
     }
 
@@ -254,6 +262,11 @@ public class Quest : MonoBehaviour {
             marker.GetComponentInChildren<ParticleSystem>().Stop();
         }
         markers.Add(marker);
+    }
+
+    protected void SetGoal(Transform t)
+    {
+        compass.SetGoal(t);
     }
 
     // Destroy all marker game objects

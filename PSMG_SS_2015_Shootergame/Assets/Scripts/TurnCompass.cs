@@ -5,7 +5,8 @@ public class TurnCompass : MonoBehaviour
 {
 
     public Transform goal;
-    public Transform playerTransform;
+
+    private Transform playerTransform;
 
     private Vector3 facing;
     private Vector3 target;
@@ -17,23 +18,29 @@ public class TurnCompass : MonoBehaviour
     void Start()
     {
         facing = new Vector3(0, 0, 1);
+
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        target = goal.position - playerTransform.position;
-        player = playerTransform.forward;
+        if (goal != null)
+        {
+            target = goal.position - playerTransform.position;
+            player = playerTransform.forward;
 
-        float angle = Vector3.Angle(player, target);
+            float angle = Vector3.Angle(player, target);
 
-        Vector3 cross = Vector3.Cross(player, target);
+            Vector3 cross = Vector3.Cross(player, target);
 
-        if (cross.y > 0) {
-            angle = -angle;
+            if (cross.y > 0)
+            {
+                angle = -angle;
+            }
+
+            pointer.rotation = Quaternion.AngleAxis(angle, facing);
         }
-
-        pointer.rotation = Quaternion.AngleAxis(angle, facing);
     }
 
     public void SetGoal(Transform t)
