@@ -25,6 +25,11 @@ public class QuestShoot : Quest {
             toShoot.Add(targets[i]);
         }
     }
+
+    protected override void OnQuestStarted()
+    {
+        SetGoal(((Shootable)toShoot[0]).transform);
+    }
 	
 	void Update () {
         base.Update();
@@ -51,6 +56,11 @@ public class QuestShoot : Quest {
         toShoot.RemoveAt(index);
 
         progress = (float) shot.Count / (toShoot.Count + shot.Count);
+
+        if (toShoot.Count > 0)
+        {
+            SetGoal(((Shootable)toShoot[0]).transform);
+        }
     }
 
     protected override void CheckFinish()

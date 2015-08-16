@@ -25,6 +25,11 @@ public class QuestCollect : Quest {
             toCollect.Add(targets[i]);
         }
     }
+
+    protected override void OnQuestStarted()
+    {
+        SetGoal(((Collectable)toCollect[0]).transform);
+    }
 	
 	void Update () {
         base.Update();
@@ -52,6 +57,11 @@ public class QuestCollect : Quest {
         toCollect.RemoveAt(index);
 
         progress = (float) collected.Count / (toCollect.Count + collected.Count);
+
+        if (toCollect.Count > 0)
+        {
+            SetGoal(((Collectable)toCollect[0]).transform);
+        }
     }
 
     protected override void CheckFinish()
