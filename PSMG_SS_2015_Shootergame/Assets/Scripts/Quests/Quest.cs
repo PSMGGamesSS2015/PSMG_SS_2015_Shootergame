@@ -48,7 +48,9 @@ public class Quest : MonoBehaviour {
     /// <summary>
     /// GameObject with the quest script that should be started next
     /// </summary>
-    public GameObject nextQuest;
+    public Quest[] nextQuests;
+
+    public bool useCompass = true;
 
     /// <summary>
     /// The current progress/state of the quest
@@ -229,11 +231,9 @@ public class Quest : MonoBehaviour {
     // Activate the next quest
     private void ActivateNextQuest()
     {
-        // Check, if the next quest is defined
-        if (nextQuest != null)
+        foreach(Quest quest in nextQuests)
         {
-            // If yes, get the Quest component and activate the next quest
-            nextQuest.GetComponent<Quest>().ActivateQuest();
+            quest.GetComponent<Quest>().ActivateQuest();
         }
     }
 
@@ -266,7 +266,10 @@ public class Quest : MonoBehaviour {
 
     protected void SetGoal(Transform t)
     {
-        compass.SetGoal(t);
+        if (useCompass)
+        {
+            compass.SetGoal(t);
+        }
     }
 
     // Destroy all marker game objects

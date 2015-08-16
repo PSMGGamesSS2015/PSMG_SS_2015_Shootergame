@@ -4,6 +4,8 @@ using Assets.Scripts.Weapons;
 
 public class TreeCutDown : MonoBehaviour {
 
+    public int hitsToFall = 3;
+
     private int counter = 0;
     private Animation anim;
 
@@ -19,7 +21,7 @@ public class TreeCutDown : MonoBehaviour {
         {
             counter++;
 
-            if (counter >= 4)
+            if (counter >= hitsToFall)
             {
                 anim.Play();
                 isFallen = true;
