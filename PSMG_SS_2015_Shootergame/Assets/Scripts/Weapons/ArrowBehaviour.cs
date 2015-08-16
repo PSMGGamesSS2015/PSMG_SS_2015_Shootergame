@@ -15,6 +15,7 @@ namespace Assets.Scripts.Weapons
         private bool wasFired = false;
         private bool isFlying = false;
         private bool wasPickedUp = false;
+        private bool hitObject = false;
 
         // Sprite to show
         public SpriteRenderer sprite;
@@ -87,6 +88,16 @@ namespace Assets.Scripts.Weapons
             // Get the Rigidbody component of the arrow and add a force to it in the direction that the arrow is currently facing
             GetComponent<Rigidbody>().AddForce(transform.forward * intensity * force);
             isFlying = true;
+        }
+
+        public bool HitObject()
+        {
+            return hitObject;
+        }
+
+        public void ObjectHit()
+        {
+            hitObject = true;
         }
     }
 }

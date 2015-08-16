@@ -22,6 +22,7 @@ public class Shootable : MonoBehaviour {
         if (fallAfterShot)
         {
             GetComponent<Rigidbody>().useGravity = false;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
         }
 	}
 	
@@ -29,15 +30,21 @@ public class Shootable : MonoBehaviour {
     {
         if (other.gameObject.tag == "Arrow")
         {
+            Assets.Scripts.Weapons.ArrowBehaviour component = other.GetComponent<Assets.Scripts.Weapons.ArrowBehaviour>();
 
-            health--;
-            pct = health / shotsNeeded;
-
-            if (health == 0)
+            if (component.HitObject() == false)
             {
-                CheckEffects();
-                OnKill();
+                component.ObjectHit();
+                health--;
+                pct = (float)health / shotsNeeded;
+
+                if (health == 0)
+                {
+                    CheckEffects();
+                    OnKill();
+                }
             }
+            
         }
     }
 
@@ -51,6 +58,7 @@ public class Shootable : MonoBehaviour {
     {
         if (fallAfterShot)
         {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             GetComponent<Rigidbody>().useGravity = true;
         }
     }
