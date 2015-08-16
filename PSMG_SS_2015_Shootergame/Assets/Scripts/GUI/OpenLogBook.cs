@@ -18,9 +18,13 @@ public class OpenLogBook : MonoBehaviour {
     public Totem airtotem;
     public Totem firetotem;
 
+    public Text questTitle;
+    public Text questDescription;
+    public Image questImage;
+
 	// Use this for initialization
 	void Start () {
-
+        setQuestData("Titel!!!", "Das ist eine Test-quest!");
 	}
 	
 	// Update is called once per frame
@@ -58,4 +62,12 @@ public class OpenLogBook : MonoBehaviour {
             allExceptLogbook.SetActive(true);
         }
 	}
+
+    //public void setQuestData(Image image, string title, string description)
+    public void setQuestData(string title, string description)
+    {
+        //questImage = image;
+        questDescription.text = description;
+        questTitle.text = title;
+    }
 }
