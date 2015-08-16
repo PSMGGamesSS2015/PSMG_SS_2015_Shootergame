@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BeeScript : Shootable {
+public class BeeHive : Shootable {
 
     public float playerDistance = 4.0f;
     public int damage = 1;
