@@ -48,6 +48,7 @@ public class Totem : MonoBehaviour {
         {
             if (!bonusTotem || activatable)
             {
+                Debug.Log("checking...");
                 CheckForActivation();
             }
         }
@@ -82,6 +83,7 @@ public class Totem : MonoBehaviour {
 
     void CheckForActivation()
     {
+        Debug.Log(Vector3.Distance(player.position, transform.position));
         if (Vector3.Distance(player.position, transform.position) <= activationRange)
         {
             activationState += Time.deltaTime;

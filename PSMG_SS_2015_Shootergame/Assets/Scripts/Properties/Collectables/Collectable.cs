@@ -12,6 +12,7 @@ public class Collectable : MonoBehaviour {
         {
             collected = true;
             gameObject.SetActive(false);
+            OnCollect(other);
         }
     }
 
@@ -23,5 +24,10 @@ public class Collectable : MonoBehaviour {
     public void DestroyObject()
     {
         Destroy(gameObject);
+    }
+
+    protected virtual void OnCollect(Collider player)
+    {
+
     }
 }
