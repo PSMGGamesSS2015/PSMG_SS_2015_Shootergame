@@ -28,7 +28,10 @@ public class TurnCompass : MonoBehaviour
         if (goal != null)
         {
             target = goal.position - playerTransform.position;
+            target.y = 0.0f;
+
             player = playerTransform.forward;
+            player.y = 0.0f;
 
             float angle = Vector3.Angle(player, target);
 
