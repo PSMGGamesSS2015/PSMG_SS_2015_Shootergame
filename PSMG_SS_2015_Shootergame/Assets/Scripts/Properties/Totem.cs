@@ -59,7 +59,7 @@ public class Totem : MonoBehaviour {
     {
         if (active)
         {
-            GetComponent<MeshRenderer>().material.color = Color.Lerp(baseColor, activatedColor, activeTime / activatedTime);
+            GetComponent<MeshRenderer>().material.color = Color.Lerp(baseColor, activatedColor, getPct());
         }
         else
         {
@@ -117,6 +117,11 @@ public class Totem : MonoBehaviour {
     {
         active = false;
         OnDeactivation();
+    }
+
+    public float getPct()
+    {
+        return activeTime / activatedTime;
     }
     
     protected virtual void OnActivation()
