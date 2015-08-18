@@ -26,6 +26,8 @@ public class PlayerSound : MonoBehaviour {
 
     private float soundDelay = 0;
 
+    private float jumpDelay = 0;
+
     public bool sprinting = false;
 
     public bool crouching = false;
@@ -48,7 +50,7 @@ public class PlayerSound : MonoBehaviour {
         }
         else if (sprinting)
         {
-            playMoveSound(-0.1F, 1F);
+            playMoveSound(-0.1F, 0.3F);
         }
         else if (crouching)
         {
@@ -137,7 +139,12 @@ public class PlayerSound : MonoBehaviour {
 
     public void playGround ()
     {
-        aSource.PlayOneShot(groundSound, 1F);
+        if (Time.time >= jumpDelay)
+        {
+            aSource.PlayOneShot(groundSound, 0.05F);
+            jumpDelay = Time.time + groundSound.length;
+            playMoveSound(0, 0.2F);
+        }
     }
 
     private void playEagleSound ()

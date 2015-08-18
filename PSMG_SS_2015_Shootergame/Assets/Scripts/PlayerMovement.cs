@@ -258,12 +258,6 @@ public class PlayerMovement : MonoBehaviour
     // If the player is on the ground (again), reset all relevant variables
     void OnCollisionStay()
     {
-        //if (inAir)
-        //{
-        //    audioController.playGround();
-        //    inAir = false;
-        //}
-
         grounded = true;
 
         float fallDistance = Mathf.Abs(groundHeight - transform.position.y);
@@ -280,15 +274,18 @@ public class PlayerMovement : MonoBehaviour
             
             if (fallDistance >= fallDamageMinDistance)
             {
-                //audioController.playGround();
                 int damage = (int) Mathf.Round(Mathf.Pow((fallDistance / 4), 1.8f));
                 basePlayer.SubtractHealth(damage);
             }
             
         }
-        if (fallDistance >= 0.4F)
+        if (inAir && fallDistance < 0.4F)
         {
-            Debug.Log("Ground: " + fallDistance);
+            inAir = false;
+            audioController.playGround();
+        }
+        if (fallDistance >= 2F)
+        {
             audioController.playGround();
         }
     }
@@ -492,9 +489,11 @@ public class PlayerMovement : MonoBehaviour
         // Apply the vector to the player's rigidbody
         GetComponent<Rigidbody>().velocity = jumpVector;
 
-        float fallDistance = Mathf.Abs(groundHeight - transform.position.y);
-        Debug.Log("JumpOn: " + fallDistance);
+        Invoke("switchInAir", 0.5F);
+    }
 
+    void switchInAir()
+    {
         inAir = true;
     }
 
