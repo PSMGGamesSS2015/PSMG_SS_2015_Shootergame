@@ -7,16 +7,10 @@ public class OpenLogBook : MonoBehaviour {
     public GameObject logbook;
     public GameObject allExceptLogbook;
 
-    public Image soiltotemColor;
-    public Image watertotemColor;
-    public Image airtotemColor;
-    public Image firetotemColor;
+    public Image[] totemColors;
+    public Totem[] totems;
+    public Image[] totemImages;
 
-
-    public Totem soiltotem;
-    public Totem watertotem;
-    public Totem airtotem;
-    public Totem firetotem;
 
     public Text questTitle;
     public Text questDescription;
@@ -29,27 +23,35 @@ public class OpenLogBook : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (soiltotem.IsActive())
+        if (totems[0].IsActive())
         {
-            soiltotemColor.fillAmount = soiltotem.getPct();
+            SetTotemsVisible(false);
+            totemColors[0].fillAmount = totems[0].getPct();
         }
 
-        if (watertotem.IsActive())
+        if (totems[1].IsActive())
         {
-            watertotemColor.fillAmount = watertotem.getPct();
+            SetTotemsVisible(false);
+            totemColors[1].fillAmount = totems[1].getPct();
         }
 
-        if (airtotem.IsActive())
+        if (totems[2].IsActive())
         {
-            airtotemColor.fillAmount = airtotem.getPct();
+            SetTotemsVisible(false);
+            totemColors[2].fillAmount = totems[2].getPct();
         }
 
-        if (firetotem.IsActive())
+        if (totems[3].IsActive())
         {
-            firetotemColor.fillAmount = firetotem.getPct();
+            SetTotemsVisible(false);
+            totemColors[3].fillAmount = totems[3].getPct();
         }
-        
 
+        if (totems[4].IsActive())
+        {
+            SetTotemsVisible(true);
+            totemColors[4].fillAmount = totems[4].getPct();
+        }
 
         if (Input.GetKeyDown(KeyCode.M))
         {
@@ -69,5 +71,21 @@ public class OpenLogBook : MonoBehaviour {
         //questImage = image;
         questDescription.text = description;
         questTitle.text = title;
+    }
+
+    private void SetTotemsVisible(bool supertotem)
+    {
+        totemColors[0].enabled = !supertotem;
+        totemColors[1].enabled = !supertotem;
+        totemColors[2].enabled = !supertotem;
+        totemColors[3].enabled = !supertotem;
+        totemColors[4].enabled = supertotem;
+
+
+        totemImages[0].enabled = !supertotem;
+        totemImages[1].enabled = !supertotem;
+        totemImages[2].enabled = !supertotem;
+        totemImages[3].enabled = !supertotem;
+        totemImages[4].enabled = supertotem;
     }
 }

@@ -221,7 +221,8 @@ MonoBehaviour:
   activateTextTime: 0
   finishTextTime: 0
   failTextTime: 0
-  nextQuest: {fileID: 0}
+  nextQuests: []
+  useCompass: 1
   CutsceneNumber: 2
   container: {fileID: 238278250}
   images:
@@ -633,6 +634,71 @@ Transform:
   m_Children: []
   m_Father: {fileID: 822649727}
   m_RootOrder: 2
+--- !u!1 &1054983387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1054983389}
+  - 114: {fileID: 1054983388}
+  m_Layer: 0
+  m_Name: Totem Quest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1054983388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1054983387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c314230d52504341b03eed3361acd54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activateOnStart: 1
+  startMode: 0
+  startDelay: 0
+  startZone: {fileID: 0}
+  startZoneSize: 3
+  activateText: "F\xFCr jedes Element (Feuer, Erde, Wasser, Luft) gibt es ein Totem.
+    Geh in seine N\xE4he, um es zu aktivieren!"
+  startText: "Halte 'M' gedr\xFCckt, um zu sehen, wie lange die Totems noch aktiv
+    sind!"
+  finishText: 
+  failText: 
+  startTextTime: 5
+  activateTextTime: 5
+  finishTextTime: 0
+  failTextTime: 0
+  nextQuests:
+  - {fileID: 1410878472}
+  useCompass: 0
+  totems:
+  - {fileID: 161506112}
+  - {fileID: 674639896}
+  - {fileID: 1363082945}
+  - {fileID: 435836914}
+  bonusTotems:
+  - {fileID: 1173101498}
+  maxBonus: 1
+--- !u!4 &1054983389
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1054983387}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 208.929993, y: 55.6299973, z: 440.22998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
 --- !u!114 &1120354111 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11488994, guid: dff7fdba1b6487c4eb6b8264b542a927,
@@ -662,7 +728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bonusTotem: 1
   activatedColor: {r: 1, g: 0, b: 0, a: 1}
-  activatedTime: 360
+  activatedTime: 40
   activatingTime: 5
   activationRange: 10
   showIndicator: 0
@@ -791,30 +857,38 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11475158, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: goal
+    - target: {fileID: 11427004, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: totems.Array.data[0]
       value: 
-      objectReference: {fileID: 1864071935}
+      objectReference: {fileID: 161506112}
+    - target: {fileID: 11427004, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: totems.Array.data[1]
+      value: 
+      objectReference: {fileID: 1363082945}
+    - target: {fileID: 11427004, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: totems.Array.data[2]
+      value: 
+      objectReference: {fileID: 674639896}
+    - target: {fileID: 11427004, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: totems.Array.data[3]
+      value: 
+      objectReference: {fileID: 435836914}
+    - target: {fileID: 11427004, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: totems.Array.data[4]
+      value: 
+      objectReference: {fileID: 1173101498}
     - target: {fileID: 11441002, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: playerObject
       value: 
       objectReference: {fileID: 2092030239}
-    - target: {fileID: 11427004, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: soiltotem
+    - target: {fileID: 11475158, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: goal
       value: 
-      objectReference: {fileID: 161506112}
-    - target: {fileID: 11427004, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: watertotem
-      value: 
-      objectReference: {fileID: 1363082945}
-    - target: {fileID: 11427004, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: airtotem
-      value: 
-      objectReference: {fileID: 674639896}
-    - target: {fileID: 11427004, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: firetotem
-      value: 
-      objectReference: {fileID: 435836914}
+      objectReference: {fileID: 1864071935}
+    - target: {fileID: 114110, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
   m_IsPrefabParent: 0
@@ -940,7 +1014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ac67c8f1fd7df428e2c826a3cb5405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateOnStart: 1
+  activateOnStart: 0
   startMode: 1
   startDelay: 0
   startZone: {fileID: 1410878471}
@@ -953,7 +1027,8 @@ MonoBehaviour:
   activateTextTime: 0
   finishTextTime: 0
   failTextTime: 0
-  nextQuest: {fileID: 0}
+  nextQuests: []
+  useCompass: 1
   CutsceneNumber: 1
   container: {fileID: 238278250}
   images:
