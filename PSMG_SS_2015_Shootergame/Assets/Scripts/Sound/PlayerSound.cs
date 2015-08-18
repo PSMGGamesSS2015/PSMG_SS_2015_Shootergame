@@ -46,7 +46,7 @@ public class PlayerSound : MonoBehaviour {
         
         if (moving)
         {
-            playMoveSound(0.05F, 0.1F);
+            playMoveSound(0.1F, 0.1F);
         }
         else if (sprinting)
         {
@@ -54,11 +54,11 @@ public class PlayerSound : MonoBehaviour {
         }
         else if (crouching)
         {
-            playMoveSound(0.1F, 0.03F);
+            playMoveSound(0.3F, 0.03F);
         }
         else if (sneaking)
         {
-            playMoveSound(0.1F, 0.03F);
+            playMoveSound(0.3F, 0.03F);
         }
 
         surfaceIndex = TerrainSurface.GetMainTexture(transform.position);
@@ -74,18 +74,36 @@ public class PlayerSound : MonoBehaviour {
 
         switch (surfaceIndex)
         {
-            // grass
             case 0:
+                offset = -0.2F;
                 thud = grass;
                 break;
-            // dirt
             case 1:
+                offset = -0.1F;
                 thud = grass;
                 break;
-            // gray
             case 2:
-                int rnd = Random.Range(1, 2);
-                if (rnd == 1)
+                offset = -0.2F;
+                thud = rock2;
+                break;
+            case 3:
+                offset = -0.25F;
+                int rnd3 = Random.Range(1, 5);
+                if (rnd3 == 1)
+                {
+                    thud = grass;
+                }
+                else
+                {
+                    thud = rock1;
+                }
+                break;
+            case 4:
+                thud = highGrass;
+                break;
+            case 5:
+                int rnd5 = Random.Range(1, 3);
+                if (rnd5 == 1)
                 {
                     thud = rock1;
                 }
@@ -94,25 +112,19 @@ public class PlayerSound : MonoBehaviour {
                     thud = rock2;
                 }
                 break;
-            // gray grass
-            case 3:
-                int rnd2 = Random.Range(1, 4);
-                if (rnd2 == 1)
-                {
-                    thud = rock1;
-                }
-                else
-                {
-                    thud = grass;
-                }
-                break;
-            // high grass
-            case 4:
-                thud = highGrass;
-                break;
-            // forrest
             case 7:
                 thud = forest;
+                break;
+            case 8:
+                thud = forest;
+                break;
+            case 9:
+                thud = grass;
+                offset = -0.2F;
+                break;
+            case 10:
+                thud = grass;
+                offset = -0.2F;
                 break;
             default:
                 thud = rock1;
