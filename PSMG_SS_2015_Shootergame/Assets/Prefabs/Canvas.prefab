@@ -219,22 +219,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &129448
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 455310}
-  - 114: {fileID: 11437340}
-  m_Layer: 0
-  m_Name: Crosshair
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &131412
 GameObject:
   m_ObjectHideFlags: 1
@@ -383,6 +367,23 @@ GameObject:
   - 114: {fileID: 11448272}
   m_Layer: 5
   m_Name: control image (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &144758
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22425376}
+  - 222: {fileID: 22278282}
+  - 114: {fileID: 11491250}
+  m_Layer: 5
+  m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1070,18 +1071,6 @@ Transform:
   - {fileID: 22458696}
   m_Father: {fileID: 418954}
   m_RootOrder: 2
---- !u!4 &455310
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129448}
-  m_LocalRotation: {x: .408217937, y: -.234569728, z: .109381676, w: .875426054}
-  m_LocalPosition: {x: -400.000061, y: -225.153381, z: 0}
-  m_LocalScale: {x: 1.22699404, y: 1.2269938, z: 1.2269938}
-  m_Children: []
-  m_Father: {fileID: 22457548}
-  m_RootOrder: 4
 --- !u!4 &468702
 Transform:
   m_ObjectHideFlags: 1
@@ -1586,6 +1575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bowIntensity: {fileID: 11428512}
+  crosshair: {fileID: 0}
 --- !u!114 &11430708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1607,20 +1597,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11437340
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a70c998a37321b4cb7d7e4e8c6d5ff9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  crosshairTexture: {fileID: 2800000, guid: 0c6fe612daa19a947a119bc02ec8135b, type: 3}
-  crosshairScale: .0500000007
-  hideCursor: 1
 --- !u!114 &11437638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2353,6 +2329,27 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11491250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 0c6fe612daa19a947a119bc02ec8135b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!114 &11492656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2697,6 +2694,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166486}
+--- !u!222 &22278282
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144758}
 --- !u!222 &22278918
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -3073,6 +3076,23 @@ RectTransform:
   m_AnchoredPosition: {x: -95, y: 100}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: .5, y: .5}
+--- !u!224 &22425376
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22457548}
+  m_RootOrder: 4
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 50, y: 50}
+  m_Pivot: {x: .5, y: .5}
 --- !u!224 &22425602
 RectTransform:
   m_ObjectHideFlags: 1
@@ -3410,7 +3430,7 @@ RectTransform:
   - {fileID: 22457296}
   - {fileID: 22458908}
   - {fileID: 22466738}
-  - {fileID: 455310}
+  - {fileID: 22425376}
   - {fileID: 22494692}
   - {fileID: 418954}
   - {fileID: 22482432}
