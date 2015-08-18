@@ -113,6 +113,9 @@ public class PlayerMovement : MonoBehaviour
     // Save collider height to reset after crouching
     private float colliderHeight = 1.0f;
 
+    // True when player are not on the ground
+    private bool inAir = false;
+
     // Weapon controller for animations
     private Assets.Scripts.Weapons.WeaponController weaponController;
 
@@ -255,7 +258,15 @@ public class PlayerMovement : MonoBehaviour
     // If the player is on the ground (again), reset all relevant variables
     void OnCollisionStay()
     {
+        //if (inAir)
+        //{
+        //    audioController.playGround();
+        //    inAir = false;
+        //}
+
         grounded = true;
+
+        float fallDistance = Mathf.Abs(groundHeight - transform.position.y);
 
         if (fallingWhileFlying)
         {
@@ -266,13 +277,19 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            float fallDistance = groundHeight - transform.position.y;
+            
             if (fallDistance >= fallDamageMinDistance)
             {
+                //audioController.playGround();
                 int damage = (int) Mathf.Round(Mathf.Pow((fallDistance / 4), 1.8f));
                 basePlayer.SubtractHealth(damage);
             }
             
+        }
+        if (fallDistance >= 0.4F)
+        {
+            Debug.Log("Ground: " + fallDistance);
+            audioController.playGround();
         }
     }
 
@@ -474,6 +491,11 @@ public class PlayerMovement : MonoBehaviour
 
         // Apply the vector to the player's rigidbody
         GetComponent<Rigidbody>().velocity = jumpVector;
+
+        float fallDistance = Mathf.Abs(groundHeight - transform.position.y);
+        Debug.Log("JumpOn: " + fallDistance);
+
+        inAir = true;
     }
 
     void HandleFlying()

@@ -421,7 +421,8 @@ MonoBehaviour:
   activateTextTime: 0
   finishTextTime: 0
   failTextTime: 0
-  nextQuest: {fileID: 0}
+  nextQuests: []
+  useCompass: 1
   CutsceneNumber: 1
   container: {fileID: 102675178}
   images:
@@ -3111,7 +3112,8 @@ MonoBehaviour:
   activateTextTime: 5
   finishTextTime: 5
   failTextTime: 0
-  nextQuest: {fileID: 1524645368}
+  nextQuests: []
+  useCompass: 1
   waypoints:
   - {fileID: 1817137589}
   - {fileID: 1937628543}
@@ -3909,12 +3911,14 @@ MonoBehaviour:
   activateTextTime: 0
   finishTextTime: 0
   failTextTime: 0
-  nextQuest: {fileID: 0}
+  nextQuests: []
+  useCompass: 1
   target: {fileID: 0}
   goal: {fileID: 1318491689}
   failDistance: 120
   goalDistance: 20
   finishTrigger: 0
+  compassTarget: 0
 --- !u!114 &254180617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3933,6 +3937,7 @@ MonoBehaviour:
   - {fileID: 1013882191}
   - {fileID: 1318491689}
   moveWithoutActivation: 0
+  loop: 1
 --- !u!114 &254180618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4804,12 +4809,14 @@ MonoBehaviour:
   activateTextTime: 0
   finishTextTime: 0
   failTextTime: 0
-  nextQuest: {fileID: 0}
+  nextQuests: []
+  useCompass: 1
   target: {fileID: 0}
   goal: {fileID: 1318491689}
   failDistance: 120
   goalDistance: 20
   finishTrigger: 0
+  compassTarget: 0
 --- !u!114 &338635269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4828,6 +4835,7 @@ MonoBehaviour:
   - {fileID: 1013882191}
   - {fileID: 1318491689}
   moveWithoutActivation: 0
+  loop: 1
 --- !u!114 &338635270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6098,12 +6106,14 @@ MonoBehaviour:
   activateTextTime: 0
   finishTextTime: 0
   failTextTime: 0
-  nextQuest: {fileID: 0}
+  nextQuests: []
+  useCompass: 1
   target: {fileID: 0}
   goal: {fileID: 1318491689}
   failDistance: 120
   goalDistance: 20
   finishTrigger: 0
+  compassTarget: 0
 --- !u!114 &463888701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6122,6 +6132,7 @@ MonoBehaviour:
   - {fileID: 1013882191}
   - {fileID: 1318491689}
   moveWithoutActivation: 0
+  loop: 1
 --- !u!114 &463888702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6420,7 +6431,8 @@ MonoBehaviour:
   activateTextTime: 5
   finishTextTime: 0
   failTextTime: 0
-  nextQuest: {fileID: 1196321641}
+  nextQuests: []
+  useCompass: 1
   waypoints:
   - {fileID: 1546260959}
   - {fileID: 829843690}
@@ -9954,8 +9966,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 696224675}
-  m_LocalRotation: {x: .345929444, y: .239348024, z: .0917357653, w: -.902568519}
-  m_LocalPosition: {x: 74.0480652, y: -37.8675613, z: 2.08957672}
+  m_LocalRotation: {x: .224596009, y: .592530251, z: .176696047, w: -.75315541}
+  m_LocalPosition: {x: 55.4601707, y: -14.9232464, z: .0991210938}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58648138}
@@ -10244,8 +10256,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 719942574}
-  m_LocalRotation: {x: -.329087526, y: .058289174, z: .0203569736, w: .942278862}
-  m_LocalPosition: {x: 74.0480652, y: -29.1875191, z: 2.08958054}
+  m_LocalRotation: {x: .224596009, y: .592530251, z: .176696047, w: -.75315541}
+  m_LocalPosition: {x: 65.4330139, y: 1.00207329, z: -8.79264069}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58648138}
@@ -16914,12 +16926,14 @@ MonoBehaviour:
   activateTextTime: 0
   finishTextTime: 0
   failTextTime: 0
-  nextQuest: {fileID: 0}
+  nextQuests: []
+  useCompass: 1
   target: {fileID: 0}
   goal: {fileID: 1318491689}
   failDistance: 120
   goalDistance: 20
   finishTrigger: 0
+  compassTarget: 0
 --- !u!114 &1196321644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16938,6 +16952,7 @@ MonoBehaviour:
   - {fileID: 1013882191}
   - {fileID: 1318491689}
   moveWithoutActivation: 0
+  loop: 1
 --- !u!114 &1196321645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17510,8 +17525,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876fb953a442da646b462986ff579292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thud: {fileID: 8300000, guid: b997d1b3a4b1e8144a996ad0769a5890, type: 3}
+  grass: {fileID: 8300000, guid: 9281af91c4d40374d8bf9fb0fd374e07, type: 3}
+  highGrass: {fileID: 8300000, guid: 555bdab318aeac54fb9066d644b90182, type: 3}
+  rock1: {fileID: 8300000, guid: ef815d14b8278e4418a87cda301812a2, type: 3}
+  rock2: {fileID: 8300000, guid: 110d42b8b7905ea4c8d9f6a41348bed8, type: 3}
+  water: {fileID: 8300000, guid: 15defd7516c1a5c4fac8c3099356e290, type: 3}
+  forest: {fileID: 8300000, guid: 1fb4ec82db4887042a39349001894fd6, type: 3}
   eagle: {fileID: 8300000, guid: 14eab041218620b4cb90d04a52bc58da, type: 3}
+  groundSound: {fileID: 8300000, guid: 8cad7b9b25868524e9b7128b0645a63d, type: 3}
   sprinting: 0
   crouching: 0
   sneaking: 0
@@ -23501,7 +23522,8 @@ MonoBehaviour:
   activateTextTime: 5
   finishTextTime: 5
   failTextTime: 0
-  nextQuest: {fileID: 1808349675}
+  nextQuests: []
+  useCompass: 1
   waypoints:
   - {fileID: 1304963728}
   waypointSize: 3
@@ -28533,7 +28555,8 @@ MonoBehaviour:
   activateTextTime: 5
   finishTextTime: 5
   failTextTime: 0
-  nextQuest: {fileID: 471493041}
+  nextQuests: []
+  useCompass: 1
   waypoints:
   - {fileID: 1751569807}
   waypointSize: 3
@@ -31671,8 +31694,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2080041229}
-  m_LocalRotation: {x: .00749189779, y: -.0357085653, z: .000267619645, w: .999334157}
-  m_LocalPosition: {x: 282.110229, y: -70.0950317, z: 158.999481}
+  m_LocalRotation: {x: .224596009, y: .592530251, z: .176696047, w: -.75315541}
+  m_LocalPosition: {x: 65.4330139, y: -30.8779259, z: -8.79264069}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 58648138}

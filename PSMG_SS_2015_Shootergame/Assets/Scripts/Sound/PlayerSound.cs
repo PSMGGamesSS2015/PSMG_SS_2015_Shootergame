@@ -2,12 +2,27 @@
 using System.Collections;
 
 public class PlayerSound : MonoBehaviour {
+    
+    public AudioClip grass;
 
-    public AudioClip thud;
+    public AudioClip highGrass;
+
+    public AudioClip rock1;
+
+    public AudioClip rock2;
+
+    public AudioClip water;
+
+    public AudioClip forest;
+
 
     public AudioClip eagle;
 
+    public AudioClip groundSound;
+
     private AudioSource aSource;
+
+    private int surfaceIndex = 0;
 
     private float soundDelay = 0;
 
@@ -44,19 +59,68 @@ public class PlayerSound : MonoBehaviour {
             playMoveSound(0.1F, 0.03F);
         }
 
-        int surfaceIndex = TerrainSurface.GetMainTexture(transform.position);
-        float[] surfaceMix = TerrainSurface.GetTextureMix(transform.position);
+        surfaceIndex = TerrainSurface.GetMainTexture(transform.position);
         Debug.Log("SurfaceIndex: " + surfaceIndex);
-        Debug.Log("SurfaceMix0: " + surfaceMix[0]);
 	}
 
     private void playMoveSound(float delay, float vol)
     {
 
+        AudioClip thud = grass;
+
+        float offset = 0;
+
+        switch (surfaceIndex)
+        {
+            // grass
+            case 0:
+                thud = grass;
+                break;
+            // dirt
+            case 1:
+                thud = grass;
+                break;
+            // gray
+            case 2:
+                int rnd = Random.Range(1, 2);
+                if (rnd == 1)
+                {
+                    thud = rock1;
+                }
+                else
+                {
+                    thud = rock2;
+                }
+                break;
+            // gray grass
+            case 3:
+                int rnd2 = Random.Range(1, 4);
+                if (rnd2 == 1)
+                {
+                    thud = rock1;
+                }
+                else
+                {
+                    thud = grass;
+                }
+                break;
+            // high grass
+            case 4:
+                thud = highGrass;
+                break;
+            // forrest
+            case 7:
+                thud = forest;
+                break;
+            default:
+                thud = rock1;
+                break;
+        }
+
         if (Time.time >= soundDelay)
         {
             aSource.PlayOneShot(thud, vol);
-            soundDelay = Time.time + thud.length-0.7F + delay;
+            soundDelay = Time.time + thud.length + delay + offset;
         }
 
         moving = false;
@@ -69,6 +133,11 @@ public class PlayerSound : MonoBehaviour {
     public void playMorph ()
     {
         Invoke("playEagleSound", 3.0F);
+    }
+
+    public void playGround ()
+    {
+        aSource.PlayOneShot(groundSound, 1F);
     }
 
     private void playEagleSound ()
