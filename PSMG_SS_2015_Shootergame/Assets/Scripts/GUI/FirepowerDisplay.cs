@@ -31,7 +31,7 @@ public class FirepowerDisplay : MonoBehaviour {
     {
         if (wpc.getActiveWeapon() == bow)
         {
-            Debug.Log((bow.getBowIntensity() - Bow.MIN_INTENSITY) / (Bow.MAX_INTENSITY - Bow.MIN_INTENSITY));
+            //Debug.Log((bow.getBowIntensity() - Bow.MIN_INTENSITY) / (Bow.MAX_INTENSITY - Bow.MIN_INTENSITY));
             bowIntensity.fillAmount = (bow.getBowIntensity() - Bow.MIN_INTENSITY) / (Bow.MAX_INTENSITY - Bow.MIN_INTENSITY);
             crosshair.enabled = true;
         }
