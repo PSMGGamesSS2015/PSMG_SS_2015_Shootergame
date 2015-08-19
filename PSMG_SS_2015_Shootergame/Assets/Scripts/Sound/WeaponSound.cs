@@ -7,7 +7,7 @@ public class WeaponSound : MonoBehaviour {
 
     public AudioClip bowSpan;
 
-    public AudioClip hawkSwing;
+    public AudioClip swoosh;
 
     public AudioClip hitSound;
 
@@ -25,21 +25,21 @@ public class WeaponSound : MonoBehaviour {
 
     public void shootBowSound ()
     {
-        weaponSource.PlayOneShot(bowShoot, 1F);
+        weaponSource.PlayOneShot(bowShoot, 0.12F);
+        weaponSource.PlayOneShot(swoosh, 0.1F);
     }
 
     public void spanBowSound ()
     {
-        weaponSource.PlayOneShot(bowSpan, 1F);
+        weaponSource.PlayOneShot(bowSpan, 0.8F);
     }
 
     public void swingHawkSound ()
     {
-        weaponSource.PlayOneShot(hawkSwing, 1F);
+        weaponSource.PlayOneShot(swoosh, 0.1F);
     }
     public void playHitSound ()
     {
-        weaponSource.PlayOneShot(hitSound, 1F);
+        weaponSource.PlayOneShot(hitSound, 0.5F);
     }
-
 }

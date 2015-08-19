@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour {
 
     BlurOptimized menuBackgroundBlur = null;
 
+    private PlayerSound aController;
 
     public GameState state;
 
@@ -24,6 +25,7 @@ public class GameController : MonoBehaviour {
 	void Start () {
         state = GameState.INGAME;
         menuBackgroundBlur = Camera.main.GetComponent<BlurOptimized>();
+        aController = GameObject.FindGameObjectWithTag("PlayerSound").GetComponent<PlayerSound>();
 	}
 	
 	// Update is called once per frame
@@ -45,15 +47,16 @@ public class GameController : MonoBehaviour {
                 state = GameState.INMENU;
                 Time.timeScale = 0.0f;
                 onGameStateChanged(GameState.INGAME, GameState.INMENU);
-
+                aController.pauseMode();
                 menuBackgroundBlur.enabled = true;
+
             }
             else
             {
                 state = GameState.INGAME;
                 Time.timeScale = 1.0f;
                 onGameStateChanged(GameState.INMENU, GameState.INGAME);
-
+                aController.playMode();
                 menuBackgroundBlur.enabled = false;
 
 

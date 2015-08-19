@@ -20,6 +20,10 @@ public class PlayerSound : MonoBehaviour {
 
     public AudioClip groundSound;
 
+    public AudioClip morphSound;
+
+    public AudioClip morphSound2;
+
     private AudioSource aSource;
 
     private int surfaceIndex = 0;
@@ -146,7 +150,16 @@ public class PlayerSound : MonoBehaviour {
 
     public void playMorph ()
     {
-        Invoke("playEagleSound", 3.0F);
+        int rndMrp = Random.Range(1, 10);
+        if (rndMrp == 1)
+        {
+            aSource.PlayOneShot(morphSound, 0.02F);
+        }
+        else
+        {
+            aSource.PlayOneShot(morphSound2, 0.1F);
+        }
+        Invoke("playEagleSound", 4.0F);
     }
 
     public void playGround ()
@@ -162,6 +175,16 @@ public class PlayerSound : MonoBehaviour {
     private void playEagleSound ()
     {
         aSource.PlayOneShot(eagle, 1F);
+    }
+
+    public void pauseMode()
+    {
+        aSource.Pause();
+    }
+
+    public void playMode()
+    {
+        aSource.Play();
     }
 
 }

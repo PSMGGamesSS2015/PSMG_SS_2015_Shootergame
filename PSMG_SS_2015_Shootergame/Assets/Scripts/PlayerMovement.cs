@@ -238,9 +238,9 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator startFlyingThread()
     {
+        audioController.playMorph();
         flyModeActivated = true;
         weaponController.getActiveWeapon().Animator.SetTrigger("Morph");
-        audioController.playMorph();
         basePlayer.birdMorphEffect.enableEmission = true;
 
         yield return new WaitForSeconds(2.3f);
