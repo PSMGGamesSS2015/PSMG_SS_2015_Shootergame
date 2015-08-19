@@ -53,11 +53,10 @@ public class ShowTutorialText : MonoBehaviour {
         textElements.Add(arr);
     }
 
-
     //show the text for a specific time at the ui and then fade it out
     public void showTextinUI(string text, float time)
     {
-        showTextinUI(text, time, 30);
+        showTextinUI(text, time, 20);
     }
 
     //show the text for a specific time at the ui and then fade it out

@@ -18,7 +18,7 @@ public class OpenLogBook : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        setQuestData("Titel!!!", "Das ist eine Test-quest!");
+        //setQuestData("Titel!!!", "Das ist eine Test-quest!");
 	}
 	
 	// Update is called once per frame
