@@ -249,6 +249,8 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 1394746904}
   startZoneSize: 5
+  questTitle: Titel der Quest
+  questDescription: Beschreibung der Quest
   activateText: "F\xE4lle nun den gro\xDFen Baum vor dir, um \xFCber die Schlucht
     zu gelangen!"
   startText: Sehr gut! Verliere den Siedler nicht aus den Augen...
@@ -387,6 +389,8 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 0}
   startZoneSize: 5
+  questTitle: Titel der Quest
+  questDescription: Beschreibung der Quest
   activateText: 
   startText: 
   finishText: 
@@ -3090,6 +3094,9 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 212008709}
   startZoneSize: 4
+  questTitle: "Einf\xFChrung"
+  questDescription: "Dies ist deine erste Einf\xFChrungsquest. Bewege dich mit WASD
+    in die markierten Fl\xE4chen!"
   activateText: "Willkommen Krieger! Mit WASD und der Maus kannst du dich bewegen.
     Probiere es aus indem du zur Markierung vor dir l\xE4ufst!"
   startText: "Mit SHIFT kannst du f\xFCr kurze Zeit Sprinten. Renne nun zur n\xE4chsten
@@ -5356,6 +5363,8 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 0}
   startZoneSize: 5
+  questTitle: Titel der Quest
+  questDescription: Beschreibung der Quest
   activateText: 
   startText: 
   finishText: 
@@ -6920,6 +6929,8 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 662120741}
   startZoneSize: 5
+  questTitle: Titel der Quest
+  questDescription: Beschreibung der Quest
   activateText: "Du h\xF6rst Geschrei! Folge den Markierungen um dem ganzen auf den
     Grund zu gehen. Beil dich! Die Uhr Tickt... Die was? Ich bin Indianer!"
   startText: 
@@ -7070,6 +7081,8 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 0}
   startZoneSize: 5
+  questTitle: Titel der Quest
+  questDescription: Beschreibung der Quest
   activateText: 
   startText: 
   finishText: 
@@ -8339,8 +8352,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 402171761}
-  m_LocalRotation: {x: .346378058, y: .412913501, z: .173513457, w: -.824267983}
-  m_LocalPosition: {x: 380.982727, y: -25.2302971, z: 451.905853}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 104.620003, y: -.650473595, z: 77.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8638,6 +8651,8 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 0}
   startZoneSize: 3
+  questTitle: Titel der Quest
+  questDescription: Beschreibung der Quest
   activateText: Finde und aktiviere nun alle Totems.
   startText: 
   finishText: Du hast nun alle Elemente aktiviert.
@@ -9481,6 +9496,8 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 0}
   startZoneSize: 5
+  questTitle: Titel der Quest
+  questDescription: Beschreibung der Quest
   activateText: 
   startText: 
   finishText: 
@@ -10096,6 +10113,8 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 1725246409}
   startZoneSize: 8
+  questTitle: Titel der Quest
+  questDescription: Beschreibung der Quest
   activateText: "Die arme Sau... Geh in die Fl\xE4che und verfolge die Siedler!"
   startText: 'Der Kompass zeigt immer auf den Siedler. '
   finishText: 
@@ -10851,6 +10870,8 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 0}
   startZoneSize: 3
+  questTitle: Titel der Quest
+  questDescription: Beschreibung der Quest
   activateText: "F\xFCr jedes Element (Feuer, Erde, Wasser, Luft) gibt es ein Totem.
     Geh in seine N\xE4he, um es zu aktivieren!"
   startText: "Halte 'M' gedr\xFCckt, um zu sehen, wie lange die Totems noch aktiv
@@ -14400,6 +14421,8 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 1725246409}
   startZoneSize: 8
+  questTitle: Titel der Quest
+  questDescription: Beschreibung der Quest
   activateText: 
   startText: Folge den Wegpunkten durch die Berge, damit der Siedler dich nicht erwischt.
   finishText: "Sehr gut! Dr\xFCcke nun '3', um auf dein Tomahawk zu wechseln."
@@ -15178,6 +15201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeIndicator: {fileID: 121962, guid: 41ff73b4e4453744c8b11aa2a9a13799, type: 2}
+  highlighter: {fileID: 144044, guid: 94112d31bb6734e4a80260e7fae5e26f, type: 2}
 --- !u!4 &858617456
 Transform:
   m_ObjectHideFlags: 0
@@ -15507,8 +15531,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 872176712}
-  m_LocalRotation: {x: .219326124, y: .711950481, z: .252965152, w: -.617277265}
-  m_LocalPosition: {x: 75.6126633, y: -35.4190674, z: -22.5827332}
+  m_LocalRotation: {x: .2195912, y: .740660191, z: .287189603, w: -.566325366}
+  m_LocalPosition: {x: 66.6835403, y: -41.7864075, z: -10.9969864}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1412134242}
@@ -16245,8 +16269,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916924487}
-  m_LocalRotation: {x: -.629390359, y: .262022823, z: .238445982, w: .69163245}
-  m_LocalPosition: {x: 362.048828, y: -37.8970871, z: 457.559326}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 104.620003, y: -.650473595, z: 77.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -18455,6 +18479,8 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 826982850}
   startZoneSize: 4
+  questTitle: Titel der Quest
+  questDescription: Beschreibung der Quest
   activateText: "Mit LEER kannst du mit den Fl\xFCgeln schlagen und so mehr Zeit in
     der Luft verbringen."
   startText: 
@@ -21171,6 +21197,8 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 0}
   startZoneSize: 5
+  questTitle: Titel der Quest
+  questDescription: Beschreibung der Quest
   activateText: "Niemand zu Hause! Sammle den Schl\xFCssel und die Feder ein!"
   startText: 
   finishText: 
@@ -21185,6 +21213,7 @@ MonoBehaviour:
   targets:
   - {fileID: 483222912}
   - {fileID: 280994994}
+  highlight: 1
 --- !u!1 &1133816117
 GameObject:
   m_ObjectHideFlags: 0
@@ -21425,6 +21454,8 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 0}
   startZoneSize: 5
+  questTitle: Titel der Quest
+  questDescription: Beschreibung der Quest
   activateText: "Jetzt wird es Zeit deinen Bogen zu benutzen. Schie\xDFe auf den Bienenstock
     vor dir..."
   startText: "Halte die linke Maustaste gedr\xFCckt um weiter schie\xDFen zu k\xF6nnen"
@@ -21439,6 +21470,7 @@ MonoBehaviour:
   useCompass: 1
   targets:
   - {fileID: 1049871321}
+  highlight: 1
 --- !u!1 &1146062200
 GameObject:
   m_ObjectHideFlags: 0
@@ -24922,8 +24954,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1232750214}
-  m_LocalRotation: {x: .137523323, y: .790558398, z: .192470595, w: -.564853847}
-  m_LocalPosition: {x: 363.482605, y: 25.5071182, z: 487.282166}
+  m_LocalRotation: {x: .219591185, y: .740660191, z: .287189603, w: -.566325366}
+  m_LocalPosition: {x: 121.863541, y: -.846408844, z: 102.053001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -25059,6 +25091,10 @@ Prefab:
       propertyPath: totems.Array.data[1]
       value: 
       objectReference: {fileID: 566248828}
+    - target: {fileID: 11430038, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
   m_IsPrefabParent: 0
@@ -26712,8 +26748,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1330921243}
-  m_LocalRotation: {x: .119694285, y: .806136489, z: .17461808, w: -.552562892}
-  m_LocalPosition: {x: 363.33905, y: 16.8270912, z: 487.658966}
+  m_LocalRotation: {x: .2195912, y: .740660191, z: .287189603, w: -.566325366}
+  m_LocalPosition: {x: 120.330536, y: -10.6995773, z: 103.612061}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -29414,7 +29450,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1394192865}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 876fb953a442da646b462986ff579292, type: 3}
   m_Name: 
@@ -35739,15 +35775,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 358.410004
+      value: 104.620003
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 12.21
+      value: 12.9200001
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 467.429993
+      value: 77.3499985
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalRotation.x
@@ -35767,7 +35803,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_RootOrder
-      value: 24
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 11417504, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_Enabled
@@ -35903,7 +35939,7 @@ Prefab:
       objectReference: {fileID: 1307480993}
     - target: {fileID: 410702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 447010, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_RootOrder
@@ -35911,7 +35947,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485654, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8297682, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_Enabled
@@ -38191,6 +38227,8 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 1695311614}
   startZoneSize: 5
+  questTitle: Titel der Quest
+  questDescription: Beschreibung der Quest
   activateText: Fliege jetzt los! Folge dem Pfeil deines Kompass...
   startText: 
   finishText: Gut gemacht! Vor dir siehst du ein Totem...
@@ -40898,7 +40936,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1822537546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 46.1100006, y: -10.7304707, z: -48.969986}
+  m_LocalPosition: {x: 49.4400024, y: -9.71047115, z: -35.7999878}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1412134242}
@@ -43061,6 +43099,8 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 0}
   startZoneSize: 5
+  questTitle: Titel der Quest
+  questDescription: Beschreibung der Quest
   activateText: 
   startText: "Klettern ist anstrengend! Sammle die Feder ein und dr\xFCcke TAB um
     dich in einen Vogel zu verwandeln."
@@ -43075,6 +43115,7 @@ MonoBehaviour:
   useCompass: 1
   targets:
   - {fileID: 1305027021}
+  highlight: 1
 --- !u!1 &1932487890 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 6543ddc1c3a01b844bf6e94d23213c6c, type: 3}

@@ -4,5 +4,6 @@ using System.Collections;
 public class PrefabManager : MonoBehaviour {
 
     public GameObject rangeIndicator;
+	public GameObject highlighter;
 
 }

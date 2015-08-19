@@ -4,6 +4,7 @@ using System.Collections;
 public class QuestCollect : Quest {
 
     public Collectable[] targets;
+	public bool highlight = true;
 
     private ArrayList toCollect;
     private ArrayList collected;
@@ -28,6 +29,13 @@ public class QuestCollect : Quest {
 
     protected override void OnQuestStarted()
     {
+		if (highlight) {
+			foreach (Collectable c in targets)
+			{
+				CreateHighlight(c.transform);
+			}
+		}
+
         SetGoal(((Collectable)toCollect[0]).transform);
     }
 	

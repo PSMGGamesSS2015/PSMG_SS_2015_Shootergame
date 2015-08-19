@@ -29,6 +29,8 @@ public class Quest : MonoBehaviour {
     /// </summary>
     public float startZoneSize = 5.0f;
 
+	public string questTitle = "Titel der Quest";
+	public string questDescription = "Beschreibung der Quest";
     /// <summary>
     /// Text that will be shown on activation/start/finish/fail - can be left empty
     /// </summary>
@@ -61,6 +63,7 @@ public class Quest : MonoBehaviour {
 
     protected static GameObject player;
     protected static ShowTutorialText textScript;
+	protected static OpenLogBook logBook;
     protected static TurnCompass compass;
     protected static PrefabManager prefabs;
 
@@ -77,12 +80,14 @@ public class Quest : MonoBehaviour {
     protected float startTime;
 
     protected ArrayList markers = new ArrayList();
+	protected ArrayList highlighter = new ArrayList();
 
 	protected void Start() {
         // Save game objects to static variables
         player = GameObject.FindGameObjectWithTag("Player");
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         textScript = canvas.GetComponent<ShowTutorialText>();
+		logBook = canvas.GetComponent<OpenLogBook> ();
         compass = canvas.GetComponent<TurnCompass>();
 
         prefabs = GameObject.FindGameObjectWithTag("Prefabs").GetComponent<PrefabManager>();
@@ -157,6 +162,8 @@ public class Quest : MonoBehaviour {
         activateTime = Time.time;
         // Show the defined activation text
         ShowUIText(activateText, activateTextTime);
+		// Update LogBook texts
+		SetLogBookText (questTitle, questDescription);
 
         // Call the (overridable) OnQuestActivated() method
         OnQuestActivated();
@@ -264,6 +271,14 @@ public class Quest : MonoBehaviour {
         markers.Add(marker);
     }
 
+	// Create a highlighter particle system
+	protected void CreateHighlight(Transform position)
+	{
+		GameObject highlight = Instantiate(prefabs.highlighter, position.position, Quaternion.Euler(90, 0, 0)) as GameObject;
+		highlight.transform.parent = position;
+		highlighter.Add(highlight);
+	}
+
     protected void SetGoal(Transform t)
     {
         if (useCompass)
@@ -281,6 +296,13 @@ public class Quest : MonoBehaviour {
             // Destroy marker
             Destroy(marker);
         }
+
+		// Iterate highlighter
+		foreach (GameObject highlight in highlighter)
+		{
+			// Destroy highlighter
+			Destroy(highlight);
+		}
     }
 
     // Show text in the UI
@@ -293,6 +315,10 @@ public class Quest : MonoBehaviour {
             textScript.showTextinUI(text, time);
         }
     }
+
+	private void SetLogBookText(string title, string description) {
+		logBook.setQuestData (title, description);
+	}
 
     protected virtual void CheckFinish()
     {

@@ -4,6 +4,7 @@ using System.Collections;
 public class QuestShoot : Quest {
 
     public Shootable[] targets;
+	public bool highlight = true;
 
     private ArrayList toShoot;
     private ArrayList shot;
@@ -28,6 +29,13 @@ public class QuestShoot : Quest {
 
     protected override void OnQuestStarted()
     {
+		if (highlight) {
+			foreach (Shootable s in targets)
+			{
+				CreateHighlight(s.transform);
+			}
+		}
+
         SetGoal(((Shootable)toShoot[0]).transform);
     }
 	
