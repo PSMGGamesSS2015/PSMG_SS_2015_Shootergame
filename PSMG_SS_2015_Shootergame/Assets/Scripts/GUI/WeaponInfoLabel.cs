@@ -41,6 +41,7 @@ public class WeaponInfoLabel : MonoBehaviour {
             weaponImages[1].enabled = false;
             weaponImages[2].enabled = true;
         }
+        Debug.Log(ammoLabel.text);
         ammoLabel.text = (w.ReserveAmmo == BaseWeapon.INFINITE_AMMO ? "∞" : w.ReserveAmmo.ToString());
 	}
 }
