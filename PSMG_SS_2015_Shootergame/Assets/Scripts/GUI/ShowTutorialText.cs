@@ -17,8 +17,10 @@ public class ShowTutorialText : MonoBehaviour {
     //Time to fade text in or out
     private float textFadeDuration = 1.0f;
 
+    //if the animation is ready this is true
     private bool animationReady = true;
 
+    //the texts to show in the queue
     private List<string[]> textElements = new List<string[]>();
 
     // Use this for initialization
@@ -27,6 +29,7 @@ public class ShowTutorialText : MonoBehaviour {
         //showTextinUI("Test text zum schaun wie das alles aussieht! ", 10);
     }
 
+    //update the textlabel to show the new text in the UI
     void Update()
     {
         if (textElements.Count > 0)
@@ -47,6 +50,7 @@ public class ShowTutorialText : MonoBehaviour {
         }
     }
 
+    //add the actual text to the queue to show it in the UI
     private void addToQueue(string text, float time, float duration)
     {
         string[] arr = { text, time.ToString(), duration.ToString() };
@@ -65,13 +69,13 @@ public class ShowTutorialText : MonoBehaviour {
         addToQueue(text, time, textSize);
     }
 
-    //Fade the text in
+    //Fade in the text
     public void FadeIn()
     {
         StartCoroutine("FadeInCR");
     }
 
-    //Coroutine to fade the text in
+    //Coroutine to fade in the text
     private IEnumerator FadeInCR()
     {
         float alpha = 1;
@@ -87,13 +91,13 @@ public class ShowTutorialText : MonoBehaviour {
         yield break;
     }
 
-    //fade the text out
+    //fade out the text
     public void FadeOut()
     {
         StartCoroutine("FadeOutCR");
     }
 
-    //Coroutine to fade the text out (wait for timeToShowText so the text is visible this amount of time)
+    //Coroutine to fade out the text (wait for timeToShowText so the text is visible this amount of time)
     private IEnumerator FadeOutCR()
     {
         float alpha = 1;

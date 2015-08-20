@@ -26,7 +26,8 @@ public class FirepowerDisplay : MonoBehaviour {
         bow = (Bow)wpc.getWeaponByName("Bow");
 	}
 
-	// Update is called once per frame
+	//if the active Weapon is the bow show the crosshair and fill the fire power display
+    //else show nothing
     void Update()
     {
         if (wpc.getActiveWeapon() == bow)

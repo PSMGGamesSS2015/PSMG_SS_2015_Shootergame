@@ -106,7 +106,7 @@ public class LifeVisualisation : MonoBehaviour {
     }
 
     
-
+    //change between flight and move modes
     void OnGUI()
     {
         hasModeChanged();

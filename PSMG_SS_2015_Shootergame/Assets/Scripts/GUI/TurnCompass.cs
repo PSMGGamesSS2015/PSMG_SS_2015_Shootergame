@@ -3,15 +3,20 @@ using System.Collections;
 
 public class TurnCompass : MonoBehaviour
 {
-
+    //the goal the compass is pointing at
     public Transform goal;
 
+    //the player
     private Transform playerTransform;
 
+    //Vector of the viewing direction of the player
     private Vector3 facing;
+    //The position vector of the goal
     private Vector3 target;
+    //the position vector of the player
     private Vector3 player;
 
+    //the pointer of the compass
     public Transform pointer;
 
     // Use this for initialization
@@ -22,7 +27,7 @@ public class TurnCompass : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    // Update is called once per frame
+    //calculation of the angle and rotation of the pointer
     void Update()
     {
         if (goal != null)
@@ -46,6 +51,7 @@ public class TurnCompass : MonoBehaviour
         }
     }
 
+    //method to set the goal
     public void SetGoal(Transform t)
     {
         goal = t;

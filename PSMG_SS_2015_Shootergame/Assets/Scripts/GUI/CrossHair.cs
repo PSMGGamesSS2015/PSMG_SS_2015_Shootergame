@@ -26,20 +26,12 @@ public class CrossHair : MonoBehaviour {
     // Called once everytime the GUI is updated
     void OnGUI()
     {
-        //if not paused --- predefined script, do not have a pause mode yet, so don't need the functionality
-        /*
-        if (Time.timeScale != 0)
-        {
-         * */
-
-        // If the crosshairTexture is not null, draw it on the screen
+        // If the crosshairTexture is not null, draw it on the UI
         if (crosshairTexture != null)
         {
             // On the GUI, draw the assigned texture with the given scale in the center of the screen
             GUI.DrawTexture(new Rect((Screen.width - crosshairTexture.width * crosshairScale) / 2, (Screen.height - crosshairTexture.height * crosshairScale) / 2, crosshairTexture.width * crosshairScale, crosshairTexture.height * crosshairScale), crosshairTexture);
         }
-            
-        //}
     }
 
 }

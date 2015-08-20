@@ -4,16 +4,24 @@ using UnityEngine.UI;
 
 public class OpenLogBook : MonoBehaviour {
 
+    //Gameobject of the logbook
     public GameObject logbook;
+
+    //Gameobject of the Panel. Everything on the UI except the logbook
     public GameObject allExceptLogbook;
 
+    //Get the colored images of the Totems in the UI 
     public Image[] totemColors;
+    //Get the Totems (in the 3d world)
     public Totem[] totems;
+    //Get the images of the Totems in the UI 
     public Image[] totemImages;
 
-
+    //the Title of the Quest
     public Text questTitle;
+    //the Description of the Quest
     public Text questDescription;
+    //the Image of the Quest (NOT IMPLEMENTED)
     public Image questImage;
 
 	// Use this for initialization
@@ -21,36 +29,27 @@ public class OpenLogBook : MonoBehaviour {
         //setQuestData("Titel!!!", "Das ist eine Test-quest!");
 	}
 	
-	// Update is called once per frame
+	//Set the different images of the Totems visible and Invisible.
+    //Also set the logbook visible or invisible
 	void Update () {
-        if (totems[0].IsActive())
+        for (int i = 0; i < totems.Length; i++ )
         {
-            SetTotemsVisible(false);
-            totemColors[0].fillAmount = totems[0].getPct();
-        }
-
-        if (totems[1].IsActive())
-        {
-            SetTotemsVisible(false);
-            totemColors[1].fillAmount = totems[1].getPct();
-        }
-
-        if (totems[2].IsActive())
-        {
-            SetTotemsVisible(false);
-            totemColors[2].fillAmount = totems[2].getPct();
-        }
-
-        if (totems[3].IsActive())
-        {
-            SetTotemsVisible(false);
-            totemColors[3].fillAmount = totems[3].getPct();
-        }
-
-        if (totems[4].IsActive())
-        {
-            SetTotemsVisible(true);
-            totemColors[4].fillAmount = totems[4].getPct();
+            if (totems[i].bonusTotem)
+            {
+                if (totems[i].IsActive())
+                {
+                    SetTotemsVisible(true);
+                    totemColors[i].fillAmount = totems[i].getPct();
+                }
+            }
+            else
+            {
+                if (totems[i].IsActive())
+                {
+                    SetTotemsVisible(false);
+                    totemColors[i].fillAmount = totems[i].getPct();
+                }
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.M))
@@ -65,7 +64,7 @@ public class OpenLogBook : MonoBehaviour {
         }
 	}
 
-    //public void setQuestData(Image image, string title, string description)
+    //Set the Data of the Quest. (IMAGE NOT IMPLEMENTED)
     public void setQuestData(string title, string description)
     {
         //questImage = image;
@@ -73,6 +72,7 @@ public class OpenLogBook : MonoBehaviour {
         questTitle.text = title;
     }
 
+    //Method to set the Totems visible or not
     private void SetTotemsVisible(bool supertotem)
     {
         totemColors[0].enabled = !supertotem;

@@ -25,7 +25,7 @@ namespace Assets.Scripts.Weapons
         public const int INFINITE_AMMO = -1;
 
         // Seconds until reload is finished
-        protected float timeToReload = 2;
+        protected float timeToReload = 0;
 
         // Seconds until the next bullet can be fired (NOT IMPLEMENTED JET)
         protected float fireRate = 0;
