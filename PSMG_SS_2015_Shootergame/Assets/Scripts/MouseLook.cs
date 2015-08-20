@@ -22,8 +22,8 @@ public class MouseLook : MonoBehaviour
     public const float maximumY = 60F;
 
     // The target X and Y rotations - set automatically
-    float rotationX = 0F;
-    float rotationY = 0F;
+    private float rotationX = 0F;
+	private float rotationY = 0F;
 
     private Rigidbody rigid;
 
@@ -67,6 +67,10 @@ public class MouseLook : MonoBehaviour
             cameraRotationParent.transform.localRotation = originalRotation * yQuaternion;
         }
     }
+
+	public float GetRotationY() {
+		return rotationY;
+	}
 
     // Makes sure the angle is always in our set limitations and doesnt exceed +/- 360°
     public static float ClampAngle(float angle, float min, float max)

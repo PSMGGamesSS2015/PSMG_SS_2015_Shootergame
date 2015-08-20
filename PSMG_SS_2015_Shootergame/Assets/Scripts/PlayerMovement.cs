@@ -69,6 +69,12 @@ public class PlayerMovement : MonoBehaviour
     // Amount of flaps per activation of fly mode
     public int flapAmount = 10;
 
+	// Angle at which the player starts to plummet while flying
+	public float plummetAngle = 30.0f;
+
+	// Modifier for plummeting - effect is stronger, when number is greater
+	public float plummetModifier = 0.03f;
+
     // Initial height when activating fly mode
     public float initialFlyHeight = 10.0f;
 
@@ -129,12 +135,15 @@ public class PlayerMovement : MonoBehaviour
 
     private PlayerSound audioController;
 
+	private MouseLook mouseLook;
+
     void Start()
     {
         colliderHeight = GetComponent<CapsuleCollider>().height;
         weaponController = GetComponent<Assets.Scripts.Weapons.WeaponController>();
         basePlayer = GetComponent<BasePlayer>();
         bobCamera = Camera.main.GetComponent<BobCamera>();
+		mouseLook = GetComponent<MouseLook> ();
         audioController = GameObject.FindGameObjectWithTag("PlayerSound").GetComponent<PlayerSound>();
     }
 
@@ -507,8 +516,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!flapping)
             {
-                Vector3 targetVelocity = transform.forward;
-                targetVelocity.y = 0.0f;
+				Vector3 targetVelocity = transform.forward;
                 targetVelocity.Normalize();
                 targetVelocity *= flySpeed;
                 targetVelocity *= speedModifier;
@@ -519,6 +527,11 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 targetVelocity.y = -flyGravity;
+
+				if (mouseLook.GetRotationY() < -plummetAngle) {
+					targetVelocity.y *= (-plummetModifier * mouseLook.GetRotationY() + 1.0f);
+				}
+
                 lastDirection = targetVelocity;
 
                 GetComponent<Rigidbody>().velocity = targetVelocity;
@@ -579,7 +592,7 @@ public class PlayerMovement : MonoBehaviour
     void ApplyGravity()
     {
         // Create a new vector with just a y component that is calculated using the gravity and the player's mass
-        Vector3 gravityVector = new Vector3(0, -gravity * GetComponent<Rigidbody>().mass, 0);
+		Vector3 gravityVector = new Vector3(0, -gravity * GetComponent<Rigidbody>().mass, 0);
 
         // Add the gravity vector to the player's rigidbody
         GetComponent<Rigidbody>().AddForce(gravityVector);
