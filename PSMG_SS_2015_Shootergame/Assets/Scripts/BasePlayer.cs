@@ -12,11 +12,11 @@ public class BasePlayer : MonoBehaviour {
     //maximal health the player can have
     public const int MAX_HEALTH = 100;
 
-    // Maximum amount of flowers
-    public int maxFlowers = 5;
+    // Maximum amount of Feathers
+    public int maxFeathers = 5;
 
-    // Current amount of flowers
-    private int flowers = 1;
+    // Current amount of Feathers
+    private int feathers = 1;
 
     public const float MAX_ENERGY = 100.0f;
 
@@ -49,7 +49,7 @@ public class BasePlayer : MonoBehaviour {
             {
                 birdModel.GetComponent<MeshRenderer>().enabled = true;
                 Camera.main.transform.localPosition = new Vector3(0, 0, -10.0f);
-                RemoveFlower();
+                RemoveFeather();
                 birdMorphEffect.enableEmission = false;
             }
             else
@@ -118,24 +118,24 @@ public class BasePlayer : MonoBehaviour {
         }
     }
 
-    public void FlowerCollected()
+    public void FeatherCollected()
     {
-        if (flowers < maxFlowers)
+        if (feathers < maxFeathers)
         {
-            flowers++;
+            feathers++;
         }
     }
 
-    public int getCurrentFlowers()
+    public int getCurrentFeathers()
     {
-        return flowers;
+        return feathers;
     }
 
-    public void RemoveFlower()
+    public void RemoveFeather()
     {
-        if (flowers > 0)
+        if (feathers > 0)
         {
-            flowers--;
+            feathers--;
         }
     }
 

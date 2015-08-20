@@ -230,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
     void CheckForFlyMode()
     {
         // If the button for activation of fly mode is pressed...
-        if (!flyModeActivated && Input.GetButton("Fly") && GetComponent<BasePlayer>().getCurrentFlowers() >= 1)
+        if (!flyModeActivated && Input.GetButton("Fly") && GetComponent<BasePlayer>().getCurrentFeathers() >= 1)
         {
             StartCoroutine(startFlyingThread());
         }

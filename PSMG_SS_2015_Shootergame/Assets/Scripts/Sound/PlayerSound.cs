@@ -66,7 +66,7 @@ public class PlayerSound : MonoBehaviour {
         }
 
         surfaceIndex = TerrainSurface.GetMainTexture(transform.position);
-        Debug.Log("SurfaceIndex: " + surfaceIndex);
+        //Debug.Log("SurfaceIndex: " + surfaceIndex);
 	}
 
     private void playMoveSound(float delay, float vol)
@@ -174,7 +174,7 @@ public class PlayerSound : MonoBehaviour {
 
     private void playEagleSound ()
     {
-        aSource.PlayOneShot(eagle, 1F);
+        aSource.PlayOneShot(eagle, 0.4F);
     }
 
     public void pauseMode()

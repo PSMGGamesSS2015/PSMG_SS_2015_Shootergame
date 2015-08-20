@@ -7,9 +7,9 @@ public class Feather : Collectable {
     {
         BasePlayer component = player.GetComponent<BasePlayer>();
 
-        if (component.getCurrentFlowers() < component.maxFlowers)
+        if (component.getCurrentFeathers() < component.maxFeathers)
         {
-            component.FlowerCollected();
+            component.FeatherCollected();
         }   
     }
 }
