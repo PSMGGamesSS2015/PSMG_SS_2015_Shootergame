@@ -7,7 +7,7 @@ public class EnviromentSound : MonoBehaviour {
 
     public AudioClip nightMusic;
 
-    AudioSource source;
+    public AudioSource source;
 
     float factor = 0.2F;
 
@@ -17,7 +17,8 @@ public class EnviromentSound : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        source = GetComponent<AudioSource>();
+        //AudioSource[] sources = GetComponents<AudioSource>();
+        //source = sources[2];
         source.volume = 0F;
         source.clip = dayMusic;
         source.Play();

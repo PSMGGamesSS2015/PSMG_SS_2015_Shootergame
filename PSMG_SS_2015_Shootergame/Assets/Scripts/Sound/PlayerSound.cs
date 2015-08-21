@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerSound : MonoBehaviour {
     
+    // footstep sounds
+
     public AudioClip grass;
 
     public AudioClip highGrass;
@@ -15,6 +17,7 @@ public class PlayerSound : MonoBehaviour {
 
     public AudioClip forest;
 
+    // other sound clips
 
     public AudioClip eagle;
 
@@ -24,13 +27,25 @@ public class PlayerSound : MonoBehaviour {
 
     public AudioClip morphSound2;
 
-    private AudioSource aSource;
+    public AudioClip flapSound;
+
+    public AudioClip windNoise;
+
+    // audio sources
+
+    public AudioSource sfxSource;
+
+    public AudioSource noiseSource;
+
+    // offset values
 
     private int surfaceIndex = 0;
 
     private float soundDelay = 0;
 
     private float jumpDelay = 0;
+
+    // movement booleans
 
     public bool sprinting = false;
 
@@ -40,13 +55,15 @@ public class PlayerSound : MonoBehaviour {
 
     public bool moving = false;
 
-	// Use this for initialization
-	void Start () {
-        aSource = GetComponent<AudioSource>();
+	// initialization
+	void Start() {
+        //AudioSource[] sources = GetComponents<AudioSource>();
+        //sfxSource = sources[0];
+        //noiseSource = sources[1];
 	}
 
-	// Update is called once per frame
-	void Update () {
+	// called once per frame
+	void Update() {
         
         if (moving)
         {
@@ -137,7 +154,7 @@ public class PlayerSound : MonoBehaviour {
 
         if (Time.time >= soundDelay)
         {
-            aSource.PlayOneShot(thud, vol);
+            sfxSource.PlayOneShot(thud, vol);
             soundDelay = Time.time + thud.length + delay + offset;
         }
 
@@ -148,43 +165,61 @@ public class PlayerSound : MonoBehaviour {
 
     }
 
-    public void playMorph ()
+    public void playMorph()
     {
         int rndMrp = Random.Range(1, 10);
         if (rndMrp == 1)
         {
-            aSource.PlayOneShot(morphSound, 0.02F);
+            sfxSource.PlayOneShot(morphSound, 0.02F);
         }
         else
         {
-            aSource.PlayOneShot(morphSound2, 0.1F);
+            sfxSource.PlayOneShot(morphSound2, 0.1F);
         }
         Invoke("playEagleSound", 4.0F);
     }
 
-    public void playGround ()
+    public void playGround()
     {
         if (Time.time >= jumpDelay)
         {
-            aSource.PlayOneShot(groundSound, 0.05F);
+            sfxSource.PlayOneShot(groundSound, 0.05F);
             jumpDelay = Time.time + groundSound.length;
             playMoveSound(0, 0.2F);
         }
     }
 
-    private void playEagleSound ()
+    private void playEagleSound()
     {
-        aSource.PlayOneShot(eagle, 0.4F);
+        sfxSource.PlayOneShot(eagle, 0.4F);
     }
 
     public void pauseMode()
     {
-        aSource.Pause();
+        sfxSource.Pause();
     }
 
     public void playMode()
     {
-        aSource.Play();
+        sfxSource.Play();
+    }
+
+    public void playFlap()
+    {
+        sfxSource.PlayOneShot(flapSound, 0.5F);
+    }
+
+    public void playWindNoise()
+    {
+        noiseSource.clip = windNoise;
+        noiseSource.volume = 1F;
+        noiseSource.loop = true;
+        noiseSource.Play();
+    }
+
+    public void stopWindNoise()
+    {
+        noiseSource.Stop();
     }
 
 }

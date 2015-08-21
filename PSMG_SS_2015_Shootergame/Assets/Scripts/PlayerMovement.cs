@@ -262,12 +262,18 @@ public class PlayerMovement : MonoBehaviour
         remainingFlaps = flapAmount;
         // ...jump as high as set
         Jump(initialFlyHeight);
+        audioController.playWindNoise();
     }
 
     // If the player is on the ground (again), reset all relevant variables
     void OnCollisionStay()
     {
         grounded = true;
+
+        if (!flyModeActivated)
+        {
+            audioController.stopWindNoise();
+        }
 
         float fallDistance = Mathf.Abs(groundHeight - transform.position.y);
 
@@ -497,6 +503,15 @@ public class PlayerMovement : MonoBehaviour
 
         // Apply the vector to the player's rigidbody
         GetComponent<Rigidbody>().velocity = jumpVector;
+
+        if (flyModeActivated)
+        {
+            audioController.playFlap();
+        }
+        else
+        {
+            // play "UH"
+        }
 
         Invoke("switchInAir", 0.5F);
     }
