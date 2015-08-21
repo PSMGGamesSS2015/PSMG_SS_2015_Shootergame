@@ -68,6 +68,10 @@ public class PlayerMovement : MonoBehaviour
 
     // Amount of flaps per activation of fly mode
     public int flapAmount = 10;
+	
+	public GameObject flapFeather;
+	public float flapFeatherSpawnTime = 3.0f;
+	public float flapFeatherSpawnDistance = 40.0f;
 
 	// Angle at which the player starts to plummet while flying
 	public float plummetAngle = 30.0f;
@@ -136,6 +140,10 @@ public class PlayerMovement : MonoBehaviour
     private PlayerSound audioController;
 
 	private MouseLook mouseLook;
+
+	private float lastFeather;
+
+	private ArrayList flapFeathers = new ArrayList();
 
     void Start()
     {
@@ -283,6 +291,11 @@ public class PlayerMovement : MonoBehaviour
             flyModeActivated = false;
             weaponController.getActiveWeapon().SetUp();
             basePlayer.FlyMode = false;
+
+			// Destroy all flap feathers
+			foreach (GameObject o in flapFeathers) {
+				Destroy (o);
+			}
         }
         else
         {
@@ -591,8 +604,28 @@ public class PlayerMovement : MonoBehaviour
                 flapping = true;
             }
         }
-        
+
+		SpawnFlapFeathers ();
     }
+
+	void SpawnFlapFeathers() {
+		if (Time.time - lastFeather >= flapFeatherSpawnTime) {
+			lastFeather = Time.time;
+			
+			Vector3 spawnPos = transform.position + transform.forward * flapFeatherSpawnDistance;
+			Vector3 randomVector = new Vector3 (Random.Range (-30, 30), Random.Range (-10, 10), Random.Range (-30, 30));
+
+			Vector3 position = spawnPos + randomVector;
+			flapFeathers.Add(Instantiate (flapFeather, position, Quaternion.identity));
+
+		}
+	}
+
+	public void AddFlap() {
+		if (remainingFlaps < flapAmount) {
+			remainingFlaps++;
+		}
+	}
 
     void CheckIfFalling() 
     {
