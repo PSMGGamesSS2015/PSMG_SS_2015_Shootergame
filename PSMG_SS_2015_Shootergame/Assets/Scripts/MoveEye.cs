@@ -22,7 +22,6 @@ public class MoveEye : MonoBehaviour {
 	void Update () {
         if (animationReady)
         {
-            Debug.Log("start");
             movement = Random.Range(2f, 8f);
             movementVector = startingPosition - new Vector3(movement, 0, 0);
             _timeStartedLerping = Time.time;
@@ -30,14 +29,12 @@ public class MoveEye : MonoBehaviour {
         } 
         else
         {
-            Debug.Log("lerp");
             float timeSinceStarted = Time.time - _timeStartedLerping;
             percentageComplete = timeSinceStarted / timeTakenDuringLerp;
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, movementVector, percentageComplete);
         }
         if (percentageComplete > 0.99f) //movementVector == gameObject.transform.position)
         {
-            Debug.Log("finished");
             percentageComplete = 0;
             animationReady = true;
         }
