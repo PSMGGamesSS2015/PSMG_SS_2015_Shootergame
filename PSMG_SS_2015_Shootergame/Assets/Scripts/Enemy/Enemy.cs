@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 public class Enemy : MonoBehaviour {
@@ -114,7 +113,7 @@ public class Enemy : MonoBehaviour {
 
                 movementController.OnFollowPlayer();
             }
-            else if (distance > 30.0f)
+            else if (distance > MAX_DISTANCE_TO_SIGHT)
             {
                 HasSpottedPlayer = false;
 

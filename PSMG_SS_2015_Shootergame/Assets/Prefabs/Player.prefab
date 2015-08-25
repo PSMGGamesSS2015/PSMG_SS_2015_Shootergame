@@ -56,22 +56,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &149762
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 454412}
-  - 114: {fileID: 11480402}
-  m_Layer: 0
-  m_Name: game controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &156526
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +128,7 @@ Transform:
   m_Children:
   - {fileID: 478138}
   m_Father: {fileID: 493702}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &447010
 Transform:
   m_ObjectHideFlags: 1
@@ -156,19 +140,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 493702}
-  m_RootOrder: 2
---- !u!4 &454412
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 149762}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 150.794159, y: -25.4356422, z: 50.9840393}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 493702}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &466792
 Transform:
   m_ObjectHideFlags: 1
@@ -180,7 +152,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 493702}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &478138
 Transform:
   m_ObjectHideFlags: 1
@@ -204,7 +176,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 493702}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!4 &493702
 Transform:
   m_ObjectHideFlags: 1
@@ -212,10 +184,9 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 115870}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 344.899994, y: 38.5999985, z: 281.299988}
+  m_LocalPosition: {x: 102.400002, y: 17.2000008, z: 32.7000008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 454412}
   - {fileID: 410702}
   - {fileID: 447010}
   - {fileID: 485654}
@@ -471,6 +442,11 @@ MonoBehaviour:
   flapHeight: 20
   flapDelay: 1
   flapAmount: 10
+  flapFeather: {fileID: 0}
+  flapFeatherSpawnTime: 3
+  flapFeatherSpawnDistance: 40
+  plummetAngle: 30
+  plummetModifier: .0299999993
   initialFlyHeight: 50
   maximumFlyHeight: 200
   fallDamageMinDistance: 5
@@ -495,6 +471,10 @@ MonoBehaviour:
   groundSound: {fileID: 8300000, guid: 8cad7b9b25868524e9b7128b0645a63d, type: 3}
   morphSound: {fileID: 8300000, guid: ab6acbf8019f5e44fbce8d98122c7a77, type: 3}
   morphSound2: {fileID: 8300000, guid: f331811d12e76624eb4bb2981060303f, type: 3}
+  flapSound: {fileID: 8300000, guid: e8cdf447bca652e42b42aa7112b41b28, type: 3}
+  windNoise: {fileID: 8300000, guid: 864e3cb6a41155541911cfb4be4852c9, type: 3}
+  sfxSource: {fileID: 8218038}
+  noiseSource: {fileID: 8218038}
   sprinting: 0
   crouching: 0
   sneaking: 0
@@ -532,6 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dayMusic: {fileID: 8300000, guid: 91ec470556bbd2245bc3b67a0ed19790, type: 3}
   nightMusic: {fileID: 8300000, guid: 1c82190de749c3540ac9caf8df59e61d, type: 3}
+  source: {fileID: 8218038}
   day: 1
   change: 0
 --- !u!114 &11432544
@@ -559,7 +540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivityX: 5
   sensitivityY: 5
-  gameController: {fileID: 11480402}
+  gameController: {fileID: 0}
   cameraRotationParent: {fileID: 104350}
 --- !u!114 &11456262
 MonoBehaviour:
@@ -602,7 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxFlowers: 5
+  maxFeathers: 5
   energyRegeneration: 12
   energyDrain: 20
   sprintDelay: 5
@@ -624,18 +605,6 @@ MonoBehaviour:
   blurIterations: 2
   blurType: 0
   blurShader: {fileID: 4800000, guid: f9d5fa183cd6b45eeb1491f74863cd91, type: 3}
---- !u!114 &11480402
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 149762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43084b1f80b90e1438417e0fdace2d70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
 --- !u!124 &12414116
 Behaviour:
   m_ObjectHideFlags: 1
