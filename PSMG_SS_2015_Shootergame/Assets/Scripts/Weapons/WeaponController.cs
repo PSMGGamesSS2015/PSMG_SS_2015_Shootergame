@@ -16,7 +16,6 @@ namespace Assets.Scripts.Weapons
         private int curWeaponIndex = 0;
         private int lastWeaponIndex = 0;
 
-        public GameObject ammoInfoText = null;
 
         private BasePlayer player;
 
