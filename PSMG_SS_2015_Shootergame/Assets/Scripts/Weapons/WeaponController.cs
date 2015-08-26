@@ -9,7 +9,7 @@ namespace Assets.Scripts.Weapons
     class WeaponController : MonoBehaviour
     {
         private BaseWeapon[] weapons;
-        private const int MAX_WEAPONS = 4;
+        private const int MAX_WEAPONS = 5;
         private int numWeapons = 0;
 
 
@@ -27,7 +27,7 @@ namespace Assets.Scripts.Weapons
 
             weapons = new BaseWeapon[MAX_WEAPONS];
             AddWeapon(new Bow(gameObject));
-            AddWeapon(new Blowgun(gameObject));
+            //AddWeapon(new Blowgun(gameObject));
             AddWeapon(new Tomahawk(gameObject));
 
             switchToWeaponById(curWeaponIndex);
@@ -102,7 +102,7 @@ namespace Assets.Scripts.Weapons
                 switchToLastWeapon();
             }
 
-            for (int i = 0; i < MAX_WEAPONS; i++)
+            for (int i = 0; i < numWeapons; i++)
             {
                 if (Input.GetKeyUp(KeyCode.Alpha1 + i))
                 {
