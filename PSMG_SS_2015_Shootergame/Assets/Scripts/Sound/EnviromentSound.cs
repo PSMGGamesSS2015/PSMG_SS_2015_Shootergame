@@ -13,7 +13,7 @@ public class EnviromentSound : MonoBehaviour {
 
     public AudioSource screamSource;
 
-    float factor = 0.2F;
+    float factor = 0.05F;
 
     int screamCounter = 0;
 

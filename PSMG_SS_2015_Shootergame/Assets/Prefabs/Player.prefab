@@ -99,11 +99,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 466792}
   - 114: {fileID: 11413634}
-  - 114: {fileID: 11408620}
+  - 82: {fileID: 8206704}
+  - 82: {fileID: 8229580}
   - 114: {fileID: 11428628}
-  - 82: {fileID: 8249590}
-  - 82: {fileID: 8212122}
-  - 82: {fileID: 8256992}
+  - 82: {fileID: 8272508}
+  - 114: {fileID: 11409758}
+  - 82: {fileID: 8210528}
   m_Layer: 0
   m_Name: PlayerSounds
   m_TagString: PlayerSound
@@ -311,7 +312,7 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198840}
   m_Enabled: 1
---- !u!82 &8212122
+--- !u!82 &8206704
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -380,7 +381,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!82 &8249590
+--- !u!82 &8210528
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -449,7 +450,76 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!82 &8256992
+--- !u!82 &8229580
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190622}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &8272508
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -567,7 +637,7 @@ MonoBehaviour:
   arrowPrefab: {fileID: 143538, guid: bba7fd5bfd86f1f4eb19461c357bcd2e, type: 2}
   weaponBowPrefab: {fileID: 136204, guid: 70b3fd7cbf37860438e73d72e5651812, type: 2}
   weaponTomahawkPrefab: {fileID: 198558, guid: 60b1ddda768829d469e0bacf140bb7ca, type: 2}
---- !u!114 &11408620
+--- !u!114 &11409758
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -582,6 +652,7 @@ MonoBehaviour:
   bowSpan: {fileID: 8300000, guid: a8680220215bf04488c5b41e15d56cba, type: 3}
   swoosh: {fileID: 8300000, guid: b6847db36c68613469b49699164bef5a, type: 3}
   hitSound: {fileID: 8300000, guid: 6e3d965f5355a274485bdef5b628d8a3, type: 3}
+  weaponSource: {fileID: 8210528}
 --- !u!114 &11412762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -643,8 +714,8 @@ MonoBehaviour:
   morphSound2: {fileID: 8300000, guid: f331811d12e76624eb4bb2981060303f, type: 3}
   flapSound: {fileID: 8300000, guid: e8cdf447bca652e42b42aa7112b41b28, type: 3}
   windNoise: {fileID: 8300000, guid: 864e3cb6a41155541911cfb4be4852c9, type: 3}
-  sfxSource: {fileID: 8212122}
-  noiseSource: {fileID: 8249590}
+  sfxSource: {fileID: 8206704}
+  noiseSource: {fileID: 8229580}
   sprinting: 0
   crouching: 0
   sneaking: 0
@@ -683,7 +754,7 @@ MonoBehaviour:
   dayMusic: {fileID: 8300000, guid: 91ec470556bbd2245bc3b67a0ed19790, type: 3}
   nightMusic: {fileID: 8300000, guid: 1c82190de749c3540ac9caf8df59e61d, type: 3}
   screamClip: {fileID: 8300000, guid: 6e3d965f5355a274485bdef5b628d8a3, type: 3}
-  source: {fileID: 8256992}
+  source: {fileID: 8272508}
   screamSource: {fileID: 0}
   day: 1
   change: 0

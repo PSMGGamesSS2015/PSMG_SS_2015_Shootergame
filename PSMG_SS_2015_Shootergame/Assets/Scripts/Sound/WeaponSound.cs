@@ -11,35 +11,46 @@ public class WeaponSound : MonoBehaviour {
 
     public AudioClip hitSound;
 
-    private AudioSource weaponSource;
+    public AudioSource weaponSource;
 
 	// Use this for initialization
-	void Start () {
-        weaponSource = GetComponent<AudioSource>();
+	void Start() {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update() {
 	    
 	}
 
-    public void shootBowSound ()
+    public void shootBowSound()
     {
         weaponSource.PlayOneShot(bowShoot, 0.12F);
         weaponSource.PlayOneShot(swoosh, 0.1F);
     }
 
-    public void spanBowSound ()
+    public void spanBowSound()
+    {
+        Invoke("spanBow", 0.7F);
+    }
+
+    private void spanBow()
     {
         weaponSource.PlayOneShot(bowSpan, 0.8F);
     }
 
-    public void swingHawkSound ()
+    public void swingHawkSound()
+    {
+        Invoke("swingTomahawk", 0.6F);
+    }
+
+    private void swingTomahawk()
     {
         weaponSource.PlayOneShot(swoosh, 0.1F);
     }
-    public void playHitSound ()
+
+    public void playHitSound()
     {
         weaponSource.PlayOneShot(hitSound, 0.5F);
     }
+
 }
