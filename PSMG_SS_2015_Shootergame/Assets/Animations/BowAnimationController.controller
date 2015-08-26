@@ -162,6 +162,30 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1101 &110112722
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Morph
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 110299298}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: .25
+  m_TransitionOffset: 0
+  m_ExitTime: .793103456
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &110124398
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -276,30 +300,6 @@ AnimatorStateTransition:
   m_ExitTime: .793103456
   m_HasExitTime: 0
   m_HasFixedDuration: 0
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
---- !u!1101 &110138872
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Morph
-    m_EventTreshold: 0
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 110299298}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: .100000001
-  m_TransitionOffset: 0
-  m_ExitTime: .899999976
-  m_HasExitTime: 0
-  m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
@@ -631,7 +631,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_Motion: {fileID: 7400016, guid: b53b6cec1848db0489ba0748bbde1b7a, type: 3}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: bendIntensity
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
 --- !u!1102 &110225224
@@ -658,7 +658,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_Motion: {fileID: 7400024, guid: b53b6cec1848db0489ba0748bbde1b7a, type: 3}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: bendIntensity
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
 --- !u!1102 &110230658
@@ -732,7 +732,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_Motion: {fileID: 7400012, guid: b53b6cec1848db0489ba0748bbde1b7a, type: 3}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: bendIntensity
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
 --- !u!1102 &110267056
@@ -774,6 +774,7 @@ AnimatorState:
   - {fileID: 110158808}
   - {fileID: 110137966}
   - {fileID: 110129286}
+  - {fileID: 110112722}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -865,10 +866,9 @@ AnimatorStateMachine:
     m_Position: {x: 324, y: 408, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110299298}
-    m_Position: {x: -444, y: 252, z: 0}
+    m_Position: {x: -492, y: 168, z: 0}
   m_ChildStateMachines: []
-  m_AnyStateTransitions:
-  - {fileID: 110138872}
+  m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
     data:

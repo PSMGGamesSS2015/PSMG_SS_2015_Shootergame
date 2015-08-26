@@ -247,15 +247,32 @@ public class PlayerMovement : MonoBehaviour
     void CheckForFlyMode()
     {
         // If the button for activation of fly mode is pressed...
-        if (!flyModeActivated && Input.GetButton("Fly") && basePlayer.getCurrentFeathers() >= 1)
+        if (!flyModeActivated && 
+            Input.GetButton("Fly") && 
+            basePlayer.getCurrentFeathers() >= 1 &&
+            this.moving == false)
         {
+            // Check if bow is currently bended
+            BaseWeapon w = weaponController.getActiveWeapon();
+            if (w.Name.Equals("Bow"))
+            {
+                Bow b = (Bow)w;
+                if (b.getBowIntensity() > 0)
+                {
+                    return;
+                }
+            }
+
+            // Start this stuff
             StartCoroutine(startFlyingThread());
         }
     }
 
     IEnumerator startFlyingThread()
     {
+        this.canMove = false;
         audioController.playMorph();
+        weaponController.getActiveWeapon().Animator.StopPlayback();
         flyModeActivated = true;
         weaponController.getActiveWeapon().Animator.SetTrigger("Morph");
         basePlayer.birdMorphEffect.enableEmission = true;
@@ -268,6 +285,9 @@ public class PlayerMovement : MonoBehaviour
 
         // ...reset the amount of flaps available to the player
         remainingFlaps = flapAmount;
+
+        this.canMove = true;
+
         // ...jump as high as set
         Jump(initialFlyHeight);
         audioController.playWindNoise();
