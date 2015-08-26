@@ -105,6 +105,8 @@ public class PlayerMovement : MonoBehaviour
     // True, if the player is sneaking
     private bool sprinting = false;
 
+    private bool walking = false;
+
     // True as soon as the player starts falling for the first time after activating flyMode
     private bool fallingWhileFlying = false;
 
@@ -215,7 +217,7 @@ public class PlayerMovement : MonoBehaviour
     // Check if the player has activated a special type of movement
     void CheckMovementType()
     {
-        if (canSprint && Input.GetButton("Sprint"))
+        if (canSprint && Input.GetButton("Sprint") && walking)
         {
 			if (Input.GetAxis("Vertical") == 1) {
 				sprinting = true;
@@ -263,6 +265,8 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
+            canSprint = false;
+
             // Start this stuff
             StartCoroutine(startFlyingThread());
         }
@@ -270,6 +274,8 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator startFlyingThread()
     {
+        sprinting = false;
+        bobCamera.isSprinting = false;
         this.canMove = false;
         audioController.playMorph();
         weaponController.getActiveWeapon().Animator.StopPlayback();
@@ -301,6 +307,7 @@ public class PlayerMovement : MonoBehaviour
         if (!flyModeActivated)
         {
             audioController.stopWindNoise();
+            canSprint = true;
         }
 
         float fallDistance = Mathf.Abs(groundHeight - transform.position.y);
@@ -345,6 +352,8 @@ public class PlayerMovement : MonoBehaviour
         float InputY = Input.GetAxis("Vertical");
 
         moving = InputX != 0 || InputY != 0 ? true : false;
+        walking = InputX != 0 || InputY != 0 ? true : false;
+
 
         // modify factor so that diagonal movement isn't faster
         float inputModifyFactor = (InputX != 0.0f && InputY != 0.0f) ? 0.7071f : 1.0f;
