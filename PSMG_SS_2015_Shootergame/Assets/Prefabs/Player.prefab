@@ -214,8 +214,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 115870}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 178.399994, y: 43.7999992, z: 409.299988}
+  m_LocalRotation: {x: 0, y: -.694194794, z: 0, w: .71978724}
+  m_LocalPosition: {x: 169.729355, y: 10.1999998, z: 117.403412}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 485170}
@@ -682,7 +682,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dayMusic: {fileID: 8300000, guid: 91ec470556bbd2245bc3b67a0ed19790, type: 3}
   nightMusic: {fileID: 8300000, guid: 1c82190de749c3540ac9caf8df59e61d, type: 3}
+  screamClip: {fileID: 8300000, guid: 6e3d965f5355a274485bdef5b628d8a3, type: 3}
   source: {fileID: 8256992}
+  screamSource: {fileID: 0}
   day: 1
   change: 0
 --- !u!114 &11432544
@@ -696,7 +698,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1fbb40c5ccdf446a82f27cd0044338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoInfoText: {fileID: 0}
 --- !u!114 &11440692
 MonoBehaviour:
   m_ObjectHideFlags: 1
