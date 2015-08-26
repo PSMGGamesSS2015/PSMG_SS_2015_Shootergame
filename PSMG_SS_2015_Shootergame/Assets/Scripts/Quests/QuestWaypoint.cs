@@ -22,9 +22,12 @@ public class QuestWaypoint : Quest
     private ArrayList toVisit;
     private ArrayList visited;
 
+    private EnviromentSound audioController;
+
     void Start()
     {
         base.Start();
+        audioController = GameObject.FindGameObjectWithTag("PlayerSound").GetComponent<EnviromentSound>();
     }
 
     void Update()
@@ -112,14 +115,29 @@ public class QuestWaypoint : Quest
         }
     }
 
+    protected override void OnQuestActivated()
+    {
+        Invoke("PlayScreamSound", 2F);
+        Invoke("PlayScreamSound", 5F);
+    }
+
+    private void PlayScreamSound()
+    {
+        audioController.playScream();
+    }
+
     protected override void OnQuestStarted()
     {
+        PlayScreamSound();
+        Invoke("PlayScreamSound", 3F);
+        Invoke("PlayScreamSound", 5F);
         SetWaypoints();
         MarkWaypoints();
     }
 
     private void SetWaypoints()
     {
+
         toVisit = new ArrayList();
         visited = new ArrayList();
 

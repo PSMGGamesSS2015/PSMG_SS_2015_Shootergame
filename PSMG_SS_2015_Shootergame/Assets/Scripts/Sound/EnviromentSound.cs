@@ -7,9 +7,15 @@ public class EnviromentSound : MonoBehaviour {
 
     public AudioClip nightMusic;
 
+    public AudioClip screamClip;
+
     public AudioSource source;
 
+    public AudioSource screamSource;
+
     float factor = 0.2F;
+
+    int screamCounter = 0;
 
     public bool day = true;
 
@@ -17,8 +23,6 @@ public class EnviromentSound : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //AudioSource[] sources = GetComponents<AudioSource>();
-        //source = sources[2];
         source.volume = 0F;
         source.clip = dayMusic;
         source.Play();
@@ -64,6 +68,15 @@ public class EnviromentSound : MonoBehaviour {
             }
             change = false;
             source.Play();
+        }
+    }
+
+    public void playScream()
+    {
+        if (screamCounter <= 4)
+        {
+            screamSource.PlayOneShot(screamClip, 0.5F);
+            screamCounter++;
         }
     }
 
