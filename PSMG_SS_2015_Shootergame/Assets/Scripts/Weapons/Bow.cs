@@ -64,9 +64,7 @@ namespace Assets.Scripts.Weapons
         public override void FireButtonDown()
         {
             bending = true;
-            intensity = 0;
-            Animator.SetFloat("bendIntensity", intensity);
-            Animator.SetTrigger("Shoot");
+            setBowIntensity(0);
             wsound.spanBowSound();
         }
 
@@ -79,11 +77,9 @@ namespace Assets.Scripts.Weapons
         void IncreaseIntensity()
         {
             // Increase the intensity
-            intensity += INTENSITY_GROWTH * Time.deltaTime;
+            setBowIntensity(intensity + INTENSITY_GROWTH * Time.deltaTime);
 
-            Animator.SetFloat("bendIntensity", intensity);
-
-            Animator.Play("Bending", 0, intensity/MAX_INTENSITY);
+            Animator.Play("Bending", 2, intensity/MAX_INTENSITY);
             Animator.speed = 0;
 
             // Make sure the intensity does not exceed our limitations
@@ -98,7 +94,7 @@ namespace Assets.Scripts.Weapons
 
             if (intensity < MIN_INTENSITY)
             {
-                Animator.SetTrigger("DropArrow");
+                setBowIntensity(0.0f);
                 return false;
             }
 
@@ -116,9 +112,11 @@ namespace Assets.Scripts.Weapons
             GameObject arrow = GameObject.Instantiate(arrowPrefab, bulletSpawn.transform.position, camPos.rotation) as GameObject;
             arrow.GetComponent<ArrowBehaviour>().Shoot(intensity);
 
-            intensity = 0;
-
             Animator.SetTrigger("ReleaseArrow");
+
+            setBowIntensity(0.0f);
+
+            Animator.StopPlayback();
             wsound.shootBowSound();
 
             if (!base.Shoot())
@@ -131,6 +129,12 @@ namespace Assets.Scripts.Weapons
 
         public float getBowIntensity() {
             return intensity;
+        }
+
+        private void setBowIntensity(float newIntensity)
+        {
+            intensity = newIntensity;
+            Animator.SetFloat("bendIntensity", intensity);
         }
 
     }
