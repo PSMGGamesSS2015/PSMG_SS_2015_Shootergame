@@ -292,11 +292,14 @@ public class PlayerMovement : MonoBehaviour
         // ...reset the amount of flaps available to the player
         remainingFlaps = flapAmount;
 
-        this.canMove = true;
+        this.canSprint = true;
 
         // ...jump as high as set
         Jump(initialFlyHeight);
         audioController.playWindNoise();
+
+        yield return new WaitForSeconds(3F);
+        this.canMove = true;
     }
 
     // If the player is on the ground (again), reset all relevant variables
