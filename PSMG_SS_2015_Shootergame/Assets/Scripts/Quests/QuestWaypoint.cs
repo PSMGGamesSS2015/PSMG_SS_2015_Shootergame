@@ -19,6 +19,8 @@ public class QuestWaypoint : Quest
 
     private float timeLimit;
 
+    public bool screamingAllowed = false;
+
     private ArrayList toVisit;
     private ArrayList visited;
 
@@ -117,8 +119,11 @@ public class QuestWaypoint : Quest
 
     protected override void OnQuestActivated()
     {
-        Invoke("PlayScreamSound", 2F);
-        Invoke("PlayScreamSound", 5F);
+        if (screamingAllowed)
+        {
+            Invoke("PlayScreamSound", 2F);
+            Invoke("PlayScreamSound", 5F);
+        }
     }
 
     private void PlayScreamSound()
@@ -128,9 +133,12 @@ public class QuestWaypoint : Quest
 
     protected override void OnQuestStarted()
     {
-        PlayScreamSound();
-        Invoke("PlayScreamSound", 3F);
-        Invoke("PlayScreamSound", 5F);
+        if (screamingAllowed)
+        {
+            PlayScreamSound();
+            Invoke("PlayScreamSound", 3F);
+            Invoke("PlayScreamSound", 5F);
+        }
         SetWaypoints();
         MarkWaypoints();
     }

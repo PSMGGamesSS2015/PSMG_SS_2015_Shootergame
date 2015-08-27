@@ -20,6 +20,7 @@ AudioMixerController:
     - 003d5c4692fee0d47bd4c01c236e835c
     - 28fe124b9f4ae1f4ba5ba1463d185fea
     - 1d3e68f75074f0b419e0117952560373
+    - 1d811d4e7f2dc25479098eb7737ba50f
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500003}
@@ -35,6 +36,7 @@ AudioMixerGroupController:
   - {fileID: 24388344}
   - {fileID: 24381152}
   - {fileID: 24318278}
+  - {fileID: 24344790}
   m_Volume: 765edbc9ddf664245805ab65ae323c18
   m_Pitch: 204c022c840f1804baedf930c22ce9fa
   m_Effects:
@@ -56,6 +58,23 @@ AudioMixerGroupController:
   m_Pitch: 5d02d7cde5dad9f4495bce6c1aa8753b
   m_Effects:
   - {fileID: 24402622}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &24344790
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Wind Noise
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 1d811d4e7f2dc25479098eb7737ba50f
+  m_Children: []
+  m_Volume: 3e23054757357d041a7ca48374d2ed89
+  m_Pitch: 96276b49a46843e47ad107e51b45e3f2
+  m_Effects:
+  - {fileID: 24439424}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -129,6 +148,19 @@ AudioMixerEffectController:
   m_EffectID: d0df38e9a74167d45a589acf8606d897
   m_EffectName: Attenuation
   m_MixLevel: 07ca1453a93403342ab383bee46c42fd
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &24439424
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 53863ab40e444f3418a16df535f8bf11
+  m_EffectName: Attenuation
+  m_MixLevel: 06cc353665991e0428c216cfd1ace025
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0

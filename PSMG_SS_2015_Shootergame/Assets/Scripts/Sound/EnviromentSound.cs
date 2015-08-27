@@ -15,8 +15,6 @@ public class EnviromentSound : MonoBehaviour {
 
     float factor = 0.05F;
 
-    int screamCounter = 0;
-
     public bool day = true;
 
     public bool change = false;
@@ -73,11 +71,7 @@ public class EnviromentSound : MonoBehaviour {
 
     public void playScream()
     {
-        if (screamCounter <= 4)
-        {
-            screamSource.PlayOneShot(screamClip, 0.5F);
-            screamCounter++;
-        }
+        screamSource.PlayOneShot(screamClip, 0.8F);
     }
 
 }
