@@ -312,6 +312,7 @@ MonoBehaviour:
   startZoneSize: 5
   questTitle: Titel der Quest
   questDescription: Beschreibung der Quest
+  image: {fileID: 0}
   activateText: 
   startText: 
   finishText: 
@@ -772,14 +773,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11441002, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: playerObject
-      value: 
-      objectReference: {fileID: 2092030239}
-    - target: {fileID: 11475158, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: goal
-      value: 
-      objectReference: {fileID: 1864071935}
     - target: {fileID: 11427004, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: totems.Array.data[0]
       value: 
@@ -800,6 +793,14 @@ Prefab:
       propertyPath: totems.Array.data[4]
       value: 
       objectReference: {fileID: 1173101498}
+    - target: {fileID: 11441002, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 2092030239}
+    - target: {fileID: 11475158, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: goal
+      value: 
+      objectReference: {fileID: 1864071935}
     - target: {fileID: 22429704, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -865,6 +866,7 @@ MonoBehaviour:
   startZoneSize: 3
   questTitle: Titel der Quest
   questDescription: Beschreibung der Quest
+  image: {fileID: 21300000, guid: 66114f2e642767843b3139574efc93ba, type: 3}
   activateText: "F\xFCr jedes Element (Feuer, Erde, Wasser, Luft) gibt es ein Totem.
     Geh in seine N\xE4he, um es zu aktivieren!"
   startText: "Halte 'M' gedr\xFCckt, um zu sehen, wie lange die Totems noch aktiv
@@ -1099,13 +1101,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ac67c8f1fd7df428e2c826a3cb5405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateOnStart: 1
+  activateOnStart: 0
   startMode: 1
   startDelay: 0
   startZone: {fileID: 1410878471}
   startZoneSize: 2
   questTitle: Titel der Quest
   questDescription: Beschreibung der Quest
+  image: {fileID: 0}
   activateText: 
   startText: 
   finishText: 

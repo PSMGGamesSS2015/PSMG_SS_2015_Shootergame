@@ -23,10 +23,11 @@ public class OpenLogBook : MonoBehaviour {
     public Text questDescription;
     //the Image of the Quest (NOT IMPLEMENTED)
     public Image questImage;
+    public Sprite placeholder;
 
 	// Use this for initialization
 	void Start () {
-        //setQuestData("Titel!!!", "Das ist eine Test-quest!");
+        //setQuestData(placeholder, "Titel!!!", "Das ist eine Test-quest!");
 	}
 	
 	//Set the different images of the Totems visible and Invisible.
@@ -65,9 +66,16 @@ public class OpenLogBook : MonoBehaviour {
 	}
 
     //Set the Data of the Quest. (IMAGE NOT IMPLEMENTED)
-    public void setQuestData(string title, string description)
+    public void setQuestData(Sprite image, string title, string description)
     {
-        //questImage = image;
+        if (image != null)
+        {
+            questImage.sprite = image;
+        }
+        else
+        {
+            questImage.sprite = placeholder;
+        }
         questDescription.text = description;
         questTitle.text = title;
     }

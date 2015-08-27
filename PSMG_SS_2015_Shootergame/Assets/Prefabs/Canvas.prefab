@@ -134,6 +134,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &121060
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22405266}
+  - 222: {fileID: 22225400}
+  - 114: {fileID: 11415784}
+  m_Layer: 5
+  m_Name: Quest Image (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &121830
 GameObject:
   m_ObjectHideFlags: 1
@@ -603,7 +620,7 @@ GameObject:
   - 222: {fileID: 22279624}
   - 114: {fileID: 11456290}
   m_Layer: 5
-  m_Name: Quest Image
+  m_Name: Quest Image Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1497,6 +1514,27 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11415784
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!114 &11415962
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1690,7 +1728,8 @@ MonoBehaviour:
   - {fileID: 11401884}
   questTitle: {fileID: 11441444}
   questDescription: {fileID: 11486670}
-  questImage: {fileID: 0}
+  questImage: {fileID: 11415784}
+  placeholder: {fileID: 21300000, guid: 2a177f4120eeb754e9f0cbe2a6a89671, type: 3}
 --- !u!114 &11427194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2352,7 +2391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 770f16b03e04c164d855f8834cf9b3a1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 36c963a9a71ef1a45bef079900bfbba8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2535,7 +2574,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 04c4756cc7e18184782ae4fab209e878, type: 3}
-    m_FontSize: 14
+    m_FontSize: 18
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
@@ -2580,7 +2619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 7045fb59f85d60741b93c7482abcad69, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 48e18ba877bb9c74190b0ec3774a283b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2927,6 +2966,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131412}
+--- !u!222 &22225400
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121060}
 --- !u!222 &22227732
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -3264,6 +3309,23 @@ RectTransform:
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -285.899994, y: -134.5}
   m_SizeDelta: {x: 65, y: 130}
+  m_Pivot: {x: .5, y: .5}
+--- !u!224 &22405266
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22474702}
+  m_RootOrder: 3
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -116.300018, y: -7.62939453e-06}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22405332
 RectTransform:
@@ -4081,6 +4143,7 @@ RectTransform:
   - {fileID: 22426396}
   - {fileID: 22481836}
   - {fileID: 22493786}
+  - {fileID: 22405266}
   m_Father: {fileID: 22450426}
   m_RootOrder: 10
   m_AnchorMin: {x: 0, y: 0}

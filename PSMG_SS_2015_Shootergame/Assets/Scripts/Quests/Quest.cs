@@ -31,6 +31,8 @@ public class Quest : MonoBehaviour {
 
 	public string questTitle = "Titel der Quest";
 	public string questDescription = "Beschreibung der Quest";
+    public Sprite questImage;
+    
     /// <summary>
     /// Text that will be shown on activation/start/finish/fail - can be left empty
     /// </summary>
@@ -169,7 +171,7 @@ public class Quest : MonoBehaviour {
         // Show the defined activation text
         ShowUIText(activateText, activateTextTime);
 		// Update LogBook texts
-		SetLogBookText (questTitle, questDescription);
+        SetLogBookText(questImage, questTitle, questDescription);
 
         // Call the (overridable) OnQuestActivated() method
         OnQuestActivated();
@@ -322,8 +324,8 @@ public class Quest : MonoBehaviour {
         }
     }
 
-	private void SetLogBookText(string title, string description) {
-		logBook.setQuestData (title, description);
+	private void SetLogBookText(Sprite image, string title, string description) {
+		logBook.setQuestData (image, title, description);
 	}
 
     protected virtual void CheckFinish()
