@@ -7,6 +7,7 @@ public class FollowMovement : MonoBehaviour {
 
 	public Transform target;
 	public float minDistance = 5.0f;
+    public float maxDistance = 30.0f;
 
 	private bool moving = true;
 
@@ -24,7 +25,17 @@ public class FollowMovement : MonoBehaviour {
 				nav.SetDestination(target.position);
 			}
 		}
+
+        CheckDistance();
 	}
+
+    void CheckDistance()
+    {
+        if (Vector3.Distance(transform.position, target.position) >= maxDistance)
+        {
+            transform.position = target.transform.position;
+        }
+    }
 
 	public void StartMoving()
 	{

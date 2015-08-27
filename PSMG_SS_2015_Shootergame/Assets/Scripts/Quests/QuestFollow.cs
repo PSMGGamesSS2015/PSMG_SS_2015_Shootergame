@@ -34,6 +34,8 @@ public class QuestFollow : Quest
 
     private Transform finishTriggerObject;
 
+    private Vector3 targetStartingPosition;
+
     void Start()
     {
         base.Start();
@@ -42,6 +44,17 @@ public class QuestFollow : Quest
     protected override void OnStart()
     {
         SetFinishTrigger();
+    }
+
+    protected override void OnQuestActivated()
+    {
+        targetStartingPosition = target.transform.position;
+    }
+
+    protected override void OnReset()
+    {
+        target.transform.position = targetStartingPosition;
+        target.GetComponent<WaypointMovement>().ResetMovement();
     }
 
     void SetFinishTrigger()

@@ -18,6 +18,8 @@ public class BasePlayer : MonoBehaviour {
     // Current amount of Feathers
     private int feathers = 1;
 
+    private QuestManager questManager;
+
     public const float MAX_ENERGY = 100.0f;
 
     public float energyRegeneration = 5.0f;
@@ -60,6 +62,11 @@ public class BasePlayer : MonoBehaviour {
         }
     }
 
+    void Start()
+    {
+        questManager = GameObject.FindGameObjectWithTag("QuestManager").GetComponent<QuestManager>();
+    }
+
 	// Use this for initialization
 	void Awake () {
         birdMorphEffect.enableEmission = false;
@@ -85,7 +92,24 @@ public class BasePlayer : MonoBehaviour {
 
         float blurValue = Mathf.Lerp(0.0f, lowEnergyBlur.maxBlurSize, energy / MAX_ENERGY);
         lowEnergyBlur.focalSize = blurValue;
+
+        CheckDeath();
 	}
+
+    void CheckDeath()
+    {
+        if (health <= 0.0f)
+        {
+            Debug.Log("dead");
+            health = MAX_HEALTH;
+            PlayerDead();            
+        }
+    }
+
+    void PlayerDead()
+    {
+        questManager.ResetCurrentQuest();
+    }
 
     void DrainEnergy()
     {

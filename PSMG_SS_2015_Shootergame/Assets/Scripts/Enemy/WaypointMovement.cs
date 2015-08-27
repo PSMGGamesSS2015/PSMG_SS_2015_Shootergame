@@ -97,12 +97,21 @@ public class WaypointMovement : MonoBehaviour {
 
     public void StartMoving()
     {
+        Debug.Log("start moving");
         moving = true;
     }
 
     public void StopMoving()
     {
         moving = false;
+        nav.ResetPath();
+    }
+
+    public void ResetMovement()
+    {
+        StopMoving();
+        currentIndex = 0;
+        currentWaypoint = waypoints[currentIndex];
     }
 
     public void SaveWaypoint()

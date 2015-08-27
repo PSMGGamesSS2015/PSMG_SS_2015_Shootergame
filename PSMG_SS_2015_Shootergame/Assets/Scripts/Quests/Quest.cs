@@ -8,6 +8,8 @@ public class Quest : MonoBehaviour {
     /// </summary>
     public bool activateOnStart = false;
 
+    public bool resetAfterFail = true;
+
     /// <summary>
     /// Once the quest is activated, how should the quest be started? Either after a defined time or after entering a zone
     /// </summary>
@@ -68,6 +70,7 @@ public class Quest : MonoBehaviour {
 	protected static OpenLogBook logBook;
     protected static TurnCompass compass;
     protected static PrefabManager prefabs;
+    protected static QuestManager questManager;
 
     private GameObject canvas;
 
@@ -84,10 +87,13 @@ public class Quest : MonoBehaviour {
     protected ArrayList markers = new ArrayList();
 	protected ArrayList highlighter = new ArrayList();
 
+    private Vector3 playerStartingPosition;
+
 	protected void Start() {
         // Save game objects to static variables
         player = GameObject.FindGameObjectWithTag("Player");
         canvas = GameObject.FindGameObjectWithTag("Canvas");
+        questManager = GameObject.FindGameObjectWithTag("QuestManager").GetComponent<QuestManager>();
         textScript = canvas.GetComponent<ShowTutorialText>();
 		logBook = canvas.GetComponent<OpenLogBook> ();
         compass = canvas.GetComponent<TurnCompass>();
@@ -164,6 +170,8 @@ public class Quest : MonoBehaviour {
     // Activate the quest
     public void ActivateQuest()
     {
+        questManager.SetQuest(this);
+
         // Set activated bool to true
         activated = true;
         // Set the activate time to the current time
@@ -172,6 +180,8 @@ public class Quest : MonoBehaviour {
         ShowUIText(activateText, activateTextTime);
 		// Update LogBook texts
         SetLogBookText(questImage, questTitle, questDescription);
+
+        playerStartingPosition = player.transform.position;
 
         // Call the (overridable) OnQuestActivated() method
         OnQuestActivated();
@@ -214,12 +224,34 @@ public class Quest : MonoBehaviour {
         // Destroy all the markers
         DestroyMarkers();
 
-        // Restart
-        ActivateQuest();
-        // PROTOTYPE!!!
-
         // Call the (overridable) OnQuestFailed() method
         OnQuestFailed();
+
+        RestartQuest();
+    }
+
+    public void ForceReset()
+    {
+        QuestFailed();
+        Reset();
+        ActivateQuest();
+    }
+
+    protected void RestartQuest()
+    {
+        if (resetAfterFail)
+        {
+            Reset();
+        }
+
+        ActivateQuest();
+    }
+
+    protected void Reset()
+    {
+        Debug.Log("reset");
+        player.transform.position = playerStartingPosition;
+        OnReset();
     }
 
     // Quest finished
@@ -364,6 +396,11 @@ public class Quest : MonoBehaviour {
     }
 
     protected virtual void OnUpdate()
+    {
+
+    }
+
+    protected virtual void OnReset()
     {
 
     }
