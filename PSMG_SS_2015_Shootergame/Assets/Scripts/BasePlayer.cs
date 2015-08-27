@@ -143,4 +143,18 @@ public class BasePlayer : MonoBehaviour {
     {
         return energy;
     }
+
+    public void ActivateSprintBonus()
+    {
+        energyRegeneration *= 2.0f;
+        energyDrain /= 2.0f;
+        sprintDelay /= 2.0f;
+    }
+
+    public void DeactivateSprintBonus()
+    {
+        energyRegeneration /= 2.0f;
+        energyDrain *= 2.0f;
+        sprintDelay *= 2.0f;
+    }
 }

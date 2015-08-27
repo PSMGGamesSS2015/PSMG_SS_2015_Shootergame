@@ -707,6 +707,18 @@ public class PlayerMovement : MonoBehaviour
         speedModifier = 1.0f;
     }
 
+    public void ActivateFlapBonus()
+    {
+        flapAmount *= 2;
+        flapFeatherSpawnTime /= 2.0f;
+    }
+
+    public void DeactivateFlapBonus()
+    {
+        flapAmount /= 2;
+        flapFeatherSpawnTime *= 2.0f;
+    }
+
     // Returns flyModeActivated for UI scripts
     public bool getMode()
     {

@@ -68,7 +68,10 @@ public class QuestTotem : Quest {
     {
         foreach (Totem t in bonusTotems)
         {
-            t.SetActivatable(true);
+            if (!t.IsActive())
+            {
+                t.SetActivatable(true);
+            }
         }
     }
 
@@ -77,7 +80,10 @@ public class QuestTotem : Quest {
         foreach (Totem t in bonusTotems)
         {
             t.SetActivatable(false);
-            t.Deactivate();
+            if (t.IsActive())
+            {
+                t.Deactivate();
+            }
         }
     }
 
