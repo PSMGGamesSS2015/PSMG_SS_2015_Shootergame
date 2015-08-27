@@ -97,7 +97,6 @@ public class WaypointMovement : MonoBehaviour {
 
     public void StartMoving()
     {
-        Debug.Log("start moving");
         moving = true;
     }
 

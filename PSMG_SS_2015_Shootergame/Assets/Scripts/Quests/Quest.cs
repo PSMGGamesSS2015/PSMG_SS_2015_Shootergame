@@ -249,7 +249,6 @@ public class Quest : MonoBehaviour {
 
     protected void Reset()
     {
-        Debug.Log("reset");
         player.transform.position = playerStartingPosition;
         OnReset();
     }

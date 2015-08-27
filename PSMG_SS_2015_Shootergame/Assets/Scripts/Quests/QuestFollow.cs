@@ -53,8 +53,8 @@ public class QuestFollow : Quest
 
     protected override void OnReset()
     {
-        target.transform.position = targetStartingPosition;
         target.GetComponent<WaypointMovement>().ResetMovement();
+        target.transform.position = targetStartingPosition;
     }
 
     void SetFinishTrigger()
@@ -95,7 +95,7 @@ public class QuestFollow : Quest
     {
         Vector3 playerPosition = player.transform.position;
 
-        float distance = Vector3.Distance(playerPosition, transform.position);
+        float distance = Vector3.Distance(playerPosition, target.transform.position);
 
         if (distance >= failDistance)
         {

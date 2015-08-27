@@ -100,7 +100,6 @@ public class BasePlayer : MonoBehaviour {
     {
         if (health <= 0.0f)
         {
-            Debug.Log("dead");
             health = MAX_HEALTH;
             PlayerDead();            
         }

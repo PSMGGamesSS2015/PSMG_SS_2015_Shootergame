@@ -23,7 +23,11 @@ public class FollowMovement : MonoBehaviour {
 		if (moving) {
 			if (Vector3.Distance(transform.position, target.position) >= minDistance) {
 				nav.SetDestination(target.position);
-			}
+            }
+            else
+            {
+                nav.ResetPath();
+            }
 		}
 
         CheckDistance();
