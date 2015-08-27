@@ -28,9 +28,8 @@ public class FollowMovement : MonoBehaviour {
             {
                 nav.ResetPath();
             }
+            CheckDistance();
 		}
-
-        CheckDistance();
 	}
 
     void CheckDistance()

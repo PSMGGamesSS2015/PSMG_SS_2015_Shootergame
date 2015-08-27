@@ -328,13 +328,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            
             if (fallDistance >= fallDamageMinDistance)
             {
                 int damage = (int) Mathf.Round(Mathf.Pow((fallDistance / 4), 1.8f));
                 basePlayer.SubtractHealth(damage);
             }
-            
         }
         if (inAir && fallDistance < 0.4F)
         {

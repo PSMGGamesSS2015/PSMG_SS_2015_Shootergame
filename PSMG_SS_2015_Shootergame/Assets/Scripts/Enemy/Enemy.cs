@@ -109,9 +109,8 @@ public class Enemy : MonoBehaviour {
 
             if (distance > 5.0f && distance < MAX_DISTANCE_TO_SIGHT)
             {
-                nav.SetDestination(playerPosition);
-
                 movementController.OnFollowPlayer();
+                nav.SetDestination(playerPosition);
             }
             else if (distance > MAX_DISTANCE_TO_SIGHT)
             {
@@ -144,7 +143,6 @@ public class Enemy : MonoBehaviour {
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position + Vector3.up, directionToPlayer.normalized, out hit, MAX_DISTANCE_TO_SIGHT))
                 {
-                    //GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
                     if (hit.collider.gameObject == playerObject)
                     {
                         // Player wasn't too far away and nothing in between to block the view.
