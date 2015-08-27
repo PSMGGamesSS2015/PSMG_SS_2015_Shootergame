@@ -307,7 +307,6 @@ public class PlayerMovement : MonoBehaviour
         if (!flyModeActivated)
         {
             audioController.stopWindNoise();
-            canSprint = true;
         }
 
         float fallDistance = Mathf.Abs(groundHeight - transform.position.y);
