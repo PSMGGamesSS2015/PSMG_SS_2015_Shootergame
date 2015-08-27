@@ -21,8 +21,9 @@ public class OpenLogBook : MonoBehaviour {
     public Text questTitle;
     //the Description of the Quest
     public Text questDescription;
-    //the Image of the Quest (NOT IMPLEMENTED)
+    //the Image of the Quest
     public Image questImage;
+    //placeholder for quest image
     public Sprite placeholder;
 
 	// Use this for initialization
@@ -35,21 +36,13 @@ public class OpenLogBook : MonoBehaviour {
 	void Update () {
         for (int i = 0; i < totems.Length; i++ )
         {
-            if (totems[i].bonusTotem)
+            if (totems[i].IsActive())
             {
-                if (totems[i].IsActive())
-                {
-                    SetTotemsVisible(true);
-                    totemColors[i].fillAmount = totems[i].getPct();
-                }
+                totemColors[i].fillAmount = totems[i].getPct();
             }
             else
             {
-                if (totems[i].IsActive())
-                {
-                    SetTotemsVisible(false);
-                    totemColors[i].fillAmount = totems[i].getPct();
-                }
+                totemColors[i].fillAmount = 0;
             }
         }
 
@@ -65,7 +58,7 @@ public class OpenLogBook : MonoBehaviour {
         }
 	}
 
-    //Set the Data of the Quest. (IMAGE NOT IMPLEMENTED)
+    //Set the Data of the Quest.
     public void setQuestData(Sprite image, string title, string description)
     {
         if (image != null)
@@ -78,22 +71,5 @@ public class OpenLogBook : MonoBehaviour {
         }
         questDescription.text = description;
         questTitle.text = title;
-    }
-
-    //Method to set the Totems visible or not
-    private void SetTotemsVisible(bool supertotem)
-    {
-        totemColors[0].enabled = !supertotem;
-        totemColors[1].enabled = !supertotem;
-        totemColors[2].enabled = !supertotem;
-        totemColors[3].enabled = !supertotem;
-        totemColors[4].enabled = supertotem;
-
-
-        totemImages[0].enabled = !supertotem;
-        totemImages[1].enabled = !supertotem;
-        totemImages[2].enabled = !supertotem;
-        totemImages[3].enabled = !supertotem;
-        totemImages[4].enabled = supertotem;
     }
 }

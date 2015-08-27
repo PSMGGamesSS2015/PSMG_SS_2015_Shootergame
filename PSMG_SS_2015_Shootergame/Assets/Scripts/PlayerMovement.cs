@@ -212,6 +212,14 @@ public class PlayerMovement : MonoBehaviour
         moving = false;
         sneaking = false;
         crouching = false;
+
+        foreach (GameObject feather in flapFeathers)
+        {
+            if (feather != null)
+            {
+                feather.transform.Rotate(0, 80 * Time.deltaTime, 0, Space.World);
+            }
+        }
     }
 
     // Check if the player has activated a special type of movement
