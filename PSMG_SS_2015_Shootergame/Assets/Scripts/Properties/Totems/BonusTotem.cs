@@ -1,37 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BonusTotem : MonoBehaviour {
+public class BonusTotem : Totem {
 
-    public float activatingTime = 5.0f;
+    public float speedModifier = 1.5f;
 
-    public float activationRange = 10.0f;
+    private PlayerMovement movement;
+    private BasePlayer basePlayer;
 
-    public bool showIndicator = false;
+    void Start()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-    private bool active = false;
-    private float activationState = 0.0f;
-    private float activeTime = 0.0f;
+        basePlayer = player.GetComponent<BasePlayer>();
+        movement = player.GetComponent<PlayerMovement>();
+        base.Start();
+    }
 
-    private Transform player;
-    private PrefabManager prefabs;
+    void Update()
+    {
+        base.Update();
+    }
 
-	// Use this for initialization
-	void Start () {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        prefabs = GameObject.FindGameObjectWithTag("Prefabs").GetComponent<PrefabManager>();
+    protected override void OnActivation()
+    {
+        activatable = false;
 
-        if (showIndicator)
-        {
-            GameObject marker = Instantiate(prefabs.rangeIndicator, transform.position, Quaternion.Euler(90, 0, 0)) as GameObject;
-            marker.transform.parent = transform;
-            marker.GetComponent<Projector>().orthographicSize = activationRange;
-            marker.GetComponentInChildren<ParticleSystem>().Stop();
-        }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        movement.IncreaseSpeed(speedModifier);
+        movement.ActivateFlapBonus();
+        basePlayer.ActivateSprintBonus();
+    }
+
+    protected override void OnDeactivation()
+    {
+        movement.ResetSpeed();
+        movement.DeactivateFlapBonus();
+        basePlayer.DeactivateSprintBonus();
+    }
+    
 }

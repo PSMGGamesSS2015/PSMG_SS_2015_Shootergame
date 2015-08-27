@@ -21,11 +21,11 @@ public class Totem : MonoBehaviour {
     private Transform player;
     private PrefabManager prefabs;
 
-    private bool activatable = false;
+    protected bool activatable = false;
 
     private Color baseColor;
 
-	void Start () {
+	protected void Start () {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         prefabs = GameObject.FindGameObjectWithTag("Prefabs").GetComponent<PrefabManager>();
         baseColor = GetComponent<MeshRenderer>().material.color;
@@ -39,7 +39,7 @@ public class Totem : MonoBehaviour {
         }
 	}
 	
-	void Update () {
+	protected void Update () {
         if (active && !bonusTotem)
         {
             DrainTime();
@@ -48,7 +48,6 @@ public class Totem : MonoBehaviour {
         {
             if (!bonusTotem || activatable)
             {
-                //Debug.Log("checking...");
                 CheckForActivation();
             }
         }
@@ -75,15 +74,12 @@ public class Totem : MonoBehaviour {
 
         if (activeTime <= 0.0f)
         {
-            active = false;
-
-            OnDeactivation();
+            Deactivate();
         }
     }
 
     void CheckForActivation()
     {
-        //Debug.Log(Vector3.Distance(player.position, transform.position));
         if (Vector3.Distance(player.position, transform.position) <= activationRange)
         {
             activationState += Time.deltaTime;
