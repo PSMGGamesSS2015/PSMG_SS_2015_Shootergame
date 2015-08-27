@@ -96,6 +96,8 @@ public class QuestWaypoint : Quest
         {
             SetGoal((Transform)toVisit[0]);
         }
+
+        audioController.playReached();
     }
 
     protected override void CheckFinish()

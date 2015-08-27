@@ -9,6 +9,10 @@ public class EnviromentSound : MonoBehaviour {
 
     public AudioClip screamClip;
 
+    public AudioClip reachedSound;
+
+    public AudioClip collectedSound;
+
     public AudioSource source;
 
     public AudioSource screamSource;
@@ -72,6 +76,16 @@ public class EnviromentSound : MonoBehaviour {
     public void playScream()
     {
         screamSource.PlayOneShot(screamClip, 0.8F);
+    }
+
+    public void playReached()
+    {
+        source.PlayOneShot(reachedSound, 0.5F);
+    }
+
+    public void playCollected()
+    {
+        source.PlayOneShot(collectedSound, 0.5F);
     }
 
 }
