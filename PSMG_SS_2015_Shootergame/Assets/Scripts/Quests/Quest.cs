@@ -136,7 +136,7 @@ public class Quest : MonoBehaviour {
         foreach (GameObject marker in markers) {
             if (marker != null)
             {
-                marker.transform.Rotate(0 * Time.deltaTime, 40 * Time.deltaTime, 0 * Time.deltaTime, Space.World);
+                marker.transform.Rotate(0, 40 * Time.deltaTime, 0, Space.World);
             }
         }
 	}

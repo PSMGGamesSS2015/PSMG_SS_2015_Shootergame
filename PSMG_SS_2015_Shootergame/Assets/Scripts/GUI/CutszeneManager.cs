@@ -7,8 +7,6 @@ public class CutszeneManager : Quest {
     //the player
     private Transform player;
 
-    //public int NumberOfTotalCutscenes;
-
     //the number of the actual cutscene
     public int CutsceneNumber;
 
@@ -127,7 +125,7 @@ public class CutszeneManager : Quest {
         StartCoroutine("FadeOutCR");
     }
 
-    //Coroutine to fade out the text (wait for timeToShowText so the text is visible this amount of time)
+    //Coroutine to fade out the images
     private IEnumerator FadeOutCR()
     {
         float alpha = 1;

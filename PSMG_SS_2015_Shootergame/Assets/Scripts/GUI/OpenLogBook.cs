@@ -26,6 +26,8 @@ public class OpenLogBook : MonoBehaviour {
     //placeholder for quest image
     public Sprite placeholder;
 
+    public IntroManager introManager;
+
 	// Use this for initialization
 	void Start () {
         //setQuestData(placeholder, "Titel!!!", "Das ist eine Test-quest!");
@@ -46,7 +48,8 @@ public class OpenLogBook : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
+        //Logbook only activatable if Intro is over
+        if (Input.GetKeyDown(KeyCode.M) && !introManager.IsActivated())
         {
             logbook.SetActive(true);
             allExceptLogbook.SetActive(false);
