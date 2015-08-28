@@ -128,6 +128,9 @@ public class PlayerMovement : MonoBehaviour
     // True when player are not on the ground
     private bool inAir = false;
 
+    // True while transformation
+    private bool isTransforming = false;
+
     // Weapon controller for animations
     private Assets.Scripts.Weapons.WeaponController weaponController;
 
@@ -262,6 +265,8 @@ public class PlayerMovement : MonoBehaviour
             basePlayer.getCurrentFeathers() >= 1 &&
             this.moving == false)
         {
+            isTransforming = true;
+            audioController.playMorph();
             // Check if bow is currently bended
             BaseWeapon w = weaponController.getActiveWeapon();
             if (w.Name.Equals("Bow"))
@@ -285,7 +290,6 @@ public class PlayerMovement : MonoBehaviour
         sprinting = false;
         bobCamera.isSprinting = false;
         this.canMove = false;
-        audioController.playMorph();
         weaponController.getActiveWeapon().Animator.StopPlayback();
         flyModeActivated = true;
         weaponController.getActiveWeapon().Animator.SetTrigger("Morph");
@@ -301,13 +305,14 @@ public class PlayerMovement : MonoBehaviour
         remainingFlaps = flapAmount;
 
         this.canMove = true;
+        audioController.playWindNoise();
 
         // ...jump as high as set
         Jump(initialFlyHeight);
-        audioController.playWindNoise();
-
-        yield return new WaitForSeconds(3F);
+        
+        yield return new WaitForSeconds(2F);
         this.canSprint = true;
+        isTransforming = false;
     }
 
     // If the player is on the ground (again), reset all relevant variables
@@ -355,45 +360,48 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleMovement()
     {
-        // Get input values
-        float InputX = Input.GetAxis("Horizontal");
-        float InputY = Input.GetAxis("Vertical");
-
-        moving = InputX != 0 || InputY != 0 ? true : false;
-        walking = InputX != 0 || InputY != 0 ? true : false;
-
-
-        // modify factor so that diagonal movement isn't faster
-        float inputModifyFactor = (InputX != 0.0f && InputY != 0.0f) ? 0.7071f : 1.0f;
-
-        // Calculate how fast we should be moving
-        Vector3 targetVelocity = new Vector3(InputX * inputModifyFactor, 0, InputY * inputModifyFactor);
-
-        // Move into the right direction
-        targetVelocity = transform.TransformDirection(targetVelocity);
-
-        // Use the appropriate speed modifier, depending on if the player is in fly mode or not
-        targetVelocity *= GetSpeedModifier();
-
-        // Apply the speed modifier that can be changed through methods
-        targetVelocity *= speedModifier;
-
-        // If the player is not flying, get the modifier based on the slope
-        if (!flyModeActivated)
+        if (!isTransforming)
         {
-            targetVelocity *= GetSlopeModifier(InputX, InputY);
+            // Get input values
+            float InputX = Input.GetAxis("Horizontal");
+            float InputY = Input.GetAxis("Vertical");
+
+            moving = InputX != 0 || InputY != 0 ? true : false;
+            walking = InputX != 0 || InputY != 0 ? true : false;
+
+
+            // modify factor so that diagonal movement isn't faster
+            float inputModifyFactor = (InputX != 0.0f && InputY != 0.0f) ? 0.7071f : 1.0f;
+
+            // Calculate how fast we should be moving
+            Vector3 targetVelocity = new Vector3(InputX * inputModifyFactor, 0, InputY * inputModifyFactor);
+
+            // Move into the right direction
+            targetVelocity = transform.TransformDirection(targetVelocity);
+
+            // Use the appropriate speed modifier, depending on if the player is in fly mode or not
+            targetVelocity *= GetSpeedModifier();
+
+            // Apply the speed modifier that can be changed through methods
+            targetVelocity *= speedModifier;
+
+            // If the player is not flying, get the modifier based on the slope
+            if (!flyModeActivated)
+            {
+                targetVelocity *= GetSlopeModifier(InputX, InputY);
+            }
+
+            // Apply a force that attempts to reach our target velocity
+            Vector3 velocity = GetComponent<Rigidbody>().velocity;
+            Vector3 velocityChange = (targetVelocity - velocity);
+            velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+            velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+            velocityChange.y = 0;
+            GetComponent<Rigidbody>().AddForce(velocityChange, ForceMode.VelocityChange);
+
+            AnimatePlayer();
+            SetPlayerSound();
         }
-
-        // Apply a force that attempts to reach our target velocity
-        Vector3 velocity = GetComponent<Rigidbody>().velocity;
-        Vector3 velocityChange = (targetVelocity - velocity);
-        velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
-        velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
-        velocityChange.y = 0;
-        GetComponent<Rigidbody>().AddForce(velocityChange, ForceMode.VelocityChange);
-
-        AnimatePlayer();
-        SetPlayerSound();
     }
 
     void AnimatePlayer()
@@ -529,7 +537,7 @@ public class PlayerMovement : MonoBehaviour
     void CheckForJump()
     {
         // If the jump button is pressed...
-        if (Input.GetButton("Jump"))
+        if (Input.GetButton("Jump") && !isTransforming)
         {
             // ...perform a jump with the defined jump height
             Jump(jumpHeight);
@@ -641,8 +649,8 @@ public class PlayerMovement : MonoBehaviour
                 flapping = true;
             }
         }
-
-		SpawnFlapFeathers ();
+        
+		Invoke("SpawnFlapFeathers", 1.8F);
     }
 
 	void SpawnFlapFeathers() {
