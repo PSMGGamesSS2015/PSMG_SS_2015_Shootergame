@@ -11,22 +11,36 @@ public class TreeCutDown : MonoBehaviour {
 
     private bool isFallen = false;
 
-    private void onTomahawkAttack(BaseWeapon w)
-    {
-        if (isFallen) return;
+    private EnviromentSound audio;
 
+    private void onTomahawkAttack(BaseWeapon w)
+    {        
+        if (isFallen) return;
+        
         float distance = Vector3.Distance(gameObject.transform.position, player.transform.position);
 
         if (distance <= 5.5f)
         {
             counter++;
 
+            Invoke("playHitSound", 1F);
             if (counter >= hitsToFall)
             {
-                anim.Play();
-                isFallen = true;
+                Invoke("timber", 1.5F);
             }
         }
+    }
+
+    private void playHitSound()
+    {
+        audio.playTreeHit();
+    }
+
+    private void timber()
+    {
+        audio.playTimber();
+        anim.Play();
+        isFallen = true;
     }
 
     private bool initialized = false;
@@ -46,6 +60,8 @@ public class TreeCutDown : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         
         anim = GetComponent<Animation>();
+
+        audio = GameObject.FindGameObjectWithTag("PlayerSound").GetComponent<EnviromentSound>();
 	}
 	
 	// Update is called once per frame

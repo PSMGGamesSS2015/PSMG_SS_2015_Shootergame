@@ -13,6 +13,10 @@ public class EnviromentSound : MonoBehaviour {
 
     public AudioClip collectedSound;
 
+    public AudioClip treeHit;
+
+    public AudioClip timber;
+
     public AudioSource source;
 
     public AudioSource screamSource;
@@ -86,6 +90,16 @@ public class EnviromentSound : MonoBehaviour {
     public void playCollected()
     {
         source.PlayOneShot(collectedSound, 0.3F);
+    }
+
+    public void playTreeHit()
+    {
+        source.PlayOneShot(treeHit, 0.8F);
+    }
+
+    public void playTimber()
+    {
+        source.PlayOneShot(timber, 0.8F);
     }
 
 }
