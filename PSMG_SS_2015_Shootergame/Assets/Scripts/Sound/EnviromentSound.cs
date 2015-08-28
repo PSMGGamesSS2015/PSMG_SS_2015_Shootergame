@@ -17,9 +17,13 @@ public class EnviromentSound : MonoBehaviour {
 
     public AudioClip timber;
 
+    public AudioClip totem;
+
     public AudioSource source;
 
     public AudioSource screamSource;
+
+    public AudioSource totemAudio;
 
     float factor = 0.05F;
 
@@ -32,6 +36,8 @@ public class EnviromentSound : MonoBehaviour {
         source.volume = 0F;
         source.clip = dayMusic;
         source.Play();
+        totemAudio.volume = 0.5F;
+        totemAudio.clip = totem;
 	}
 	
 	// Update is called once per frame
@@ -102,4 +108,21 @@ public class EnviromentSound : MonoBehaviour {
         source.PlayOneShot(timber, 0.8F);
     }
 
+    public void playTotem()
+    {
+        if (!totemAudio.isPlaying)
+        {
+            totemAudio.Play();
+        }
+    }
+
+    public void pauseTotem()
+    {
+        totemAudio.Pause();
+    }
+
+    public void stopTotem()
+    {
+        totemAudio.Stop();
+    }
 }

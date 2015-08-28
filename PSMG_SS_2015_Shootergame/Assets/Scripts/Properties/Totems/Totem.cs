@@ -25,10 +25,13 @@ public class Totem : MonoBehaviour {
 
     private Color baseColor;
 
+    private EnviromentSound audio;
+
 	protected void Start () {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         prefabs = GameObject.FindGameObjectWithTag("Prefabs").GetComponent<PrefabManager>();
         baseColor = GetComponent<MeshRenderer>().material.color;
+        audio = GameObject.FindGameObjectWithTag("PlayerSound").GetComponent<EnviromentSound>();
 
         if (showIndicator)
         {
@@ -82,11 +85,13 @@ public class Totem : MonoBehaviour {
     {
         if (Vector3.Distance(player.position, transform.position) <= activationRange)
         {
+            audio.playTotem();
             activationState += Time.deltaTime;
         }
         else if (activationState > 0.0f)
         {
             activationState -= Time.deltaTime;
+            audio.pauseTotem();
         }
 
         Mathf.Clamp(activationState, 0.0f, activatingTime);
@@ -95,7 +100,13 @@ public class Totem : MonoBehaviour {
             active = true;
             activationState = 0.0f;
             activeTime = activatedTime;
-
+            audio.playCollected();
+            audio.playTreeHit();
+            if (bonusTotem)
+            {
+                audio.playReached();
+            }
+            audio.stopTotem();
             OnActivation();
         }
     }
