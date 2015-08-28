@@ -7,7 +7,7 @@ using System.Collections;
 public class DayNightController : MonoBehaviour
 {
     /// number of seconds in a day  
-    public const float dayCycleLength = 100;  // 1440
+    public const float dayCycleLength = 1440;  // 1440
 
     /// current time in game time (0 - dayCycleLength).  
     public float currentCycleTime = 0;
