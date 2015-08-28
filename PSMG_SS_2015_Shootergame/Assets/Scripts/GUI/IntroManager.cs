@@ -27,23 +27,34 @@ public class IntroManager : MonoBehaviour {
 
     private bool active = true;
 
+    public bool withIntro;
+
 	// Use this for initialization
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        player.GetComponent<PlayerMovement>().canMove = false;
-        intro.SetActive(true);
-
+        if (withIntro)
+        {
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+            player.GetComponent<PlayerMovement>().canMove = false;
+            intro.SetActive(true);
+        }
+        else
+        {
+            active = false;
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (newPage)
-        {
-            newPage = false;
-            actImage = imagesOfIntro[actPage];
-            actText = textOfIntro[actPage];
-            FadeIn();
+        if(withIntro) {
+            if (newPage)
+            {
+                newPage = false;
+                actImage = imagesOfIntro[actPage];
+                actText = textOfIntro[actPage];
+                FadeIn();
+            }
+
         }
     }
 
