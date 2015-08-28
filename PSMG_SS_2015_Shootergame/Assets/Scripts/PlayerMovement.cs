@@ -325,8 +325,6 @@ public class PlayerMovement : MonoBehaviour
             audioController.stopWindNoise();
         }
 
-        float fallDistance = Mathf.Abs(groundHeight - transform.position.y);
-
         if (fallingWhileFlying)
         {
             fallingWhileFlying = false;
@@ -341,20 +339,24 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+			float fallDistance = groundHeight - transform.position.y;
+
             if (fallDistance >= fallDamageMinDistance)
             {
+				groundHeight = transform.position.y;
                 int damage = (int) Mathf.Round(Mathf.Pow((fallDistance / 4), 1.8f));
                 basePlayer.SubtractHealth(damage);
+
+				if (inAir && fallDistance < 0.4F)
+				{
+					inAir = false;
+					audioController.playGround();
+				}
+				if (fallDistance >= 2F)
+				{
+					audioController.playGround();
+				}
             }
-        }
-        if (inAir && fallDistance < 0.4F)
-        {
-            inAir = false;
-            audioController.playGround();
-        }
-        if (fallDistance >= 2F)
-        {
-            audioController.playGround();
         }
     }
 
