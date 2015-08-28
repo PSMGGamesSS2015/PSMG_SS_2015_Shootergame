@@ -22,6 +22,8 @@ namespace Assets.Scripts.Weapons
 
         private GameObject player;
 
+        private EnviromentSound audio;
+
         // Called once when the arrow spawns
         void Start()
         {
@@ -39,8 +41,10 @@ namespace Assets.Scripts.Weapons
                 {
                     WeaponController wp = collision.collider.gameObject.GetComponent<WeaponController>();
                     BaseWeapon bow = wp.getWeaponByName("Bow");
+                    audio = GameObject.FindGameObjectWithTag("PlayerSound").GetComponent<EnviromentSound>();
                     if (bow != null)
                     {
+                        audio.playCollected();
                         bow.ReserveAmmo++;
                         wasPickedUp = true;
                         wp.onCurWeaponInfoChanged(bow);

@@ -80,12 +80,12 @@ public class EnviromentSound : MonoBehaviour {
 
     public void playReached()
     {
-        source.PlayOneShot(reachedSound, 0.5F);
+        source.PlayOneShot(reachedSound, 0.3F);
     }
 
     public void playCollected()
     {
-        source.PlayOneShot(collectedSound, 0.5F);
+        source.PlayOneShot(collectedSound, 0.3F);
     }
 
 }
