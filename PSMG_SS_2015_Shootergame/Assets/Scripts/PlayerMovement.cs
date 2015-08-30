@@ -327,6 +327,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (fallingWhileFlying)
         {
+			groundHeight = transform.position.y;
             fallingWhileFlying = false;
             flyModeActivated = false;
             weaponController.getActiveWeapon().SetUp();
