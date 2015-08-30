@@ -183,7 +183,7 @@ public class PlayerSound : MonoBehaviour {
     {
         if (Time.time >= jumpDelay)
         {
-            sfxSource.PlayOneShot(groundSound, 0.02F);
+            sfxSource.PlayOneShot(groundSound, 0.05F);
             jumpDelay = Time.time + groundSound.length;
             playMoveSound(0, 0.2F);
         }
