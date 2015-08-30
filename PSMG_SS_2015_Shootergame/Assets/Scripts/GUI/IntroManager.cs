@@ -32,7 +32,7 @@ public class IntroManager : Quest {
 	}
 
 	protected override void OnQuestStarted() {
-		player.GetComponent<PlayerMovement>().canMove = false;
+		player.GetComponent<PlayerMovement>().AllowMove(false);
 		intro.SetActive(true);
 		active = true;
 	}
@@ -99,7 +99,7 @@ public class IntroManager : Quest {
         {
             intro.SetActive(false);
             player.GetComponent<PlayerMovement>().enabled = true;
-            player.GetComponent<PlayerMovement>().canMove = true;
+            player.GetComponent<PlayerMovement>().AllowMove(true);
             active = false;
 
 			QuestFinished();
