@@ -3,9 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class IntroManager : MonoBehaviour {
-    //the player
-    private Transform player;
+public class IntroManager : Quest {
 
     //Images for Intro. This only works if all images have an alpha = 0 value.
     public List<Image> imagesOfIntro = new List<Image>();
@@ -25,38 +23,34 @@ public class IntroManager : MonoBehaviour {
     //if it is a new page this is true
     private bool newPage = true;
 
-    private bool active = true;
-
-    public bool withIntro;
+    private bool active = false;
 
 	// Use this for initialization
     void Start()
     {
-        if (withIntro)
-        {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
-            player.GetComponent<PlayerMovement>().canMove = false;
-            intro.SetActive(true);
-        }
-        else
-        {
-            active = false;
-        }
+		base.Start ();
+	}
+
+	protected override void OnQuestStarted() {
+		player.GetComponent<PlayerMovement>().AllowMove(false);
+		intro.SetActive(true);
+		active = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if(withIntro) {
-            if (newPage)
-            {
-                newPage = false;
-                actImage = imagesOfIntro[actPage];
-                actText = textOfIntro[actPage];
-                FadeIn();
-            }
-
-        }
+		base.Update ();
     }
+
+	protected override void OnUpdate() {
+		if (newPage)
+		{
+			newPage = false;
+			actImage = imagesOfIntro[actPage];
+			actText = textOfIntro[actPage];
+			FadeIn();
+		}
+	}
 
     //Fade in the actual image
     public void FadeIn()
@@ -105,8 +99,10 @@ public class IntroManager : MonoBehaviour {
         {
             intro.SetActive(false);
             player.GetComponent<PlayerMovement>().enabled = true;
-            player.GetComponent<PlayerMovement>().canMove = true;
+            player.GetComponent<PlayerMovement>().AllowMove(true);
             active = false;
+
+			QuestFinished();
         }
         else
         {
