@@ -32,7 +32,7 @@ namespace Assets.Scripts.Weapons
         {
             intensity = 0;
 
-            bulletSpawn.transform.Translate(new Vector3(0, 0, -1.5f));
+            bulletSpawn.transform.Translate(new Vector3(0.5f, 0, -1.5f));
             PlayerPrefabsController ppc = parentPlayer.GetComponent<PlayerPrefabsController>();
             arrowPrefab = ppc.arrowPrefab;
 
