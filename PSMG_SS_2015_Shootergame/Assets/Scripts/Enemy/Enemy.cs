@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour {
         set
         {
             hasSpottedPlayer = value;
+            Debug.Log("SpottedPlayer: " + value);
             if (hasSpottedPlayer == true)
             {
                 //head.GetComponent<MeshRenderer>().material.color = Color.red;
