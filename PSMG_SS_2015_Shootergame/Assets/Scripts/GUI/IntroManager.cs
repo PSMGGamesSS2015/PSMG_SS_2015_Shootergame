@@ -4,8 +4,6 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class IntroManager : Quest {
-    //the player
-    private Transform player;
 
     //Images for Intro. This only works if all images have an alpha = 0 value.
     public List<Image> imagesOfIntro = new List<Image>();
