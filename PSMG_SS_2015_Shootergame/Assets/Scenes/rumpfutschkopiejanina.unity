@@ -223,12 +223,14 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 1394746904}
   startZoneSize: 5
-  questTitle: Titel der Quest
-  questDescription: Beschreibung der Quest
+  questTitle: Verfolgung III
+  questDescription: "Nachdem du den gro\xDFen Baum gef\xE4llt hast und \xFCber die
+    Schlucht gegangen bist, solltest du dich beeilen, damit du die Gruppe nicht aus
+    den Augen verlierst."
   questImage: {fileID: 0}
   activateText: "F\xE4lle nun den gro\xDFen Baum vor dir, um \xFCber die Schlucht
     zu gelangen!"
-  startText: Sehr gut! Verliere den Siedler nicht aus den Augen...
+  startText: Sehr gut! Verliere die Gruppe nicht aus den Augen...
   finishText: 
   failText: 
   startTextTime: 5
@@ -4433,8 +4435,8 @@ MonoBehaviour:
   questImage: {fileID: 0}
   activateText: "Willkommen Krieger! Mit WASD und der Maus kannst du dich bewegen.
     Probiere es aus indem du zur Markierung vor dir l\xE4ufst!"
-  startText: "Mit SHIFT kannst du f\xFCr kurze Zeit Sprinten. Renne nun zur n\xE4chsten
-    Markierung und folge diesen dann weiter!"
+  startText: "Mit SHIFT kannst du f\xFCr kurze Zeit Sprinten. Folge den Markierungen
+    weiter."
   finishText: 
   failText: 
   startTextTime: 5
@@ -13356,11 +13358,12 @@ MonoBehaviour:
   startZoneSize: 8
   questTitle: Verfolgung I
   questDescription: "Gehe zur Markierung und folge den Siedlern durch die Berge. Pass
-    auf wo die Wegmarkierungen dich entlangleiten. Die Sielder d\xFCrfen dich nicht
+    auf wo die Wegmarkierungen dich entlangleiten. Die Siedler d\xFCrfen dich nicht
     sehen!"
   questImage: {fileID: 0}
-  activateText: "Die arme Sau... Geh in die Fl\xE4che und verfolge die Siedler!"
-  startText: 'Der Kompass zeigt immer auf den Siedler. '
+  activateText: Die arme Sau... Gelange unerkannt in die Markierung und verfolge die
+    Siedler!
+  startText: Der Kompass zeigt immer auf die Siedler. Komm ihnen aber nicht zu nahe.
   finishText: 
   failText: 
   startTextTime: 5
@@ -14859,8 +14862,10 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 0}
   startZoneSize: 3
-  questTitle: Titel der Quest
-  questDescription: Beschreibung der Quest
+  questTitle: Totem Collector
+  questDescription: "F\xFCr jedes Element (Feuer, Erde, Wasser, Luft) gibt es ein
+    Totem. Geh in seine N\xE4he, um es zu aktivieren! Denk daran, dass sie eine gewisse
+    Zeit brauchen"
   questImage: {fileID: 0}
   activateText: "F\xFCr jedes Element (Feuer, Erde, Wasser, Luft) gibt es ein Totem.
     Geh in seine N\xE4he, um es zu aktivieren!"
@@ -18560,6 +18565,10 @@ Transform:
   - {fileID: 1834030768}
   - {fileID: 537019696}
   - {fileID: 434631909}
+  - {fileID: 665265706}
+  - {fileID: 1162953936}
+  - {fileID: 1052082699}
+  - {fileID: 665472409}
   m_Father: {fileID: 0}
   m_RootOrder: 5
 --- !u!1 &658221864
@@ -18680,6 +18689,86 @@ Transform:
   m_Children: []
   m_Father: {fileID: 333202374}
   m_RootOrder: 0
+--- !u!1 &665265705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 665265706}
+  - 65: {fileID: 665265707}
+  m_Layer: 0
+  m_Name: WorldsEnd1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &665265706
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 665265705}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 206, y: 148, z: -102.599998}
+  m_LocalScale: {x: 560.125183, y: 389.026703, z: 23.0508289}
+  m_Children: []
+  m_Father: {fileID: 656768074}
+  m_RootOrder: 20
+--- !u!65 &665265707
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 665265705}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &665472408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 665472409}
+  - 65: {fileID: 665472410}
+  m_Layer: 0
+  m_Name: WorldsEnd4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &665472409
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 665472408}
+  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
+  m_LocalPosition: {x: 458, y: 148, z: 153}
+  m_LocalScale: {x: 560.125183, y: 389.026703, z: 23.0508289}
+  m_Children: []
+  m_Father: {fileID: 656768074}
+  m_RootOrder: 23
+--- !u!65 &665472410
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 665472408}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &665784713 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100016, guid: cc55c9e02e352b04cb8b95730726bac1, type: 3}
@@ -21919,12 +22008,12 @@ MonoBehaviour:
   startZone: {fileID: 1725246409}
   startZoneSize: 8
   questTitle: Verfolgung II
-  questDescription: Folge den Wegpunkten durch die Berge, damit der Siedler dich nicht
-    erwischt.
+  questDescription: Folge den Wegpunkten durch die Berge, damit die Siedler dich nicht
+    erwischen.
   questImage: {fileID: 0}
   activateText: 
-  startText: Folge den Wegpunkten durch die Berge, damit der Siedler dich nicht erwischt.
-  finishText: "Sehr gut! Dr\xFCcke nun '3', um auf dein Tomahawk zu wechseln."
+  startText: Folge den Wegpunkten durch die Berge, damit die Siedler dich nicht erwischen.
+  finishText: "Sehr gut! Dr\xFCcke nun '2', um auf dein Tomahawk zu wechseln."
   failText: 
   startTextTime: 5
   activateTextTime: 0
@@ -24824,8 +24913,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916924487}
-  m_LocalRotation: {x: -.162652507, y: .821355104, z: .287137777, w: .465265363}
-  m_LocalPosition: {x: 411.813843, y: -52.2557907, z: 63.3050499}
+  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
+  m_LocalPosition: {x: 60.031559, y: -28.5139389, z: 101.599129}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -26399,7 +26488,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 966485061}
   m_LocalRotation: {x: 0, y: .921065211, z: 0, w: .38940841}
-  m_LocalPosition: {x: 280, y: -0, z: 16}
+  m_LocalPosition: {x: 280, y: -7, z: 16}
   m_LocalScale: {x: 22.6304417, y: .499999732, z: 18.2381783}
   m_Children:
   - {fileID: 1329432792}
@@ -28332,8 +28421,8 @@ MonoBehaviour:
   startZone: {fileID: 826982850}
   startZoneSize: 4
   questTitle: Fliegen
-  questDescription: "Um mit den Fl\xFCgeln zu schlagen musst du die Leertaste dr\xFCcken.
-    Dadurch kannst du l\xE4nger fliegen."
+  questDescription: "Um mit den Fl\xFCgeln zu schlagen kannst du die Leertaste dr\xFCcken.
+    Dadurch kannst du dich l\xE4nger in der Luft halten."
   questImage: {fileID: 0}
   activateText: "Mit LEER kannst du mit den Fl\xFCgeln schlagen und so mehr Zeit in
     der Luft verbringen."
@@ -30103,6 +30192,46 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1052082698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1052082699}
+  - 65: {fileID: 1052082700}
+  m_Layer: 0
+  m_Name: WorldsEnd3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1052082699
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1052082698}
+  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
+  m_LocalPosition: {x: -55, y: 148, z: 156}
+  m_LocalScale: {x: 560.125183, y: 389.026703, z: 23.0508289}
+  m_Children: []
+  m_Father: {fileID: 656768074}
+  m_RootOrder: 22
+--- !u!65 &1052082700
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1052082698}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1054424838 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 41d429663e7114d4c9bccc4538cabf14, type: 3}
@@ -31719,10 +31848,11 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 0}
   startZoneSize: 5
-  questTitle: Titel der Quest
-  questDescription: Beschreibung der Quest
+  questTitle: Befreiung
+  questDescription: "Sammle den Schl\xFCssel und die Feder ein und befreie deinen
+    Freund! Pass aber auf, dass du nicht dabei gesehen wirst."
   questImage: {fileID: 0}
-  activateText: "Niemand zu Hause! Sammle den Schl\xFCssel und die Feder ein!"
+  activateText: "Sammle den Schl\xFCssel und die Feder ein! Bleibe dabei aber unentdeckt."
   startText: 
   finishText: 
   failText: 
@@ -31951,13 +32081,15 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 0}
   startZoneSize: 5
-  questTitle: "Bienenstock abschie\xDFen"
+  questTitle: Killer bees, Bee killer
   questDescription: "Jetzt wird es Zeit deinen Bogen zu benutzen. Schie\xDFe auf den
-    Bienenstock vor dir. Um weiter zu schie\xDFen halte die linke Maustaste gedr\xFCckt."
+    Bienenstock vor dir. Um weiter zu schie\xDFen halte die linke Maustaste einfach
+    etwas l\xE4nger gedr\xFCckt."
   questImage: {fileID: 0}
   activateText: "Jetzt wird es Zeit deinen Bogen zu benutzen. Schie\xDFe auf den Bienenstock
     vor dir..."
-  startText: "Halte die linke Maustaste gedr\xFCckt um weiter schie\xDFen zu k\xF6nnen"
+  startText: "Halte die linke Maustaste l\xE4nger gedr\xFCckt um weiter schie\xDFen
+    zu k\xF6nnen"
   finishText: Gut gemacht! Pass auf, dass du dem Nest nicht zu nahe kommst...
   failText: 
   startTextTime: 5
@@ -32486,6 +32618,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9869125}
   m_RootOrder: 2
+--- !u!1 &1162953935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1162953936}
+  - 65: {fileID: 1162953937}
+  m_Layer: 0
+  m_Name: WorldsEnd2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1162953936
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1162953935}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 206, y: 148, z: 415}
+  m_LocalScale: {x: 560.125183, y: 389.026703, z: 23.0508289}
+  m_Children: []
+  m_Father: {fileID: 656768074}
+  m_RootOrder: 21
+--- !u!65 &1162953937
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1162953935}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1163277588 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400016, guid: 469edab27ab6d004d84af2c4a851bd7f, type: 3}
@@ -35823,8 +35995,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1232750214}
-  m_LocalRotation: {x: .426811367, y: .18938677, z: .0919072628, w: -.879498601}
-  m_LocalPosition: {x: 157.080841, y: -62.8646965, z: 19.8865814}
+  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
+  m_LocalPosition: {x: 60.031559, y: 3.36606216, z: 101.599129}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -35988,31 +36160,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22429704, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 79
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 320
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -39.5
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 620
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 59
       objectReference: {fileID: 0}
     - target: {fileID: 11441002, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: playerObject
@@ -38350,8 +38522,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1330921243}
-  m_LocalRotation: {x: .426811367, y: .18938677, z: .0919072628, w: -.879498601}
-  m_LocalPosition: {x: 157.080841, y: -71.544693, z: 19.8865814}
+  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
+  m_LocalPosition: {x: 263.921295, y: -305.512451, z: 198.296036}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -58614,15 +58786,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 112.699997
+      value: 418
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 20.7000008
+      value: 137
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 23.3999996
+      value: 104
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalRotation.x
@@ -59348,9 +59520,9 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 0}
   startZoneSize: 5
-  questTitle: Flieg Vogel, flieg
-  questDescription: "Um Fliegen zu k\xF6nnen musst du Federn einsammeln. Die aktuelle
-    Anzahl an Federn siehst du links unten im Bild.Dr\xFCcke TAB um zu fliegen."
+  questTitle: Vlieg Fogel, vlieg
+  questDescription: "Um fliegen zu k\xF6nnen musst du Federn einsammeln. Die aktuelle
+    Anzahl an Federn siehst du links unten im Bild. Dr\xFCcke TAB um zu fliegen."
   questImage: {fileID: 0}
   activateText: 
   startText: "Klettern ist anstrengend! Sammle die Feder ein und dr\xFCcke TAB um
