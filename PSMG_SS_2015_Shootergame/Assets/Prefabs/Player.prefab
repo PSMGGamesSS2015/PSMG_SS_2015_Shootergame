@@ -102,6 +102,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 410702}
+  - 114: {fileID: 11478798}
   m_Layer: 0
   m_Name: CameraRotationParent
   m_TagString: Untagged
@@ -5676,7 +5677,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 115870}
   m_LocalRotation: {x: 0, y: -.339051127, z: 0, w: .940767944}
-  m_LocalPosition: {x: 263.700012, y: 19.3999996, z: 147.199997}
+  m_LocalPosition: {x: 112.699997, y: 20.7000008, z: 23.3999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 485170}
@@ -6628,6 +6629,18 @@ MonoBehaviour:
   sprintDelay: 5
   birdModel: {fileID: 156008}
   birdMorphEffect: {fileID: 19865456}
+--- !u!114 &11478798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104350}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e28df4006ac9424eb9806f15cef8084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 493702}
 --- !u!114 &11479882
 MonoBehaviour:
   m_ObjectHideFlags: 1
