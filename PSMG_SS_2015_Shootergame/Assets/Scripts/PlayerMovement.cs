@@ -333,6 +333,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (fallingWhileFlying)
         {
+            groundHeight = transform.position.y;
             fallingWhileFlying = false;
             flyModeActivated = false;
             weaponController.getActiveWeapon().SetUp();
@@ -353,15 +354,12 @@ public class PlayerMovement : MonoBehaviour
                 int damage = (int) Mathf.Round(Mathf.Pow((fallDistance / 4), 1.8f));
                 basePlayer.SubtractHealth(damage);
 
-				if (inAir && fallDistance < 0.4F)
-				{
-					inAir = false;
-					audioController.playGround();
-				}
-				if (fallDistance >= 2F)
-				{
-					audioController.playGround();
-				}
+                audioController.playGround();
+            }
+            if (inAir && fallDistance < 0.4F)
+            {
+                inAir = false;
+                audioController.playGround();
             }
         }
     }
