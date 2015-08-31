@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     // Slope limit in degrees, player will slide down if beyond the limit
     public float slopeLimit = 45.0f;
 
+	public float slopeEffect = 1.5f;
+
     // Flying speed of the player
     public float flySpeed = 10.0f;
 
@@ -485,8 +487,8 @@ public class PlayerMovement : MonoBehaviour
                 
             }
 
-            // Return the power to 2 for slower movement in steep terrain
-            return Mathf.Pow(modifier, 2);
+            // Return the power to slopeEffect for slower movement in steep terrain
+            return Mathf.Pow(modifier, slopeEffect);
         }
     }
 
