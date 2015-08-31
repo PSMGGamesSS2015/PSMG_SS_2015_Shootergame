@@ -25,6 +25,8 @@ public class IntroManager : Quest {
 
     private bool active = false;
 
+    private bool animationIsReady = false;
+    public Text buttonText;
 	// Use this for initialization
     void Start()
     {
@@ -50,6 +52,7 @@ public class IntroManager : Quest {
 			actText = textOfIntro[actPage];
 			FadeIn();
 		}
+        ChangeButtonColor();
 	}
 
     //Fade in the actual image
@@ -71,6 +74,7 @@ public class IntroManager : Quest {
             currentTime += Time.deltaTime;
             yield return null;
         }
+        animationIsReady = true;
         yield break;
     }
 
@@ -114,12 +118,27 @@ public class IntroManager : Quest {
     //If the button is clicked this is called
     public void NextPage()
     {
-        actPage++;
-        FadeOut();
+        if(animationIsReady) {
+            actPage++;
+            FadeOut();
+            animationIsReady = false;
+        }
     }
 
     public bool IsActivated()
     {
         return active;
+    }
+
+    private void ChangeButtonColor()
+    {
+        if (!animationIsReady)
+        {
+            buttonText.color = Color.gray;
+        }
+        else
+        {
+            buttonText.color = Color.black;
+        }
     }
 }
