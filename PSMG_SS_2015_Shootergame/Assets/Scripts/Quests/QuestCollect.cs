@@ -15,20 +15,17 @@ public class QuestCollect : Quest {
         base.Start();
 	}
 
-    protected override void OnStart()
-    {
-        toCollect = new ArrayList();
-        collected = new ArrayList();
-        progress = 0.0f;
-        
-        for (int i = 0; i < targets.Length; i++)
-        {
-            toCollect.Add(targets[i]);
-        }
-    }
-
     protected override void OnQuestStarted()
     {
+		toCollect = new ArrayList();
+		collected = new ArrayList();
+		progress = 0.0f;
+		
+		for (int i = 0; i < targets.Length; i++)
+		{
+			toCollect.Add(targets[i]);
+		}
+
 		if (highlight) {
 			foreach (Collectable c in targets)
 			{
@@ -38,7 +35,13 @@ public class QuestCollect : Quest {
 
         SetGoal(((Collectable)toCollect[0]).transform);
     }
-	
+
+	protected override void OnReset() {
+		foreach (Collectable c in targets) {
+			c.Reset ();
+		}
+	}
+
 	void Update () {
         base.Update();
 	}

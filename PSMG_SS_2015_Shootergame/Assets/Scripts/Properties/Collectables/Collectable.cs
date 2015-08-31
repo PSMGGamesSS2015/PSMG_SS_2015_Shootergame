@@ -19,6 +19,11 @@ public class Collectable : MonoBehaviour {
         }
     }
 
+	public void Reset() {
+		gameObject.SetActive (true);
+		collected = false;
+	}
+
     public bool IsCollected()
     {
         return collected;

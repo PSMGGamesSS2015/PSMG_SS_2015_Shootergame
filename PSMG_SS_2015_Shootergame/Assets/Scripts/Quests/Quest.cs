@@ -229,10 +229,22 @@ public class Quest : MonoBehaviour {
 
         RestartQuest();
     }
+	
+	protected void QuestFailed(bool restart)
+	{
+		questStarted = false;
+		ShowUIText(failText, failTextTime);
+		DestroyMarkers();
+		OnQuestFailed();
+
+		if (restart) {
+			RestartQuest ();
+		}
+	}
 
     public void ForceReset()
     {
-        QuestFailed();
+        QuestFailed(false);
         Reset();
         ActivateQuest();
     }
