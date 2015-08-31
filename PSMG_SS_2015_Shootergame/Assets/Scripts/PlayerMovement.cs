@@ -150,6 +150,12 @@ public class PlayerMovement : MonoBehaviour
 
 	private ArrayList flapFeathers = new ArrayList();
 
+    public delegate void DNotify();
+    public delegate void DNotifyb(bool b);
+    public DNotify OnHawkFlap = null;
+    public DNotifyb OnPlummetStatus = null;
+
+
     void Start()
     {
         colliderHeight = GetComponent<CapsuleCollider>().height;
@@ -605,7 +611,12 @@ public class PlayerMovement : MonoBehaviour
 
 				if (mouseLook.GetRotationY() < -plummetAngle) {
 					targetVelocity.y *= (-plummetModifier * mouseLook.GetRotationY() + 1.0f);
+                    if (OnPlummetStatus != null) OnPlummetStatus(true);
 				}
+                else
+                {
+                    if (OnPlummetStatus != null) OnPlummetStatus(false);
+                }
 
                 lastDirection = targetVelocity;
 
@@ -641,6 +652,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 // Substract 1 from the remaining flaps
                 remainingFlaps--;
+
+                // Do the flap animation
+                if (OnHawkFlap != null)
+                    OnHawkFlap();
 
                 // Save the current time
                 flapTime = Time.time;

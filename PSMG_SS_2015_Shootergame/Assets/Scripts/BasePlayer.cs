@@ -49,22 +49,38 @@ public class BasePlayer : MonoBehaviour {
             isInFlyMode = value;
             if (isInFlyMode)
             {
-                birdModel.GetComponent<MeshRenderer>().enabled = true;
+                //birdModel.GetComponent<MeshRenderer>().enabled = true;
+                birdModel.SetActive(true);
                 Camera.main.transform.localPosition = new Vector3(0, 0, -10.0f);
                 RemoveFeather();
                 birdMorphEffect.enableEmission = false;
             }
             else
             {
-                birdModel.GetComponent<MeshRenderer>().enabled = false;
+                //birdModel.GetComponent<MeshRenderer>().enabled = false;
+                birdModel.SetActive(false);
                 Camera.main.transform.localPosition = homePosition;
             }
         }
     }
 
+    private void onHawkFlap()
+    {
+        birdModel.GetComponent<Animator>().SetTrigger("Flap");
+    }
+
+    private void onPlummetStatus(bool status)
+    {
+        birdModel.GetComponent<Animator>().SetBool("Plummet", status);
+    }
+
     void Start()
     {
         questManager = GameObject.FindGameObjectWithTag("QuestManager").GetComponent<QuestManager>();
+
+        PlayerMovement pm = GetComponent<PlayerMovement>();
+        pm.OnHawkFlap += onHawkFlap;
+        pm.OnPlummetStatus += onPlummetStatus;
     }
 
 	// Use this for initialization
