@@ -331,6 +331,7 @@ MonoBehaviour:
   - {fileID: 1230776332}
   - {fileID: 932602557}
   intro: {fileID: 1313303706}
+  buttonText: {fileID: 0}
 --- !u!4 &192773934
 Transform:
   m_ObjectHideFlags: 0
@@ -552,6 +553,14 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11475158, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: goal
+      value: 
+      objectReference: {fileID: 1864071935}
+    - target: {fileID: 11495148, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 192773933}
     - target: {fileID: 11427004, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: totems.Array.data[0]
       value: 
@@ -576,18 +585,10 @@ Prefab:
       propertyPath: introManager
       value: 
       objectReference: {fileID: 192773933}
-    - target: {fileID: 11475158, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: goal
-      value: 
-      objectReference: {fileID: 1864071935}
     - target: {fileID: 11441002, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: playerObject
       value: 
       objectReference: {fileID: 2092030239}
-    - target: {fileID: 11495148, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 192773933}
     - target: {fileID: 22429704, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_SizeDelta.y
       value: 79
@@ -939,7 +940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c314230d52504341b03eed3361acd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateOnStart: 1
+  activateOnStart: 0
   resetAfterFail: 1
   startMode: 0
   startDelay: 0
