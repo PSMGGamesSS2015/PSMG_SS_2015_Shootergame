@@ -358,6 +358,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &139976
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22458070}
+  - 222: {fileID: 22211982}
+  - 114: {fileID: 11420332}
+  m_Layer: 5
+  m_Name: Image 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &142314
 GameObject:
   m_ObjectHideFlags: 1
@@ -369,7 +386,7 @@ GameObject:
   - 222: {fileID: 22211426}
   - 114: {fileID: 11439436}
   m_Layer: 5
-  m_Name: Image 2
+  m_Name: Image 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -876,7 +893,7 @@ GameObject:
   - 222: {fileID: 22274172}
   - 114: {fileID: 11493096}
   m_Layer: 5
-  m_Name: Text 2
+  m_Name: Text 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -894,6 +911,23 @@ GameObject:
   - 114: {fileID: 11419030}
   m_Layer: 5
   m_Name: weapon image blowgun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &179460
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22460600}
+  - 222: {fileID: 22299556}
+  - 114: {fileID: 11490028}
+  m_Layer: 5
+  m_Name: Text 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1171,6 +1205,8 @@ Transform:
   - {fileID: 22488044}
   - {fileID: 22443040}
   - {fileID: 22432040}
+  - {fileID: 22458070}
+  - {fileID: 22460600}
   - {fileID: 22440784}
   - {fileID: 22436504}
   - {fileID: 22401502}
@@ -1529,6 +1565,27 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11420332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Sprite: {fileID: 21300000, guid: 6fef5007679dcde4aa42461af39794b7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!114 &11421078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1784,8 +1841,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "asdn kajl \xF6ns\xF6  akjwl\xF6ksdjgjl\xF6 iw knsdkljie kdlie kdls jeil\xFC
-    kldwjigklnc djweisekjgei ldkjgei gjkljkge"
+  m_Text: "1620 \u2013 Die ersten europ\xE4ischen Siedler kommen mit der Mayflower
+    im heutigen Massachusetts an. Die Pilgerv\xE4ter und \u2013m\xFCtter finden scheinbar
+    unbewohntes und freies Land vor. Dem ist aber nicht so. Eingeborene Indianer leben
+    schon seit hunderten Jahren auf diesem Land. Anfangs stehen sich beide Seiten
+    friedlich gegen\xFCber. Die Siedler nehmen sich das Land, das sie zum Leben ben\xF6tigen.
+    Es wird Landwirtschaft betrieben. Schweine und Gefl\xFCgel werden gehalten und
+    gez\xFCchtet.\r"
 --- !u!114 &11437638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2612,6 +2674,36 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11490028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .963235319, g: .963235319, b: .963235319, a: 0}
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 04c4756cc7e18184782ae4fab209e878, type: 3}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "Die Indianer ern\xE4hren sich auch haupts\xE4chlich von ihrer Landwirtschaft.
+    Sie betreiben eine 3 Fr\xFCchte Wirtschaft, bestehend aus Mais (hoch), Bohnen
+    (hangeln sich am Mais entlang) und K\xFCrbis (niedrig, spendet Schatten). Dieses
+    ausgekl\xFCgelte System bietet den Indianern eine ausgewogene Ern\xE4hrung und
+    eine relative hohe Sicherheit gegen Ernteausf\xE4lle. \r"
 --- !u!114 &11490392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2658,8 +2750,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "gjkljkge asdn kajl kdlie \xF6ns\xF6  akjwl\xF6ksdjgjl\xF6 iw knsdkljie
-    kdls jeil\xFC kldwjigklnc djweisekjgei ldkjgei "
+  m_Text: "Die Siedler brachten aber auch Krankheiten mit auf den amerikanischen Kontinent,
+    gegen die die Indianerv\xF6lker kein Immunsystem hatten. So kam es h\xE4ufiger
+    zu Seuchenausbr\xFCchen. Die Indianer machten die wei\xDFen Siedler daf\xFCr verantwortlich.
+    Auch die immer h\xE4ufiger auftretenden Grenzkonflikte sch\xFCrten den Hass aufeinander."
 --- !u!114 &11493742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2881,6 +2975,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142314}
+--- !u!222 &22211982
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139976}
 --- !u!222 &22212450
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -3199,6 +3299,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 144020}
+--- !u!222 &22299556
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179460}
 --- !u!222 &22299704
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -3268,7 +3374,7 @@ RectTransform:
   m_Children:
   - {fileID: 22411190}
   m_Father: {fileID: 431504}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 232, y: -142}
@@ -3662,10 +3768,10 @@ RectTransform:
   m_LocalScale: {x: .757499993, y: .757499993, z: .757499993}
   m_Children: []
   m_Father: {fileID: 431504}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 71.9999695, y: -2}
+  m_AnchoredPosition: {x: 72, y: -2}
   m_SizeDelta: {x: 573, y: 415}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22440784
@@ -3679,10 +3785,10 @@ RectTransform:
   m_LocalScale: {x: .757499993, y: .757499993, z: .757499993}
   m_Children: []
   m_Father: {fileID: 431504}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -185.000031, y: 79.9999847}
+  m_AnchoredPosition: {x: -184.999985, y: 80.0000153}
   m_SizeDelta: {x: 200, y: 199}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22443040
@@ -3884,6 +3990,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
+--- !u!224 &22458070
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139976}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .757499993, y: .757499993, z: .757499993}
+  m_Children: []
+  m_Father: {fileID: 431504}
+  m_RootOrder: 3
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -185.000031, y: 79.9999847}
+  m_SizeDelta: {x: 200, y: 199}
+  m_Pivot: {x: .5, y: .5}
 --- !u!224 &22458548
 RectTransform:
   m_ObjectHideFlags: 1
@@ -3923,6 +4046,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!224 &22460600
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179460}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .757499993, y: .757499993, z: .757499993}
+  m_Children: []
+  m_Father: {fileID: 431504}
+  m_RootOrder: 4
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 71.9999695, y: -2}
+  m_SizeDelta: {x: 573, y: 415}
+  m_Pivot: {x: .5, y: .5}
 --- !u!224 &22463256
 RectTransform:
   m_ObjectHideFlags: 1
