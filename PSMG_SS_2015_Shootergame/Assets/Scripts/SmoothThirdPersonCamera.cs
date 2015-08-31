@@ -4,30 +4,25 @@ using System.Collections;
 public class SmoothThirdPersonCamera : MonoBehaviour {
 
     public Transform target;
-    public float distance = 3.0f;
-    public float height = 3.0f;
-    public float damping = 5.0f;
-    public bool smoothRotation = true;
-    public bool followBehind = true;
-    public float rotationDamping = 10.0f;
 
+    private Vector3 velocity = Vector3.zero;
 
     void Update()
     {
-        Vector3 wantedPosition;
-        if (followBehind)
-            wantedPosition = target.TransformPoint(0, height, -distance);
-        else
-            wantedPosition = target.TransformPoint(0, height, distance);
+        Vector3 wantedPosition = target.TransformPoint(0, 5, -15);
 
-        transform.position = Vector3.Lerp(transform.position, wantedPosition, Time.deltaTime * damping);
+        wantedPosition = RotatePointAroundPivot(wantedPosition, target.position, transform.localEulerAngles);
+        transform.position = Vector3.SmoothDamp(transform.position, wantedPosition, ref velocity, 0.4f);
 
-        if (smoothRotation)
-        {
-            Quaternion wantedRotation = Quaternion.LookRotation(target.position - transform.position, target.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, wantedRotation, Time.deltaTime * rotationDamping);
-        }
-        else transform.LookAt(target, target.up);
+        transform.LookAt(target);
+    }
+
+    public Vector3 RotatePointAroundPivot(Vector3 point, Vector3 pivot, Vector3 angles)
+    {
+        Vector3 dir = point - pivot; // get point direction relative to pivot
+        dir = Quaternion.Euler(angles) * dir; // rotate it
+        point = dir + pivot; // calculate rotated point
+        return point; // return it
     }
 
 }

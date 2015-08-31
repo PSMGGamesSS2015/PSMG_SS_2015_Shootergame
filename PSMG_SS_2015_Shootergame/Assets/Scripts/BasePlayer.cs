@@ -36,6 +36,9 @@ public class BasePlayer : MonoBehaviour {
 
     public ParticleSystem birdMorphEffect;
 
+    private Transform cameraParent;
+    private Vector3 cameraStandardPosition;
+
     private Vector3 homePosition;
     private bool isInFlyMode = false;
     public bool FlyMode
@@ -49,17 +52,22 @@ public class BasePlayer : MonoBehaviour {
             isInFlyMode = value;
             if (isInFlyMode)
             {
-                //birdModel.GetComponent<MeshRenderer>().enabled = true;
                 birdModel.SetActive(true);
-                Camera.main.transform.localPosition = new Vector3(0, 0, -10.0f);
+                //Camera.main.transform.localPosition = new Vector3(0, 0, -10.0f);
                 RemoveFeather();
                 birdMorphEffect.enableEmission = false;
+                Camera.main.transform.parent.gameObject.GetComponent<SmoothThirdPersonCamera>().enabled = true;
+                Camera.main.transform.parent.parent = null;
             }
             else
             {
                 //birdModel.GetComponent<MeshRenderer>().enabled = false;
                 birdModel.SetActive(false);
-                Camera.main.transform.localPosition = homePosition;
+                Camera.main.transform.parent.gameObject.GetComponent<SmoothThirdPersonCamera>().enabled = false;
+                //Camera.main.transform.localPosition = homePosition;
+                Camera.main.transform.parent.parent = transform;
+                Camera.main.transform.parent.localPosition = Vector3.zero;
+                Camera.main.transform.parent.localRotation = new Quaternion(0, 0, 0, 0);
             }
         }
     }
@@ -94,6 +102,7 @@ public class BasePlayer : MonoBehaviour {
     
 	// Update is called once per frame
 	void Update () {
+
         if (movement.isSprinting())
         {
             DrainEnergy();
