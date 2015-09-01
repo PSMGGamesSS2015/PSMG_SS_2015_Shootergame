@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour {
             {
                 // Initiate death
                 GetComponent<Animator>().enabled = false;
+                nav.ResetPath();
             }
         }
     }
@@ -112,73 +113,76 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        playerPosition = playerObject.transform.position;
-
-        float distance = Vector3.Distance(transform.position, playerPosition);
-        Vector3 directionToPlayer = playerPosition - transform.position;
-        if (hasSpottedPlayer)
+        if (health > 0)
         {
-            //transform.LookAt(playerPosition);
-            Quaternion rotation = Quaternion.LookRotation(directionToPlayer);
-            transform.rotation = rotation;
-            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            playerPosition = playerObject.transform.position;
 
-            if (distance > 5.0f && distance < MAX_DISTANCE_TO_SIGHT)
+            float distance = Vector3.Distance(transform.position, playerPosition);
+            Vector3 directionToPlayer = playerPosition - transform.position;
+            if (hasSpottedPlayer)
             {
-                //movementController.OnFollowPlayer();
-                nav.SetDestination(playerPosition);
-                nav.Resume();
-            }
-            else if (distance > MAX_DISTANCE_TO_SIGHT)
-            {
-                HasSpottedPlayer = false;
+                //transform.LookAt(playerPosition);
+                Quaternion rotation = Quaternion.LookRotation(directionToPlayer);
+                transform.rotation = rotation;
+                transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
-                // Move back to where the enemy was when following started
-                nav.SetDestination(startingPosition);
-
-                goingHome = true;
-            }
-            else
-            {
-                nav.Stop();
-                if (health > 0 && Time.time > lastAttackTimestamp + 1.0f)
+                if (distance > 5.0f && distance < MAX_DISTANCE_TO_SIGHT)
                 {
-                    player.SubtractHealth(5);
-                    lastAttackTimestamp = Time.time;
+                    //movementController.OnFollowPlayer();
+                    nav.SetDestination(playerPosition);
+                    nav.Resume();
                 }
-            }
-        }
-        else
-        {
-            // try to spot player
-
-            if ((distance < 10.0f) || // if player is standing too close to enemy
-                (Vector3.Angle(directionToPlayer, transform.forward) < (fieldOfView * 0.5f))) // if player is in field of view 
-            {
-                // Player maybe spotted but make sure to check if something is blocking sight:
-                RaycastHit hit;
-                if (Physics.Raycast(transform.position + Vector3.up, directionToPlayer.normalized, out hit, MAX_DISTANCE_TO_SIGHT))
+                else if (distance > MAX_DISTANCE_TO_SIGHT)
                 {
-                    if (hit.collider.gameObject == playerObject)
-                    {
-                        // Player wasn't too far away and nothing in between to block the view.
-                        if (!goingHome)
-                        {
-                            startingPosition = transform.position;
-                        }
+                    HasSpottedPlayer = false;
 
-                        HasSpottedPlayer = true;
-						questManager.OnPlayerSpotted();
+                    // Move back to where the enemy was when following started
+                    nav.SetDestination(startingPosition);
+
+                    goingHome = true;
+                }
+                else
+                {
+                    nav.Stop();
+                    if (health > 0 && Time.time > lastAttackTimestamp + 1.0f)
+                    {
+                        player.SubtractHealth(5);
+                        lastAttackTimestamp = Time.time;
                     }
                 }
             }
-
-            if (goingHome)
+            else
             {
-                if (Vector3.Distance(transform.position, startingPosition) <= 3.0f)
+                // try to spot player
+
+                if ((distance < 10.0f) || // if player is standing too close to enemy
+                    (Vector3.Angle(directionToPlayer, transform.forward) < (fieldOfView * 0.5f))) // if player is in field of view 
                 {
-                    movementController.OnStopFollowing();
-                    goingHome = false;
+                    // Player maybe spotted but make sure to check if something is blocking sight:
+                    RaycastHit hit;
+                    if (Physics.Raycast(transform.position + Vector3.up, directionToPlayer.normalized, out hit, MAX_DISTANCE_TO_SIGHT))
+                    {
+                        if (hit.collider.gameObject == playerObject)
+                        {
+                            // Player wasn't too far away and nothing in between to block the view.
+                            if (!goingHome)
+                            {
+                                startingPosition = transform.position;
+                            }
+
+                            HasSpottedPlayer = true;
+						    questManager.OnPlayerSpotted();
+                        }
+                    }
+                }
+
+                if (goingHome)
+                {
+                    if (Vector3.Distance(transform.position, startingPosition) <= 3.0f)
+                    {
+                        movementController.OnStopFollowing();
+                        goingHome = false;
+                    }
                 }
             }
         }
