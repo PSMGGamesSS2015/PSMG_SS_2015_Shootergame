@@ -296,9 +296,12 @@ public class Quest : MonoBehaviour {
     // Activate the next quest
     private void ActivateNextQuest()
     {
-        foreach(Quest quest in nextQuests)
+        if (nextQuests != null)
         {
-            quest.GetComponent<Quest>().ActivateQuest();
+            foreach (Quest quest in nextQuests)
+            {
+                quest.GetComponent<Quest>().ActivateQuest();
+            }
         }
     }
 

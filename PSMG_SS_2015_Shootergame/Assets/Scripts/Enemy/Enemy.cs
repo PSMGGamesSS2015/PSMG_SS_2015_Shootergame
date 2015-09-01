@@ -37,7 +37,6 @@ public class Enemy : MonoBehaviour {
         set
         {
             hasSpottedPlayer = value;
-            Debug.Log("SpottedPlayer: " + value);
             if (hasSpottedPlayer == true)
             {
                 //head.GetComponent<MeshRenderer>().material.color = Color.red;
@@ -86,6 +85,8 @@ public class Enemy : MonoBehaviour {
     private const float MAX_DISTANCE_TO_SIGHT = 30.0f;
 	// Use this for initialization
 	void Start () {
+        startingPosition = transform.position;
+
         playerObject = GameObject.FindGameObjectWithTag("Player");
         
         this.player = playerObject.GetComponent<BasePlayer>();
@@ -128,7 +129,7 @@ public class Enemy : MonoBehaviour {
 
                 if (distance > 5.0f && distance < MAX_DISTANCE_TO_SIGHT)
                 {
-                    //movementController.OnFollowPlayer();
+                    movementController.OnFollowPlayer();
                     nav.SetDestination(playerPosition);
                     nav.Resume();
                 }
@@ -180,8 +181,13 @@ public class Enemy : MonoBehaviour {
                 {
                     if (Vector3.Distance(transform.position, startingPosition) <= 3.0f)
                     {
+                        nav.ResetPath();
                         movementController.OnStopFollowing();
                         goingHome = false;
+                    }
+                    else
+                    {
+                        nav.SetDestination(startingPosition);
                     }
                 }
             }

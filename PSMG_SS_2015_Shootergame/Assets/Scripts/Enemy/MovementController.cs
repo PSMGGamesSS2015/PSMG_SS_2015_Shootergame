@@ -16,6 +16,7 @@ public class MovementController : MonoBehaviour {
     // Movement modes
     private enum MODE
     {
+        None,
         Follow,
         Waypoint
     }
@@ -25,12 +26,13 @@ public class MovementController : MonoBehaviour {
         // Get the components
         waypointMovement = GetComponent<WaypointMovement>();
 		followMovement = GetComponent<FollowMovement> ();
+        mode = MODE.None;
 
         // Set the movement mode
-		if (waypointMovement == null) {
+		if (waypointMovement != null) {
+            mode = MODE.Waypoint;
+		} else if (followMovement != null) {
 			mode = MODE.Follow;
-		} else if (followMovement == null) {
-			mode = MODE.Waypoint;
 		}
 	}
 

@@ -13,9 +13,12 @@ public class QuestKill : Quest {
 
     protected override void OnStart()
     {
-        foreach (Enemy e in targets)
+        if (!activateOnStart)
         {
-            e.gameObject.SetActive(false);
+            foreach (Enemy e in targets)
+            {
+                e.gameObject.SetActive(false);
+            }
         }
     }
 
