@@ -50,6 +50,7 @@ public class QuestFollow : Quest
     protected override void OnReset()
     {
         target.GetComponent<WaypointMovement>().ResetMovement();
+		target.GetComponent<Enemy> ().Reset ();
         target.transform.position = targetStartingPosition;
     }
 

@@ -36,7 +36,7 @@ public class FollowMovement : MonoBehaviour {
     {
         if (Vector3.Distance(transform.position, target.position) >= maxDistance)
         {
-            transform.position = target.transform.position;
+            transform.position = target.transform.position - 2.0f * target.transform.forward;
         }
     }
 

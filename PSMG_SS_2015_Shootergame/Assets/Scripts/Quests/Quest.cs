@@ -58,6 +58,8 @@ public class Quest : MonoBehaviour {
 
     public bool useCompass = true;
 
+	public bool failIfSpotted = false;
+
     /// <summary>
     /// The current progress/state of the quest
     /// </summary>
@@ -337,6 +339,12 @@ public class Quest : MonoBehaviour {
             compass.SetGoal(t);
         }
     }
+
+	public void PlayerSpotted() {
+		if (failIfSpotted) {
+			QuestFailed ();
+		}
+	}
 
     // Destroy all marker game objects
     private void DestroyMarkers()

@@ -69,6 +69,7 @@ public class Enemy : MonoBehaviour {
 
     private GameObject playerObject;
     private BasePlayer player;
+	private static QuestManager questManager;
     private Vector3 playerPosition;
 
     // Position where the enemy is when following starts
@@ -92,7 +93,21 @@ public class Enemy : MonoBehaviour {
 
         movementController = GetComponent<MovementController>();
 
+		questManager = GameObject.FindGameObjectWithTag ("QuestManager").GetComponent<QuestManager> ();
+
         enemies.Add(gameObject);
+	}
+
+	public void Reset() {
+		foreach (GameObject o in enemies) {
+			o.GetComponent<Enemy>().ResetValues();
+		}
+	}
+
+	public void ResetValues() {
+		health = 100;
+		hasSpottedPlayer = false;
+		goingHome = false;
 	}
 	
 	// Update is called once per frame
@@ -101,7 +116,6 @@ public class Enemy : MonoBehaviour {
 
         float distance = Vector3.Distance(transform.position, playerPosition);
         Vector3 directionToPlayer = playerPosition - transform.position;
-        Debug.Log("Distance: " + distance);
         if (hasSpottedPlayer)
         {
             //transform.LookAt(playerPosition);
@@ -137,9 +151,8 @@ public class Enemy : MonoBehaviour {
             // try to spot player
 
             if ((distance < 10.0f) || // if player is standing too close to enemy
-                (Vector3.Angle(directionToPlayer, transform.forward) < (fieldOfView * 1.5f))) // if player is in field of view 
+                (Vector3.Angle(directionToPlayer, transform.forward) < (fieldOfView))) // if player is in field of view 
             {
-                Debug.Log("Player in sight");
                 // Player maybe spotted but make sure to check if something is blocking sight:
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position + Vector3.up, directionToPlayer.normalized, out hit, MAX_DISTANCE_TO_SIGHT))
@@ -153,6 +166,7 @@ public class Enemy : MonoBehaviour {
                         }
 
                         HasSpottedPlayer = true;
+						questManager.OnPlayerSpotted();
                     }
                 }
             }

@@ -14,4 +14,8 @@ public class QuestManager : MonoBehaviour {
     {
         currentQuest.ForceReset();
     }
+
+	public void OnPlayerSpotted() {
+		currentQuest.PlayerSpotted ();
+	}
 }
