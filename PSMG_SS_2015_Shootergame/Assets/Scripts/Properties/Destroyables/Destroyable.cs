@@ -152,8 +152,8 @@ public class Destroyable : MonoBehaviour {
         // While the object's scale is greater than 0
         while (transform.localScale.z >= 0.0f) {
             // Slowly shrink it!
-            transform.localScale += new Vector3(-0.02f, -0.02f, -0.02f);
-            yield return new WaitForSeconds(Time.deltaTime);
+            transform.localScale += new Vector3(-0.002f, -0.002f, -0.002f);
+            yield return new WaitForSeconds(0.01f);
         }
 
         // Destroy the game object once its scale is 0
