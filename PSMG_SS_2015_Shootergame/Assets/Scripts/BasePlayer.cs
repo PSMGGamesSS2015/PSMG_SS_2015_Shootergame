@@ -105,8 +105,6 @@ public class BasePlayer : MonoBehaviour {
             absRotation += rotationAmount;
         }
 
-        Debug.Log(absRotation);
-
     }
 
     void Start()
@@ -149,15 +147,28 @@ public class BasePlayer : MonoBehaviour {
 
     void CheckDeath()
     {
+        if (isDead) return;
         if (health <= 0.0f)
         {
-            health = MAX_HEALTH;
-            PlayerDead();            
+            // Player Dead!!!
+            PlayerDead();
+
+            Invoke("ResetPlayer", 3.0f);           
         }
     }
 
+    private bool isDead = false;
     void PlayerDead()
     {
+        isDead = true;
+        GetComponent<WeaponController>().getActiveWeapon().Animator.SetBool("Dead", true);
+    }
+
+    void ResetPlayer()
+    {
+        isDead = false;
+        health = MAX_HEALTH;
+        GetComponent<WeaponController>().getActiveWeapon().Animator.SetBool("Dead", false);
         questManager.ResetCurrentQuest();
     }
 
