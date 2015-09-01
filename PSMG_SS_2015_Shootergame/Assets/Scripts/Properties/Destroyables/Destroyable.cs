@@ -156,8 +156,8 @@ public class Destroyable : MonoBehaviour {
             yield return new WaitForSeconds(0.01f);
         }
 
-        // Destroy the game object once its scale is 0
-        Destroy(gameObject);
+        // Set the game object to inactive once its scale is 0
+        gameObject.SetActive(false);
     }
 
     // Get the health percentage
