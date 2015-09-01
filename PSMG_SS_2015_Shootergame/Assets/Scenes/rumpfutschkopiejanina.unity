@@ -5258,8 +5258,8 @@ MonoBehaviour:
   questDescription: "Dies ist deine erste Einf\xFChrungsquest. Bewege dich mit WASD
     in die markierten Fl\xE4chen!"
   questImage: {fileID: 0}
-  activateText: "Willkommen Krieger! Mit WASD und der Maus kannst du dich bewegen.
-    Probiere es aus indem du zur Markierung vor dir l\xE4ufst!"
+  activateText: 'Willkommen Krieger! Mit WASD und der Maus kannst du dich bewegen.
+    Probiere es doch mal aus: Laufe zu der Markierung vor dir.'
   startText: "Mit SHIFT kannst du f\xFCr kurze Zeit Sprinten. Folge den Markierungen
     weiter."
   finishText: 
@@ -28136,8 +28136,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916924487}
+<<<<<<< HEAD
+  m_LocalRotation: {x: -.416386008, y: .571509182, z: .571509182, w: .416386008}
+  m_LocalPosition: {x: 220.00412, y: -929.793884, z: -6.9018383}
+=======
   m_LocalRotation: {x: 0, y: .339051098, z: 0, w: -.940767944}
   m_LocalPosition: {x: 112.3638, y: -2.53047466, z: 40.7229919}
+>>>>>>> origin/master
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -36017,7 +36022,7 @@ MonoBehaviour:
     vor dir..."
   startText: "Halte die linke Maustaste l\xE4nger gedr\xFCckt um weiter schie\xDFen
     zu k\xF6nnen."
-  finishText: Gut gemacht! Pass auf, dass du dem Nest nicht zu nahe kommst...
+  finishText: Gut gemacht! Pass auf, dass du dem Nest nicht zu nah kommst...
   failText: 
   startTextTime: 5
   activateTextTime: 5
@@ -40206,8 +40211,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1232750214}
+<<<<<<< HEAD
+  m_LocalRotation: {x: -.416386008, y: .571509182, z: .571509182, w: .416386008}
+  m_LocalPosition: {x: 220.00412, y: -897.913879, z: -6.9018383}
+=======
   m_LocalRotation: {x: 0, y: .339051098, z: 0, w: -.940767944}
   m_LocalPosition: {x: 112.3638, y: 29.3495255, z: 40.7229919}
+>>>>>>> origin/master
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -40606,6 +40616,34 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NextPage
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 11471482, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_Text
+      value: "1620 \u2013 Die ersten europ\xE4ischen Siedler kommen mit der Mayflower
+        im heutigen Massachusetts an. Die Pilgerv\xE4ter und \u2013m\xFCtter finden
+        scheinbar unbewohntes und freies Land vor. Dem ist aber nicht so. Eingeborene
+        Indianer leben schon seit hunderten Jahren auf diesem Gebiet. Anfangs stehen
+        sich beide Seiten friedlich gegen\xFCber. Die Siedler nehmen sich das Land,
+        das sie zum Leben ben\xF6tigen. Sie betreiben Landwirtschaft und halten und
+        z\xFCchten Schweine und Gefl\xFCgel."
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455658, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_Text
+      value: "Auch die Indianer ern\xE4hren sich haupts\xE4chlich von ihrer Landwirtschaft.
+        Sie betreiben eine 3 Fr\xFCchte Wirtschaft, bestehend aus Mais (hoch), Bohnen
+        (hangeln sich am Mais entlang) und K\xFCrbis (niedrig, spendet Schatten).
+        Dieses ausgekl\xFCgelte System bietet den Indianern eine ausgewogene Ern\xE4hrung
+        und eine relative hohe Sicherheit gegen Ernteausf\xE4lle. \r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 11423426, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_Text
+      value: "Doch die Siedler bringen auch Krankheiten mit auf den amerikanischen
+        Kontinent, gegen die die Indianerv\xF6lker kein Immunsystem haben. Es kommt
+        zu Seuchenausbr\xFCchen. Ganze Indianerst\xE4mme sterben aus. Die Indianer
+        machen die wei\xDFen Siedler daf\xFCr verantwortlich. Dazu kommen immer h\xE4ufiger
+        auftretenden Grenzkonflikte, die den gegenseitigen Hass weiter aufeinander
+        zusch\xFCren."
+=======
     - target: {fileID: 11433286, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -40613,6 +40651,7 @@ Prefab:
     - target: {fileID: 11433286, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NextPage
+>>>>>>> origin/master
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
@@ -43286,8 +43325,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1330921243}
+<<<<<<< HEAD
+  m_LocalRotation: {x: -.416386008, y: .571509182, z: .571509182, w: .416386008}
+  m_LocalPosition: {x: 220.00412, y: -906.593933, z: -6.9018383}
+=======
   m_LocalRotation: {x: 0, y: .339051098, z: 0, w: -.940767944}
   m_LocalPosition: {x: 112.3638, y: 20.6695251, z: 40.7229919}
+>>>>>>> origin/master
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -66357,6 +66401,10 @@ Prefab:
       propertyPath: screamSource
       value: 
       objectReference: {fileID: 1245245766}
+    - target: {fileID: 11428628, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
+      propertyPath: dayMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: b9a7e6f6b802f3449b1c27904738d1f6, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
   m_IsPrefabParent: 0
