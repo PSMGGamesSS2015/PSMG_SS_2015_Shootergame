@@ -18,7 +18,10 @@ namespace Assets.Scripts.Weapons
         private bool hitObject = false;
 
         // Sprite to show
-        public SpriteRenderer sprite;
+        //public SpriteRenderer sprite;
+		public GameObject arrowArrow;
+		private int counter = 0;
+
 
         private GameObject player;
 
@@ -27,7 +30,8 @@ namespace Assets.Scripts.Weapons
         // Called once when the arrow spawns
         void Start()
         {
-            sprite.enabled = false;
+            //sprite.enabled = false;
+			arrowArrow.SetActive (false);
             player = GameObject.FindGameObjectWithTag("Player");
         }
 
@@ -70,7 +74,8 @@ namespace Assets.Scripts.Weapons
             }
             else
             {
-                sprite.enabled = true;
+				arrowArrow.SetActive(true);
+                //sprite.enabled = true;
             }
             
             wasFired = true;
@@ -79,7 +84,20 @@ namespace Assets.Scripts.Weapons
         // Called once every frame
         void Update()
         {
-            sprite.gameObject.transform.LookAt(player.transform);
+			Debug.Log (arrowArrow.transform.localScale.x);
+			if(counter < 30) {
+				arrowArrow.transform.localScale += new Vector3(0.005f, 0.005f, 0.005f);
+			} else {
+				if(arrowArrow.transform.localScale.x <= 0.2f) {
+
+				} else {
+					arrowArrow.transform.localScale += new Vector3(-0.005f, -0.005f, -0.005f);
+				}
+			}
+			if (counter > 60) {
+				counter = 0;
+			}
+			counter++;
         }
 
 
