@@ -84,7 +84,12 @@ namespace Assets.Scripts.Weapons
         {
             while (o != null)
             {
-                o = o.transform.parent.gameObject;
+				Transform t = o.transform.parent;
+				if (t != null) {
+					o = o.transform.parent.gameObject;	
+				} else {
+					break; 
+				}
 
                 if (o.GetComponent<Enemy>() != null)
                 {
