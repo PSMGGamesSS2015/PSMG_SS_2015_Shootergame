@@ -464,7 +464,7 @@ MonoBehaviour:
   questDescription: "Nachdem du den gro\xDFen Baum gef\xE4llt hast und \xFCber die
     Schlucht gegangen bist, solltest du dich beeilen, damit du die Gruppe nicht aus
     den Augen verlierst."
-  questImage: {fileID: 0}
+  questImage: {fileID: 21300000, guid: f4740e7d02560194e923351fb5674eab, type: 3}
   activateText: "F\xE4lle nun den gro\xDFen Baum vor dir, um \xFCber die Schlucht
     zu gelangen!"
   startText: Sehr gut! Verliere die Siedler nicht aus den Augen...
@@ -5376,7 +5376,7 @@ MonoBehaviour:
   questTitle: "Einf\xFChrung"
   questDescription: "Dies ist deine erste Einf\xFChrungsquest. Bewege dich mit WASD
     in die markierten Fl\xE4chen!"
-  questImage: {fileID: 0}
+  questImage: {fileID: 21300000, guid: fe7a6cafe66f611458fda82dc9b77d39, type: 3}
   activateText: 'Willkommen Krieger! Mit WASD und der Maus kannst du dich bewegen.
     Probiere es doch mal aus: Laufe zu der Markierung vor dir.'
   startText: "Mit SHIFT kannst du f\xFCr kurze Zeit Sprinten. Folge den Markierungen
@@ -10219,7 +10219,7 @@ MonoBehaviour:
   questTitle: Beeilung
   questDescription: "Du h\xF6rst Geschrei! Folge den Markierungen um dem ganzen auf
     den Grund zu gehen. Beil dich!"
-  questImage: {fileID: 0}
+  questImage: {fileID: 21300000, guid: 6ada669e542387447b63d528bf3aacb1, type: 3}
   activateText: "Du h\xF6rst Geschrei! Folge den Markierungen um dem ganzen auf den
     Grund zu gehen. Beil dich! Die Uhr Tickt... Die was? Ich bin Indianer!"
   startText: 
@@ -12870,7 +12870,7 @@ MonoBehaviour:
   startZoneSize: 3
   questTitle: Totem Collector II
   questDescription: Finde und aktiviere nun alle Totems.
-  questImage: {fileID: 0}
+  questImage: {fileID: 21300000, guid: f9bfc80eb17204945b7c329f7e95a776, type: 3}
   activateText: Finde und aktiviere nun alle Totems.
   startText: 
   finishText: Du hast nun alle Elemente aktiviert. Jetzt wird es Zeit das 5. Element
@@ -14866,7 +14866,7 @@ MonoBehaviour:
   questDescription: "Gehe zur Markierung und folge den Siedlern durch die Berge. Pass
     auf wo die Wegmarkierungen dich entlangleiten. Die Siedler d\xFCrfen dich nicht
     sehen!"
-  questImage: {fileID: 0}
+  questImage: {fileID: 21300000, guid: f4740e7d02560194e923351fb5674eab, type: 3}
   activateText: Die arme Sau... Gelange unerkannt in die Markierung und verfolge die
     Siedler!
   startText: Der Kompass zeigt immer auf die Siedler. Komm ihnen aber nicht zu nahe.
@@ -16757,7 +16757,7 @@ MonoBehaviour:
   questDescription: "F\xFCr jedes Element (Feuer, Erde, Wasser, Luft) gibt es ein
     Totem. Geh in seine N\xE4he, um es zu aktivieren! Denk daran, dass sie eine gewisse
     Zeit brauchen."
-  questImage: {fileID: 0}
+  questImage: {fileID: 21300000, guid: f9bfc80eb17204945b7c329f7e95a776, type: 3}
   activateText: "F\xFCr jedes Element (Feuer, Erde, Wasser, Luft) gibt es ein Totem.
     Geh in seine N\xE4he, um es zu aktivieren!"
   startText: "Halte 'M' gedr\xFCckt, um zu sehen, wie lange die Totems noch aktiv
@@ -22868,8 +22868,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 723725443}
-  m_LocalRotation: {x: .418609202, y: .561497808, z: .395634115, w: -.594104648}
-  m_LocalPosition: {x: 365.607117, y: -401.765564, z: 152.949402}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 433.358734, y: -277.354431, z: -1456.82568}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1412134242}
@@ -24714,6 +24714,80 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NextPage
       objectReference: {fileID: 0}
+    - target: {fileID: 114110, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22405266, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 22405266, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 11479440, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ff2ac2fac27dfb740b4bd70fabb86173,
+        type: 3}
+    - target: {fileID: 22474320, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 22474320, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 22474320, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -223.300003
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430796, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_Text
+      value: "Endlich! Du hast das Kriegsbeil gefunden. Nun Musst du es dem Stammes\xE4ltesten
+        bringen und Kriegsrat halten. Die Siedler haben es zu weit getrieben und es
+        wird Zeit sie in ihre Schranken zu weisen. Dein Stamm ist nicht der einzige,
+        der mit der Gesamtsituation unzufrieden ist. Vielleicht schafft ihr es euch
+        zusammenzuschlie\xDFen und k\xF6nnt so eure Freiheit sichern..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 151182, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_Name
+      value: Cutscene 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 136688, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_Name
+      value: Background for Cutscene
+      objectReference: {fileID: 0}
+    - target: {fileID: 152902, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_Name
+      value: Image 1 Cutscene
+      objectReference: {fileID: 0}
+    - target: {fileID: 170278, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_Name
+      value: Text 1 Cutscene
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485632, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c87c56166b4cf58488687117ed4d456c,
+        type: 3}
+    - target: {fileID: 115272, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 151182, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22443040, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -217.220001
+      objectReference: {fileID: 0}
+    - target: {fileID: 117268, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
   m_IsPrefabParent: 0
@@ -24890,7 +24964,7 @@ MonoBehaviour:
   questTitle: Verfolgung II
   questDescription: Folge den Wegpunkten durch die Berge, damit die Siedler dich nicht
     erwischen.
-  questImage: {fileID: 0}
+  questImage: {fileID: 21300000, guid: f4740e7d02560194e923351fb5674eab, type: 3}
   activateText: 
   startText: Folge den Wegpunkten durch die Berge, damit die Siedler dich nicht erwischen.
   finishText: "Sehr gut! Dr\xFCcke nun '2', um auf dein Tomahawk zu wechseln."
@@ -27175,8 +27249,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 872176712}
-  m_LocalRotation: {x: -.35951668, y: .61088717, z: .363200277, w: .604690254}
-  m_LocalPosition: {x: 158.326569, y: -44.985981, z: 321.194397}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 433.358734, y: -309.234436, z: -1456.82568}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1412134242}
@@ -28178,8 +28252,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916924487}
-  m_LocalRotation: {x: 0, y: .339051098, z: 0, w: -.940767944}
-  m_LocalPosition: {x: 95.063797, y: .569526672, z: 70.4229889}
+  m_LocalRotation: {x: .333754271, y: .638433337, z: .359126002, w: -.593329251}
+  m_LocalPosition: {x: 117.031898, y: -103.464195, z: 337.544067}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -28587,7 +28661,7 @@ MonoBehaviour:
   startZoneSize: 3
   questTitle: Supertotem
   questDescription: "Finde das Supertotem und deine wahren Kr\xE4fte zu entfesseln."
-  questImage: {fileID: 0}
+  questImage: {fileID: 21300000, guid: f9bfc80eb17204945b7c329f7e95a776, type: 3}
   activateText: 
   startText: 
   finishText: "Deine wahren Kr\xE4fte sind nun entfesselt. Du brauchst nur noch das
@@ -30326,7 +30400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b40213a3e09809f468d0e7bc4828ad3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateOnStart: 1
+  activateOnStart: 0
   registerQuest: 1
   resetAfterFail: 1
   startMode: 0
@@ -31770,13 +31844,13 @@ MonoBehaviour:
   startMode: 0
   startDelay: 0
   startZone: {fileID: 0}
-  startZoneSize: 5
+  startZoneSize: 50
   questTitle: Titel der Quest
   questDescription: Beschreibung der Quest
   questImage: {fileID: 0}
   activateText: Dir reicht es! Nimm es mit den Siedlern auf und zeige keine Gnade!
   startText: 
-  finishText: asdasdasdasd
+  finishText: 
   failText: 
   startTextTime: 0
   activateTextTime: 0
@@ -31920,7 +31994,7 @@ MonoBehaviour:
   questTitle: Fliegen
   questDescription: "Um mit den Fl\xFCgeln zu schlagen kannst du die Leertaste dr\xFCcken.
     Dadurch kannst du dich l\xE4nger in der Luft halten."
-  questImage: {fileID: 0}
+  questImage: {fileID: 21300000, guid: d361664146d69f04ba26920b74fd287d, type: 3}
   activateText: "Mit LEER kannst du mit den Fl\xFCgeln schlagen und so mehr Zeit in
     der Luft verbringen."
   startText: 
@@ -36077,7 +36151,7 @@ MonoBehaviour:
   questTitle: Befreiung
   questDescription: "Sammle den Schl\xFCssel und die Feder ein und befreie deinen
     Freund! Pass aber auf, dass du nicht dabei gesehen wirst."
-  questImage: {fileID: 0}
+  questImage: {fileID: 21300000, guid: bb04f6da6966dae4b9e7bdb7abd8ee7a, type: 3}
   activateText: "Sammle den Schl\xFCssel und die Feder ein! Bleibe dabei aber unentdeckt."
   startText: 
   finishText: "Es scheint so, als w\xFCrden sie deinem Freund nichts tun... Du solltest
@@ -36432,7 +36506,7 @@ MonoBehaviour:
   questDescription: "Jetzt wird es Zeit deinen Bogen zu benutzen. Schie\xDFe auf den
     Bienenstock vor dir. Um weiter zu schie\xDFen halte die linke Maustaste einfach
     etwas l\xE4nger gedr\xFCckt."
-  questImage: {fileID: 0}
+  questImage: {fileID: 21300000, guid: 0dcfaedf4d35dcd44b51f1d85b509aa8, type: 3}
   activateText: "Jetzt wird es Zeit deinen Bogen zu benutzen. Schie\xDFe auf den Bienenstock
     vor dir..."
   startText: "Halte die linke Maustaste l\xE4nger gedr\xFCckt um weiter schie\xDFen
@@ -40805,8 +40879,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1232750214}
-  m_LocalRotation: {x: 0, y: .339051098, z: 0, w: -.940767944}
-  m_LocalPosition: {x: 95.063797, y: 32.4495277, z: 70.4229889}
+  m_LocalRotation: {x: .223447323, y: .762322903, z: .337144345, w: -.505241275}
+  m_LocalPosition: {x: 129.53009, y: -73.3661194, z: 347.966644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -42048,7 +42122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b40213a3e09809f468d0e7bc4828ad3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateOnStart: 0
+  activateOnStart: 1
   registerQuest: 1
   resetAfterFail: 1
   startMode: 0
@@ -42057,7 +42131,7 @@ MonoBehaviour:
   startZoneSize: 5
   questTitle: Titel der Quest
   questDescription: Beschreibung der Quest
-  questImage: {fileID: 0}
+  questImage: {fileID: 21300000, guid: c6f8dfe9d23821a43be503adb5e17451, type: 3}
   activateText: 
   startText: 
   finishText: 
@@ -43755,8 +43829,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1330921243}
-  m_LocalRotation: {x: -.35951668, y: .61088717, z: .363200277, w: .604690254}
-  m_LocalPosition: {x: 16.670166, y: -153.103073, z: 168.272354}
+  m_LocalRotation: {x: .2034062, y: .773484766, z: .303926557, w: -.517663836}
+  m_LocalPosition: {x: 106.463135, y: -57.9689369, z: 338.972229}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59724,7 +59798,7 @@ MonoBehaviour:
   startZoneSize: 5
   questTitle: Ausflug ins Gebirge
   questDescription: Fliege zu dem Ziel auf welches dein Kompass zeigt
-  questImage: {fileID: 0}
+  questImage: {fileID: 21300000, guid: d361664146d69f04ba26920b74fd287d, type: 3}
   activateText: Fliege jetzt los! Folge dem Pfeil deines Kompass...
   startText: 
   finishText: Gut gemacht! Vor dir siehst du ein Totem...
@@ -61366,7 +61440,7 @@ MonoBehaviour:
   startZoneSize: 5
   questTitle: Titel der Quest
   questDescription: Beschreibung der Quest
-  questImage: {fileID: 0}
+  questImage: {fileID: 21300000, guid: c6f8dfe9d23821a43be503adb5e17451, type: 3}
   activateText: 
   startText: 
   finishText: "Bringe das Kriegsbeil zum \xC4ltesten deines Dorfes um eurer weiteres
@@ -67034,15 +67108,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 95
+      value: 29.2299995
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11.6999998
+      value: 74.9400024
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 70.5
+      value: 442.230011
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalRotation.x
@@ -67449,7 +67523,7 @@ MonoBehaviour:
   startZoneSize: 5
   questTitle: Titel der Quest
   questDescription: Beschreibung der Quest
-  questImage: {fileID: 0}
+  questImage: {fileID: 21300000, guid: ff2ac2fac27dfb740b4bd70fabb86173, type: 3}
   activateText: 
   startText: 
   finishText: 
@@ -67903,7 +67977,7 @@ MonoBehaviour:
   questTitle: Flieg Vogel, flieg
   questDescription: "Um fliegen zu k\xF6nnen musst du Federn einsammeln. Die aktuelle
     Anzahl an Federn siehst du links unten im Bild. Dr\xFCcke TAB um zu fliegen."
-  questImage: {fileID: 0}
+  questImage: {fileID: 21300000, guid: 3cffdc9bd3ef6ab469122882b70f2ae2, type: 3}
   activateText: 
   startText: "Klettern ist anstrengend! Sammle die Feder ein und dr\xFCcke TAB um
     dich in einen Vogel zu verwandeln."
