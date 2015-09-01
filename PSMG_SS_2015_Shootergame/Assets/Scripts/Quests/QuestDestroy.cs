@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class QuestShoot : Quest {
+public class QuestDestroy : Quest {
 
-    public Shootable[] targets;
+    public Destroyable[] targets;
 	public bool highlight = true;
 
     private ArrayList toShoot;
@@ -27,13 +27,13 @@ public class QuestShoot : Quest {
     protected override void OnQuestStarted()
     {
 		if (highlight) {
-			foreach (Shootable s in targets)
+			foreach (Destroyable s in targets)
 			{
 				CreateHighlight(s.transform);
 			}
 		}
 
-        SetGoal(((Shootable)toShoot[0]).transform);
+        SetGoal(((Destroyable)toShoot[0]).transform);
     }
 	
 
@@ -45,7 +45,7 @@ public class QuestShoot : Quest {
     void CheckTargets()
     {
         for (int i = 0; i < toShoot.Count; i++) {
-            if (((Shootable)toShoot[i]).GetHealth() == 0.0f)
+            if (((Destroyable)toShoot[i]).GetHealth() == 0.0f)
             {
                 TargetShot(i);
             }
@@ -61,7 +61,7 @@ public class QuestShoot : Quest {
 
         if (toShoot.Count > 0)
         {
-            SetGoal(((Shootable)toShoot[0]).transform);
+            SetGoal(((Destroyable)toShoot[0]).transform);
         }
     }
 

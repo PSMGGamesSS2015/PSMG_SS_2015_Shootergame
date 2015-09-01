@@ -151,7 +151,7 @@ public class Enemy : MonoBehaviour {
             // try to spot player
 
             if ((distance < 10.0f) || // if player is standing too close to enemy
-                (Vector3.Angle(directionToPlayer, transform.forward) < (fieldOfView))) // if player is in field of view 
+                (Vector3.Angle(directionToPlayer, transform.forward) < (fieldOfView * 0.5f))) // if player is in field of view 
             {
                 // Player maybe spotted but make sure to check if something is blocking sight:
                 RaycastHit hit;

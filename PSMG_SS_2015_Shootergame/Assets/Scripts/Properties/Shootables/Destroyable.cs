@@ -1,13 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Weapons;
 
 [RequireComponent(typeof(Collider))]
-[RequireComponent(typeof(Rigidbody))]
-public class Shootable : MonoBehaviour {
+public class Destroyable : MonoBehaviour {
 
     public int shotsNeeded = 3;
     public bool destroyAfterShot = false;
     public bool fallAfterShot = false;
+
+	public float tomahawkAttackDistance = 5.5f;
+
+	public bool allowTomahawkAttacks = true;
+	public bool allowArrows = true;
+
+	public float effectDelayTime = 1.0f;
 
     protected GameObject player;
     protected int health;
@@ -24,29 +31,49 @@ public class Shootable : MonoBehaviour {
             GetComponent<Rigidbody>().useGravity = false;
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
         }
+
+		if (allowTomahawkAttacks) {
+			WeaponController wpc = player.GetComponent<WeaponController>();
+			BaseWeapon tomahawk = wpc.getWeaponByName("Tomahawk");
+			tomahawk.OnShotFired += new BaseWeapon.DOnWeaponInfoChanged(OnAttack);
+		}
+	}
+
+	void OnAttack(BaseWeapon w) {
+		float distance = Vector3.Distance(gameObject.transform.position, player.transform.position);
+		
+		if (distance <= tomahawkAttackDistance)
+		{
+			OnDamage ();
+		}
 	}
 	
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Arrow")
+        if (allowArrows && other.gameObject.tag == "Arrow")
         {
             Assets.Scripts.Weapons.ArrowBehaviour component = other.GetComponent<Assets.Scripts.Weapons.ArrowBehaviour>();
 
             if (component.HitObject() == false)
             {
                 component.ObjectHit();
-                health--;
-                pct = (float)health / shotsNeeded;
-
-                if (health == 0)
-                {
-                    CheckEffects();
-                    OnKill();
-                }
+                
+				OnDamage();
             }
             
         }
     }
+
+	void OnDamage() {
+		health--;
+		pct = (float)health / shotsNeeded;
+		
+		if (health == 0)
+		{
+			Invoke("CheckEffects", effectDelayTime);
+			OnKill();
+		}
+	}
 
     void CheckEffects()
     {
