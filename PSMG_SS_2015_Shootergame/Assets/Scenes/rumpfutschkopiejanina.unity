@@ -5265,11 +5265,12 @@ MonoBehaviour:
     Probiere es doch mal aus: Laufe zu der Markierung vor dir.'
   startText: "Mit SHIFT kannst du f\xFCr kurze Zeit Sprinten. Folge den Markierungen
     weiter."
-  finishText: 
+  finishText: "Wenn du 'M' gedr\xFCckt h\xE4ltst, siehst du eine \xDCbersicht \xFCber
+    deine aktuelle Quest."
   failText: 
   startTextTime: 5
   activateTextTime: 5
-  finishTextTime: 0
+  finishTextTime: 8
   failTextTime: 0
   nextQuests:
   - {fileID: 1930487959}
@@ -28283,8 +28284,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916924487}
-  m_LocalRotation: {x: .266727269, y: .00634232583, z: .00175469113, w: -.963749588}
-  m_LocalPosition: {x: 151.576797, y: -62.2880173, z: 3.63561249}
+  m_LocalRotation: {x: .087172322, y: .899590552, z: .210452542, w: -.372622699}
+  m_LocalPosition: {x: 564.324585, y: -371.741058, z: 510.532166}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -40358,8 +40359,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1232750214}
-  m_LocalRotation: {x: .266727269, y: .00634232583, z: .00175469113, w: -.963749588}
-  m_LocalPosition: {x: 151.576797, y: -30.4080162, z: 3.63561249}
+  m_LocalRotation: {x: .087172322, y: .899590552, z: .210452542, w: -.372622699}
+  m_LocalPosition: {x: 564.324585, y: -339.861053, z: 510.532166}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43275,8 +43276,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1330921243}
-  m_LocalRotation: {x: .235598996, y: .0719181076, z: .017484786, w: -.969027996}
-  m_LocalPosition: {x: 151.576797, y: -39.0880165, z: 3.63549805}
+  m_LocalRotation: {x: .087172322, y: .899590552, z: .210452542, w: -.372622699}
+  m_LocalPosition: {x: 564.324585, y: -348.541046, z: 510.532166}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -67127,11 +67128,12 @@ MonoBehaviour:
   activateText: 
   startText: "Klettern ist anstrengend! Sammle die Feder ein und dr\xFCcke TAB um
     dich in einen Vogel zu verwandeln."
-  finishText: 
+  finishText: "Wenn du die Federn aufsammelst, die in der Luft erscheinen, bekommst
+    du extra Fl\xFCgelschl\xE4ge."
   failText: 
   startTextTime: 5
   activateTextTime: 0
-  finishTextTime: 0
+  finishTextTime: 5
   failTextTime: 0
   nextQuests:
   - {fileID: 1030580450}
