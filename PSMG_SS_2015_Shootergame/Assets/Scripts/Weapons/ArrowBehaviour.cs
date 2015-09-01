@@ -22,9 +22,6 @@ namespace Assets.Scripts.Weapons
 		public GameObject arrowArrow;
 		private int counter = 0;
 
-
-        private GameObject player;
-
         private new EnviromentSound audio;
 
         // Called once when the arrow spawns
@@ -32,7 +29,6 @@ namespace Assets.Scripts.Weapons
         {
             //sprite.enabled = false;
 			arrowArrow.SetActive (false);
-            player = GameObject.FindGameObjectWithTag("Player");
         }
 
         void OnCollisionEnter(Collision collision)

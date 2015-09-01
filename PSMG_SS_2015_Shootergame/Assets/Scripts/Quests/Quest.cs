@@ -90,7 +90,6 @@ public class Quest : MonoBehaviour {
     private Vector3 playerStartingPosition;
 
 	protected void Start() {
-        Debug.LogError("lajsdflkjsdf");
         // Save game objects to static variables
         player = GameObject.FindGameObjectWithTag("Player");
         canvas = GameObject.FindGameObjectWithTag("Canvas");

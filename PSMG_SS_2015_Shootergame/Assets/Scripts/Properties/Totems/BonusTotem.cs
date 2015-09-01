@@ -8,8 +8,9 @@ public class BonusTotem : Totem {
     private PlayerMovement movement;
     private BasePlayer basePlayer;
 
-    void Start()
+    new void Start()
     {
+        Debug.LogError("tralal");
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         basePlayer = player.GetComponent<BasePlayer>();
@@ -17,7 +18,7 @@ public class BonusTotem : Totem {
         base.Start();
     }
 
-    void Update()
+    new void Update()
     {
         base.Update();
     }
