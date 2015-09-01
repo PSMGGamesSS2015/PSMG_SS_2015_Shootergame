@@ -218,6 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 0
+  registerQuest: 1
   resetAfterFail: 1
   startMode: 1
   startDelay: 0
@@ -362,6 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 0
+  registerQuest: 1
   resetAfterFail: 1
   startMode: 0
   startDelay: 0
@@ -4424,6 +4426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 0
+  registerQuest: 1
   resetAfterFail: 1
   startMode: 1
   startDelay: 0
@@ -6917,6 +6920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 0
+  registerQuest: 1
   resetAfterFail: 1
   startMode: 0
   startDelay: 0
@@ -9023,6 +9027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 0
+  registerQuest: 1
   resetAfterFail: 1
   startMode: 1
   startDelay: 0
@@ -9180,6 +9185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 0
+  registerQuest: 1
   resetAfterFail: 1
   startMode: 0
   startDelay: 0
@@ -11576,6 +11582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 0
+  registerQuest: 1
   resetAfterFail: 1
   startMode: 0
   startDelay: 0
@@ -12768,6 +12775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 0
+  registerQuest: 1
   resetAfterFail: 1
   startMode: 0
   startDelay: 0
@@ -13352,6 +13360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 0
+  registerQuest: 1
   resetAfterFail: 1
   startMode: 1
   startDelay: 0
@@ -14858,6 +14867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 0
+  registerQuest: 1
   resetAfterFail: 1
   startMode: 0
   startDelay: 0
@@ -21918,6 +21928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 0
+  registerQuest: 1
   resetAfterFail: 1
   startMode: 1
   startDelay: 0
@@ -25185,6 +25196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 0
+  registerQuest: 1
   resetAfterFail: 1
   startMode: 0
   startDelay: 0
@@ -26900,6 +26912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 0
+  registerQuest: 1
   resetAfterFail: 1
   startMode: 0
   startDelay: 0
@@ -28329,6 +28342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 0
+  registerQuest: 1
   resetAfterFail: 1
   startMode: 1
   startDelay: 0
@@ -31722,6 +31736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 0
+  registerQuest: 1
   resetAfterFail: 1
   startMode: 0
   startDelay: 0
@@ -31955,6 +31970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 0
+  registerQuest: 1
   resetAfterFail: 1
   startMode: 0
   startDelay: 0
@@ -36002,31 +36018,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22429704, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 79
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 320
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -39.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 620
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 59
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11441002, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: playerObject
@@ -52327,6 +52343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 1
+  registerQuest: 1
   resetAfterFail: 1
   startMode: 1
   startDelay: 0
@@ -59418,6 +59435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateOnStart: 0
+  registerQuest: 1
   resetAfterFail: 1
   startMode: 0
   startDelay: 0
