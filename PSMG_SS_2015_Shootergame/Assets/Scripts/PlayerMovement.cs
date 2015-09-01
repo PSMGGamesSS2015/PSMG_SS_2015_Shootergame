@@ -7,9 +7,6 @@ using Assets.Scripts.Weapons;
 // Require a rigidbody on the player object
 [RequireComponent(typeof(Rigidbody))]
 
-// Require a CapsuleCollider on the player object
-[RequireComponent(typeof(CapsuleCollider))]
-
 public class PlayerMovement : MonoBehaviour 
 {
     // Movement speed of the player
@@ -124,9 +121,6 @@ public class PlayerMovement : MonoBehaviour
     // Saves the raming amount of flaps while in fly mode
     private int remainingFlaps = 0;
 
-    // Save collider height to reset after crouching
-    private float colliderHeight = 1.0f;
-
     // True when player are not on the ground
     private bool inAir = false;
 
@@ -160,7 +154,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        colliderHeight = GetComponent<CapsuleCollider>().height;
         weaponController = GetComponent<Assets.Scripts.Weapons.WeaponController>();
         basePlayer = GetComponent<BasePlayer>();
         bobCamera = Camera.main.GetComponent<BobCamera>();
@@ -257,11 +250,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButton("Crouch"))
         {
             crouching = true;
-            GetComponent<CapsuleCollider>().height = colliderHeight / 2;
+            GetComponents<SphereCollider>()[1].center = new Vector3(0, -0.5f, 0);
         }
         else
         {
-            GetComponent<CapsuleCollider>().height = colliderHeight;
+            GetComponents<SphereCollider>()[1].center = new Vector3(0, 0.25f, 0);
         }
     }
 
