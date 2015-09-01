@@ -459,12 +459,14 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 1394746904}
   startZoneSize: 5
-  questTitle: Titel der Quest
-  questDescription: Beschreibung der Quest
+  questTitle: Verfolgung III
+  questDescription: "Nachdem du den gro\xDFen Baum gef\xE4llt hast und \xFCber die
+    Schlucht gegangen bist, solltest du dich beeilen, damit du die Gruppe nicht aus
+    den Augen verlierst."
   questImage: {fileID: 0}
   activateText: "F\xE4lle nun den gro\xDFen Baum vor dir, um \xFCber die Schlucht
     zu gelangen!"
-  startText: Sehr gut! Verliere den Siedler nicht aus den Augen...
+  startText: Sehr gut! Verliere die Siedler nicht aus den Augen...
   finishText: 
   failText: 
   startTextTime: 5
@@ -5258,8 +5260,8 @@ MonoBehaviour:
   questImage: {fileID: 0}
   activateText: "Willkommen Krieger! Mit WASD und der Maus kannst du dich bewegen.
     Probiere es aus indem du zur Markierung vor dir l\xE4ufst!"
-  startText: "Mit SHIFT kannst du f\xFCr kurze Zeit Sprinten. Renne nun zur n\xE4chsten
-    Markierung und folge diesen dann weiter!"
+  startText: "Mit SHIFT kannst du f\xFCr kurze Zeit Sprinten. Folge den Markierungen
+    weiter."
   finishText: 
   failText: 
   startTextTime: 5
@@ -15091,11 +15093,12 @@ MonoBehaviour:
   startZoneSize: 8
   questTitle: Verfolgung I
   questDescription: "Gehe zur Markierung und folge den Siedlern durch die Berge. Pass
-    auf wo die Wegmarkierungen dich entlangleiten. Die Sielder d\xFCrfen dich nicht
+    auf wo die Wegmarkierungen dich entlangleiten. Die Siedler d\xFCrfen dich nicht
     sehen!"
   questImage: {fileID: 0}
-  activateText: "Die arme Sau... Geh in die Fl\xE4che und verfolge die Siedler!"
-  startText: 'Der Kompass zeigt immer auf den Siedler. '
+  activateText: Die arme Sau... Gelange unerkannt in die Markierung und verfolge die
+    Siedler!
+  startText: Der Kompass zeigt immer auf die Siedler. Komm ihnen aber nicht zu nahe.
   finishText: 
   failText: 
   startTextTime: 5
@@ -16906,8 +16909,10 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 0}
   startZoneSize: 3
-  questTitle: Titel der Quest
-  questDescription: Beschreibung der Quest
+  questTitle: Totem Collector
+  questDescription: "F\xFCr jedes Element (Feuer, Erde, Wasser, Luft) gibt es ein
+    Totem. Geh in seine N\xE4he, um es zu aktivieren! Denk daran, dass sie eine gewisse
+    Zeit brauchen."
   questImage: {fileID: 0}
   activateText: "F\xFCr jedes Element (Feuer, Erde, Wasser, Luft) gibt es ein Totem.
     Geh in seine N\xE4he, um es zu aktivieren!"
@@ -24776,12 +24781,12 @@ MonoBehaviour:
   startZone: {fileID: 1725246409}
   startZoneSize: 8
   questTitle: Verfolgung II
-  questDescription: Folge den Wegpunkten durch die Berge, damit der Siedler dich nicht
-    erwischt.
+  questDescription: Folge den Wegpunkten durch die Berge, damit die Siedler dich nicht
+    erwischen.
   questImage: {fileID: 0}
   activateText: 
-  startText: Folge den Wegpunkten durch die Berge, damit der Siedler dich nicht erwischt.
-  finishText: "Sehr gut! Dr\xFCcke nun '3', um auf dein Tomahawk zu wechseln."
+  startText: Folge den Wegpunkten durch die Berge, damit die Siedler dich nicht erwischen.
+  finishText: "Sehr gut! Dr\xFCcke nun '2', um auf dein Tomahawk zu wechseln."
   failText: 
   startTextTime: 5
   activateTextTime: 0
@@ -28091,8 +28096,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916924487}
-  m_LocalRotation: {x: .150715679, y: .849284589, z: .358071834, w: -.357470393}
-  m_LocalPosition: {x: 77.8251877, y: -3.80673313, z: 88.0638428}
+  m_LocalRotation: {x: .103878744, y: .877401173, z: .220591798, w: -.41317752}
+  m_LocalPosition: {x: 601.092651, y: -251.031387, z: 572.459717}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -31852,8 +31857,8 @@ MonoBehaviour:
   startZone: {fileID: 826982850}
   startZoneSize: 4
   questTitle: Fliegen
-  questDescription: "Um mit den Fl\xFCgeln zu schlagen musst du die Leertaste dr\xFCcken.
-    Dadurch kannst du l\xE4nger fliegen."
+  questDescription: "Um mit den Fl\xFCgeln zu schlagen kannst du die Leertaste dr\xFCcken.
+    Dadurch kannst du dich l\xE4nger in der Luft halten."
   questImage: {fileID: 0}
   activateText: "Mit LEER kannst du mit den Fl\xFCgeln schlagen und so mehr Zeit in
     der Luft verbringen."
@@ -32541,6 +32546,10 @@ MonoBehaviour:
   shotsNeeded: 3
   destroyAfterShot: 0
   fallAfterShot: 1
+  tomahawkAttackDistance: 5.5
+  allowTomahawkAttacks: 1
+  allowArrows: 1
+  effectDelayTime: 1
   playerDistance: 4
   damage: 1
 --- !u!82 &1049871322
@@ -35607,10 +35616,11 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 0}
   startZoneSize: 5
-  questTitle: Titel der Quest
-  questDescription: Beschreibung der Quest
+  questTitle: Befreiung
+  questDescription: "Sammle den Schl\xFCssel und die Feder ein und befreie deinen
+    Freund! Pass aber auf, dass du nicht dabei gesehen wirst."
   questImage: {fileID: 0}
-  activateText: "Niemand zu Hause! Sammle den Schl\xFCssel und die Feder ein!"
+  activateText: "Sammle den Schl\xFCssel und die Feder ein! Bleibe dabei aber unentdeckt."
   startText: 
   finishText: 
   failText: 
@@ -35958,13 +35968,15 @@ MonoBehaviour:
   startDelay: 0
   startZone: {fileID: 0}
   startZoneSize: 5
-  questTitle: "Bienenstock abschie\xDFen"
+  questTitle: Killer bees, Bee killer
   questDescription: "Jetzt wird es Zeit deinen Bogen zu benutzen. Schie\xDFe auf den
-    Bienenstock vor dir. Um weiter zu schie\xDFen halte die linke Maustaste gedr\xFCckt."
+    Bienenstock vor dir. Um weiter zu schie\xDFen halte die linke Maustaste einfach
+    etwas l\xE4nger gedr\xFCckt."
   questImage: {fileID: 0}
   activateText: "Jetzt wird es Zeit deinen Bogen zu benutzen. Schie\xDFe auf den Bienenstock
     vor dir..."
-  startText: "Halte die linke Maustaste gedr\xFCckt um weiter schie\xDFen zu k\xF6nnen"
+  startText: "Halte die linke Maustaste l\xE4nger gedr\xFCckt um weiter schie\xDFen
+    zu k\xF6nnen."
   finishText: Gut gemacht! Pass auf, dass du dem Nest nicht zu nahe kommst...
   failText: 
   startTextTime: 5
@@ -37364,6 +37376,10 @@ MonoBehaviour:
   shotsNeeded: 3
   destroyAfterShot: 0
   fallAfterShot: 1
+  tomahawkAttackDistance: 5.5
+  allowTomahawkAttacks: 1
+  allowArrows: 1
+  effectDelayTime: 1
   playerDistance: 4
   damage: 1
 --- !u!65 &1188330837
@@ -40150,8 +40166,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1232750214}
-  m_LocalRotation: {x: .150715679, y: .849284589, z: .358071834, w: -.357470393}
-  m_LocalPosition: {x: 77.8251877, y: 28.073267, z: 88.0638428}
+  m_LocalRotation: {x: .103878744, y: .877401173, z: .220591798, w: -.41317752}
+  m_LocalPosition: {x: 601.092651, y: -219.151398, z: 572.459717}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -40520,31 +40536,31 @@ Prefab:
       objectReference: {fileID: 1314733044}
     - target: {fileID: 22429704, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 79
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 320
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -39.5
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 620
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 59
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
@@ -43153,8 +43169,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1330921243}
-  m_LocalRotation: {x: .0839663148, y: .834188581, z: .132481977, w: -.528703809}
-  m_LocalPosition: {x: 75.1442566, y: 28.6557961, z: 82.748764}
+  m_LocalRotation: {x: .103878744, y: .877401173, z: .220591798, w: -.41317752}
+  m_LocalPosition: {x: 601.092651, y: -227.83139, z: 572.459717}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -49619,6 +49635,10 @@ MonoBehaviour:
   shotsNeeded: 3
   destroyAfterShot: 0
   fallAfterShot: 0
+  tomahawkAttackDistance: 5.5
+  allowTomahawkAttacks: 1
+  allowArrows: 1
+  effectDelayTime: 1
   playerDistance: 4
   damage: 1
 --- !u!198 &1486461707
@@ -54365,6 +54385,10 @@ MonoBehaviour:
   shotsNeeded: 3
   destroyAfterShot: 0
   fallAfterShot: 1
+  tomahawkAttackDistance: 5.5
+  allowTomahawkAttacks: 1
+  allowArrows: 1
+  effectDelayTime: 1
   playerDistance: 4
   damage: 1
 --- !u!65 &1592745514
@@ -66975,8 +66999,8 @@ MonoBehaviour:
   startZone: {fileID: 0}
   startZoneSize: 5
   questTitle: Flieg Vogel, flieg
-  questDescription: "Um Fliegen zu k\xF6nnen musst du Federn einsammeln. Die aktuelle
-    Anzahl an Federn siehst du links unten im Bild.Dr\xFCcke TAB um zu fliegen."
+  questDescription: "Um fliegen zu k\xF6nnen musst du Federn einsammeln. Die aktuelle
+    Anzahl an Federn siehst du links unten im Bild. Dr\xFCcke TAB um zu fliegen."
   questImage: {fileID: 0}
   activateText: 
   startText: "Klettern ist anstrengend! Sammle die Feder ein und dr\xFCcke TAB um
