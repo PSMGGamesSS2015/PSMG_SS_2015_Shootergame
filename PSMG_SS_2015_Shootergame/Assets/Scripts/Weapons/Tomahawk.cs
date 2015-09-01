@@ -31,6 +31,20 @@ namespace Assets.Scripts.Weapons
             base.SetDown();
         }
 
+        private GameObject getHighestEnemyParent(GameObject o)
+        {
+            while (o != null)
+            {
+                o = o.transform.parent.gameObject;
+
+                if (o.GetComponent<Enemy>() != null)
+                {
+                    return o;
+                }
+            }
+            return null;
+        }
+
         protected override bool Shoot()
         {
             bool success = base.Shoot();
@@ -59,11 +73,12 @@ namespace Assets.Scripts.Weapons
                         Debug.LogError("Tomahawk: in angle");
                         // Check if something is blocking the hit
                         RaycastHit hit;
-                        if (Physics.Raycast(this.parentPlayer.transform.position, direction.normalized, out hit, 5.0f))
+                        if (Physics.Raycast(this.parentPlayer.transform.position + Vector3.up, direction.normalized, out hit, 5.0f))
                         {
                             Debug.LogError("Tomahawk: in Raycast" + hit.collider.gameObject.ToString());
 
-                            if (hit.collider.gameObject == curEnemy)
+                            GameObject hitObject = getHighestEnemyParent(hit.collider.gameObject);
+                            if (hitObject && hitObject == curEnemy)
                             {
                                 Debug.LogError("Tomahawk: in correct enemy");
                                 // Yeah slice 
