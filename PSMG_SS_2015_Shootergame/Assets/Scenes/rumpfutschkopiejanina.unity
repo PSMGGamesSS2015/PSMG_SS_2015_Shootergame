@@ -189,7 +189,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -307,7 +307,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -473,6 +473,7 @@ MonoBehaviour:
   failTextTime: 0
   nextQuests: []
   useCompass: 0
+  failIfSpotted: 0
   waypoints:
   - {fileID: 1737703874}
   - {fileID: 1162425071}
@@ -691,6 +692,7 @@ MonoBehaviour:
   - {fileID: 489926666}
   - {fileID: 793420714}
   useCompass: 1
+  failIfSpotted: 0
   CutsceneNumber: 1
   container: {fileID: 1424013450}
   images:
@@ -4267,7 +4269,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5244,7 +5246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1276f16421454344b8da4eb5f7a9abf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateOnStart: 1
+  activateOnStart: 0
   resetAfterFail: 1
   startMode: 1
   startDelay: 0
@@ -5267,6 +5269,7 @@ MonoBehaviour:
   nextQuests:
   - {fileID: 1930487959}
   useCompass: 1
+  failIfSpotted: 0
   waypoints:
   - {fileID: 368405728}
   - {fileID: 311220697}
@@ -5891,7 +5894,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -2.5331974e-07, y: .507199228, z: -2.66358256e-06}
+  m_ConnectedAnchor: {x: -2.13086605e-06, y: .507199526, z: 7.17863441e-06}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -7184,7 +7187,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -8020,6 +8023,7 @@ MonoBehaviour:
   failTextTime: 0
   nextQuests: []
   useCompass: 1
+  failIfSpotted: 0
   target: {fileID: 0}
   goal: {fileID: 1318491689}
   failDistance: 120
@@ -10208,6 +10212,7 @@ MonoBehaviour:
   nextQuests:
   - {fileID: 15088502}
   useCompass: 1
+  failIfSpotted: 0
   waypoints:
   - {fileID: 1975157867}
   - {fileID: 1648539281}
@@ -10361,6 +10366,7 @@ MonoBehaviour:
   failTextTime: 0
   nextQuests: []
   useCompass: 1
+  failIfSpotted: 0
   target: {fileID: 0}
   goal: {fileID: 1318491689}
   failDistance: 120
@@ -11276,7 +11282,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -12295,7 +12301,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -12967,7 +12973,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1608805469}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!114 &419893214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13000,6 +13006,7 @@ MonoBehaviour:
   nextQuests:
   - {fileID: 934031358}
   useCompass: 1
+  failIfSpotted: 0
   waypoints:
   - {fileID: 1695311614}
   - {fileID: 555308094}
@@ -14263,6 +14270,7 @@ MonoBehaviour:
   failTextTime: 0
   nextQuests: []
   useCompass: 1
+  failIfSpotted: 0
   target: {fileID: 0}
   goal: {fileID: 1318491689}
   failDistance: 120
@@ -14585,7 +14593,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -14872,7 +14880,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -15088,8 +15096,9 @@ MonoBehaviour:
   finishTextTime: 0
   failTextTime: 0
   nextQuests:
-  - {fileID: 1131210119}
+  - {fileID: 1917141650}
   useCompass: 1
+  failIfSpotted: 0
   target: {fileID: 1954253613}
   goal: {fileID: 117686698}
   failDistance: 500
@@ -15473,7 +15482,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -15845,7 +15854,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -16872,7 +16881,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1608805469}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!114 &564017628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16905,6 +16914,7 @@ MonoBehaviour:
   failTextTime: 0
   nextQuests: []
   useCompass: 0
+  failIfSpotted: 0
   totems: []
   bonusTotems:
   - {fileID: 1099174283}
@@ -21336,7 +21346,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 3.19624087e-06, y: .856839597, z: -8.79541039e-06}
+  m_ConnectedAnchor: {x: 5.92711149e-06, y: .856840849, z: -1.39772892e-05}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -23586,7 +23596,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -24567,7 +24577,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -24711,6 +24721,7 @@ MonoBehaviour:
   nextQuests:
   - {fileID: 9869126}
   useCompass: 0
+  failIfSpotted: 0
   waypoints:
   - {fileID: 314334899}
   - {fileID: 1819297813}
@@ -25663,7 +25674,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: .218901545, y: -.00770357857, z: -.0224350728}
+  m_ConnectedAnchor: {x: .218900144, y: -.00769924186, z: -.0224670582}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -25843,7 +25854,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -26011,7 +26022,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -28011,8 +28022,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916924487}
-  m_LocalRotation: {x: .129572347, y: .785093009, z: .175484359, w: -.579694092}
-  m_LocalPosition: {x: 240.482727, y: -1.49141598, z: 67.5905533}
+  m_LocalRotation: {x: .103878744, y: .877401173, z: .220591798, w: -.41317752}
+  m_LocalPosition: {x: 186.095459, y: -60.3483353, z: 50.4231224}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -28399,7 +28410,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1608805469}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!114 &934031358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28433,6 +28444,7 @@ MonoBehaviour:
   nextQuests:
   - {fileID: 1748102385}
   useCompass: 1
+  failIfSpotted: 0
   waypoints:
   - {fileID: 1099174281}
   waypointSize: 6
@@ -30276,7 +30288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b40213a3e09809f468d0e7bc4828ad3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateOnStart: 0
+  activateOnStart: 1
   resetAfterFail: 1
   startMode: 0
   startDelay: 0
@@ -30296,16 +30308,17 @@ MonoBehaviour:
   nextQuests:
   - {fileID: 149435386}
   useCompass: 1
+  failIfSpotted: 0
   imagesOfIntro:
-  - {fileID: 1436553717}
-  - {fileID: 376017986}
-  - {fileID: 1240675843}
+  - {fileID: 1240675849}
+  - {fileID: 1240675848}
+  - {fileID: 1240675847}
   textOfIntro:
-  - {fileID: 926688493}
-  - {fileID: 875770845}
-  - {fileID: 263499262}
-  intro: {fileID: 1240675845}
-  buttonText: {fileID: 248074717}
+  - {fileID: 1240675846}
+  - {fileID: 1240675844}
+  - {fileID: 1240675842}
+  intro: {fileID: 1240675850}
+  buttonText: {fileID: 1240675841}
 --- !u!1 &985195932
 GameObject:
   m_ObjectHideFlags: 0
@@ -31785,6 +31798,7 @@ MonoBehaviour:
   nextQuests:
   - {fileID: 1145104488}
   useCompass: 1
+  failIfSpotted: 0
 --- !u!1 &1031119545
 GameObject:
   m_ObjectHideFlags: 0
@@ -32278,7 +32292,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -33690,7 +33704,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 4.63431934e-06, y: .856838822, z: 1.00657344e-05}
+  m_ConnectedAnchor: {x: -2.80578388e-06, y: .856839418, z: 8.64267349e-06}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -35444,7 +35458,7 @@ Transform:
   - {fileID: 280994993}
   - {fileID: 93699227}
   m_Father: {fileID: 1608805469}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!114 &1131210119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35476,6 +35490,7 @@ MonoBehaviour:
   nextQuests:
   - {fileID: 1695311615}
   useCompass: 1
+  failIfSpotted: 0
   targets:
   - {fileID: 93699230}
   - {fileID: 280994994}
@@ -35595,7 +35610,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -35828,6 +35843,7 @@ MonoBehaviour:
   nextQuests:
   - {fileID: 333202375}
   useCompass: 1
+  failIfSpotted: 0
   targets:
   - {fileID: 1049871321}
   highlight: 1
@@ -39035,7 +39051,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -39359,7 +39375,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -39887,8 +39903,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1232750214}
-  m_LocalRotation: {x: .129572347, y: .785093009, z: .175484359, w: -.579694092}
-  m_LocalPosition: {x: 240.482727, y: 30.3885841, z: 67.5905533}
+  m_LocalRotation: {x: .103878744, y: .877401173, z: .220591798, w: -.41317752}
+  m_LocalPosition: {x: 186.095459, y: -28.4683342, z: 50.4231224}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -40219,38 +40235,14 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 22429704, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11441002, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: playerObject
+    - target: {fileID: 11468420, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1314733044}
+      objectReference: {fileID: 982136732}
+    - target: {fileID: 11495148, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1917141650}
     - target: {fileID: 11427004, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: totems.Array.data[0]
       value: 
@@ -40264,56 +40256,107 @@ Prefab:
       value: 
       objectReference: {fileID: 918255696}
     - target: {fileID: 11427004, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: totems.Array.data[4]
-      value: 
-      objectReference: {fileID: 1099174283}
-    - target: {fileID: 11427004, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: totems.Array.data[3]
       value: 
       objectReference: {fileID: 555308096}
     - target: {fileID: 11427004, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: totems.Array.data[4]
+      value: 
+      objectReference: {fileID: 1099174283}
+    - target: {fileID: 11427004, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: introManager
       value: 
       objectReference: {fileID: 982136732}
-    - target: {fileID: 11495148, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    - target: {fileID: 11441002, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: playerObject
       value: 
-      objectReference: {fileID: 982136732}
-    - target: {fileID: 11495148, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NextPage
+      objectReference: {fileID: 1314733044}
+    - target: {fileID: 22429704, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 79
       objectReference: {fileID: 0}
-    - target: {fileID: 151182, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11485632, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 863c587c675d4d54cb84750df4810370,
-        type: 3}
-    - target: {fileID: 11420332, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b5a1ed01d5cc9e24fb10eda7ae3c0033,
-        type: 3}
-    - target: {fileID: 11439436, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 78b578e956f22c14391a4fe7928679bc,
-        type: 3}
+    - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -39.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 620
+      objectReference: {fileID: 0}
+    - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 59
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1240675841 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11435304, guid: dff7fdba1b6487c4eb6b8264b542a927,
+    type: 2}
+  m_PrefabInternal: {fileID: 1240675840}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &1240675842 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11423426, guid: dff7fdba1b6487c4eb6b8264b542a927,
+    type: 2}
+  m_PrefabInternal: {fileID: 1240675840}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!114 &1240675843 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11439436, guid: dff7fdba1b6487c4eb6b8264b542a927,
     type: 2}
   m_PrefabInternal: {fileID: 1240675840}
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &1240675844 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11455658, guid: dff7fdba1b6487c4eb6b8264b542a927,
+    type: 2}
+  m_PrefabInternal: {fileID: 1240675840}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1240675845 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 151182, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+  m_PrefabInternal: {fileID: 1240675840}
+--- !u!114 &1240675846 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11471482, guid: dff7fdba1b6487c4eb6b8264b542a927,
+    type: 2}
+  m_PrefabInternal: {fileID: 1240675840}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &1240675847 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11461490, guid: dff7fdba1b6487c4eb6b8264b542a927,
+    type: 2}
+  m_PrefabInternal: {fileID: 1240675840}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &1240675848 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11480940, guid: dff7fdba1b6487c4eb6b8264b542a927,
+    type: 2}
+  m_PrefabInternal: {fileID: 1240675840}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &1240675849 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11405766, guid: dff7fdba1b6487c4eb6b8264b542a927,
+    type: 2}
+  m_PrefabInternal: {fileID: 1240675840}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!1 &1240675850 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 115272, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
   m_PrefabInternal: {fileID: 1240675840}
 --- !u!1001 &1241980576
 Prefab:
@@ -42805,8 +42848,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1330921243}
-  m_LocalRotation: {x: .129572347, y: .785093009, z: .175484359, w: -.579694092}
-  m_LocalPosition: {x: 240.482727, y: 21.7085838, z: 67.5905533}
+  m_LocalRotation: {x: .103878744, y: .877401173, z: .220591798, w: -.41317752}
+  m_LocalPosition: {x: 186.095459, y: -37.1483345, z: 50.4231224}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43267,7 +43310,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -43803,7 +43846,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -.218895108, y: -.00770076085, z: -.022454761}
+  m_ConnectedAnchor: {x: -.218894079, y: -.00770145701, z: -.0224515777}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -44047,7 +44090,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -.375382125, y: .587259054, z: .155493334}
+  m_ConnectedAnchor: {x: -.375394523, y: .587261438, z: .15547426}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -52449,7 +52492,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -55510,6 +55553,7 @@ Transform:
   - {fileID: 489926665}
   - {fileID: 793420713}
   - {fileID: 9869125}
+  - {fileID: 1917141649}
   - {fileID: 1131210118}
   - {fileID: 1695311614}
   - {fileID: 564017627}
@@ -56182,7 +56226,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -57300,8 +57344,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1663562523}
   m_LocalRotation: {x: 0, y: .677755952, z: 0, w: .735286951}
-  m_LocalPosition: {x: -44.5379982, y: -.268999994, z: -7.31279993}
-  m_LocalScale: {x: .799576998, y: .799577057, z: .799577057}
+  m_LocalPosition: {x: -44.5810013, y: -.25999999, z: -7.31629992}
+  m_LocalScale: {x: .993394196, y: .993394375, z: .993394375}
   m_Children:
   - {fileID: 1170551356}
   m_Father: {fileID: 489926665}
@@ -58317,7 +58361,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 2.00273917e-07, y: 1.01093793, z: .186904207}
+  m_ConnectedAnchor: {x: -2.60229262e-06, y: 1.010939, z: .186888054}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -58469,7 +58513,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1608805469}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!114 &1695311615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58502,6 +58546,7 @@ MonoBehaviour:
   - {fileID: 564017628}
   - {fileID: 419893214}
   useCompass: 1
+  failIfSpotted: 0
 --- !u!1 &1695797096
 GameObject:
   m_ObjectHideFlags: 0
@@ -58542,7 +58587,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -60103,7 +60148,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1608805469}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!114 &1748102385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60135,6 +60180,7 @@ MonoBehaviour:
   failTextTime: 0
   nextQuests: []
   useCompass: 1
+  failIfSpotted: 0
   waypoints:
   - {fileID: 522029848}
   waypointSize: 3
@@ -60680,7 +60726,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -3.69589316e-07, y: .319358677, z: 1.11795962e-05}
+  m_ConnectedAnchor: {x: -1.79016979e-06, y: .319359601, z: -4.17232513e-07}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -62356,7 +62402,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -65602,7 +65648,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -4.27663326e-06, y: .507205009, z: 2.43447721e-05}
+  m_ConnectedAnchor: {x: 3.7997961e-06, y: .507197678, z: 2.20164657e-06}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -65733,15 +65779,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 227.399994
+      value: 112.300003
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11.1999998
+      value: 14.8000002
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 59.7000008
+      value: 40.7999992
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalRotation.x
@@ -66076,6 +66122,76 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1916235051}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1917141648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1917141649}
+  - 114: {fileID: 1917141650}
+  m_Layer: 0
+  m_Name: Cutscene 2 (Vor Dorf)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1917141649
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1917141648}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -273.660614, y: -9.35354805, z: -70.3589096}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1608805469}
+  m_RootOrder: 4
+--- !u!114 &1917141650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1917141648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40213a3e09809f468d0e7bc4828ad3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activateOnStart: 0
+  resetAfterFail: 1
+  startMode: 0
+  startDelay: 0
+  startZone: {fileID: 0}
+  startZoneSize: 5
+  questTitle: Titel der Quest
+  questDescription: Beschreibung der Quest
+  questImage: {fileID: 0}
+  activateText: 
+  startText: 
+  finishText: 
+  failText: 
+  startTextTime: 0
+  activateTextTime: 0
+  finishTextTime: 0
+  failTextTime: 0
+  nextQuests:
+  - {fileID: 1131210119}
+  useCompass: 1
+  failIfSpotted: 0
+  imagesOfIntro:
+  - {fileID: 1436553717}
+  - {fileID: 376017986}
+  - {fileID: 1240675843}
+  textOfIntro:
+  - {fileID: 926688493}
+  - {fileID: 875770845}
+  - {fileID: 263499262}
+  intro: {fileID: 1240675845}
+  buttonText: {fileID: 248074717}
 --- !u!1001 &1917590633
 Prefab:
   m_ObjectHideFlags: 0
@@ -66523,6 +66639,7 @@ MonoBehaviour:
   nextQuests:
   - {fileID: 1030580450}
   useCompass: 1
+  failIfSpotted: 0
   targets:
   - {fileID: 1305027021}
   highlight: 1
@@ -66972,7 +67089,7 @@ MonoBehaviour:
   - {fileID: 1318491689}
   - {fileID: 117686698}
   - {fileID: 767536425}
-  moveWithoutActivation: 1
+  moveWithoutActivation: 0
   loop: 0
 --- !u!114 &1954253619
 MonoBehaviour:
@@ -70334,7 +70451,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c286dd6b9489dd947ae79c14a9ced57d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -70677,7 +70794,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: .375388592, y: .587259471, z: .155489653}
+  m_ConnectedAnchor: {x: .37538898, y: .587260246, z: .15548186}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
