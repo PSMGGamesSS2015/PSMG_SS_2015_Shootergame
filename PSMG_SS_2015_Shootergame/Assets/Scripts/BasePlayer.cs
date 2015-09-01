@@ -78,9 +78,35 @@ public class BasePlayer : MonoBehaviour {
         birdModel.GetComponent<Animator>().SetTrigger("Flap");
     }
 
+    private bool inPlummetMode = false;
+    private float absRotation = 0.0f;
     private void onPlummetStatus(bool status)
     {
         birdModel.GetComponent<Animator>().SetBool("Plummet", status);
+
+        if (status && !inPlummetMode)
+        {
+            inPlummetMode = true;
+
+        } else if (!status && inPlummetMode)
+        {
+            inPlummetMode = false;
+        }
+
+        float rotationAmount = 50.0f * Time.deltaTime;
+
+        if (absRotation > -30.0f && inPlummetMode)
+        {
+            birdModel.transform.Rotate(rotationAmount * -1.0f, 0, 0);
+            absRotation -= rotationAmount;
+        } else if (absRotation < 0 && !inPlummetMode)
+        {
+            birdModel.transform.Rotate(rotationAmount, 0, 0);
+            absRotation += rotationAmount;
+        }
+
+        Debug.Log(absRotation);
+
     }
 
     void Start()
