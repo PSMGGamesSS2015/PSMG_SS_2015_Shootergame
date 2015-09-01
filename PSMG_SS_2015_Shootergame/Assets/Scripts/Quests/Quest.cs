@@ -8,6 +8,8 @@ public class Quest : MonoBehaviour {
     /// </summary>
     public bool activateOnStart = false;
 
+    public bool registerQuest = true;
+
     public bool resetAfterFail = true;
 
     /// <summary>
@@ -174,7 +176,10 @@ public class Quest : MonoBehaviour {
     // Activate the quest
     public void ActivateQuest()
     {
-        questManager.SetQuest(this);
+        if (registerQuest)
+        {
+            questManager.SetQuest(this);
+        }
 
         // Set activated bool to true
         activated = true;
