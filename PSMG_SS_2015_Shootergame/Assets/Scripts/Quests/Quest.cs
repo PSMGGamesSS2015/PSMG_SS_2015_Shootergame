@@ -1,74 +1,72 @@
-﻿using UnityEngine;
+﻿/* QUEST
+ * Base class for every quest.
+ * Basic functionality:
+ * > A quest is "hidden" until it is ACTIVATED
+ * > Once activated, the quest can be STARTED by the player - either by entering a defined zone or automatically after a defined time
+ * > Once started, the goal and fail conditions will be checked until the player either FINISHES or FAILS the quest (death will also fail the quest)
+ */
+
+using UnityEngine;
 using System.Collections;
 
 public class Quest : MonoBehaviour {
 
-    /// <summary>
-    /// Should the quest be activated from the start on?
-    /// </summary>
+    // Should the quest be activated from the start on?
     public bool activateOnStart = false;
 
+    // Register the quest with the QuestManager? Important if multiple quests are active at the same time.
     public bool registerQuest = true;
 
+    // Should the quest be reset after the player fails?
     public bool resetAfterFail = true;
 
-    /// <summary>
-    /// Once the quest is activated, how should the quest be started? Either after a defined time or after entering a zone
-    /// </summary>
+    // Once the quest is activated, how should the quest be started? Either after a defined time or after entering a zone
     public enum StartMode { Time = 0, Zone = 1 }
     public StartMode startMode = StartMode.Time;
 
-    /// <summary>
-    /// Time delay if StartMode is Time
-    /// </summary>
+    // Time delay if StartMode is Time
     public float startDelay = 0.0f;
 
-    /// <summary>
-    /// Start zone if StartMode is Zone
-    /// </summary>
+    // Start zone if StartMode is Zone
     public Transform startZone;
 
-    /// <summary>
-    /// Size of the start zone if StartMode is Zone
-    /// </summary>
+    // Size of the start zone if StartMode is Zone
     public float startZoneSize = 5.0f;
 
+    // Title of the quest in the log book ("M" key)
 	public string questTitle = "Titel der Quest";
+    // Description in the log book
 	public string questDescription = "Beschreibung der Quest";
+    // Image in the log book
     public Sprite questImage;
     
-    /// <summary>
-    /// Text that will be shown on activation/start/finish/fail - can be left empty
-    /// </summary>
+    // Text that will be shown on activation/start/finish/fail - can be left empty
     public string activateText;
     public string startText;
     public string finishText;
     public string failText;
 
-    /// <summary>
-    /// Time that the text will be shown
-    /// </summary>
+    // Time that the text will be shown
     public float startTextTime;
     public float activateTextTime;
     public float finishTextTime;
     public float failTextTime;
 
-    /// <summary>
-    /// GameObject with the quest script that should be started next
-    /// </summary>
+    // GameObject with the quest script that should be started next - multiple quests possible
     public Quest[] nextQuests;
 
+    // Should the quest use the compass to show the next destination?
     public bool useCompass = true;
 
+    // Fail the quest if an enemy has spotted the player
 	public bool failIfSpotted = false;
 
-    /// <summary>
-    /// The current progress/state of the quest
-    /// </summary>
+    // The current progress/state of the quest
     protected bool activated = false;
     protected bool questStarted = false;
     protected bool questFinished = false;
 
+    // GameObjects, Components, ...
     protected static GameObject player;
     protected static BasePlayer basePlayer;
     protected static ShowTutorialText textScript;
@@ -79,19 +77,17 @@ public class Quest : MonoBehaviour {
 
     private GameObject canvas;
 
-    /// <summary>
-    /// Time that the quest was activated at
-    /// </summary>
+    // Time that the quest was activated at
     private float activateTime;
 
-    /// <summary>
-    /// Time that the quest was started at
-    /// </summary>
+    // Time that the quest was started at
     protected float startTime;
 
+    // Markers and highlighters
     protected ArrayList markers = new ArrayList();
 	protected ArrayList highlighter = new ArrayList();
 
+    // The player's starting position (for reset)
     private Vector3 playerStartingPosition;
 
 	protected void Start() {
@@ -103,7 +99,6 @@ public class Quest : MonoBehaviour {
         textScript = canvas.GetComponent<ShowTutorialText>();
 		logBook = canvas.GetComponent<OpenLogBook> ();
         compass = canvas.GetComponent<TurnCompass>();
-
         prefabs = GameObject.FindGameObjectWithTag("Prefabs").GetComponent<PrefabManager>();
 
         // If the quest should be activated on start, activate it
