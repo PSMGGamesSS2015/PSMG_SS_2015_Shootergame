@@ -61,12 +61,15 @@ namespace Assets.Scripts.Weapons
 
             gameObject.transform.parent = collision.gameObject.transform;
 
-            if (collision.collider.gameObject.tag == "Enemy")
+            GameObject hitObject = getHighestEnemyParent(collision.collider.gameObject);
+
+            if (hitObject != null)
             {
-                Enemy enemy = collision.collider.gameObject.GetComponent<Enemy>();
+                Enemy enemy = hitObject.GetComponent<Enemy>();
 
                 int damage = (int)Random.Range(90, 100);
-                enemy.Health -= damage;
+                Debug.Log("damage:"+  damage + "   curHealh: " + enemy.Health);
+                enemy.Health = enemy.Health - damage;
             }
             else
             {
@@ -77,10 +80,24 @@ namespace Assets.Scripts.Weapons
             wasFired = true;
         }
 
+        private GameObject getHighestEnemyParent(GameObject o)
+        {
+            while (o != null)
+            {
+                o = o.transform.parent.gameObject;
+
+                if (o.GetComponent<Enemy>() != null)
+                {
+                    return o;
+                }
+            }
+            return null;
+        }
+
         // Called once every frame
         void Update()
         {
-			Debug.Log (arrowArrow.transform.localScale.x);
+			//Debug.Log (arrowArrow.transform.localScale.x);
 			if(counter < 30) {
 				arrowArrow.transform.localScale += new Vector3(0.005f, 0.005f, 0.005f);
 			} else {

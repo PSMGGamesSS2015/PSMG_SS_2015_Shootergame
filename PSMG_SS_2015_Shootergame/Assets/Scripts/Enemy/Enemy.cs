@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour {
             {
                 // Initiate death
                 Debug.LogError("enemy died");
+                GetComponent<Animator>().enabled = false;
             }
         }
     }
@@ -127,6 +128,7 @@ public class Enemy : MonoBehaviour {
             {
                 //movementController.OnFollowPlayer();
                 nav.SetDestination(playerPosition);
+                nav.Resume();
             }
             else if (distance > MAX_DISTANCE_TO_SIGHT)
             {
@@ -139,6 +141,7 @@ public class Enemy : MonoBehaviour {
             }
             else
             {
+                nav.Stop();
                 if (Time.time > lastAttackTimestamp + 1.0f)
                 {
                     player.health -= 5;
