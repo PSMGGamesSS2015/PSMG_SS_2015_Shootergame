@@ -94,8 +94,18 @@ public class Destroyable : MonoBehaviour {
     {
         if (destroyAfterShot)
         {
-            Destroy(gameObject);
+            StartCoroutine(Shrink());
         }
+    }
+
+    IEnumerator Shrink()
+    {
+        while (transform.localScale.z >= 0.0f) {
+            transform.localScale += new Vector3(-0.02f, -0.02f, -0.02f);
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+
+        Destroy(gameObject);
     }
 
     public float GetHealth()

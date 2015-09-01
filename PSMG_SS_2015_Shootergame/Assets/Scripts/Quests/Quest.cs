@@ -68,6 +68,7 @@ public class Quest : MonoBehaviour {
     protected bool questFinished = false;
 
     protected static GameObject player;
+    protected static BasePlayer basePlayer;
     protected static ShowTutorialText textScript;
 	protected static OpenLogBook logBook;
     protected static TurnCompass compass;
@@ -94,6 +95,7 @@ public class Quest : MonoBehaviour {
 	protected void Start() {
         // Save game objects to static variables
         player = GameObject.FindGameObjectWithTag("Player");
+        basePlayer = player.GetComponent<BasePlayer>();
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         questManager = GameObject.FindGameObjectWithTag("QuestManager").GetComponent<QuestManager>();
         textScript = canvas.GetComponent<ShowTutorialText>();
@@ -185,6 +187,8 @@ public class Quest : MonoBehaviour {
 
         playerStartingPosition = player.transform.position;
 
+        basePlayer.Save();
+
         // Call the (overridable) OnQuestActivated() method
         OnQuestActivated();
 
@@ -264,6 +268,7 @@ public class Quest : MonoBehaviour {
     protected void Reset()
     {
         player.transform.position = playerStartingPosition;
+        basePlayer.Load();
         OnReset();
     }
 

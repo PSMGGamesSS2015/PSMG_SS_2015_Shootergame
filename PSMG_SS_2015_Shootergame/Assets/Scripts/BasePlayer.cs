@@ -39,6 +39,8 @@ public class BasePlayer : MonoBehaviour {
     private Transform cameraParent;
     private Vector3 cameraStandardPosition;
 
+    private int featherSave = 0;
+
     private bool isInFlyMode = false;
     public bool FlyMode
     {
@@ -202,5 +204,15 @@ public class BasePlayer : MonoBehaviour {
         energyRegeneration /= 2.0f;
         energyDrain *= 2.0f;
         sprintDelay *= 2.0f;
+    }
+
+    public void Save()
+    {
+        featherSave = feathers;
+    }
+
+    public void Load()
+    {
+        feathers = featherSave;
     }
 }
