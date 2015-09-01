@@ -50,12 +50,10 @@ public class QuestKill : Quest {
     {
         for (int i = 0; i < toKill.Count; i++)
         {
-            /*
-            if (((Enemy)toKill[i]).IsKilled())
+            if (((Enemy)toKill[i]).Health <= 0)
             {
                 EnemyKilled(i);
             }
-             * */
         }
     }
 
