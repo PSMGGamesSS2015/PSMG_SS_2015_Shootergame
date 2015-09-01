@@ -27,22 +27,14 @@ public class IntroManager : Quest {
 
     private bool animationIsReady = false;
     public Text buttonText;
-	// Use this for initialization
-    void Start()
-    {
-		base.Start ();
-	}
+
 
 	protected override void OnQuestStarted() {
 		player.GetComponent<PlayerMovement>().AllowMove(false);
 		intro.SetActive(true);
 		active = true;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		base.Update ();
-    }
+
 
 	protected override void OnUpdate() {
 		if (newPage)

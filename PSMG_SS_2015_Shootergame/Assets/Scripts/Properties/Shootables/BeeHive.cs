@@ -6,7 +6,7 @@ public class BeeHive : Shootable {
     public float playerDistance = 4.0f;
     public int damage = 1;
     
-	void Start() {
+	new void Start() {
         base.Start();
 	}
 

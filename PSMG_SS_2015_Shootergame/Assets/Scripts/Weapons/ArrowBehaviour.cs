@@ -22,7 +22,7 @@ namespace Assets.Scripts.Weapons
 
         private GameObject player;
 
-        private EnviromentSound audio;
+        private new EnviromentSound audio;
 
         // Called once when the arrow spawns
         void Start()

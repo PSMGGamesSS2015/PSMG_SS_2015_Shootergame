@@ -11,10 +11,6 @@ public class QuestCollect : Quest {
 
     private float progress;
 
-	void Start () {
-        base.Start();
-	}
-
     protected override void OnQuestStarted()
     {
 		toCollect = new ArrayList();
@@ -40,10 +36,6 @@ public class QuestCollect : Quest {
 		foreach (Collectable c in targets) {
 			c.Reset ();
 		}
-	}
-
-	void Update () {
-        base.Update();
 	}
 
     protected override void OnUpdate()

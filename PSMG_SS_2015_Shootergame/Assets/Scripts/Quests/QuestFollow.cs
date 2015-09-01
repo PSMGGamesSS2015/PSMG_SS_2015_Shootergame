@@ -36,10 +36,6 @@ public class QuestFollow : Quest
 
     private Vector3 targetStartingPosition;
 
-    void Start()
-    {
-        base.Start();
-    }
 
     protected override void OnStart()
     {
@@ -66,11 +62,6 @@ public class QuestFollow : Quest
             case FinishTrigger.Target: finishTriggerObject = target.transform;
                 break;
         }
-    }
-
-    void Update()
-    {
-        base.Update();
     }
 
     protected override void OnQuestStarted()

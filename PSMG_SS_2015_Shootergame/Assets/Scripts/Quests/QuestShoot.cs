@@ -11,9 +11,6 @@ public class QuestShoot : Quest {
 
     private float progress;
 
-	void Start () {
-        base.Start();
-	}
 
     protected override void OnStart()
     {
@@ -39,9 +36,6 @@ public class QuestShoot : Quest {
         SetGoal(((Shootable)toShoot[0]).transform);
     }
 	
-	void Update () {
-        base.Update();
-	}
 
     protected override void OnUpdate()
     {

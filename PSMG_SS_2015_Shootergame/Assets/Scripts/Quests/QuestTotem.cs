@@ -14,10 +14,6 @@ public class QuestTotem : Quest {
     private ArrayList inactiveBonusTotems;
     private ArrayList activeBonusTotems;
 
-	// Use this for initialization
-	void Start () {
-        base.Start();
-	}
 
     protected override void OnStart()
     {
@@ -31,10 +27,6 @@ public class QuestTotem : Quest {
         }
     }
 	
-	// Update is called once per frame
-	void Update () {
-        base.Update();
-	}
 
     protected override void OnUpdate()
     {

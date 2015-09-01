@@ -67,7 +67,7 @@ public class DayNightController : MonoBehaviour
     /// faded to 0 during dusk, and faded from 0 back to this value during dawn.  
     private float lightIntensity;
 
-    private Light light;
+    private new Light light;
 
     // blend value of skybox using SkyBoxBlend Shader in render settings range 0-1  
     private float SkyboxBlendFactor = 0.0f;

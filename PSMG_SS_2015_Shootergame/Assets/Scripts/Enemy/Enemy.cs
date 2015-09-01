@@ -76,8 +76,6 @@ public class Enemy : MonoBehaviour {
 
     private bool goingHome = false;
 
-    private Rigidbody body;
-
     private NavMeshAgent nav;
 
     private float lastAttackTimestamp = 0;
@@ -86,7 +84,6 @@ public class Enemy : MonoBehaviour {
     private const float MAX_DISTANCE_TO_SIGHT = 30.0f;
 	// Use this for initialization
 	void Start () {
-        body = GetComponent<Rigidbody>();
         playerObject = GameObject.FindGameObjectWithTag("Player");
         
         this.player = playerObject.GetComponent<BasePlayer>();
@@ -103,14 +100,14 @@ public class Enemy : MonoBehaviour {
         playerPosition = playerObject.transform.position;
 
         float distance = Vector3.Distance(transform.position, playerPosition);
-
+        Debug.Log("Distance: " + distance);
         if (hasSpottedPlayer)
         {
             transform.LookAt(playerPosition);
 
             if (distance > 5.0f && distance < MAX_DISTANCE_TO_SIGHT)
             {
-                movementController.OnFollowPlayer();
+                //movementController.OnFollowPlayer();
                 nav.SetDestination(playerPosition);
             }
             else if (distance > MAX_DISTANCE_TO_SIGHT)
@@ -138,8 +135,9 @@ public class Enemy : MonoBehaviour {
             Vector3 directionToPlayer = playerPosition - transform.position;
 
             if ((distance < 10.0f) || // if player is standing too close to enemy
-                (Vector3.Angle(directionToPlayer, transform.forward) < (fieldOfView * 0.5f))) // if player is in field of view 
+                (Vector3.Angle(directionToPlayer, transform.forward) < (fieldOfView * 1.5f))) // if player is in field of view 
             {
+                Debug.Log("Player in sight");
                 // Player maybe spotted but make sure to check if something is blocking sight:
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position + Vector3.up, directionToPlayer.normalized, out hit, MAX_DISTANCE_TO_SIGHT))

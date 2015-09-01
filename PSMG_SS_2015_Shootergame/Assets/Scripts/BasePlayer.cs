@@ -39,7 +39,6 @@ public class BasePlayer : MonoBehaviour {
     private Transform cameraParent;
     private Vector3 cameraStandardPosition;
 
-    private Vector3 homePosition;
     private bool isInFlyMode = false;
     public bool FlyMode
     {
@@ -94,7 +93,6 @@ public class BasePlayer : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
         birdMorphEffect.enableEmission = false;
-        homePosition = Camera.main.transform.localPosition;
         movement = GetComponent<PlayerMovement>();
         lowEnergyBlur = Camera.main.GetComponent<DepthOfField>();
 	}

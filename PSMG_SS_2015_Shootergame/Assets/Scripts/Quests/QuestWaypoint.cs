@@ -26,15 +26,10 @@ public class QuestWaypoint : Quest
 
     private EnviromentSound audioController;
 
-    void Start()
+    new void Start()
     {
         base.Start();
         audioController = GameObject.FindGameObjectWithTag("PlayerSound").GetComponent<EnviromentSound>();
-    }
-
-    void Update()
-    {
-        base.Update();
     }
 
     protected override void OnUpdate()

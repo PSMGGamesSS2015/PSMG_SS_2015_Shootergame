@@ -11,7 +11,7 @@ public class TreeCutDown : MonoBehaviour {
 
     private bool isFallen = false;
 
-    private EnviromentSound audio;
+    private new EnviromentSound audio;
 
     private void onTomahawkAttack(BaseWeapon w)
     {        

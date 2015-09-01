@@ -4,8 +4,6 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class CutszeneManager : Quest {
-    //the player
-    private Transform player;
 
     //the number of the actual cutscene
     public int CutsceneNumber;
@@ -37,22 +35,12 @@ public class CutszeneManager : Quest {
     //list with all cutscenes
     public List<GameObject> allCutscenes = new List<GameObject>();
 
-    // Use this for initialization
-	void Start () {
-        base.Start();
-    }
 
     //get the actual cutscene and the player
     protected override void OnStart()
     {
         actCutscene = allCutscenes[CutsceneNumber - 1];
-        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
-
-    //manage Animation of all images, start fade in and out
-	void Update () {
-        base.Update();
-	}
 
     //fade images in. if it is the last image fade all images out
     protected override void OnUpdate()

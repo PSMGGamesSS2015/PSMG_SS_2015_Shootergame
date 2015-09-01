@@ -5,11 +5,13 @@ public class MovementController : MonoBehaviour {
 
     private WaypointMovement waypointMovement;
 	private FollowMovement followMovement;
-    private Enemy enemy;
 
-    private Vector3 savedPosition;
-
-	private string mode;
+    private enum MODE
+    {
+        Follow,
+        Waypoint
+    }
+	private MODE mode;
 
 	// Use this for initialization
 	void Start () {
@@ -17,33 +19,30 @@ public class MovementController : MonoBehaviour {
 		followMovement = GetComponent<FollowMovement> ();
 
 		if (waypointMovement == null) {
-			mode = "follow";
+			mode = MODE.Follow;
 		} else if (followMovement == null) {
-			mode = "waypoint";
+			mode = MODE.Waypoint;
 		}
-
-        enemy = GetComponent<Enemy>();
 	}
 
     public void OnFollowPlayer()
     {
-        savedPosition = transform.position;
 		StopMoving ();
     }
 
 	void StopMoving() {
-		if (mode == "follow") {
+		if (mode == MODE.Follow) {
 			followMovement.StopMoving ();
-		} else if (mode == "waypoint") {
+		} else if (mode == MODE.Waypoint) {
 			waypointMovement.StopMoving ();
 		}
 	}
 
     public void OnStopFollowing()
     {
-		if (mode == "follow") {
+		if (mode == MODE.Follow) {
 			followMovement.StartMoving ();
-		} else if (mode == "waypoint") {
+		} else if (mode == MODE.Waypoint) {
 			waypointMovement.StartMoving ();
 		}
     }

@@ -25,7 +25,7 @@ public class Totem : MonoBehaviour {
 
     private Color baseColor;
 
-    private EnviromentSound audio;
+    private new EnviromentSound audio;
 
 	protected void Start () {
         player = GameObject.FindGameObjectWithTag("Player").transform;
