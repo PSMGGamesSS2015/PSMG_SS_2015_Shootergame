@@ -28,14 +28,14 @@ public class IntroManager : Quest {
     private bool animationIsReady = false;
     public Text buttonText;
 
-
+    //Called if the quest is started. sets the intro active
 	protected override void OnQuestStarted() {
 		player.GetComponent<PlayerMovement>().AllowMove(false);
 		intro.SetActive(true);
 		active = true;
 	}
 
-
+    //loads new image and text if its a new page
 	protected override void OnUpdate() {
 		if (newPage)
 		{
@@ -117,11 +117,13 @@ public class IntroManager : Quest {
         }
     }
 
+    //If the qeust is activated this returns true
     public bool IsActivated()
     {
         return active;
     }
 
+    //changes the button color if the animation is not ready
     private void ChangeButtonColor()
     {
         if (!animationIsReady)

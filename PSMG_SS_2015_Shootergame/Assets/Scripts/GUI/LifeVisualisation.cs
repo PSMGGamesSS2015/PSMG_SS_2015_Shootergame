@@ -94,6 +94,7 @@ public class LifeVisualisation : MonoBehaviour {
 	
 	}
 
+    //scale the human and bird panel to the particular vector
     void FixedUpdate()
     {
         if (_isLerping)
