@@ -16,7 +16,6 @@ public class Enemy : MonoBehaviour {
             if (health <= 0)
             {
                 // Initiate death
-                Debug.LogError("enemy died");
                 GetComponent<Animator>().enabled = false;
             }
         }
@@ -142,9 +141,9 @@ public class Enemy : MonoBehaviour {
             else
             {
                 nav.Stop();
-                if (Time.time > lastAttackTimestamp + 1.0f)
+                if (health > 0 && Time.time > lastAttackTimestamp + 1.0f)
                 {
-                    player.health -= 5;
+                    player.SubtractHealth(5);
                     lastAttackTimestamp = Time.time;
                 }
             }

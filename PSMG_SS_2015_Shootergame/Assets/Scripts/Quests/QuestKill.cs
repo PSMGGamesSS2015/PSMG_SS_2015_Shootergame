@@ -10,7 +10,23 @@ public class QuestKill : Quest {
     private ArrayList killed;
 
     private float progress;
-    
+
+    protected override void OnStart()
+    {
+        foreach (Enemy e in targets)
+        {
+            e.gameObject.SetActive(false);
+        }
+    }
+
+    protected override void OnQuestActivated()
+    {
+        foreach (Enemy e in targets)
+        {
+            e.gameObject.SetActive(true);
+        }
+    }
+
     protected override void OnQuestStarted()
     {
         toKill = new ArrayList();
@@ -35,7 +51,7 @@ public class QuestKill : Quest {
 
     protected override void OnReset()
     {
-        // NOT YET IMPLEMENTED
+        // NOT COMPLETELY IMPLEMENTED
         foreach (Enemy e in targets)
         {
             e.Reset();

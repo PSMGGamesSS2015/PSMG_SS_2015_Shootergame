@@ -15126,7 +15126,7 @@ MonoBehaviour:
   nextQuests:
   - {fileID: 1917141650}
   useCompass: 1
-  failIfSpotted: 0
+  failIfSpotted: 1
   target: {fileID: 1954253613}
   goal: {fileID: 117686698}
   failDistance: 500
@@ -24778,31 +24778,31 @@ Prefab:
       objectReference: {fileID: 982136732}
     - target: {fileID: 22429704, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 79
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 320
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -39.5
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 620
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 59
       objectReference: {fileID: 0}
     - target: {fileID: 11433286, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -27246,8 +27246,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 872176712}
-  m_LocalRotation: {x: .418609202, y: .561497808, z: .395634115, w: -.594104648}
-  m_LocalPosition: {x: 365.607117, y: -433.645569, z: 152.949402}
+  m_LocalRotation: {x: .270033836, y: .291635513, z: .0862028822, w: -.913564205}
+  m_LocalPosition: {x: 76.8643112, y: -63.1280746, z: -84.6229706}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1412134242}
@@ -28295,8 +28295,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916924487}
-  m_LocalRotation: {x: .104843229, y: .850676298, z: .185602695, w: -.480530322}
-  m_LocalPosition: {x: 93.9842224, y: -70.5447464, z: 340.818359}
+  m_LocalRotation: {x: 0, y: .339051098, z: 0, w: -.940767944}
+  m_LocalPosition: {x: 111.213799, y: 3.10952663, z: 87.7729874}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -30562,7 +30562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b40213a3e09809f468d0e7bc4828ad3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateOnStart: 0
+  activateOnStart: 1
   registerQuest: 1
   resetAfterFail: 1
   startMode: 0
@@ -36230,7 +36230,7 @@ MonoBehaviour:
   nextQuests:
   - {fileID: 1695311615}
   useCompass: 1
-  failIfSpotted: 0
+  failIfSpotted: 1
   targets:
   - {fileID: 93699230}
   - {fileID: 280994994}
@@ -40766,8 +40766,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1232750214}
-  m_LocalRotation: {x: .104843229, y: .850676298, z: .185602695, w: -.480530322}
-  m_LocalPosition: {x: 93.9842224, y: -38.6647453, z: 340.818359}
+  m_LocalRotation: {x: .270033836, y: .291635513, z: .0862028822, w: -.913564205}
+  m_LocalPosition: {x: 132.044312, y: -22.188076, z: 28.4270172}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -41980,7 +41980,7 @@ GameObject:
   - 4: {fileID: 1267299765}
   - 114: {fileID: 1267299766}
   m_Layer: 0
-  m_Name: Outro
+  m_Name: Cutscene Kriegsbeil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42027,7 +42027,8 @@ MonoBehaviour:
   activateTextTime: 0
   finishTextTime: 0
   failTextTime: 0
-  nextQuests: []
+  nextQuests:
+  - {fileID: 1779602584}
   useCompass: 1
   failIfSpotted: 0
   imagesOfIntro:
@@ -43693,8 +43694,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1330921243}
-  m_LocalRotation: {x: .104843229, y: .850676298, z: .185602695, w: -.480530322}
-  m_LocalPosition: {x: 93.9842224, y: -47.3447456, z: 340.818359}
+  m_LocalRotation: {x: .270033836, y: .291635513, z: .0862028822, w: -.913564205}
+  m_LocalPosition: {x: 132.044312, y: -30.8680763, z: 28.4270172}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -46659,7 +46660,6 @@ GameObject:
   - 114: {fileID: 1376609773}
   - 195: {fileID: 1376609772}
   - 114: {fileID: 1376609771}
-  - 114: {fileID: 1376609770}
   - 95: {fileID: 1376609769}
   - 114: {fileID: 1376609768}
   - 114: {fileID: 1376609767}
@@ -46725,28 +46725,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &1376609770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1376609765}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 952d8cfb7718a8f4e9af7de13d479c93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 806833162}
-  - {fileID: 1512438109}
-  - {fileID: 1474985672}
-  - {fileID: 2054889850}
-  - {fileID: 774746413}
-  - {fileID: 1013882191}
-  - {fileID: 1318491689}
-  - {fileID: 1318491689}
-  moveWithoutActivation: 0
-  loop: 0
 --- !u!114 &1376609771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58237,10 +58215,8 @@ GameObject:
   - 4: {fileID: 1663562524}
   - 33: {fileID: 1663562533}
   - 54: {fileID: 1663562532}
-  - 114: {fileID: 1663562531}
   - 195: {fileID: 1663562530}
   - 114: {fileID: 1663562529}
-  - 114: {fileID: 1663562528}
   - 95: {fileID: 1663562527}
   - 114: {fileID: 1663562526}
   - 114: {fileID: 1663562525}
@@ -58306,28 +58282,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &1663562528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1663562523}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 952d8cfb7718a8f4e9af7de13d479c93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 806833162}
-  - {fileID: 1512438109}
-  - {fileID: 1474985672}
-  - {fileID: 2054889850}
-  - {fileID: 774746413}
-  - {fileID: 1013882191}
-  - {fileID: 1318491689}
-  - {fileID: 1318491689}
-  moveWithoutActivation: 0
-  loop: 0
 --- !u!114 &1663562529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58359,17 +58313,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1663562531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1663562523}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 524e529993074774199838a1146cd2f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1663562532
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -62527,7 +62470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6370ff4ffbdd61246bc7383f5986814f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activateOnStart: 1
+  activateOnStart: 0
   registerQuest: 1
   resetAfterFail: 1
   startMode: 0
@@ -62537,7 +62480,7 @@ MonoBehaviour:
   questTitle: Titel der Quest
   questDescription: Beschreibung der Quest
   questImage: {fileID: 0}
-  activateText: 
+  activateText: Dir reicht es! Nimm es mit den Siedlern auf und zeige keine Gnade!
   startText: 
   finishText: asdasdasdasd
   failText: 
@@ -66770,15 +66713,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 322.059998
+      value: 111.150002
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 15.0699997
+      value: 9.15999985
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 436.230011
+      value: 87.8499985
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalRotation.x
@@ -68019,7 +67962,6 @@ GameObject:
   - 114: {fileID: 1954253618}
   - 95: {fileID: 1954253617}
   - 114: {fileID: 1954253616}
-  - 114: {fileID: 1954253615}
   m_Layer: 0
   m_Name: Enemy (1)
   m_TagString: Enemy
@@ -68040,20 +67982,6 @@ Transform:
   - {fileID: 1186310289}
   m_Father: {fileID: 489926665}
   m_RootOrder: 9
---- !u!114 &1954253615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1954253613}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e1c5b17a3a04684bb7abd6089b110c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  minDistance: 5
-  maxDistance: 30
 --- !u!114 &1954253616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68103,7 +68031,7 @@ MonoBehaviour:
   - {fileID: 1318491689}
   - {fileID: 117686698}
   - {fileID: 767536425}
-  moveWithoutActivation: 1
+  moveWithoutActivation: 0
   loop: 0
 --- !u!114 &1954253619
 MonoBehaviour:
@@ -70700,7 +70628,6 @@ GameObject:
   - 114: {fileID: 2018439106}
   - 195: {fileID: 2018439105}
   - 114: {fileID: 2018439104}
-  - 114: {fileID: 2018439103}
   - 95: {fileID: 2018439102}
   - 114: {fileID: 2018439101}
   - 114: {fileID: 2018439099}
@@ -70766,28 +70693,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &2018439103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2018439097}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 952d8cfb7718a8f4e9af7de13d479c93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 806833162}
-  - {fileID: 1512438109}
-  - {fileID: 1474985672}
-  - {fileID: 2054889850}
-  - {fileID: 774746413}
-  - {fileID: 1013882191}
-  - {fileID: 1318491689}
-  - {fileID: 1318491689}
-  moveWithoutActivation: 0
-  loop: 0
 --- !u!114 &2018439104
 MonoBehaviour:
   m_ObjectHideFlags: 0
