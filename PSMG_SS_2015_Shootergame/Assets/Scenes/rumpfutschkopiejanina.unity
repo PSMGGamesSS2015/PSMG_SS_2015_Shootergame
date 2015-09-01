@@ -27629,8 +27629,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916924487}
-  m_LocalRotation: {x: -.12466938, y: .853488922, z: .238420129, w: .446284771}
-  m_LocalPosition: {x: 63.0802155, y: -29.1132126, z: 105.539391}
+  m_LocalRotation: {x: .138356924, y: .860357344, z: .371286154, w: -.320607603}
+  m_LocalPosition: {x: 247.293869, y: -54.2309189, z: 98.9682388}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -39326,8 +39326,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1232750214}
-  m_LocalRotation: {x: -.12466938, y: .853488922, z: .238420129, w: .446284771}
-  m_LocalPosition: {x: 63.0802155, y: 2.76678848, z: 105.539391}
+  m_LocalRotation: {x: .138356924, y: .860357344, z: .371286154, w: -.320607603}
+  m_LocalPosition: {x: 247.293869, y: -22.3509178, z: 98.9682388}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -39656,31 +39656,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22429704, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 79
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 320
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -39.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 620
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22452400, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 59
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11441002, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: playerObject
@@ -56290,7 +56290,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1663562523}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e1c5b17a3a04684bb7abd6089b110c1, type: 3}
   m_Name: 
@@ -64633,15 +64633,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 98.4000015
+      value: 227.399994
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11.8999996
+      value: 11.1999998
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 59.4000015
+      value: 59.7000008
       objectReference: {fileID: 0}
     - target: {fileID: 493702, guid: 1e362e9029db9a44597e3f8194f12bfa, type: 2}
       propertyPath: m_LocalRotation.x
@@ -65870,8 +65870,9 @@ MonoBehaviour:
   - {fileID: 774746413}
   - {fileID: 1013882191}
   - {fileID: 1318491689}
-  - {fileID: 1318491689}
-  moveWithoutActivation: 0
+  - {fileID: 117686698}
+  - {fileID: 767536425}
+  moveWithoutActivation: 1
   loop: 0
 --- !u!114 &1954253619
 MonoBehaviour:
@@ -68215,7 +68216,6 @@ GameObject:
   - 114: {fileID: 2018439103}
   - 95: {fileID: 2018439102}
   - 114: {fileID: 2018439101}
-  - 114: {fileID: 2018439100}
   - 114: {fileID: 2018439099}
   m_Layer: 0
   m_Name: Enemy (2)
@@ -68249,20 +68249,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1954253614}
-  minDistance: 5
-  maxDistance: 30
---- !u!114 &2018439100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2018439097}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e1c5b17a3a04684bb7abd6089b110c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
   minDistance: 5
   maxDistance: 30
 --- !u!114 &2018439101
