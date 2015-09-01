@@ -553,11 +553,15 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11495148, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 192773933}
     - target: {fileID: 11475158, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: goal
       value: 
       objectReference: {fileID: 1864071935}
-    - target: {fileID: 11495148, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+    - target: {fileID: 11468420, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 192773933}
@@ -622,7 +626,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!114 &366173683 stripped
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11420332, guid: dff7fdba1b6487c4eb6b8264b542a927,
+  m_PrefabParentObject: {fileID: 11480940, guid: dff7fdba1b6487c4eb6b8264b542a927,
     type: 2}
   m_PrefabInternal: {fileID: 338293056}
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -830,7 +834,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!114 &932602557 stripped
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11490028, guid: dff7fdba1b6487c4eb6b8264b542a927,
+  m_PrefabParentObject: {fileID: 11455658, guid: dff7fdba1b6487c4eb6b8264b542a927,
     type: 2}
   m_PrefabInternal: {fileID: 338293056}
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -1104,7 +1108,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!114 &1230776332 stripped
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11430796, guid: dff7fdba1b6487c4eb6b8264b542a927,
+  m_PrefabParentObject: {fileID: 11471482, guid: dff7fdba1b6487c4eb6b8264b542a927,
     type: 2}
   m_PrefabInternal: {fileID: 338293056}
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -1116,11 +1120,11 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1313303706 stripped
 GameObject:
-  m_PrefabParentObject: {fileID: 151182, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
+  m_PrefabParentObject: {fileID: 115272, guid: dff7fdba1b6487c4eb6b8264b542a927, type: 2}
   m_PrefabInternal: {fileID: 338293056}
 --- !u!114 &1335048565 stripped
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11485632, guid: dff7fdba1b6487c4eb6b8264b542a927,
+  m_PrefabParentObject: {fileID: 11405766, guid: dff7fdba1b6487c4eb6b8264b542a927,
     type: 2}
   m_PrefabInternal: {fileID: 338293056}
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
