@@ -30,6 +30,7 @@ public class IntroManager : Quest {
 
     //Called if the quest is started. sets the intro active
 	protected override void OnQuestStarted() {
+		Cursor.visible = true;
 		player.GetComponent<PlayerMovement>().AllowMove(false);
 		intro.SetActive(true);
 		active = true;
@@ -99,6 +100,8 @@ public class IntroManager : Quest {
             active = false;
             
             QuestFinished();
+
+			Cursor.visible = false;
         }
         else
         {

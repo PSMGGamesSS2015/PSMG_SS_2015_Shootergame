@@ -40,6 +40,8 @@ public class MouseLook : MonoBehaviour
         // Make the rigid body not change rotation
         rigid.freezeRotation = true;
 
+		Cursor.visible = false;
+
         // Save the current rotation
         originalRotation = cameraRotationParent.transform.localRotation;
     }
