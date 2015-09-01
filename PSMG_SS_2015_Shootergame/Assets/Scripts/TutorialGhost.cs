@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿/* SCRIPT IS NOT BEING USED! IRRELEVANT */
+
+using UnityEngine;
 using System.Collections;
 
 public class TutorialGhost : MonoBehaviour {
