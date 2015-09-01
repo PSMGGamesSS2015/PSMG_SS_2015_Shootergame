@@ -1,39 +1,34 @@
-﻿using UnityEngine;
+﻿/* QUEST FOLLOW
+ * A follow quest where the player has to follow a target to a destination.
+ */
+
+using UnityEngine;
 using System.Collections;
 
 public class QuestFollow : Quest
 {
-
-    /// <summary>
-    /// The enemy that the players needs to follow
-    /// </summary>
+    // The enemy that the players needs to follow
     public GameObject target;
 
-    /// <summary>
-    /// The goal that needs to be reached for the quest to finish
-    /// </summary>
+    // The goal that needs to be reached for the quest to finish
     public Transform goal;
 
-    /// <summary>
-    /// The player needs to remain within this distance to the target in order for the quest to not fail
-    /// </summary>
+    // The player needs to remain within this distance to the target in order for the quest to not fail
     public float failDistance = 50.0f;
-    /// <summary>
-    /// Distance the finish trigger (set above) needs to have to the goal in order for the quest to finish
-    /// </summary>
+    // Distance the finish trigger (set above) needs to have to the goal in order for the quest to finish
     public float goalDistance = 10.0f;
 
-    public enum FinishTrigger { Player = 0, Target = 1 }
-    /// <summary>
-    /// Choose if the player or the target have to be within range of the goal to finish the quest
-    /// </summary>
+    // Choose if the player or the target have to be within range of the goal to finish the quest
+    public enum FinishTrigger { Player = 0, Target = 1 }    
     public FinishTrigger finishTrigger = FinishTrigger.Player;
 
+    // Target that the compass should be facing
     public enum CompassTarget { Target = 0, Goal = 1 }
     public CompassTarget compassTarget = CompassTarget.Target;
 
     private Transform finishTriggerObject;
 
+    // Starting position of the target (saved in case of fail/death of the player)
     private Vector3 targetStartingPosition;
 
 
@@ -44,16 +39,22 @@ public class QuestFollow : Quest
 
     protected override void OnQuestActivated()
     {
+        // Save the starting position of the target
         targetStartingPosition = target.transform.position;
     }
 
+    // If the quest has been reset...
     protected override void OnReset()
     {
+        // Reset movement of the target
         target.GetComponent<WaypointMovement>().ResetMovement();
+        // Reset the enemy script
 		target.GetComponent<Enemy> ().Reset ();
+        // Reset the position of the target
         target.transform.position = targetStartingPosition;
     }
 
+    // Configure the finish trigger
     void SetFinishTrigger()
     {
         switch (finishTrigger)
