@@ -10,17 +10,11 @@ public class BonusTotem : Totem {
 
     new void Start()
     {
-        Debug.LogError("tralal");
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         basePlayer = player.GetComponent<BasePlayer>();
         movement = player.GetComponent<PlayerMovement>();
         base.Start();
-    }
-
-    new void Update()
-    {
-        base.Update();
     }
 
     protected override void OnActivation()

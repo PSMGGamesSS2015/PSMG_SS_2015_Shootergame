@@ -100,10 +100,14 @@ public class Enemy : MonoBehaviour {
         playerPosition = playerObject.transform.position;
 
         float distance = Vector3.Distance(transform.position, playerPosition);
+        Vector3 directionToPlayer = playerPosition - transform.position;
         Debug.Log("Distance: " + distance);
         if (hasSpottedPlayer)
         {
-            transform.LookAt(playerPosition);
+            //transform.LookAt(playerPosition);
+            Quaternion rotation = Quaternion.LookRotation(directionToPlayer);
+            transform.rotation = rotation;
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
             if (distance > 5.0f && distance < MAX_DISTANCE_TO_SIGHT)
             {
@@ -131,8 +135,6 @@ public class Enemy : MonoBehaviour {
         else
         {
             // try to spot player
-
-            Vector3 directionToPlayer = playerPosition - transform.position;
 
             if ((distance < 10.0f) || // if player is standing too close to enemy
                 (Vector3.Angle(directionToPlayer, transform.forward) < (fieldOfView * 1.5f))) // if player is in field of view 
