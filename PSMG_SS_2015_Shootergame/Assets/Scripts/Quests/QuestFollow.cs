@@ -68,11 +68,15 @@ public class QuestFollow : Quest
 
     protected override void OnQuestStarted()
     {
+        // Start movement of the target
         target.GetComponent<WaypointMovement>().StartMoving();
 
+        // Create a marker without the particle effect on the target
         CreateMarker(target.transform, failDistance, false);
+        // Create a marker at the goal
         CreateMarker(goal, goalDistance);
 
+        // Check what the compass should be facing and set the goal accordingly
         switch (compassTarget)
         {
             case CompassTarget.Target:
@@ -88,8 +92,10 @@ public class QuestFollow : Quest
     {
         Vector3 playerPosition = player.transform.position;
 
+        // Get the distance between the player and the target
         float distance = Vector3.Distance(playerPosition, target.transform.position);
 
+        // Fail the quest, if the distance is greater than the failDistance
         if (distance >= failDistance)
         {
             QuestFailed();
@@ -98,8 +104,10 @@ public class QuestFollow : Quest
 
     protected override void CheckFinish()
     {
+        // Get the distance between the finishTriggerObject (either player or target) and the goal
         float distance = Vector3.Distance(finishTriggerObject.position, goal.position);
 
+        // If the distance is smaller than the goalDistance, finish the quest
         if (distance <= goalDistance)
         {
             QuestFinished();
